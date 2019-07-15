@@ -8,7 +8,8 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Илко Иванов">
 		<meta name="description" content="">
-		<meta name="keywords" content="">
+        <meta name="keywords" content="">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 		<!-- Mobile specific metas
 		============================================ -->
@@ -24,20 +25,20 @@
 
 		<!-- Libs CSS
 		============================================ -->
-		<link rel="stylesheet" href="css/animate.css">
-		<link rel="stylesheet" href="css/fontello.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/fontello.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 		
 		<!-- Theme CSS
 		============================================ -->
-		<link rel="stylesheet" href="js/rs-plugin/css/settings.css">
-		<link rel="stylesheet" href="js/owlcarousel/owl.carousel.css">
-		<link rel="stylesheet" href="js/arcticmodal/jquery.arcticmodal.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
+		<link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
+		<link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 		<!-- JS Libs
 		============================================ -->
-		<script src="js/modernizr.js"></script>
+		<script src="{{ asset('js/modernizr.js') }}"></script>
 
 		<!-- Old IE stylesheet
 		============================================ -->
@@ -55,7 +56,26 @@
     @include('layouts.footer')
 
     <!-- index controller -->
+    <!-- Include Libs & Plugins
+	============================================ -->
+	<script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+	<script src="{{ asset('js/queryloader2.min.js') }}"></script>
+	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.appear.js') }}"></script>
+	<script src="{{ asset('js/owlcarousel/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.countdown.plugin.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+	<script src="{{ asset('js/arcticmodal/jquery.arcticmodal.js') }}"></script>
+	<script src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
+	<script src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
+	<script src="{{ asset('js/retina.min.js') }}"></script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
 
+	<!-- Theme files
+	============================================ -->
+	<script src="{{ asset('js/theme.plugins.js') }}"></script>
+	<script src="{{ asset('js/theme.core.js') }}"></script>
     <!-- index controller -->
     @yield('scripts')
 </body>
