@@ -361,19 +361,19 @@
 									<div class="nav_item">
 										<nav class="main_navigation">
 											<ul>
-												<li><a href="index.html">Начало</a></li>
-												<li><a href="shop_my_account.html">Профил</a></li>
-												<li><a href="shop_shopping_cart.html">Кошница</a></li>
-												<li><a href="shop_checkout.html">Поръчка</a></li>
-												<li><a href="blog_v1.html">За нас</a></li>
-												<li><a href="additional_page_contact.html">За контакт</a></li>
+                                                <li><a href="{{ route('index') }}">Начало</a></li>
+												<li><a href="{{ route('index') }}">Профил</a></li>
+												<li><a href="{{ route('index') }}">Кошница</a></li>
+												<li><a href="{{ route('index') }}">Поръчка</a></li>
+												<li><a href="{{ route('for_us') }}">За нас</a></li>
+												<li><a href="{{ route('contact') }}">За контакт</a></li>
 												<li class="has_submenu">
 													<a href="index.html">Авалон</a>
 													<!-- - - - - - - - - - - - - - Submenu (level 2) - - - - - - - - - - - - - - - - -->
 													<ul class="theme_menu submenu">
 														<!--<li class="current" >-->
                                                         <li>
-                                                            <a href="{{ route('index') }}">Магазин Горна Оряховица</a>
+                                                            <a href="{{ route('shop') }}">Магазин Горна Оряховица</a>
 														</li>
 														<li>
                                                             <a href="{{ route('index') }}">Компютърен сервиз</a>
