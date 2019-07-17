@@ -376,7 +376,7 @@
                                                             <a href="{{ route('shop') }}">Магазин Горна Оряховица</a>
 														</li>
 														<li>
-                                                            <a href="{{ route('index') }}">Компютърен сервиз</a>
+                                                            <a href="{{ route('service') }}">Компютърен сервиз</a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('index') }}">Сервиз принтери</a>

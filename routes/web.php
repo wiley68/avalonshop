@@ -15,3 +15,4 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/za-nas', 'IndexController@forUs')->name('for_us');
 Route::get('/kontakt', 'IndexController@contact')->name('contact');
 Route::get('/magazin', 'IndexController@shop')->name('shop');
+Route::get('/serviz', 'IndexController@service')->name('service');
