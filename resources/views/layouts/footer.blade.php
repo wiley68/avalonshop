@@ -346,9 +346,11 @@
 						<nav class="footer_nav">
 							<ul class="bottombar">
                                 <li><a href="{{ route('terms') }}">Общи условия</a></li>
-								<li><a href="#">Политика на поверителност</a></li>
-								<li><a href="#">Инструкция за обработване на лични данни</a></li>
-								<li><a href="#">Карта на сайта</a></li>
+                                <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
+								<li><a href="{{ route('gdpr') }}">Инструкция за обработване на лични данни</a></li>
+                                <li><a href="{{ route('dostavka') }}">Доставка и плащане</a></li>
+                                <li><a href="{{ route('vrashtane') }}">Връщане на продукт</a></li>
+                                <li><a href="{{ route('sitemap') }}">Карта на сайта</a></li>
 							</ul>
 						</nav>
 						

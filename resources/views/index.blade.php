@@ -15,7 +15,7 @@
 											<!-- - - - - - - - - - - - - - Slide 1 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7">
 												
-												<img src="images/home_slide_4.jpg" alt="">
+												<img src="/images/home_slide_4.jpg" alt="">
 												<div class="caption sfl stl layer_1" data-x="left" data-hoffset="60" data-y="90" data-easing="easeOutBack" data-speed="600" data-start="900">Best Quality</div>
 												<div class="caption sfl stl layer_2" data-x="left" data-y="138" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1000">Medications</div>
 												<div class="caption sfl stl layer_3" data-x="left" data-y="190" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1100">at Low Prices</div>
@@ -27,7 +27,7 @@
 											<!-- - - - - - - - - - - - - - Slide 2 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7" class="align_center">
 												
-												<img src="images/home_slide_5.jpg" alt="">
+												<img src="/images/home_slide_5.jpg" alt="">
 												<div class="caption sfl stl layer_5" data-x="center" data-y="77" data-easing="easeOutBack" data-speed="600" data-start="900">Have A Question?</div>
 												<div class="caption sfl stl layer_6" data-x="center" data-y="135" data-easing="easeOutBack" data-speed="600" data-start="1050"><small>Our</small> Pharmacists<br><small>Are</small> Ready <small>to</small> Help You!</div>
 												<div class="caption sfb stb" data-x="center" data-y="260" data-easing="easeOutBack" data-speed="700" data-start="1150">
@@ -38,7 +38,7 @@
 											<!-- - - - - - - - - - - - - - Slide 3 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7">
 												
-												<img src="images/home_slide_6.jpg" alt="">
+												<img src="/images/home_slide_6.jpg" alt="">
 												<div class="caption sfl stl layer_8" data-x="right" data-y="73" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="900">Get 10% Off</div>
 												<div class="caption sfl stl layer_9" data-x="right" data-y="122" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="1000">For Reorders</div>
 												<div class="caption sfl stl layer_10" data-x="right" data-y="178" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="1100">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus.</div>
@@ -57,10 +57,10 @@
 							<!-- - - - - - - - - - - - - - Banners - - - - - - - - - - - - - - - - -->
 							<div class="col-sm-3">
 								<a href="#" class="banner">
-									<img src="images/banner_img_10.png" alt="">
+									<img src="/images/banner_img_10.png" alt="">
 								</a>
 								<a href="#" class="banner">
-									<img src="images/banner_img_11.png" alt="">
+									<img src="/images/banner_img_11.png" alt="">
 								</a>
 							</div><!--/ [col]-->
 							<!-- - - - - - - - - - - - - - End of banners - - - - - - - - - - - - - - - - -->
@@ -133,7 +133,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -182,7 +182,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -231,7 +231,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -271,7 +271,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -320,7 +320,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -367,7 +367,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -415,7 +415,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -464,7 +464,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -513,7 +513,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -553,7 +553,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -600,7 +600,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -640,7 +640,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -688,7 +688,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -737,7 +737,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -786,7 +786,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -833,7 +833,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_1.jpg" alt="">
+												<img src="/images/tabs_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -882,7 +882,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -931,7 +931,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -971,7 +971,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1020,7 +1020,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1067,7 +1067,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1115,7 +1115,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1164,7 +1164,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1213,7 +1213,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1253,7 +1253,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1300,7 +1300,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1340,7 +1340,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1388,7 +1388,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1437,7 +1437,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1486,7 +1486,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1533,7 +1533,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_2.jpg" alt="">
+												<img src="/images/tabs_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1582,7 +1582,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1631,7 +1631,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1671,7 +1671,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1720,7 +1720,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1790,7 +1790,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/product_img_24.jpg" alt="">
+												<img src="/images/product_img_24.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1825,7 +1825,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/product_img_25.jpg" alt="">
+												<img src="/images/product_img_25.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1866,7 +1866,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/product_img_26.jpg" alt="">
+												<img src="/images/product_img_26.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1901,7 +1901,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/product_img_27.jpg" alt="">
+												<img src="/images/product_img_27.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1942,7 +1942,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/product_img_28.jpg" alt="">
+												<img src="/images/product_img_28.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -1981,7 +1981,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2024,7 +2024,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2065,7 +2065,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2109,7 +2109,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2141,7 +2141,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2180,7 +2180,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2212,7 +2212,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2255,7 +2255,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2299,7 +2299,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2340,7 +2340,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2379,7 +2379,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_1.jpg" alt="">
+												<img src="/images/tabs_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2423,7 +2423,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2464,7 +2464,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2496,7 +2496,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2537,7 +2537,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2579,7 +2579,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2619,7 +2619,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2663,7 +2663,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2707,7 +2707,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2742,7 +2742,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2781,7 +2781,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2816,7 +2816,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2856,7 +2856,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2900,7 +2900,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2941,7 +2941,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -2980,7 +2980,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_2.jpg" alt="">
+												<img src="/images/tabs_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3024,7 +3024,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3068,7 +3068,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3103,7 +3103,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3144,7 +3144,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3182,413 +3182,213 @@
 					<!-- - - - - - - - - - - - - - End of Medicine & Health - - - - - - - - - - - - - - - - -->
 					<!-- - - - - - - - - - - - - - Beauty - - - - - - - - - - - - - - - - -->
 					<section class="section_offset animated transparent" data-animation="fadeInDown">
-						<h3 class="offset_title">Наши WEB Проекти</h3>
+						<h3 class="offset_title">Разработка и внедряване на софтуер</h3>
 						<div class="tabs type_3 products">
 							<!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
 							<ul class="theme_menu tabs_nav clearfix">
-								<li class="has_submenu"><a href="#tab-15">Категоя 1</a></li>
-								<li class="has_submenu"><a href="#tab-16">Категоя 2</a></li>
-								<li class="has_submenu"><a href="#tab-17">Категоя 3</a></li>
-								<li class="has_submenu"><a href="#tab-18">Категоя 4</a></li>
-								<li class="has_submenu"><a href="#tab-19">Категоя 5</a></li>
-								<li class="has_submenu"><a href="#tab-20">Категоя 6</a></li>
-								<li class="has_submenu"><a href="#tab-21">Категоя 7</a></li>
-								<li class="has_submenu"><a href="#" class="all"><b>Виж всички</b></a></li>
+								<li class="has_submenu"><a href="#web-projects">WEB Проекти</a></li>
+								<li class="has_submenu"><a href="#desktop">Десктоп софтуер</a></li>
+								<li class="has_submenu"><a href="#tab-17">WEB Модули</a></li>
+								<li class="has_submenu"><a href="#tab-18">WEB Софтуер</a></li>
+								<li class="has_submenu"><a href="#tab-19">WEB Услуги</a></li>
+								<li class="has_submenu"><a href="#tab-20">Мобилен софтуер</a></li>
+								<li class="has_submenu"><a href="#tab-21">Софтуер за индустрията</a></li>
 							</ul>
 							<!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
 							<div class="tab_containers_wrap">
-								<div id="tab-15" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of today's deals - - - - - - - - - - - - - - - - -->
+
+                                <div id="web-projects" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/product_img_7.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_bestseller">Bestseller</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
+												<img src="/images/web-projects/avamb-logiciel.jpg" alt="ФИРМЕН САЙТ – AVAMB-LOGICIEL.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
 											<div class="description align_center">
-												<p><a href="#">Aenean Auctor Wisi Et Urna Amet, Liqui-gels 24 capsules</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+												<p><a target="_blank" href="https://avamb-logiciel.com/">ФИРМЕН САЙТ – AVAMB-LOGICIEL.COM</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="images/product_img_8.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
+												<img src="/images/web-projects/avto-pregledi.jpg" alt="ФИРМЕН САЙТ – AVTO-PREGLEDI.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
 											<div class="description align_center">
-												<p><a href="#">Ipsum Dolor Sit Amet Adipiscing Elit, Allergy &amp; Sinus</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$8.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+												<p><a target="_blank" href="http://avto-pregledi.com/">ФИРМЕН САЙТ – AVTO-PREGLEDI.COM</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="images/product_img_9.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
+												<img src="/images/web-projects/verso-322x322.jpg" alt="ОНЛАЙН МАГАЗИН VERSO-BG.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
 											<div class="description align_center">
-												<p><a href="#">Dolor Sit Amet Lorem, 2mg, White Ice Mint 160 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$76.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+												<p><a target="_blank" href="https://verso-bg.com/">ОНЛАЙН МАГАЗИН VERSO-BG.COM</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="images/product_img_29.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
+												<img src="/images/web-projects/oudo-322x322.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ OU-DO.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
 											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptatem Quia Voluptas 60</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$17.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+												<p><a target="_blank" href="http://ou-do.com/">САЙТ НА ОРГАНИЗАЦИЯ OU-DO.COM</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="images/product_img_28.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
+												<img src="/images/web-projects/aprtamenti-322x322.jpg" alt="ФИРМЕН САЙТ КЪЩА КАЛОЯН">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
 											<div class="description align_center">
-												<p><a href="#">Amet Consectetuer Adipiscing Elit Ut Dolor Amet 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+												<p><a target="_blank" href="http://apartamenti-kaloyan-velikoturnovo.com/">ФИРМЕН САЙТ КЪЩА КАЛОЯН</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/vinprom-322x322.jpg" alt="ФИРМЕН САЙТ VINPROM-VT.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://vinprom-vt.com/">ФИРМЕН САЙТ VINPROM-VT.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/careforyou_l.jpg" alt="ФИРМЕН САЙТ CAREFORYOU.BG">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://careforyou.bg/">ФИРМЕН САЙТ CAREFORYOU.BG</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/imotibu.jpg" alt="ФИРМЕН САЙТ IMOTI-BULGARIA.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://imoti-bulgaria.com/">ФИРМЕН САЙТ IMOTI-BULGARIA.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/blsvt.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ BLSVT.ORG">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://blsvt.org/">САЙТ НА ОРГАНИЗАЦИЯ BLSVT.ORG</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/za-invalida.jpg" alt="ОНЛАЙН МАГАЗИН ZA-INVALIDA.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://za-invalida.com/">ОНЛАЙН МАГАЗИН ZA-INVALIDA.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/health.jpg" alt="ОРГАНИЗАЦИЯ HEALTH-BORDERS.ORG">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://health-borders.org/">ОРГАНИЗАЦИЯ HEALTH-BORDERS.ORG</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/autovezni.jpg" alt="ФИРМЕН САЙТ AUTOVEZNI.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://autovezni.com/">ФИРМЕН САЙТ AUTOVEZNI.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/shtastlivo.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ SHTASTLIVO.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://shtastlivo.com/">САЙТ НА ОРГАНИЗАЦИЯ SHTASTLIVO.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/msmgas.jpg" alt="ФИРМЕН САЙТ MSMGAS.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://msmgas.com/">ФИРМЕН САЙТ MSMGAS.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/velimex.jpg" alt="ФИРМЕН САЙТ НА VELIMEX.EU">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://velimex.eu/">ФИРМЕН САЙТ НА VELIMEX.EU</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/vinobg.jpg" alt="ОНЛАЙН МАГАЗИН VINO-BG.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="https://vino-bg.com/">ОНЛАЙН МАГАЗИН VINO-BG.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/ortotehnika.jpg" alt="ФИРМЕН САЙТ ORTOTEHNIKA.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://ortotehnika.com/">ФИРМЕН САЙТ ORTOTEHNIKA.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
+										<div class="product_item">
+											<div class="image_wrap">
+												<img src="/images/web-projects/skladova.jpg" alt="ОНЛАЙН МАГАЗИН SHOP.ST-BG.COM">
+                                            </div><!--/. image_wrap-->
+                                            <hr /><br />
+											<div class="description align_center">
+												<p><a target="_blank" href="http://shop.st-bg.com/">ОНЛАЙН МАГАЗИН SHOP.ST-BG.COM</a></p>
+											</div>
+										</div><!--/ .product_item-->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of today's deals - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-15-->
-								<div id="tab-16" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of beauty products - - - - - - - - - - - - - - - - -->
+
+                                <div id="desktop" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/desktop/if_28_3319616-300x300.png" alt="ПРОГРАМА ЗА РЕГИСТРИРАНЕ НА ДЕЙНОСТТА ПО ПРОДАЖБА И ОБМЕН НА ВАЛУТА">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="{{ route('maxtrade_change') }}">Maxtrade Change</a></p>
+                                                <p><a href="{{ route('maxtrade_change') }}">ПРОГРАМА ЗА РЕГИСТРИРАНЕ НА ДЕЙНОСТТА ПО ПРОДАЖБА И ОБМЕН НА ВАЛУТА</a></p>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Amet Consectetuer Adipiscing Elit Ut Dolor Amet 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
+                                                <div class="image_wrap">
+                                                    <img src="/images/desktop/if_Delivery_3387313-300x300.png" alt="ПРОГРАМА ЗА СЪХРАНЕНИЕ И ПЕЧАТ НА МИТНИЧЕСКИ ТОВАРИТЕЛНИЦИ (ЧМР)">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p><a href="{{ route('maxtrade_cmr') }}">Maxtrade CMR</a></p>
+                                                    <p><a href="{{ route('maxtrade_cmr') }}">ПРОГРАМА ЗА СЪХРАНЕНИЕ И ПЕЧАТ НА МИТНИЧЕСКИ ТОВАРИТЕЛНИЦИ (ЧМР)</a></p>
+                                                </div>
+                                            </div><!--/ .product_item-->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of beauty products - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-16-->
-								<div id="tab-17" class="tab_container">
+
+                                <div id="tab-17" class="tab_container">
 									<!-- - - - - - - - - - - - - - Carousel of personal care - - - - - - - - - - - - - - - - -->
 									<div class="owl_carousel carousel_in_tabs type_3">
 										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
@@ -3596,7 +3396,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3628,7 +3428,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3671,7 +3471,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3715,7 +3515,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3756,7 +3556,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3795,7 +3595,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_1.jpg" alt="">
+												<img src="/images/tabs_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3839,7 +3639,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3880,7 +3680,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3912,7 +3712,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3953,7 +3753,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -3995,7 +3795,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4035,7 +3835,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4079,7 +3879,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4123,7 +3923,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4158,7 +3958,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4197,7 +3997,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4232,7 +4032,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4272,7 +4072,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/deals_img_1.jpg" alt="">
+												<img src="/images/deals_img_1.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4316,7 +4116,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4357,7 +4157,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_3.jpg" alt="">
+												<img src="/images/deals_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4396,7 +4196,7 @@
 										<div class="product_item">
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="images/tabs_img_2.jpg" alt="">
+												<img src="/images/tabs_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4440,7 +4240,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_2.jpg" alt="">
+												<img src="/images/deals_img_2.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4484,7 +4284,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/tabs_img_3.jpg" alt="">
+												<img src="/images/tabs_img_3.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4519,7 +4319,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_4.jpg" alt="">
+												<img src="/images/deals_img_4.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">
@@ -4560,7 +4360,7 @@
 											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											
 											<div class="image_wrap">
-												<img src="images/deals_img_5.jpg" alt="">
+												<img src="/images/deals_img_5.jpg" alt="">
 												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
 												<div class="actions_wrap">
 													<div class="centered_buttons">

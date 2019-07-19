@@ -51,6 +51,26 @@ class IndexController extends Controller
     }
 
     public function gdpr(){
-        return view('terms');
+        return view('gdpr');
+    }
+
+    public function politika(){
+        return view('politika');
+    }
+
+    public function dostavka(){
+        return view('dostavka');
+    }
+
+    public function vrashtane(){
+        return view('vrashtane');
+    }
+
+    public function maxtrade_change(){
+        return view('desktop.maxtrade_change');
+    }
+
+    public function maxtrade_cmr(){
+        return view('desktop.maxtrade_cmr');
     }
 }

@@ -10,7 +10,7 @@
 								<div class="col-sm-3">
 									<!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
                                 <a href="{{ route('index') }}" class="logo">
-										<img src="images/logo.png" alt="avalon logo" title="Проектиране и инсталиране на софтуер. Продажба на компютърна техника.">
+										<img src="/images/logo.png" alt="avalon logo" title="Проектиране и инсталиране на софтуер. Продажба на компютърна техника.">
 									</a>
 									<!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
 								</div><!--/ [col]-->
@@ -47,12 +47,12 @@
 									<div class="clearfix">
 										<!-- - - - - - - - - - - - - - Language change - - - - - - - - - - - - - - - - -->
 										<div class="alignright site_settings">
-                                            <span><img src="images/flag_bg.png" alt="Български език">Български</span>
+                                            <span><img src="/images/flag_bg.png" alt="Български език">Български</span>
                                             <!--
 											<ul class="dropdown site_setting_list language">
-												<li class="animated_item"><a href="#"><img src="images/flag_en.jpg" alt=""> English</a></li>
-												<li class="animated_item"><a href="#"><img src="images/flag_g.jpg" alt=""> German</a></li>
-												<li class="animated_item"><a href="#"><img src="images/flag_s.jpg" alt=""> Spanish</a></li>
+												<li class="animated_item"><a href="#"><img src="/images/flag_en.jpg" alt=""> English</a></li>
+												<li class="animated_item"><a href="#"><img src="/images/flag_g.jpg" alt=""> German</a></li>
+												<li class="animated_item"><a href="#"><img src="/images/flag_s.jpg" alt=""> Spanish</a></li>
                                             </ul>
                                             -->
 										</div><!--/ .alignright.site_settings-->
@@ -183,7 +183,7 @@
 													<div class="mega_menu_item">
 														
 														<a href="#">
-															<img src="images/mega_menu_img_1.jpg" alt="">
+															<img src="/images/mega_menu_img_1.jpg" alt="">
 														</a>
 													</div><!--/ .mega_menu_item-->
 													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
@@ -220,7 +220,7 @@
 																<div class="product_item">
 																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 																	<div class="image_wrap">
-																		<img src="images/product_img_11.jpg" alt="">
+																		<img src="/images/product_img_11.jpg" alt="">
 																	</div><!--/. image_wrap-->
 																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
 																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
@@ -246,7 +246,7 @@
 																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 																	
 																	<div class="image_wrap">
-																		<img src="images/product_img_12.jpg" alt="">
+																		<img src="/images/product_img_12.jpg" alt="">
 																	</div><!--/. image_wrap-->
 																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
 																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
@@ -272,7 +272,7 @@
 																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 																	
 																	<div class="image_wrap">
-																		<img src="images/product_img_13.jpg" alt="">
+																		<img src="/images/product_img_13.jpg" alt="">
 																	</div><!--/. image_wrap-->
 																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
 																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
@@ -342,7 +342,7 @@
 													<!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
 													<div class="mega_menu_banner">
 														<a href="#">
-															<img src="images/mega_menu_img_2.jpg" alt="">
+															<img src="/images/mega_menu_img_2.jpg" alt="">
 														</a>
 													</div><!--/ .mega_menu_banner-->
 													<!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -412,7 +412,7 @@
 													<p class="title">Последно добавени продукти</p>
 													<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 													<div class="clearfix sc_product">
-														<a href="#" class="product_thumb"><img src="images/sc_img_1.jpg" alt=""></a>
+														<a href="#" class="product_thumb"><img src="/images/sc_img_1.jpg" alt=""></a>
 														<a href="#" class="product_name">Aenean Auctor Wisi Et Urna Ipsum...</a>
 														<p>1 x $499.00</p>
 														<button class="close"></button>
@@ -423,7 +423,7 @@
 												<div class="animated_item">
 													<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 													<div class="clearfix sc_product">
-														<a href="#" class="product_thumb"><img src="images/sc_img_2.jpg" alt=""></a>
+														<a href="#" class="product_thumb"><img src="/images/sc_img_2.jpg" alt=""></a>
 														<a href="#" class="product_name">Lorem Ipsum Dolor Sit Amet...</a>
 														<p>1 x $499.00</p>
 														<button class="close"></button>
@@ -434,7 +434,7 @@
 												<div class="animated_item">
 													<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 													<div class="clearfix sc_product">
-														<a href="#" class="product_thumb"><img src="images/sc_img_3.jpg" alt=""></a>
+														<a href="#" class="product_thumb"><img src="/images/sc_img_3.jpg" alt=""></a>
 														<a href="#" class="product_name">Nemo Enim Ipsam <br>Voluptatem 30 ea</a>
 														<p>1 x $499.00</p>
 														<button class="close"></button>

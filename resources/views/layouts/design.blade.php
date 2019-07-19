@@ -16,7 +16,7 @@
 
     <!-- Favicon
 	============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/fav_icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/fav_icon.ico">
 
     <!-- Google web fonts
 		============================================ -->

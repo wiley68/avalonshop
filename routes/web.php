@@ -23,3 +23,8 @@ Route::get('/novini.html', 'IndexController@news')->name('news');
 Route::get('/karta.html', 'IndexController@sitemap')->name('sitemap');
 Route::get('/obshti-uslovia.html', 'IndexController@terms')->name('terms');
 Route::get('/gdpr.html', 'IndexController@gdpr')->name('gdpr');
+Route::get('/politika.html', 'IndexController@politika')->name('politika');
+Route::get('/dostavka.html', 'IndexController@dostavka')->name('dostavka');
+Route::get('/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
+Route::get('/desktop/maxtrade_change.html', 'IndexController@maxtrade_change')->name('maxtrade_change');
+Route::get('/desktop/maxtrade_cmr.html', 'IndexController@maxtrade_cmr')->name('maxtrade_cmr');
