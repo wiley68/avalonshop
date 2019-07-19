@@ -49,4 +49,8 @@ class IndexController extends Controller
     public function terms(){
         return view('terms');
     }
+
+    public function gdpr(){
+        return view('terms');
+    }
 }
