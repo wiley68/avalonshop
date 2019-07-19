@@ -12,7 +12,14 @@
 */
 
 Route::get('/', 'IndexController@index')->name('index');
-Route::get('/za-nas', 'IndexController@forUs')->name('for_us');
-Route::get('/kontakt', 'IndexController@contact')->name('contact');
-Route::get('/magazin', 'IndexController@shop')->name('shop');
-Route::get('/serviz', 'IndexController@service')->name('service');
+Route::get('/za-nas.html', 'IndexController@forUs')->name('for_us');
+Route::get('/kontakt.html', 'IndexController@contact')->name('contact');
+Route::get('/magazin.html', 'IndexController@shop')->name('shop');
+Route::get('/serviz.html', 'IndexController@service')->name('service');
+Route::get('/serviz-printeri.html', 'IndexController@service_printeri')->name('service-printeri');
+Route::get('/komputarni-mrezi.html', 'IndexController@mrezi')->name('mrezi');
+Route::get('/web-proekti.html', 'IndexController@web')->name('web');
+Route::get('/novini.html', 'IndexController@news')->name('news');
+Route::get('/karta.html', 'IndexController@sitemap')->name('sitemap');
+Route::get('/obshti-uslovia.html', 'IndexController@terms')->name('terms');
+Route::get('/gdpr.html', 'IndexController@gdpr')->name('gdpr');

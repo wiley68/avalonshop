@@ -25,4 +25,28 @@ class IndexController extends Controller
     public function service(){
         return view('service');
     }
+
+    public function service_printeri(){
+        return view('service-printeri');
+    }
+
+    public function mrezi(){
+        return view('mrezi');
+    }
+
+    public function web(){
+        return view('web');
+    }
+
+    public function news(){
+        return view('news');
+    }
+
+    public function sitemap(){
+        return view('sitemap');
+    }
+
+    public function terms(){
+        return view('terms');
+    }
 }

@@ -379,19 +379,19 @@
                                                             <a href="{{ route('service') }}">Компютърен сервиз</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('index') }}">Сервиз принтери</a>
+                                                            <a href="{{ route('service-printeri') }}">Сервиз принтери</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('index') }}">Компютърни мрежи</a>
+                                                            <a href="{{ route('mrezi') }}">Компютърни мрежи</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('index') }}">WEB проекти</a>
+                                                            <a href="{{ route('web') }}">WEB проекти</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('index') }}">Новини</a>
+                                                            <a href="{{ route('news') }}">Новини</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('index') }}">Карта на сайта</a>
+                                                            <a href="{{ route('sitemap') }}">Карта на сайта</a>
                                                         </li>
 													</ul>
 													<!-- - - - - - - - - - - - - - End submenu (level 2) - - - - - - - - - - - - - - - - -->

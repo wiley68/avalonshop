@@ -345,7 +345,7 @@
 						<!-- - - - - - - - - - - - - - Footer navigation - - - - - - - - - - - - - - - - -->
 						<nav class="footer_nav">
 							<ul class="bottombar">
-								<li><a href="#">Общи условия</a></li>
+                                <li><a href="{{ route('terms') }}">Общи условия</a></li>
 								<li><a href="#">Политика на поверителност</a></li>
 								<li><a href="#">Инструкция за обработване на лични данни</a></li>
 								<li><a href="#">Карта на сайта</a></li>
