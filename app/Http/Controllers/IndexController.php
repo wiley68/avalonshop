@@ -9,12 +9,12 @@ class IndexController extends Controller
 {
     /** start index menu */
     public function index(){
-        $categories = Category::all();
+        $root_categories = Category::where(['parent_id' => 0])->get();
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи',
-            'categories' => $categories
+            'root_categories' => $root_categories
         ]);
     }
     /** end index menu */

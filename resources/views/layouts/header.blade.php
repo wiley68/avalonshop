@@ -1,3 +1,4 @@
+<?php use App\Category; ?>		
 		<!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
 		<div class="wide_layout">
 			<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
@@ -28,13 +29,9 @@
 										<div class="search_category alignleft">
 											<div class="open_categories">Всички</div>
 											<ul class="categories_list dropdown">
-												<li class="animated_item"><a href="#">Категория 1</a></li>
-												<li class="animated_item"><a href="#">Категория 2</a></li>
-												<li class="animated_item"><a href="#">Категория 3</a></li>
-												<li class="animated_item"><a href="#">Категория 4</a></li>
-												<li class="animated_item"><a href="#">Категория 5</a></li>
-												<li class="animated_item"><a href="#">Категория 6</a></li>
-												<li class="animated_item"><a href="#">Категория 7</a></li>
+												@foreach ($root_categories as $category)
+												<li class="animated_item"><a href="#">{{ $category->name }}</a></li>													
+												@endforeach
 											</ul>
 										</div><!--/ .search_category.alignleft-->
 										<!-- - - - - - - - - - - - - - End of categories - - - - - - - - - - - - - - - - -->
@@ -104,254 +101,24 @@
 										<button class="open_categories_sticky">Продукти</button>
 										<!-- - - - - - - - - - - - - - Main navigation - - - - - - - - - - - - - - - - -->
 										<ul class="theme_menu cats dropdown">
-											<li class="has_megamenu animated_item">
-												<a href="#">Medicine &amp; Health (1375)</a>
-												<!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
-												<div class="mega_menu clearfix">
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-													
-														<ul class="list_of_links">
-															<li><a href="#">Allergy &amp; Sinus</a></li>
-															<li><a href="#">Children's Healthcare</a></li>
-															<li><a href="#">Cough, Cold &amp; Flu</a></li>
-															<li><a href="#">Diabetes Management</a></li>
-															<li><a href="#">Digestion &amp; Nausea</a></li>
-															<li><a href="#">Eye Care</a></li>
-															<li><a href="#">First Aid</a></li>
-															<li><a href="#">Foot Care</a></li>
-															<li><a href="#">Health Clearance</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<ul class="list_of_links">
-															<li><a href="#">Home Health Care</a></li>
-															<li><a href="#">Home Tests</a></li>
-															<li><a href="#">Incontinence Aids</a></li>
-															<li><a href="#">Natural &amp; Homeopathic</a></li>
-															<li><a href="#">Pain &amp; Fever Relief</a></li>
-															<li><a href="#">Skin Condition Treatments</a></li>
-															<li><a href="#">Sleep &amp; Snoring aids</a></li>
-															<li><a href="#">Stop Smoking Aids</a></li>
-															<li><a href="#">Support &amp; Braces</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-												</div><!--/ .mega_menu-->
-												<!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
-											</li>
-											<li class="has_megamenu animated_item">
-												<a href="#">Beauty (1687)</a>
-												<!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
-												<div class="mega_menu type_2 clearfix">
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-													
-														<h6><b>By Category</b></h6>
-													
-														<ul class="list_of_links">
-															<li><a href="#">Bath &amp; Spa</a></li>
-															<li><a href="#">Beauty Clearance</a></li>
-															<li><a href="#">Gift Sets</a></li>
-															<li><a href="#">Hair Care</a></li>
-															<li><a href="#">Makeup &amp; Accessories</a></li>
-															<li><a href="#">Skin Care</a></li>
-															<li><a href="#">Tools &amp; Accessories</a></li>
-															<li><a href="#" class="all">View All Categories</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<h6><b>By Brand</b></h6>
-													
-														<ul class="list_of_links">
-															<li><a href="#">Abibas</a></li>
-															<li><a href="#">Agedir</a></li>
-															<li><a href="#">Aldan</a></li>
-															<li><a href="#">Biomask</a></li>
-															<li><a href="#">Gamman</a></li>
-															<li><a href="#">Pallona</a></li>
-															<li><a href="#">Pure Care</a></li>
-															<li><a href="#" class="all">View All Brands</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														
-														<a href="#">
-															<img src="/images/mega_menu_img_1.jpg" alt="">
-														</a>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-												</div><!--/ .mega_menu-->
-												<!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
-											</li>
-											<li class="has_megamenu animated_item">
-												<a href="#">Personal Care (1036)</a>
-												<!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
-												<div class="mega_menu type_3 clearfix">
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<ul class="list_of_links">
-															<li><a href="#">Oral Care</a></li>
-															<li><a href="#">Shaving &amp; Hair Removal</a></li>
-															<li><a href="#">Men's</a></li>
-															<li><a href="#">Sun Care</a></li>
-															<li><a href="#">Clearance</a></li>
-															<li><a href="#">Feminine Care</a></li>
-															<li><a href="#">Gift Sets</a></li>
-															<li><a href="#">Soaps &amp; Bodywash</a></li>
-															<li><a href="#">Massage &amp; Relaxation</a></li>
-															<li><a href="#">Foot Care</a></li>
-															<li><a href="#" class="all">View All Categories</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item -->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item products_in_mega_menu">
-														<h6 class="widget_title"><b>Today's Deals</b></h6>
-														<div class="row">
-															<div class="col-sm-4">
-																<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-																<div class="product_item">
-																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-																	<div class="image_wrap">
-																		<img src="/images/product_img_11.jpg" alt="">
-																	</div><!--/. image_wrap-->
-																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-																	<div class="label_offer percentage">
-																		<div>30%</div>OFF
-																	</div>
-																	<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-																	<div class="description">
-																		<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-																		<div class="clearfix product_info">
-																			<p class="product_price alignleft"><s>$9.99</s> <b>$5.99</b></p>
-																		</div><!--/ .clearfix.product_info-->
-																	</div>
-																	<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-																</div><!--/ .product_item-->
-																
-																<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-															</div><!--/ [col]-->
-															<div class="col-sm-4">
-																<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-																<div class="product_item">
-																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-																	
-																	<div class="image_wrap">
-																		<img src="/images/product_img_12.jpg" alt="">
-																	</div><!--/. image_wrap-->
-																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-																	<div class="label_offer percentage">
-																		<div>25%</div>OFF
-																	</div>
-																	<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-																	<div class="description">
-																		<p><a href="#">Ipsum Dolor Sit Amet, Size 4 Diapers 29 ea</a></p>
-																		<div class="clearfix product_info">
-																			<p class="product_price alignleft"><s>$16.99</s> <b>$14.99</b></p>
-																		</div><!--/ .clearfix.product_info-->
-																	</div>
-																	<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-																</div><!--/ .product_item-->
-																
-																<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-															</div><!--/ [col]-->
-															<div class="col-sm-4">
-																<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-																<div class="product_item">
-																	<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-																	
-																	<div class="image_wrap">
-																		<img src="/images/product_img_13.jpg" alt="">
-																	</div><!--/. image_wrap-->
-																	<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-																	<div class="label_offer percentage">
-																		<div>40%</div>OFF
-																	</div>
-																	<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-																	<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-																	<div class="description">
-																		<p><a href="#">Ut Tellus Dolor Dapbus Eget Dolor Ipsum...</a></p>
-																		<div class="clearfix product_info">
-																			<p class="product_price alignleft"><s>$103.99</s> <b>$73.99</b></p>
-																		</div><!--/ .clearfix.product_info-->
-																	</div>
-																	<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-																</div><!--/ .product_item-->
-																
-																<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-															</div><!--/ [col]-->
-															
-														</div><!--/ .row-->
-														<hr>
-														<a href="#" class="button_grey">View All Deals</a>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-												</div><!--/ .mega_menu-->
-												<!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
-											</li>
-											<li class="has_megamenu animated_item">
-												<a href="#">Vitamins &amp; Supplements (202)</a>
-												<!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
-												<div class="mega_menu type_4 clearfix">
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<h6><b>By Condition</b></h6>
-													
-														<ul class="list_of_links">
-															<li><a href="#">Aches &amp; Pains</a></li>
-															<li><a href="#">Acne Solutions</a></li>
-															<li><a href="#">Allergy &amp; Sinus</a></li>
-															<li><a href="#" class="all">View All</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<h6><b>Multivitamins</b></h6>
-														<ul class="list_of_links">
-															<li><a href="#">50+ Multivitamins</a></li>
-															<li><a href="#">Children's Multivitamins</a></li>
-															<li><a href="#">Men's Multivitamins</a></li>
-															<li><a href="#" class="all">View All</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_item">
-														<h6><b>Herbs</b></h6>
-														<ul class="list_of_links">
-															<li><a href="#">Aloe Vera</a></li>
-															<li><a href="#">Ashwagandha</a></li>
-															<li><a href="#">Astragalus</a></li>
-															<li><a href="#" class="all">View All</a></li>
-														</ul>
-													</div><!--/ .mega_menu_item-->
-													<!-- - - - - - - - - - - - - - End of mega menu item - - - - - - - - - - - - - - - - -->
-													<!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-													<div class="mega_menu_banner">
-														<a href="#">
-															<img src="/images/mega_menu_img_2.jpg" alt="">
-														</a>
-													</div><!--/ .mega_menu_banner-->
-													<!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
-												</div><!--/ .mega_menu-->
-												<!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
-											</li>
-											<li class="has_megamenu animated_item"><a href="#">Baby Needs (525)</a></li>
-											<li class="has_megamenu animated_item"><a href="#">Diet &amp; Fitness (135)</a></li>
-											<li class="has_megamenu animated_item"><a href="#">Sexuall Well-being (298)</a></li>
+											@foreach ($root_categories as $category)
+												<li class="has_megamenu animated_item">
+													<a href="#">{{ $category->name }}</a>
+													<div class="mega_menu clearfix">
+														<div class="mega_menu_item">
+															<ul class="list_of_links">
+																@php
+																	$categories = Category::where(['parent_id' => $category->id])->get();
+																@endphp
+																@foreach ($categories as $item)
+																<li><a href="#">{{ $item->name }}</a></li>																	
+																@endforeach
+															</ul>
+														</div><!--/ .mega_menu_item-->
+													</div><!--/ .mega_menu-->
+												</li>													
+											@endforeach
+											
 											<li class="has_megamenu animated_item"><a href="#" class="all"><b>Всички продукти</b></a></li>
 										</ul>
 										<!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
