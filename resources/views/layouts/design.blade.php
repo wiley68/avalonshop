@@ -4,11 +4,12 @@
 <head>
     <!-- Basic page needs
 	============================================ -->
-    <title>Авалон | софтуер - продажба на компютърна техника</title>
     <meta charset="utf-8">
     <meta name="author" content="Илко Иванов">
-    <meta name="description" content="Проектиране и инсталиране на софтуер. Продажба на компютърна техника.">
-    <meta name="keywords" content="софтуер, програми, компютри, продажба, сержиз, консумативи">
+
+    <title>{{ $title ?? "Софтуер - продажба на компютърна техника | Авалон" }}</title>
+    <meta name="description" content="{{ $description ?? "Проектиране и инсталиране на софтуер. Продажба на компютърна техника." }}">
+    <meta name="keywords" content="{{ $keywords ?? "софтуер, програми, компютри, продажба, сержиз, консумативи" }}">
 
     <!-- Mobile specific metas
 	============================================ -->
@@ -38,7 +39,7 @@
 
     <!-- JS Libs
 		============================================ -->
-    <script src="js/modernizr.js"></script>
+    <script src="{{ asset('js/modernizr.js') }}"></script>
 
     <!-- Old IE stylesheet
 		============================================ -->

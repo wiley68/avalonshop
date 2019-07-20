@@ -26,7 +26,7 @@
 										
 										<!-- - - - - - - - - - - - - - Categories - - - - - - - - - - - - - - - - -->
 										<div class="search_category alignleft">
-											<div class="open_categories">Всички категории</div>
+											<div class="open_categories">Всички</div>
 											<ul class="categories_list dropdown">
 												<li class="animated_item"><a href="#">Категория 1</a></li>
 												<li class="animated_item"><a href="#">Категория 2</a></li>
@@ -363,35 +363,35 @@
 											<ul>
                                                 <li><a href="{{ route('index') }}">Начало</a></li>
 												<li><a href="{{ route('index') }}">Профил</a></li>
-												<li><a href="{{ route('index') }}">Кошница</a></li>
 												<li><a href="{{ route('index') }}">Поръчка</a></li>
+												<li><a href="{{ route('index') }}">Информация</a></li>
 												<li><a href="{{ route('for_us') }}">За нас</a></li>
 												<li><a href="{{ route('contact') }}">За контакт</a></li>
 												<li class="has_submenu">
-													<a href="index.html">Авалон</a>
+                                                    <a href="{{ route('index') }}">Авалон</a>
 													<!-- - - - - - - - - - - - - - Submenu (level 2) - - - - - - - - - - - - - - - - -->
 													<ul class="theme_menu submenu">
 														<!--<li class="current" >-->
                                                         <li>
-                                                            <a href="{{ route('shop') }}">Магазин Горна Оряховица</a>
+                                                            <a href="{{ route('avalon.shop') }}">Магазин Горна Оряховица</a>
 														</li>
 														<li>
-                                                            <a href="{{ route('service') }}">Компютърен сервиз</a>
+                                                            <a href="{{ route('avalon.service') }}">Компютърен сервиз</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('service-printeri') }}">Сервиз принтери</a>
+                                                            <a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('mrezi') }}">Компютърни мрежи</a>
+                                                            <a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('web') }}">WEB проекти</a>
+                                                            <a href="{{ route('avalon.web') }}">WEB проекти</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('news') }}">Новини</a>
+                                                            <a href="{{ route('avalon.news') }}">Новини</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('sitemap') }}">Карта на сайта</a>
+                                                            <a href="{{ route('avalon.sitemap') }}">Карта на сайта</a>
                                                         </li>
 													</ul>
 													<!-- - - - - - - - - - - - - - End submenu (level 2) - - - - - - - - - - - - - - - - -->

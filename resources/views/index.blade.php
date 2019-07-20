@@ -1766,7 +1766,7 @@
 					<!-- - - - - - - - - - - - - - End of today's deals - - - - - - - - - - - - - - - - -->
 					<!-- - - - - - - - - - - - - - Medicine & Health - - - - - - - - - - - - - - - - -->
 					<section class="section_offset animated transparent" data-animation="fadeInDown">
-						<h3 class="offset_title">Разработен от нас софтуер</h3>
+						<h3 class="offset_title">Техническа поддръжка и ревюта</h3>
 						<div class="tabs type_3 products">
 							<!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
 							<ul class="theme_menu tabs_nav clearfix">
@@ -3182,17 +3182,17 @@
 					<!-- - - - - - - - - - - - - - End of Medicine & Health - - - - - - - - - - - - - - - - -->
 					<!-- - - - - - - - - - - - - - Beauty - - - - - - - - - - - - - - - - -->
 					<section class="section_offset animated transparent" data-animation="fadeInDown">
-						<h3 class="offset_title">Разработка и внедряване на софтуер</h3>
+						<h3 class="offset_title">Разработен и внедрен от нас софтуер</h3>
 						<div class="tabs type_3 products">
 							<!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
 							<ul class="theme_menu tabs_nav clearfix">
 								<li class="has_submenu"><a href="#web-projects">WEB Проекти</a></li>
 								<li class="has_submenu"><a href="#desktop">Десктоп софтуер</a></li>
-								<li class="has_submenu"><a href="#tab-17">WEB Модули</a></li>
-								<li class="has_submenu"><a href="#tab-18">WEB Софтуер</a></li>
-								<li class="has_submenu"><a href="#tab-19">WEB Услуги</a></li>
-								<li class="has_submenu"><a href="#tab-20">Мобилен софтуер</a></li>
-								<li class="has_submenu"><a href="#tab-21">Софтуер за индустрията</a></li>
+								<li class="has_submenu"><a href="#web">WEB Модули</a></li>
+								<li class="has_submenu"><a href="#web-soft">WEB Софтуер</a></li>
+								<li class="has_submenu"><a href="#web-service">WEB Услуги</a></li>
+								<li class="has_submenu"><a href="#mobile">Мобилен софтуер</a></li>
+								<li class="has_submenu"><a href="#industry">Софтуер за индустрията</a></li>
 							</ul>
 							<!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
@@ -3202,164 +3202,182 @@
 									<div class="owl_carousel carousel_in_tabs type_3">
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/avamb-logiciel.jpg" alt="ФИРМЕН САЙТ – AVAMB-LOGICIEL.COM">
+												<img src="/images/web-projects/avamb-logiciel.jpg" alt="Фирмен сайт – avamb-logiciel.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="https://avamb-logiciel.com/">ФИРМЕН САЙТ – AVAMB-LOGICIEL.COM</a></p>
+                                                <p>WEB проект</p>
+                                                <p><a target="_blank" href="https://avamb-logiciel.com/">Фирмен сайт – avamb-logiciel.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/avto-pregledi.jpg" alt="ФИРМЕН САЙТ – AVTO-PREGLEDI.COM">
+												<img src="/images/web-projects/avto-pregledi.jpg" alt="Фирмен сайт – avto-pregledi.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://avto-pregledi.com/">ФИРМЕН САЙТ – AVTO-PREGLEDI.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://avto-pregledi.com/">Фирмен сайт – avto-pregledi.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/verso-322x322.jpg" alt="ОНЛАЙН МАГАЗИН VERSO-BG.COM">
+												<img src="/images/web-projects/verso-322x322.jpg" alt="Онлайн магазин verso-bg.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="https://verso-bg.com/">ОНЛАЙН МАГАЗИН VERSO-BG.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="https://verso-bg.com/">Онлайн магазин verso-bg.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/oudo-322x322.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ OU-DO.COM">
+												<img src="/images/web-projects/oudo-322x322.jpg" alt="Сайт на организация ou-do.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://ou-do.com/">САЙТ НА ОРГАНИЗАЦИЯ OU-DO.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://ou-do.com/">Сайт на организация ou-do.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/aprtamenti-322x322.jpg" alt="ФИРМЕН САЙТ КЪЩА КАЛОЯН">
+												<img src="/images/web-projects/aprtamenti-322x322.jpg" alt="Фирмен сайт – КЪЩА КАЛОЯН">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://apartamenti-kaloyan-velikoturnovo.com/">ФИРМЕН САЙТ КЪЩА КАЛОЯН</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://apartamenti-kaloyan-velikoturnovo.com/">Фирмен сайт – КЪЩА КАЛОЯН</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/vinprom-322x322.jpg" alt="ФИРМЕН САЙТ VINPROM-VT.COM">
+												<img src="/images/web-projects/vinprom-322x322.jpg" alt="Фирмен сайт vinprom-vt.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://vinprom-vt.com/">ФИРМЕН САЙТ VINPROM-VT.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://vinprom-vt.com/">Фирмен сайт vinprom-vt.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/careforyou_l.jpg" alt="ФИРМЕН САЙТ CAREFORYOU.BG">
+												<img src="/images/web-projects/careforyou_l.jpg" alt="Фирмен сайт careforyou.bg">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://careforyou.bg/">ФИРМЕН САЙТ CAREFORYOU.BG</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://careforyou.bg/">Фирмен сайт careforyou.bg</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/imotibu.jpg" alt="ФИРМЕН САЙТ IMOTI-BULGARIA.COM">
+												<img src="/images/web-projects/imotibu.jpg" alt="Фирмен сайт imoti-bulgaria.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://imoti-bulgaria.com/">ФИРМЕН САЙТ IMOTI-BULGARIA.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://imoti-bulgaria.com/">Фирмен сайт imoti-bulgaria.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/blsvt.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ BLSVT.ORG">
+												<img src="/images/web-projects/blsvt.jpg" alt="Сайт на организация blsvt.org">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://blsvt.org/">САЙТ НА ОРГАНИЗАЦИЯ BLSVT.ORG</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://blsvt.org/">Сайт на организация blsvt.org</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/za-invalida.jpg" alt="ОНЛАЙН МАГАЗИН ZA-INVALIDA.COM">
+												<img src="/images/web-projects/za-invalida.jpg" alt="Онлайн магазин za-invalida.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://za-invalida.com/">ОНЛАЙН МАГАЗИН ZA-INVALIDA.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://za-invalida.com/">Онлайн магазин za-invalida.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/health.jpg" alt="ОРГАНИЗАЦИЯ HEALTH-BORDERS.ORG">
+												<img src="/images/web-projects/health.jpg" alt="Сайт на организация health-borders.org">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://health-borders.org/">ОРГАНИЗАЦИЯ HEALTH-BORDERS.ORG</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://health-borders.org/">Сайт на организация health-borders.org</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/autovezni.jpg" alt="ФИРМЕН САЙТ AUTOVEZNI.COM">
+												<img src="/images/web-projects/autovezni.jpg" alt="Фирмен сайт autovezni.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://autovezni.com/">ФИРМЕН САЙТ AUTOVEZNI.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://autovezni.com/">Фирмен сайт autovezni.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/shtastlivo.jpg" alt="САЙТ НА ОРГАНИЗАЦИЯ SHTASTLIVO.COM">
+												<img src="/images/web-projects/shtastlivo.jpg" alt="Сайт на организация shtastlivo.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://shtastlivo.com/">САЙТ НА ОРГАНИЗАЦИЯ SHTASTLIVO.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://shtastlivo.com/">Сайт на организация shtastlivo.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/msmgas.jpg" alt="ФИРМЕН САЙТ MSMGAS.COM">
+												<img src="/images/web-projects/msmgas.jpg" alt="Фирмен сайт msmgas.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://msmgas.com/">ФИРМЕН САЙТ MSMGAS.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://msmgas.com/">Фирмен сайт msmgas.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/velimex.jpg" alt="ФИРМЕН САЙТ НА VELIMEX.EU">
+												<img src="/images/web-projects/velimex.jpg" alt="Фирмен сайт velimex.eu">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://velimex.eu/">ФИРМЕН САЙТ НА VELIMEX.EU</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://velimex.eu/">Фирмен сайт velimex.eu</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/vinobg.jpg" alt="ОНЛАЙН МАГАЗИН VINO-BG.COM">
+												<img src="/images/web-projects/vinobg.jpg" alt="Онлайн магазин vino-bg.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="https://vino-bg.com/">ОНЛАЙН МАГАЗИН VINO-BG.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="https://vino-bg.com/">Онлайн магазин vino-bg.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/ortotehnika.jpg" alt="ФИРМЕН САЙТ ORTOTEHNIKA.COM">
+												<img src="/images/web-projects/ortotehnika.jpg" alt="Фирмен сайт ortotehnika.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://ortotehnika.com/">ФИРМЕН САЙТ ORTOTEHNIKA.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://ortotehnika.com/">Фирмен сайт ortotehnika.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
 											<div class="image_wrap">
-												<img src="/images/web-projects/skladova.jpg" alt="ОНЛАЙН МАГАЗИН SHOP.ST-BG.COM">
+												<img src="/images/web-projects/skladova.jpg" alt="Онлайн магазин shop.st-bg.com">
                                             </div><!--/. image_wrap-->
                                             <hr /><br />
 											<div class="description align_center">
-												<p><a target="_blank" href="http://shop.st-bg.com/">ОНЛАЙН МАГАЗИН SHOP.ST-BG.COM</a></p>
+                                                <p>WEB проект</p>
+												<p><a target="_blank" href="http://shop.st-bg.com/">Онлайн магазин shop.st-bg.com</a></p>
 											</div>
 										</div><!--/ .product_item-->
 									</div><!--/ .owl_carousel-->
@@ -3372,1026 +3390,210 @@
 												<img src="/images/desktop/if_28_3319616-300x300.png" alt="ПРОГРАМА ЗА РЕГИСТРИРАНЕ НА ДЕЙНОСТТА ПО ПРОДАЖБА И ОБМЕН НА ВАЛУТА">
 											</div><!--/. image_wrap-->
 											<div class="description align_center">
-                                                <p><a href="{{ route('maxtrade_change') }}">Maxtrade Change</a></p>
-                                                <p><a href="{{ route('maxtrade_change') }}">ПРОГРАМА ЗА РЕГИСТРИРАНЕ НА ДЕЙНОСТТА ПО ПРОДАЖБА И ОБМЕН НА ВАЛУТА</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_change') }}">Програма за регистриране на дейността по продажба и обмен на валута</a></p>
 											</div>
 										</div><!--/ .product_item-->
 										<div class="product_item">
-                                                <div class="image_wrap">
-                                                    <img src="/images/desktop/if_Delivery_3387313-300x300.png" alt="ПРОГРАМА ЗА СЪХРАНЕНИЕ И ПЕЧАТ НА МИТНИЧЕСКИ ТОВАРИТЕЛНИЦИ (ЧМР)">
-                                                </div><!--/. image_wrap-->
-                                                <div class="description align_center">
-                                                    <p><a href="{{ route('maxtrade_cmr') }}">Maxtrade CMR</a></p>
-                                                    <p><a href="{{ route('maxtrade_cmr') }}">ПРОГРАМА ЗА СЪХРАНЕНИЕ И ПЕЧАТ НА МИТНИЧЕСКИ ТОВАРИТЕЛНИЦИ (ЧМР)</a></p>
-                                                </div>
-                                            </div><!--/ .product_item-->
-									</div><!--/ .owl_carousel-->
+                                            <div class="image_wrap">
+                                                <img src="/images/desktop/if_Delivery_3387313-300x300.png" alt="Програма за съхранение и печат на митнически товарителници (ЧМР)">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_cmr') }}">Програма за съхранение и печат на митнически товарителници (ЧМР)</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+										<div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/desktop/if_Umbrella_2974391-300x300.png" alt="Програма за управление на дейността на Служба по трудова медицина">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_ctm') }}">Програма за управление на дейността на Служба по трудова медицина</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+										<div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/desktop/if_tube-lab-science-school_2824437-300x300.png" alt="Програма за управление на дейността на Лаборатория">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_lab') }}">Програма за управление на дейността на Лаборатория</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+										<div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/desktop/if_icon_animal_cachorro_3316536-300x300.png" alt="Програма за управление на дейността на Ловно Рибарско Дружество">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_slr') }}">Програма за управление на дейността на Ловно Рибарско Дружество</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+										<div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/desktop/if_Asset_93_3298612-300x272.png" alt="Програма за управление на документите от Система по качеството">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a></p>
+                                                <p><a href="{{ route('desktop.maxtrade_smdc') }}">Програма за управление на документите от Система по качеството</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                    </div><!--/ .owl_carousel-->
 								</div><!--/ #tab-16-->
 
-                                <div id="tab-17" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of personal care - - - - - - - - - - - - - - - - -->
+                                <div id="web" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of personal care - - - - - - - - - - - - - - - - -->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web/woocommerce.png" alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web.cc_woocommerce') }}">Кредитен Калкулатор Woocommerce</a></p>
+                                                <p><a href="{{ route('web.cc_woocommerce') }}">Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web/opencart.png" alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор OpenCart</a></p>
+                                                <p><a href="{{ route('web.cc_opencart') }}">Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web/magento.png" alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор Magento</a></p>
+                                                <p><a href="{{ route('web.cc_magento') }}">Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web/prestashop.png" alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web.cc_prestashop') }}">Кредитен Калкулатор PrestaShop</a></p>
+                                                <p><a href="{{ route('web.cc_prestashop') }}">Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                    </div><!--/ .owl_carousel-->
 								</div><!--/ #tab-17-->
-								<div id="tab-18" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of vitamins & supplements - - - - - - - - - - - - - - - - -->
+
+                                <div id="web-soft" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="/images/tabs_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/tabs_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of vitamins & supplements - - - - - - - - - - - - - - - - -->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-soft/if_General_Office_62_3592835-300x300.png" alt="Maxtrade Store – Програма за подпомагане дейността на хладилен склад">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade Store</a></p>
+                                                <p><a href="{{ route('web-soft.maxtrade_store') }}">Програма за подпомагане дейността на хладилен склад</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-soft/if_32_3319612-300x300.png" alt="Maxtrade StoreERP Складово Стопанство – програма за следене на виртуалните движения на стоки в склад">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade StoreERP</a></p>
+                                                <p><a href="{{ route('web-soft.maxtrade_storeerp') }}">Складово Стопанство – програма за следене на виртуалните движения на стоки в склад</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-soft/if_6_3319634-300x300.png" alt="Maxtrade INS, програма за регистриране на дейността на Застрахователна агенция">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade INS</a></p>
+                                                <p><a href="{{ route('web-soft.maxtrade_ins') }}">Програма за регистриране на дейността на Застрахователна агенция</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-soft/AVAMB-logiciel-300x226.png" alt="Програма организатор за малък, среден, а защо не и голям бизнес">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-soft.avamb') }}">AVAMB</a></p>
+                                                <p><a href="{{ route('web-soft.avamb') }}">Програма организатор за малък, среден, а защо не и голям бизнес</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                    </div><!--/ .owl_carousel-->
 								</div><!--/ #tab-18-->
-								<div id="tab-19" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of baby needs products - - - - - - - - - - - - - - - - -->
+
+                                <div id="web-service" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of baby needs products - - - - - - - - - - - - - - - - -->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-service/support.jpg" alt="Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-service.website') }}">Стандартен уеб сайт</a></p>
+                                                <p><a href="{{ route('web-service.website') }}">Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-service/support.jpg" alt="Изграждане на стандартен онлайн магазин по поръчка на клиента с информация предоставена ни от него">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-service.onlineshop') }}">Онлайн магазин</a></p>
+                                                <p><a href="{{ route('web-service.onlineshop') }}">Изграждане на стандартен онлайн магазин по поръчка на клиента с информация предоставена ни от него</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/web-service/support.jpg" alt="WEB услуги, инсталации, поддръжка">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('web-service.webservice') }}">WEB услуги</a></p>
+                                                <p><a href="{{ route('web-service.webservice') }}">WEB услуги, инсталации, поддръжка</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                    </div><!--/ .owl_carousel-->
 								</div><!--/ #tab-19-->
-								<div id="tab-20" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of diet & fitness products - - - - - - - - - - - - - - - - -->
+
+                                <div id="mobile" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/mobile/AVAMB-logiciel-300x226.png" alt="AVAMB mobile">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></p>
+                                                <p><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of diet & fitness products - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-20-->
-								<div id="tab-21" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of sexual well-being - - - - - - - - - - - - - - - - -->
+
+                                <div id="industry" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											<div class="image_wrap">
-												<img src="/images/tabs_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/tabs_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of sexual well-being  - - - - - - - - - - - - - - - - -->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/industry/if_Blog-pencil-website-web-browser-gear-setup_2992650-300x300.png" alt="Maxtrade IKUNK – SCADA софтуер за мониторинг и управление на ИКУНК">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a></p>
+                                                <p><a href="{{ route('industry.ikunk') }}">SCADA софтуер за мониторинг и управление на ИКУНК</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                        <div class="product_item">
+                                            <div class="image_wrap">
+                                                <img src="/images/industry/if_resolutions-01_897222-300x300.png" alt="Maxtrade KNTR. Изработване на софтуер за отчитане, съхранение и обработване на данните от електронен авто кантар">
+                                            </div><!--/. image_wrap-->
+                                            <div class="description align_center">
+                                                <p><a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a></p>
+                                                <p><a href="{{ route('industry.kantar') }}">Изработване на софтуер за отчитане, съхранение и обработване на данните от електронен авто кантар</a></p>
+                                            </div>
+                                        </div><!--/ .product_item-->
+                                    </div><!--/ .owl_carousel-->
 								</div><!--/ #tab-21-->
-							</div>
+
+                            </div>
 							<!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
 						</div>
 					</section>

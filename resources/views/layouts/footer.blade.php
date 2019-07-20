@@ -81,7 +81,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_1.jpg" alt="">
+												<img src="/images/product_thumb_1.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Nemo Enim Ipsam Voluptatem, Lemon 4 fl oz (118 ml)</a>
@@ -96,7 +96,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_2.jpg" alt="">
+												<img src="/images/product_thumb_2.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet Consectetuer Elit</a>
@@ -111,7 +111,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_3.jpg" alt="">
+												<img src="/images/product_thumb_3.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Ipsum Dolor Sit Amet Consectetuer Elit</a>
@@ -136,7 +136,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_4.jpg" alt="">
+												<img src="/images/product_thumb_4.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Aenean Auctor Wisi Et Urna Amet, Liqui-gels 24...</a>
@@ -161,7 +161,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_5.jpg" alt="">
+												<img src="/images/product_thumb_5.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Dolor Sit Amet Consectetuer Amet Ipsum</a>
@@ -186,7 +186,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_6.jpg" alt="">
+												<img src="/images/product_thumb_6.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Dolor Sit Amet Lorem, 2mg, Ice Mint 160 ea</a>
@@ -222,7 +222,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_7.jpg" alt="">
+												<img src="/images/product_thumb_7.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet Consectetuer Elit...</a>
@@ -237,7 +237,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_8.jpg" alt="">
+												<img src="/images/product_thumb_8.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Bounty - Paper Napkins, Assorted, 200 ea</a>
@@ -252,7 +252,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_9.jpg" alt="">
+												<img src="/images/product_thumb_9.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet, Deap Clean, Cool</a>
@@ -276,7 +276,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_10.jpg" alt="">
+												<img src="/images/product_thumb_10.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Ipsum Dolor Sit Amet Adipiscing Elit Lorem...</a>
@@ -291,7 +291,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_11.jpg" alt="">
+												<img src="/images/product_thumb_11.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Amet Consectetuer Adipiscing Elit Ut Dolor Amet...</a>
@@ -306,7 +306,7 @@
 											
 											<a href="#" class="product_thumb">
 												
-												<img src="images/product_thumb_12.jpg" alt="">
+												<img src="/images/product_thumb_12.jpg" alt="">
 											</a>
 											<div class="wrapper">
 												<a href="#" class="product_title">Vestibulum Laculis Lacinia Est Dolor Amet</a>
@@ -328,17 +328,17 @@
 				<!-- - - - - - - - - - - - - - Footer section - - - - - - - - - - - - - - - - -->
 				<div class="footer_section_3 align_center">
 					<div class="container">
-						<p class="footer_message">This is custom text. Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantim, totam rem aperiam, eaque ipse quae ab illo inventore veritatis.</p>
+						<p class="footer_message">Авалон ООД работи в IT сферата повече от 15 години. Създава софтуер по поръчка на своите клиенти. Продажба и сервиз на компютърна техника. Продажба и възстановяване на консумативи.</p>
 						<!-- - - - - - - - - - - - - - Payments - - - - - - - - - - - - - - - - -->
 						<ul class="payments">
-							<li><img src="images/payment_1.png" alt=""></li>
-							<li><img src="images/payment_2.png" alt=""></li>
-							<li><img src="images/payment_3.png" alt=""></li>
-							<li><img src="images/payment_4.png" alt=""></li>
-							<li><img src="images/payment_5.png" alt=""></li>
-							<li><img src="images/payment_6.png" alt=""></li>
-							<li><img src="images/payment_7.png" alt=""></li>
-							<li><img src="images/payment_8.png" alt=""></li>
+							<li><img src="/images/payment_1.png" alt=""></li>
+							<li><img src="/images/payment_2.png" alt=""></li>
+							<li><img src="/images/payment_3.png" alt=""></li>
+							<li><img src="/images/payment_4.png" alt=""></li>
+							<li><img src="/images/payment_5.png" alt=""></li>
+							<li><img src="/images/payment_6.png" alt=""></li>
+							<li><img src="/images/payment_7.png" alt=""></li>
+							<li><img src="/images/payment_8.png" alt=""></li>
 						</ul>
 						
 						<!-- - - - - - - - - - - - - - End of payments - - - - - - - - - - - - - - - - -->
@@ -350,7 +350,7 @@
 								<li><a href="{{ route('gdpr') }}">Инструкция за обработване на лични данни</a></li>
                                 <li><a href="{{ route('dostavka') }}">Доставка и плащане</a></li>
                                 <li><a href="{{ route('vrashtane') }}">Връщане на продукт</a></li>
-                                <li><a href="{{ route('sitemap') }}">Карта на сайта</a></li>
+                                <li><a href="{{ route('avalon.sitemap') }}">Карта на сайта</a></li>
 							</ul>
 						</nav>
 						
