@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class IndexController extends Controller
 {
     /** start index menu */
     public function index(){
+        $categories = Category::all();
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи'
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи',
+            'categories' => $categories
         ]);
     }
     /** end index menu */
