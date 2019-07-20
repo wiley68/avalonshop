@@ -364,7 +364,7 @@
                                                 <li><a href="{{ route('index') }}">Начало</a></li>
 												<li><a href="{{ route('index') }}">Профил</a></li>
 												<li><a href="{{ route('index') }}">Поръчка</a></li>
-												<li><a href="{{ route('index') }}">Информация</a></li>
+												<li><a href="{{ route('support.all') }}">Информация</a></li>
 												<li><a href="{{ route('for_us') }}">За нас</a></li>
 												<li><a href="{{ route('contact') }}">За контакт</a></li>
 												<li class="has_submenu">

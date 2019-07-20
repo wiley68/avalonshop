@@ -321,4 +321,13 @@ class IndexController extends Controller
         ]);
     }
     /** end kantar */
+    /** start support all */
+    public function supportall(){
+        return view('support.all')->with([
+            'title' => 'Техническа поддръжка и ревюта | Авалон',
+            'description' => 'Техническа поддръжка и ревюта.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка'
+        ]);
+    }
+    /** end support all */
 }

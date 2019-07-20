@@ -1770,1412 +1770,362 @@
 						<div class="tabs type_3 products">
 							<!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
 							<ul class="theme_menu tabs_nav clearfix">
-								<li class="has_submenu"><a href="#tab-8">Категория 1</a></li>
-								<li class="has_submenu"><a href="#tab-9">Категория 2</a></li>
-								<li class="has_submenu"><a href="#tab-10">Категория 3</a></li>
-								<li class="has_submenu"><a href="#tab-11">Категория 4</a></li>
-								<li class="has_submenu"><a href="#tab-12">Категория 5</a></li>
-								<li class="has_submenu"><a href="#tab-13">Категория 6</a></li>
-								<li class="has_submenu"><a href="#tab-14">Категория 7</a></li>
-								<li class="has_submenu"><a href="#" class="all"><b>Виж всички</b></a></li>
+								<li class="has_submenu"><a href="#gaming">Игрални компютри</a></li>
+								<li class="has_submenu"><a href="#office-comp">Офис компютри</a></li>
+								<li class="has_submenu"><a href="#printeri">Принтери и Копири</a></li>
+								<li class="has_submenu"><a href="#install">Инсталация и настройка</a></li>
+								<li class="has_submenu"><a href="#network">Локални Мрежи</a></li>
+								<li class="has_submenu"><a href="#cameri">Камери и Охрана</a></li>
+								<li class="has_submenu"><a href="#software">Софтуер</a></li>
+                                <li class="has_submenu"><a href="{{ route('support.all') }}" class="all"><b>Виж всички</b></a></li>
 							</ul>
 							<!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
 							<div class="tab_containers_wrap">
-								<div id="tab-8" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of today's deals - - - - - - - - - - - - - - - - -->
+								<div id="gaming" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
 												<img src="/images/product_img_24.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$44.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/product_img_25.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Vestibulum Iaculis Lacinia Amet 30 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$39.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/product_img_26.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Lorem Ipsum Dolor Sit Amet Con Sectetuer Adipiscing...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/product_img_27.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ipsum Dolor Sit Amet Adipiscing, Capsules 60 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$27.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/product_img_28.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Amet Consectetuer Adipiscing Elit Ut Dolor Amet 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of today's deals - - - - - - - - - - - - - - - - -->
-								</div><!--/ #tab-1-->
-								<div id="tab-9" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of beauty products - - - - - - - - - - - - - - - - -->
+    								</div><!--/ #tab-1-->
+                                </div>
+                                
+                                <div id="office-comp" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Amet Consectetuer Adipiscing Elit Ut Dolor Amet 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of beauty products - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-2-->
-								<div id="tab-10" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of personal care - - - - - - - - - - - - - - - - -->
+
+                                <div id="printeri" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of personal care - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-3-->
-								<div id="tab-11" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of vitamins & supplements - - - - - - - - - - - - - - - - -->
+
+                                <div id="install" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/tabs_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/tabs_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of vitamins & supplements - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-4-->
-								<div id="tab-12" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of baby needs products - - - - - - - - - - - - - - - - -->
+
+                                <div id="network" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of baby needs products - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-5-->
-								<div id="tab-13" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of diet & fitness products - - - - - - - - - - - - - - - - -->
+
+                                <div id="cameri" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/deals_img_1.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of diet & fitness products - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-6-->
-								<div id="tab-14" class="tab_container">
-									<!-- - - - - - - - - - - - - - Carousel of sexual well-being - - - - - - - - - - - - - - - - -->
+
+                                <div id="software" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
 											<div class="image_wrap">
-												<img src="/images/tabs_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Tellus Dolor Dapibus Eget 24 fl oz</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$5.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_2.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_hot">Hot</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Ut Tellus Dolor Dapibus Eg, Size 4 Diapers 29 ea</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/tabs_img_3.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-											<div class="label_new">New</div>
-											<!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nemo Enim Ipsam Voluptaem Quia Lorem, 1000mg...</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$73.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
 										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
 											<div class="image_wrap">
-												<img src="/images/deals_img_4.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+												<img src="/images/product_img_24.jpg" alt="">
 											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
 											<div class="description align_center">
-												<p><a href="#">Nam Elit Agna Enrerit Sit Amet Dolor Ipsum Amet...</a></p>
-												<div class="clearfix product_info">
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-														<li></li>
-													</ul>
-													<!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
+                                                <p><a href="#">Dolor Sit</a></p>
+                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
+                                                <br />
+												<button class="button_blue middle_btn">Виж подробно</button>
 											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
 										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<div class="product_item">
-											<!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-											
-											<div class="image_wrap">
-												<img src="/images/deals_img_5.jpg" alt="">
-												<!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-												<div class="actions_wrap">
-													<div class="centered_buttons">
-														<a href="#" class="button_dark_grey middle_btn quick_view pb" data-modal-url="modals/quick_view.html">Quick View</a>
-													</div><!--/ .centered_buttons -->
-												</div><!--/ .actions_wrap-->
-												
-												<!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-											</div><!--/. image_wrap-->
-											<!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
-											<!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
-											<div class="description align_center">
-												<p><a href="#">CytoSport Muscle Milk Protein Shake, Milk 4 ea</a></p>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$13.99</b></p>
-												</div><!--/ .clearfix.product_info-->
-												<button class="button_blue middle_btn">Add to Cart</button>
-												<ul class="bottombar">
-													<li><a href="#">Add to Wishlist</a></li>
-													<li><a href="#">Add to Compare</a></li>
-												</ul>
-											</div>
-											<!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
-										</div><!--/ .product_item-->
-										
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 									</div><!--/ .owl_carousel-->
-									
-									<!-- - - - - - - - - - - - - - End of carousel of sexual well-being  - - - - - - - - - - - - - - - - -->
 								</div><!--/ #tab-7-->
-							</div>
+
+                            </div>
 							<!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
 						</div>
 					</section>

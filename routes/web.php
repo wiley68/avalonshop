@@ -53,3 +53,6 @@ Route::get('/mobile/avambmobile.html', 'IndexController@avambmobile')->name('mob
 Route::get('/industry/ikunk.html', 'IndexController@ikunk')->name('industry.ikunk');
 Route::get('/industry/kantar.html', 'IndexController@kantar')->name('industry.kantar');
 /** end index web section */
+/** start support section */
+Route::get('/support/all.html', 'IndexController@supportall')->name('support.all');
+/** end support section */
