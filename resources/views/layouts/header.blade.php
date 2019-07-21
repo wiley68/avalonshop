@@ -24,17 +24,6 @@
 									<!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
 									<form class="clearfix search">
 										<input type="text" name="" tabindex="1" placeholder="Търси..." class="alignleft">
-										
-										<!-- - - - - - - - - - - - - - Categories - - - - - - - - - - - - - - - - -->
-										<div class="search_category alignleft">
-											<div class="open_categories">Всички</div>
-											<ul class="categories_list dropdown">
-												@foreach ($root_categories as $category)
-												<li class="animated_item"><a href="#">{{ $category->name }}</a></li>													
-												@endforeach
-											</ul>
-										</div><!--/ .search_category.alignleft-->
-										<!-- - - - - - - - - - - - - - End of categories - - - - - - - - - - - - - - - - -->
 										<button class="button_blue def_icon_btn alignleft"></button>
 									</form><!--/ #search-->
 									
@@ -111,7 +100,7 @@
 																	$categories = Category::where(['parent_id' => $category->id])->get();
 																@endphp
 																@foreach ($categories as $item)
-																<li><a href="#">{{ $item->name }}</a></li>																	
+																	<li><a href="#">{{ $item->name }}</a></li>																	
 																@endforeach
 															</ul>
 														</div><!--/ .mega_menu_item-->
@@ -131,7 +120,30 @@
                                                 <li><a href="{{ route('index') }}">Начало</a></li>
 												<li><a href="{{ route('index') }}">Профил</a></li>
 												<li><a href="{{ route('index') }}">Поръчка</a></li>
-												<li><a href="{{ route('support.all') }}">Информация</a></li>
+												<li class="has_submenu">
+													<a href="{{ route('support.all') }}">Информация</a>
+													<ul class="theme_menu submenu">
+														<!--<li class="current" >-->
+                                                        <li>
+                                                            <a href="{{ route('avalon.shop') }}">Игрални компютри</a>
+														</li>
+														<li>
+                                                            <a href="{{ route('avalon.service') }}">Офис компютри</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ route('avalon.service-printeri') }}">Принтери и Копири</a>
+                                                        </li>
+														<li>
+                                                            <a href="{{ route('avalon.mrezi') }}">Локални мрежи</a>
+                                                        </li>
+														<li>
+                                                            <a href="{{ route('avalon.web') }}">Камери и Охрана</a>
+                                                        </li>
+														<li>
+                                                            <a href="{{ route('avalon.news') }}">Софтуер</a>
+                                                        </li>
+													</ul>
+												</li>
 												<li><a href="{{ route('for_us') }}">За нас</a></li>
 												<li><a href="{{ route('contact') }}">За контакт</a></li>
 												<li class="has_submenu">
