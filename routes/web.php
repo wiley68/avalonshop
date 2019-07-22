@@ -56,3 +56,6 @@ Route::get('/industry/kantar.html', 'IndexController@kantar')->name('industry.ka
 /** start support section */
 Route::get('/support/all.html', 'IndexController@supportall')->name('support.all');
 /** end support section */
+/** start products section */
+Route::match(['get', 'post'], '/products', 'ProductController@viewProducts')->name('products');
+/** end products section */

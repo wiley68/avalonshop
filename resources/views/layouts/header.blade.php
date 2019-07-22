@@ -92,7 +92,11 @@
 										<ul class="theme_menu cats dropdown">
 											@foreach ($root_categories as $category)
 												<li class="has_megamenu animated_item">
-													<a href="#">{{ $category->name }}</a>
+                                                    @php
+                                                        $category_ids = [];
+                                                        $category_ids[] = $category->id;
+                                                    @endphp
+													<a href="{{ route('products', ['category_id'=>$category_ids]) }}">{{ $category->name }}</a>
 													<div class="mega_menu clearfix">
 														<div class="mega_menu_item">
 															<ul class="list_of_links">
