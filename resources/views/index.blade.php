@@ -77,7 +77,7 @@
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="100">
 							<a href="#" class="infoblock type_1">
 								<i class="icon-paper-plane"></i>
-								<span class="caption"><b>Бърза доставка</b></span>
+								<span class="caption"><b>Бърза доставка в страната</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="200">
@@ -101,7 +101,7 @@
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="500">
 							<a href="#" class="infoblock type_1">
 								<i class="icon-lifebuoy-1"></i>
-								<span class="caption"><b>24/7 Поддръжка</b></span>
+								<span class="caption"><b>24/7 Поддръжка за клиенти</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 					</ul><!--/ .infoblocks_wrap.section_offset.clearfix-->
