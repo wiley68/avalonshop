@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Project;
 
 class IndexController extends Controller
 {
     /** start index menu */
     public function index(){
         $root_categories = Category::where(['parent_id' => 0])->get();
+        $webprojects = Project::where(['category_id' => 'webprojects'])->get();
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи',
-            'root_categories' => $root_categories
+            'root_categories' => $root_categories,
+            'webprojects' => $webprojects
         ]);
     }
     /** end index menu */
