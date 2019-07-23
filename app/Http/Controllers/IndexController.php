@@ -11,7 +11,7 @@ class IndexController extends Controller
     /** start index menu */
     public function index(){
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $webprojects = Project::where(['category_id' => 'webprojects'])->get();
+        $webprojects = Project::all();
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
