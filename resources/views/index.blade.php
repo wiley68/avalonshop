@@ -1777,7 +1777,7 @@
 								<li class="has_submenu"><a href="#networks">Локални Мрежи&nbsp;({{ $supports_networks->count() }})</a></li>
 								<li class="has_submenu"><a href="#cameras">Камери и Охрана&nbsp;({{ $supports_cameras->count() }})</a></li>
 								<li class="has_submenu"><a href="#softwares">Софтуер&nbsp;({{ $supports_softwares->count() }})</a></li>
-                                <li class="has_submenu"><a href="{{ route('support.all') }}" class="all"><b>Виж всички</b></a></li>
+                                <li class="has_submenu"><a href="{{ route('support.posts', ['id'=>'all']) }}" class="all"><b>Виж всички</b></a></li>
 							</ul>
 							<!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->

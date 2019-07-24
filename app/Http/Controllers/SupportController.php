@@ -9,13 +9,20 @@ use App\Support;
 class SupportController extends Controller
 {
     /** start support all */
-    public function supportall(){
+    public function supportall(Request $request, $id=null){
         $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('support.all')->with([
+        if (($id == null) || ($id == 'all')){
+            $supports = Support::all();
+        }else{
+            $supports = Support::where(['category_id'=>$id])->get();
+        }
+        return view('support.posts')->with([
             'title' => 'Техническа поддръжка и ревюта | Авалон',
             'description' => 'Техническа поддръжка и ревюта.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка',
-            'root_categories' => $root_categories
+            'root_categories' => $root_categories,
+            'category_id' => $id,
+            'supports' => $supports
         ]);
     }
     /** end support all */
@@ -23,7 +30,7 @@ class SupportController extends Controller
     public function supportsoftware(Request $request, $id=null){
         $root_categories = Category::where(['parent_id' => 0])->get();
         $support = Support::where(['id'=>$id])->first();
-        return view('support.all')->with([
+        return view('support.post')->with([
             'title' => 'Техническа поддръжка и ревюта на софтуер - ' . $support->name . ' | Авалон',
             'description' => 'Техническа поддръжка и ревюта на софтуер - ' . $support->name . '.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка, софтуер',

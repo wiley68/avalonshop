@@ -125,26 +125,29 @@
 												<li><a href="{{ route('index') }}">Профил</a></li>
 												<li><a href="{{ route('index') }}">Поръчка</a></li>
 												<li class="has_submenu">
-													<a href="{{ route('support.all') }}">Информация</a>
+													<a href="{{ route('support.posts', ['id'=>'all']) }}">Поддръжка</a>
 													<ul class="theme_menu submenu">
 														<!--<li class="current" >-->
                                                         <li>
-                                                            <a href="{{ route('avalon.shop') }}">Игрални компютри</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'gamings']) }}">Игрални компютри</a>
 														</li>
 														<li>
-                                                            <a href="{{ route('avalon.service') }}">Офис компютри</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'offices']) }}">Офис компютри</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('avalon.service-printeri') }}">Принтери и Копири</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'printers']) }}">Принтери и Копири</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('avalon.mrezi') }}">Локални мрежи</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'instalations']) }}">Инсталация и настройки</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('avalon.web') }}">Камери и Охрана</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'networks']) }}">Локални Мрежи</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('avalon.news') }}">Софтуер</a>
+                                                            <a href="{{ route('support.posts', ['id'=>'cameras']) }}">Камери и Охрана</a>
+                                                        </li>
+														<li>
+                                                            <a href="{{ route('support.posts', ['id'=>'softwares']) }}">Софтуер</a>
                                                         </li>
 													</ul>
 												</li>
