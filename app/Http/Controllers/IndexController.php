@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Project;
+use App\Support;
 
 class IndexController extends Controller
 {
@@ -12,12 +13,26 @@ class IndexController extends Controller
     public function index(){
         $root_categories = Category::where(['parent_id' => 0])->get();
         $webprojects = Project::all();
+        $supports_gamings = Support::where(['category_id' => 'gamings'])->get();
+        $supports_offices = Support::where(['category_id' => 'offices'])->get();
+        $supports_printers = Support::where(['category_id' => 'printers'])->get();
+        $supports_instalations = Support::where(['category_id' => 'instalations'])->get();
+        $supports_networks = Support::where(['category_id' => 'networks'])->get();
+        $supports_cameras = Support::where(['category_id' => 'cameras'])->get();
+        $supports_softwares = Support::where(['category_id' => 'softwares'])->get();
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи',
             'root_categories' => $root_categories,
-            'webprojects' => $webprojects
+            'webprojects' => $webprojects,
+            'supports_gamings' => $supports_gamings,
+            'supports_offices' => $supports_offices,
+            'supports_printers' => $supports_printers,
+            'supports_instalations' => $supports_instalations,
+            'supports_networks' => $supports_networks,
+            'supports_cameras' => $supports_cameras,
+            'supports_softwares' => $supports_softwares
         ]);
     }
     /** end index menu */
@@ -395,15 +410,5 @@ class IndexController extends Controller
         ]);
     }
     /** end kantar */
-    /** start support all */
-    public function supportall(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('support.all')->with([
-            'title' => 'Техническа поддръжка и ревюта | Авалон',
-            'description' => 'Техническа поддръжка и ревюта.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end support all */
+    
 }

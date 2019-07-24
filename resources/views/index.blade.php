@@ -1770,358 +1770,141 @@
 						<div class="tabs type_3 products">
 							<!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
 							<ul class="theme_menu tabs_nav clearfix">
-								<li class="has_submenu"><a href="#gaming">Игрални компютри</a></li>
-								<li class="has_submenu"><a href="#office-comp">Офис компютри</a></li>
-								<li class="has_submenu"><a href="#printeri">Принтери и Копири</a></li>
-								<li class="has_submenu"><a href="#install">Инсталация и настройка</a></li>
-								<li class="has_submenu"><a href="#network">Локални Мрежи</a></li>
-								<li class="has_submenu"><a href="#cameri">Камери и Охрана</a></li>
-								<li class="has_submenu"><a href="#software">Софтуер</a></li>
+								<li class="has_submenu"><a href="#gamings">Игрални компютри&nbsp;({{ $supports_gamings->count() }})</a></li>
+								<li class="has_submenu"><a href="#offices">Офис компютри&nbsp;({{ $supports_offices->count() }})</a></li>
+								<li class="has_submenu"><a href="#printers">Принтери и Копири&nbsp;({{ $supports_printers->count() }})</a></li>
+								<li class="has_submenu"><a href="#instalations">Инсталация и настр.&nbsp;({{ $supports_instalations->count() }})</a></li>
+								<li class="has_submenu"><a href="#networks">Локални Мрежи&nbsp;({{ $supports_networks->count() }})</a></li>
+								<li class="has_submenu"><a href="#cameras">Камери и Охрана&nbsp;({{ $supports_cameras->count() }})</a></li>
+								<li class="has_submenu"><a href="#softwares">Софтуер&nbsp;({{ $supports_softwares->count() }})</a></li>
                                 <li class="has_submenu"><a href="{{ route('support.all') }}" class="all"><b>Виж всички</b></a></li>
 							</ul>
 							<!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
 							<div class="tab_containers_wrap">
-								<div id="gaming" class="tab_container">
+								<div id="gamings" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_gamings as $support_gaming)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" alt="{{ $support_gaming->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Игрални компютри</p>
+                                                    <p>{{ $support_gaming->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_gaming->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
     								</div><!--/ #tab-1-->
                                 </div>
                                 
-                                <div id="office-comp" class="tab_container">
+                                <div id="offices" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_offices as $support_office)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" alt="{{ $support_office->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Офис компютри</p>
+                                                    <p>{{ $support_office->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_office->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-2-->
 
-                                <div id="printeri" class="tab_container">
+                                <div id="printers" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_printers as $support_printer)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" alt="{{ $support_printer->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Принтери и Копири</p>
+                                                    <p>{{ $support_printer->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_printer->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-3-->
 
-                                <div id="install" class="tab_container">
+                                <div id="instalations" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_instalations as $support_instalation)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" alt="{{ $support_instalation->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Инсталация и настройка</p>
+                                                    <p>{{ $support_instalation->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_instalation->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-4-->
 
-                                <div id="network" class="tab_container">
+                                <div id="networks" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_networks as $support_network)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" alt="{{ $support_network->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Локални мрежи</p>
+                                                    <p>{{ $support_network->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_network->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-5-->
 
-                                <div id="cameri" class="tab_container">
+                                <div id="cameras" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_cameras as $support_camera)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" alt="{{ $support_camera->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Камери и Охрана</p>
+                                                    <p>{{ $support_camera->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_camera->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-6-->
 
-                                <div id="software" class="tab_container">
+                                <div id="softwares" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
-										<div class="product_item">
-											<div class="image_wrap">
-												<img src="/images/product_img_24.jpg" alt="">
-											</div><!--/. image_wrap-->
-											<div class="description align_center">
-                                                <p><a href="#">Dolor Sit</a></p>
-                                                <p><a href="#">Dolor Sit Amet Consectetuer 750mg, Softgels 120 ea</a></p>
-                                                <br />
-												<button class="button_blue middle_btn">Виж подробно</button>
-											</div>
-										</div><!--/ .product_item-->
+                                        @foreach ($supports_softwares as $support_software)
+    										<div class="product_item">
+                                                <div class="image_wrap">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" alt="{{ $support_software->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                </div><!--/. image_wrap-->
+                                                <div class="description align_center">
+                                                    <p>Софтуер</p>
+                                                    <p>{{ $support_software->name }}</p>
+                                                    <br />
+                                                    <a href="{{ route('support.software', ['id'=>$support_software->id]) }}" class="button_blue middle_btn">Виж подробно</a>
+                                                </div>
+                                            </div><!--/ .product_item-->
+                                        @endforeach                                        
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-7-->
 

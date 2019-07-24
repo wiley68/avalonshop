@@ -54,8 +54,9 @@ Route::get('/industry/ikunk.html', 'IndexController@ikunk')->name('industry.ikun
 Route::get('/industry/kantar.html', 'IndexController@kantar')->name('industry.kantar');
 /** end index web section */
 /** start support section */
-Route::get('/support/all.html', 'IndexController@supportall')->name('support.all');
+Route::get('/support/all.html', 'SupportController@supportall')->name('support.all');
+Route::get('/support/software/{id}.html', 'SupportController@supportsoftware')->name('support.software');
 /** end support section */
 /** start products section */
-Route::match(['get', 'post'], '/products', 'ProductController@viewProducts')->name('products');
+Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts')->name('products');
 /** end products section */
