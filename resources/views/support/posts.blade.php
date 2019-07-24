@@ -304,7 +304,7 @@
                                                     onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
                                             </a>
                                             <!-- - - - - - - - - - - - - - End of entry image - - - - - - - - - - - - - - - - -->
-                                            <h4 class="entry_title"><a href="#">{{ $support->name }}</a></h4>
+                                            <h4 class="entry_title"><a href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a></h4>
                                             <!-- - - - - - - - - - - - - - Entry meta - - - - - - - - - - - - - - - - -->
                                             <div class="entry_meta">
                                                 <div class="alignleft">
@@ -313,10 +313,8 @@
                                                     @endphp
                                                     <span><i class="icon-calendar"></i>
                                                         {{ $date->format('d.m.Y H:i:s') }}</span>
-                                                    <span><a href="#" class="comments"><i class="icon-comment"></i>
-                                                            3</a></span>
-                                                    <span><i class="icon-user-8"></i> от <a
-                                                            href="#">{{ $support->username }}</a></span>
+                                                    <span><i class="icon-comment"></i>3</span>
+                                                    <span><i class="icon-user-8"></i> от {{ $support->username }}</span>
                                                     @php
                                                     switch ($support->category_id) {
                                                     case 'gamings':
@@ -348,18 +346,7 @@
                                                     <span><i class="icon-folder-open-empty-1"></i> <a href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
                                                 </div>
                                                 <div class="alignright">
-                                                    дай оценка
-                                                    <!-- - - - - - - - - - - - - - Entry rating - - - - - - - - - - - - - - - - -->
-                                                    <ul class="rating">
-                                                        <li class="active"></li>
-                                                        <li class="active"></li>
-                                                        <li class="active"></li>
-                                                        <li></li>
-                                                        <li></li>
-                                                    </ul>
-
-                                                    <!-- - - - - - - - - - - - - - End of entry rating - - - - - - - - - - - - - - - - -->
-                                                    (17 оценки)
+                                                    брой посещения: {{ $support->visits }}
                                                 </div>
                                             </div>
                                             <!--/ .byline-->

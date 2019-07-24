@@ -250,18 +250,7 @@
                                                 <span><i class="icon-folder-open-empty-1"></i> <a href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
                                             </div>
                                             <div class="alignright">
-                                                дай оценка
-                                                <!-- - - - - - - - - - - - - - Entry rating - - - - - - - - - - - - - - - - -->
-                                                <ul class="rating">
-                                                    <li class="active"></li>
-                                                    <li class="active"></li>
-                                                    <li class="active"></li>
-                                                    <li></li>
-                                                    <li></li>
-                                                </ul>
-
-                                                <!-- - - - - - - - - - - - - - End of entry rating - - - - - - - - - - - - - - - - -->
-                                                (17 оценки)
+                                                брой посещения: {{ $support->visits }}
                                             </div>
                                         </div>
                                         <!--/ .entry_meta-->
