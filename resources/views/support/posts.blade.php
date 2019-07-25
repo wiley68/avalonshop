@@ -118,48 +118,6 @@
                                 </section>
                                 <!--/ .section_offset -->
                                 <!-- - - - - - - - - - - - - - End of popular posts - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="images/banner_img_10.png" alt="">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Recent comments - - - - - - - - - - - - - - - - -->
-                                <section class="section_offset">
-                                    <h3>Последни коментари</h3>
-                                    <ul class="recentcomments_list">
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Lorem ipsum dolor sit amet, con- sectetuer adipis</a>
-                                            <p class="comment">Fusce euismod consequat ante. Lorem ipsum dolor sit
-                                                amet...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Neque porro quisquam est, qui</a>
-                                            <p class="comment">Consectetuer adipis. Mauris accumsan nulla vel diam. Sed
-                                                in...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Mauris fermentum dictum magna</a>
-                                            <p class="comment">Vestibulum ante ipsum primis in faucibus orci luctus et
-                                                ultrices...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                    </ul>
-                                </section>
-                                <!-- - - - - - - - - - - - - - End recent comments - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Blog Tags - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
                                     <h3>Използвани етикети</h3>
@@ -174,22 +132,6 @@
                                     </div>
                                     <!--/ .tags_container-->
                                 </section>
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="images/banner_img_11.png" alt="">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="images/banner_img_12.png" alt="">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                             </aside>
                             <!--/ [col]-->
                             <main class="col-md-9 col-sm-8">

@@ -79,48 +79,6 @@
                                 </section>
                                 <!--/ .section_offset -->
                                 <!-- - - - - - - - - - - - - - End of popular posts - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="images/banner_img_10.png" alt="">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Recent comments - - - - - - - - - - - - - - - - -->
-                                <section class="section_offset">
-                                    <h3>Последни коментари</h3>
-                                    <ul class="recentcomments_list">
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Lorem ipsum dolor sit amet, con- sectetuer adipis</a>
-                                            <p class="comment">Fusce euismod consequat ante. Lorem ipsum dolor sit
-                                                amet...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Neque porro quisquam est, qui</a>
-                                            <p class="comment">Consectetuer adipis. Mauris accumsan nulla vel diam. Sed
-                                                in...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Comment - - - - - - - - - - - - - - - - -->
-                                        <li class="recentcomment">
-
-                                            <div class="posted_by">Posted by: <a href="#">admin</a>:</div>
-                                            <a href="#">Mauris fermentum dictum magna</a>
-                                            <p class="comment">Vestibulum ante ipsum primis in faucibus orci luctus et
-                                                ultrices...</p>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment - - - - - - - - - - - - - - - - -->
-                                    </ul>
-                                </section>
-                                <!-- - - - - - - - - - - - - - End recent comments - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Blog Tags - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
                                     <h3>Използвани етикети</h3>
@@ -160,8 +118,6 @@
                                                 @endphp
                                                 <span><i class="icon-calendar"></i>
                                                     {{ $date->format('d.m.Y H:i:s') }}</span>
-                                                <span><a href="#comments" class="comments"><i class="icon-comment"></i>
-                                                        3</a></span>
                                                 <span><i class="icon-user-8"></i> от {{ $support->username }}</span>
                                                 @php
                                                 switch ($support->category_id) {
@@ -271,134 +227,6 @@
                                     </div>
                                 </section>
                                 <!-- - - - - - - - - - - - - - End related posts - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Comments - - - - - - - - - - - - - - - - -->
-                                <section class="section_offset" id="comments">
-
-                                    <h3>Коментари</h3>
-                                    <ol class="comments-list">
-                                        <!-- - - - - - - - - - - - - - Comment (level 1) - - - - - - - - - - - - - - - - -->
-                                        <li class="comment">
-                                            <article>
-                                                <!-- - - - - - - - - - - - - - Avatar - - - - - - - - - - - - - - - - -->
-
-                                                <div class="avatar">
-                                                    <img src="images/comment_author_photo.jpg" alt="">
-                                                </div>
-                                                <!-- - - - - - - - - - - - - - End of avatar - - - - - - - - - - - - - - - - -->
-                                                <!-- - - - - - - - - - - - - - Comment body - - - - - - - - - - - - - - - - -->
-                                                <div class="comment-body">
-                                                    <header class="comment-meta">
-                                                        <h6 class="comment-author"><a href="#">John Smith</a></h6>,
-                                                        2014-08-05
-                                                    </header>
-                                                    <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend,
-                                                        elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac
-                                                        turpis. Donec sit amet eros. Lorem ipsum dolor sit amet,
-                                                        consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed
-                                                        laoreet aliquam leo.</p>
-                                                </div>
-                                                <!-- - - - - - - - - - - - - - End of comment body - - - - - - - - - - - - - - - - -->
-                                                <a href="#" class="button_grey icon_btn comment-reply-link"><i
-                                                        class="icon-reply-4"></i></a>
-                                            </article>
-                                            <ol class="children">
-                                                <!-- - - - - - - - - - - - - - Comment (level 2) - - - - - - - - - - - - - - - - -->
-                                                <li class="comment">
-                                                    <article>
-                                                        <!-- - - - - - - - - - - - - - Avatar - - - - - - - - - - - - - - - - -->
-
-                                                        <div class="avatar">
-                                                            <img src="images/comment_author_photo.jpg" alt="">
-                                                        </div>
-                                                        <!-- - - - - - - - - - - - - - End of avatar - - - - - - - - - - - - - - - - -->
-                                                        <!-- - - - - - - - - - - - - - Comment body - - - - - - - - - - - - - - - - -->
-                                                        <div class="comment-body">
-                                                            <header class="comment-meta">
-                                                                <h6 class="comment-author"><a href="#">admin</a></h6>,
-                                                                2014-08-05
-                                                            </header>
-                                                            <p>Ut tellus dolor, dapibus eget, elementum vel, cursus
-                                                                eleifend, elit. Aenean auctor wisi et urna. Aliquam erat
-                                                                volutpat. Duis ac turpis. Integer rutrum ante eu lacus.
-                                                            </p>
-                                                        </div>
-                                                        <!-- - - - - - - - - - - - - - End of comment body - - - - - - - - - - - - - - - - -->
-                                                        <a href="#" class="button_grey icon_btn comment-reply-link"><i
-                                                                class="icon-reply-4"></i></a>
-                                                    </article>
-                                                </li>
-                                                <!-- - - - - - - - - - - - - - End of comment (level 2) - - - - - - - - - - - - - - - - -->
-                                            </ol>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment (level 1) - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Comment (level 1) - - - - - - - - - - - - - - - - -->
-                                        <li class="comment">
-                                            <article>
-                                                <!-- - - - - - - - - - - - - - Avatar - - - - - - - - - - - - - - - - -->
-
-                                                <div class="avatar">
-                                                    <img src="images/comment_author_photo.jpg" alt="">
-                                                </div>
-                                                <!-- - - - - - - - - - - - - - End of avatar - - - - - - - - - - - - - - - - -->
-                                                <!-- - - - - - - - - - - - - - Comment body - - - - - - - - - - - - - - - - -->
-                                                <div class="comment-body">
-                                                    <header class="comment-meta">
-                                                        <h6 class="comment-author"><a href="#">John Smith</a></h6>,
-                                                        2014-08-05
-                                                    </header>
-                                                    <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada
-                                                        at, neque. Vivamus eget nibh.</p>
-                                                </div>
-                                                <!-- - - - - - - - - - - - - - End of comment body - - - - - - - - - - - - - - - - -->
-                                                <a href="#" class="button_grey icon_btn comment-reply-link"><i
-                                                        class="icon-reply-4"></i></a>
-                                            </article>
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of comment (level 1) - - - - - - - - - - - - - - - - -->
-                                    </ol>
-                                </section>
-                                <!-- - - - - - - - - - - - - - End of comments - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Leave a comment - - - - - - - - - - - - - - - - -->
-                                <section class="section_offset">
-                                    <h3>Оставете коментар</h3>
-                                    <div class="theme_box">
-                                        <p class="form_caption">Make sure you enter the (<span class="prompt"></span>)
-                                            required information where indicated. HTML code is not allowed.</p>
-                                        <form class="type_2" id="leave_comment">
-                                            <ul>
-                                                <li class="row">
-
-                                                    <div class="col-sm-6">
-                                                        <label for="lc_name" class="required">Name</label>
-                                                        <input type="text" name="" id="lc_name">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <label for="lc_email" class="required">Email Address</label>
-                                                        <input type="email" name="" id="lc_email">
-                                                    </div>
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-xs-12">
-                                                        <label for="lc_url">Website URL</label>
-                                                        <input type="url" name="" id="lc_url">
-                                                    </div>
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-xs-12">
-                                                        <label for="lc_message">Message</label>
-                                                        <textarea name="" id="lc_message" rows="6"></textarea>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                    <footer class="bottom_box">
-                                        <button class="button_dark_grey middle_btn" form="leave_comment"
-                                            type="submit">Submit</button>
-
-                                    </footer>
-                                </section>
-                                <!-- - - - - - - - - - - - - - End leave a comment - - - - - - - - - - - - - - - - -->
                             </main>
                             <!--/ [col]-->
                         </div>
