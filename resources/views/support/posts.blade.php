@@ -85,87 +85,35 @@
                                 <section class="section_offset">
                                     <h3>Най-търсени теми</h3>
                                     <ul class="list_of_entries">
-                                        <!-- - - - - - - - - - - - - - Entry - - - - - - - - - - - - - - - - -->
+                                        @foreach ($best_supports as $best_support)
                                         <li>
-
-                                            <article class="entry">
-
-                                                <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-                                                <a href="#" class="entry_thumb">
-                                                    <img src="images/blog_thumb_4.jpg" alt="">
-                                                </a>
-                                                <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
-                                                <div class="wrapper">
-                                                    <h6 class="entry_title"><a href="#">Lorem ipsum dolor sit amet,
-                                                            consecte- tuer adipis</a></h6>
-                                                    <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
-                                                    <div class="entry_meta">
-                                                        <span><i class="icon-calendar"></i> 2014-08-05</span>
-                                                        <span><a href="#" class="comments"><i class="icon-comment"></i>
-                                                                3</a></span>
+                                                <article class="entry">
+                                                    <a href="{{ route('support.software', ['id'=>$best_support->id]) }}" class="entry_thumb">
+                                                        <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
+                                                        alt="{{ $best_support->name }}"
+                                                        onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    </a>
+                                                    <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
+                                                    <div class="wrapper">
+                                                        <h6 class="entry_title"><a href="{{ route('support.software', ['id'=>$best_support->id]) }}">{{ $best_support->name }}</a></h6>
+                                                        <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
+                                                        <div class="entry_meta">
+                                                            @php
+                                                            $date = new DateTime($best_support->created_at);
+                                                            @endphp
+                                                            <span><i class="icon-calendar"></i>
+                                                                {{ $date->format('d.m.Y') }}
+                                                            </span>
+                                                            <span>{{ $best_support->visits }}</span>
+                                                        </div>
+                                                        <!--/ .byline-->
+                                                        <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
                                                     </div>
-                                                    <!--/ .byline-->
-                                                    <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
-                                                </div>
-                                                <!--/ .wrapper-->
-                                            </article>
-                                            <!--/ .clearfix-->
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Entry - - - - - - - - - - - - - - - - -->
-                                        <li>
-
-                                            <article class="entry">
-
-                                                <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-                                                <a href="#" class="entry_thumb">
-                                                    <img src="images/blog_thumb_5.jpg" alt="">
-                                                </a>
-                                                <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
-                                                <div class="wrapper">
-                                                    <h6 class="entry_title"><a href="#">Neque porro quis- quam est,
-                                                            qui</a></h6>
-                                                    <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
-                                                    <div class="entry_meta">
-                                                        <span><i class="icon-calendar"></i> 2014-11-06</span>
-                                                        <span><a href="#" class="comments"><i class="icon-comment"></i>
-                                                                7</a></span>
-                                                    </div>
-                                                    <!--/ .byline-->
-                                                    <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
-                                                </div>
-                                                <!--/ .wrapper-->
-                                            </article>
-                                            <!--/ .clearfix-->
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Entry - - - - - - - - - - - - - - - - -->
-                                        <li>
-
-                                            <article class="entry">
-
-                                                <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-                                                <a href="#" class="entry_thumb">
-                                                    <img src="images/blog_thumb_6.jpg" alt="">
-                                                </a>
-                                                <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
-                                                <div class="wrapper">
-                                                    <h6 class="entry_title"><a href="#">Mauris fermentum dictum
-                                                            magna</a></h6>
-                                                    <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
-                                                    <div class="entry_meta">
-                                                        <span><i class="icon-calendar"></i> 2014-03-12</span>
-                                                        <span><a href="#" class="comments"><i class="icon-comment"></i>
-                                                                4</a></span>
-                                                    </div>
-                                                    <!--/ .byline-->
-                                                    <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
-                                                </div>
-                                                <!--/ .wrapper-->
-                                            </article>
-                                            <!--/ .clearfix-->
-                                        </li>
-                                        <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
+                                                    <!--/ .wrapper-->
+                                                </article>
+                                                <!--/ .clearfix-->
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </section>
                                 <!--/ .section_offset -->
@@ -217,25 +165,9 @@
                                     <h3>Използвани етикети</h3>
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
-
-                                            <li><a href="#" class="button_grey">allergy</a></li>
-                                            <li><a href="#" class="button_grey">baby</a></li>
-                                            <li><a href="#" class="button_grey">beauty</a></li>
-                                            <li><a href="#" class="button_grey">ear care</a></li>
-                                            <li><a href="#" class="button_grey">for her</a></li>
-                                            <li><a href="#" class="button_grey">for him</a></li>
-                                            <li><a href="#" class="button_grey">first aid</a></li>
-                                            <li><a href="#" class="button_grey">gift sets</a></li>
-                                            <li><a href="#" class="button_grey">spa</a></li>
-                                            <li><a href="#" class="button_grey">hair care</a></li>
-                                            <li><a href="#" class="button_grey">herbs</a></li>
-                                            <li><a href="#" class="button_grey">medicine</a></li>
-                                            <li><a href="#" class="button_grey">natural</a></li>
-                                            <li><a href="#" class="button_grey">oral care</a></li>
-                                            <li><a href="#" class="button_grey">pain</a></li>
-                                            <li><a href="#" class="button_grey">pedicure</a></li>
-                                            <li><a href="#" class="button_grey">personal care</a></li>
-                                            <li><a href="#" class="button_grey">probiotics</a></li>
+                                            @foreach ($all_tags as $all_tag)
+                                                <li><a href="{{ route('support.posts', ['id'=>'all', 'tag'=>$all_tag->id]) }}" class="button_grey">{{ $all_tag->name }}</a></li>                                            
+                                            @endforeach
                                         </ul>
                                         <!--/ .tags_cloud-->
 
@@ -264,30 +196,12 @@
                                 <h1>{{ $category_txt }}</h1>
                                 <header class="top_box on_the_sides">
                                     <div class="left_side v_centered">
-                                        <a href="#" class="middle_btn icon_btn social_rss tooltip_container"><i
-                                                class="icon-rss"></i><span class="tooltip top">RSS</span></a>
-                                        <!-- - - - - - - - - - - - - - Blog layout type - - - - - - - - - - - - - - - - -->
-                                        <div class="layout_type buttons_row" data-table-container="#main_blog_list">
-                                            <a href="#" data-table-layout="grid_view"
-                                                class="button_grey middle_btn icon_btn tooltip_container"><i
-                                                    class="icon-th"></i><span class="tooltip top">Табличен
-                                                    вид</span></a>
-                                            <a href="#" data-table-layout="list_view"
-                                                class="button_grey middle_btn icon_btn active tooltip_container"><i
-                                                    class="icon-th-list"></i><span
-                                                    class="tooltip top">Листинг</span></a>
-                                        </div>
-                                        <!-- - - - - - - - - - - - - - End of blog layout type - - - - - - - - - - - - - - - - -->
-                                        <p>Покажи 1 до 3 от 45 (15 страници)</p>
+                                        <p>Покажи {{ $supports->firstItem() }} до {{ $supports->lastItem() }} от {{ $supports->total() }} ({{ $supports->lastPage() }} страници)</p>
                                     </div>
                                     <div class="right_side">
-                                        <ul class="pags">
-                                            <li><a href="#"></a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#"></a></li>
-                                        </ul>
+                                        <!-- Start Pagination -->
+                                        {{ $supports->links("vendor.pagination.bootstrap-4") }}
+                                        <!-- End Pagination -->
                                     </div>
                                 </header>
                                 <!-- - - - - - - - - - - - - - List of entries - - - - - - - - - - - - - - - - -->
@@ -313,7 +227,7 @@
                                                     @endphp
                                                     <span><i class="icon-calendar"></i>
                                                         {{ $date->format('d.m.Y H:i:s') }}</span>
-                                                    <span><i class="icon-comment"></i>3</span>
+                                                    <span>{{ $support->visits }}</span>
                                                     <span><i class="icon-user-8"></i> от {{ $support->username }}</span>
                                                     @php
                                                     switch ($support->category_id) {
@@ -351,7 +265,7 @@
                                             </div>
                                             <!--/ .byline-->
                                             <!-- - - - - - - - - - - - - - End of entry meta - - - - - - - - - - - - - - - - -->
-                                            <p>{!! html_entity_decode(HelpController::getExcerpt($support->description, 0, 1000)) !!}</p>
+                                            <p>{!! html_entity_decode(HelpController::getExcerpt($support->description, 0, 500)) !!}</p>
                                             <a href="{{ route('support.software', ['id'=>$support->id]) }}" class="button_grey middle_btn">Виж подробно</a>
                                         </article>
                                         <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
@@ -361,16 +275,12 @@
                                 <!-- - - - - - - - - - - - - - End of list of entries - - - - - - - - - - - - - - - - -->
                                 <footer class="bottom_box on_the_sides">
                                     <div class="left_side">
-                                        <p>Показани 1 до 3 от 45 (15 страници)</p>
+                                        <p>Покажи {{ $supports->firstItem() }} до {{ $supports->lastItem() }} от {{ $supports->total() }} ({{ $supports->lastPage() }} страници)</p>
                                     </div>
                                     <div class="right_side">
-                                        <ul class="pags">
-                                            <li><a href="#"></a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#"></a></li>
-                                        </ul>
+                                        <!-- Start Pagination -->
+                                        {{ $supports->links("vendor.pagination.bootstrap-4") }}
+                                        <!-- End Pagination -->
                                     </div>
                                 </footer>
                             </main>

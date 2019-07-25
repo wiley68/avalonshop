@@ -4556,7 +4556,7 @@ transition-duration:0.1s;
 		margin-bottom: 17px;
 	}
 
-	.entry_image img{ width: 100%; }
+	.entry_image img{ width: 200px; }
 
 	.entry_title{
 		line-height: 18px;
@@ -4566,7 +4566,8 @@ transition-duration:0.1s;
 	.entry_thumb{
 		display: block;
 		float: left;
-		margin-right: 15px;
+        margin-right: 15px;
+        width: 60px;
 	}
 
 	.entry_meta{
