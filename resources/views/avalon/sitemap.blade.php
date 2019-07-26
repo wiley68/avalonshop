@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Route; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -310,15 +311,17 @@
                                             <section class="section_offset">
                                                 <h4>Начална страница</h4>
                                                 <ul class="list_type_5 links">
-                                                    <li><a href="{{ route('index') }}">Начало</a></li>
-                                                    <li><a href="{{ route('index') }}">Профил</a></li>
-                                                    <li><a href="{{ route('index') }}">Поръчка</a></li>
-                                                    <li><a href="{{ route('for_us') }}">За нас</a></li>
-                                                    <li><a href="{{ route('contact') }}">За контакт</a></li>
-                                                    <li><a href="{{ route('index') }}">Вход</a></li>
-                                                    <li><a href="{{ route('index') }}">Регистрация</a></li>
-                                                    <li><a href="{{ route('support.posts') }}">Техническа поддръжка и ревюта</a></li>
-                                                    <li><a href="{{ route('support.posts') }}">Общи </a></li>
+                                                    @php
+                                                        $routeCollection = Route::getRoutes();
+                                                        dd($routeCollection);
+                                                        die;
+                                                    @endphp
+                                                    @foreach ($routeCollection as $item)
+                                                    @if (!empty($item->getName()))
+                                                    <li><a href="{{ route($item->getName()) }}">{{ $item->getName() }}</a></li>  
+                                                    @endif                                                      
+                                                    @endforeach
+                                                    
                                                 </ul>
                                             </section>
                                             <!--/ .section_offset -->
