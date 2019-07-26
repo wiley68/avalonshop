@@ -11,41 +11,43 @@ use App\Support;
 
 class HelpController extends Controller
 {
-    public static function getExcerpt($str, $startPos=0, $maxLength=100) {
-        if(strlen($str) > $maxLength) {
-            $excerpt   = substr($str, $startPos, $maxLength-3);
+    public static function getExcerpt($str, $startPos = 0, $maxLength = 100)
+    {
+        if (strlen($str) > $maxLength) {
+            $excerpt   = substr($str, $startPos, $maxLength - 3);
             $lastSpace = strrpos($excerpt, ' ');
             $excerpt   = substr($excerpt, 0, $lastSpace);
             $excerpt  .= '...';
         } else {
             $excerpt = $str;
         }
-        
+
         return $excerpt;
     }
 
-    public function submit_contactus(Request $request){
+    public function submit_contactus(Request $request)
+    {
         $this->validate($request, [
-			'cf_name' => 'required',
-			'cf_email' => 'required',
-			'cf_message' => 'required'
+            'cf_name' => 'required',
+            'cf_email' => 'required',
+            'cf_message' => 'required'
         ]);
 
         $name = $request->input('cf_name');
         $email = $request->input('cf_email');
         $message = $request->input('cf_message');
-        
+
         //to admin
-		$objMailAdmin = new \stdClass();
-		$objMailAdmin->app_name = env('APP_NAME','Авалон Магазин');
-		$objMailAdmin->name = $name;
-		$objMailAdmin->email = $email;
-		$objMailAdmin->message = $message;
-		$objMailAdmin->sender = env('MAIL_USERNAME','ilko.iv@gmail.com');
+        $objMailAdmin = new \stdClass();
+        $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailAdmin->name = $name;
+        $objMailAdmin->email = $email;
+        $objMailAdmin->message = $message;
+        $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
- 
+
         Mail::to('home@avalonbg.com')->send(new ContactUs($objMailAdmin));
-        
+
         $root_categories = Category::where(['parent_id' => 0])->get();
         $webprojects = Project::all();
         $supports_gamings = Support::where(['category_id' => 'gamings'])->get();
@@ -72,28 +74,29 @@ class HelpController extends Controller
         ]);
     }
 
-    public function submit_contactform(Request $request){
+    public function submit_contactform(Request $request)
+    {
         $this->validate($request, [
-			'cf_name' => 'required',
-			'cf_email' => 'required',
-			'cf_message' => 'required'
+            'cf_name' => 'required',
+            'cf_email' => 'required',
+            'cf_message' => 'required'
         ]);
 
         $name = $request->input('cf_name');
         $email = $request->input('cf_email');
         $message = $request->input('cf_message');
-        
+
         //to admin
-		$objMailAdmin = new \stdClass();
-		$objMailAdmin->app_name = env('APP_NAME','Авалон Магазин');
-		$objMailAdmin->name = $name;
-		$objMailAdmin->email = $email;
-		$objMailAdmin->message = $message;
-		$objMailAdmin->sender = env('MAIL_USERNAME','ilko.iv@gmail.com');
+        $objMailAdmin = new \stdClass();
+        $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailAdmin->name = $name;
+        $objMailAdmin->email = $email;
+        $objMailAdmin->message = $message;
+        $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
- 
+
         Mail::to('home@avalonbg.com')->send(new ContactUs($objMailAdmin));
-        
+
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('contact')->with([
             'title' => 'За контакт с нас | Авалон',
@@ -103,5 +106,4 @@ class HelpController extends Controller
             'message' => '<b>Благодарим Ви!</b> Вашето съобщение е получено от екипа на Авалон ООД.'
         ]);
     }
-
 }

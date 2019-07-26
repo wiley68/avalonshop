@@ -171,9 +171,6 @@
                                                             <a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a>
                                                         </li>
 														<li>
-                                                            <a href="{{ route('avalon.web') }}">WEB проекти</a>
-                                                        </li>
-														<li>
                                                             <a href="{{ route('avalon.news') }}">Новини</a>
                                                         </li>
 														<li>

@@ -102,17 +102,6 @@ class IndexController extends Controller
         ]);
     }
     /** end mrezi menu */
-    /** start web menu */
-    public function web(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('avalon.web')->with([
-            'title' => 'WEB проекти | Авалон',
-            'description' => 'WEB проекти - проектиране, внедряване.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, проектиране',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end web menu */
     /** start news menu */
     public function news(){
         $root_categories = Category::where(['parent_id' => 0])->get();

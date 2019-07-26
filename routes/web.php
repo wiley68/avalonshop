@@ -20,7 +20,6 @@ Route::get('/avalon/magazin.html', 'IndexController@shop')->name('avalon.shop');
 Route::get('/avalon/serviz.html', 'IndexController@service')->name('avalon.service');
 Route::get('/avalon/serviz-printeri.html', 'IndexController@service_printeri')->name('avalon.service-printeri');
 Route::get('/avalon.komputarni-mrezi.html', 'IndexController@mrezi')->name('avalon.mrezi');
-Route::get('/avalon/web-proekti.html', 'IndexController@web')->name('avalon.web');
 Route::get('/avalon/novini.html', 'IndexController@news')->name('avalon.news');
 Route::get('/avalon/karta.html', 'IndexController@sitemap')->name('avalon.sitemap');
 /** stop menu Avalon */ 
@@ -64,3 +63,8 @@ Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts'
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');
 Route::post('/send-contact-form.html', 'HelpController@submit_contactform')->name('send-contact-form');
 /** end help section */
+/** start sitemap */
+Route::get('/sitemap.xml', function(){
+   return Response::view('sitemap')->header('Content-Type', 'application/xml');
+});
+/** end sitemap */

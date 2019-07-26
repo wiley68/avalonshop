@@ -26,7 +26,6 @@
                                         <li class="current"><a href="{{ route('avalon.service') }}">Компютърен сервиз</a></li>
                                         <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
                                         <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
-                                        <li><a href="{{ route('avalon.web') }}">WEB Проекти</a></li>
                                         <li><a href="{{ route('avalon.news') }}">Новини</a></li>
                                         <li><a href="{{ route('terms') }}">Общи условия</a></li>
                                         <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
