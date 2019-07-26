@@ -104,7 +104,9 @@
                                                             <span><i class="icon-calendar"></i>
                                                                 {{ $date->format('d.m.Y') }}
                                                             </span>
-                                                            <span>{{ $best_support->visits }}</span>
+                                                        </div>
+                                                        <div class="entry_meta">
+                                                            <span>посещения:&nbsp;{{ $best_support->visits }}</span>
                                                         </div>
                                                         <!--/ .byline-->
                                                         <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
@@ -169,7 +171,7 @@
                                                     @endphp
                                                     <span><i class="icon-calendar"></i>
                                                         {{ $date->format('d.m.Y H:i:s') }}</span>
-                                                    <span>{{ $support->visits }}</span>
+                                                    <span>посещения:&nbsp;{{ $support->visits }}</span>
                                                     <span><i class="icon-user-8"></i> от {{ $support->username }}</span>
                                                     @php
                                                     switch ($support->category_id) {

@@ -23,35 +23,14 @@
 							<div class="col-md-6 col-sm-5">
 								<section class="streamlined">
 								
-									<h4 class="streamlined_title">Следвайте ни</h4>
+									<h4 class="streamlined_title">Последвайте ни в социалните мрежи</h4>
 									<!-- - - - - - - - - - - - - - Social icon's list - - - - - - - - - - - - - - - - -->
 									<ul class="social_btns">
 										<li>
-											<a href="#" class="icon_btn middle_btn social_facebook tooltip_container"><i class="icon-facebook-1"></i><span class="tooltip top">Facebook</span></a>
+											<a href="https://www.facebook.com/AvalonLtd" target="_blank" class="icon_btn middle_btn social_facebook tooltip_container"><i class="icon-facebook-1"></i><span class="tooltip top">Facebook</span></a>
 										</li>
 										<li>
-											<a href="#" class="icon_btn middle_btn social_twitter tooltip_container"><i class="icon-twitter"></i><span class="tooltip top">Twitter</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_googleplus tooltip_container"><i class="icon-gplus-2"></i><span class="tooltip top">GooglePlus</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_pinterest tooltip_container"><i class="icon-pinterest-3"></i><span class="tooltip top">Pinterest</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_flickr tooltip_container"><i class="icon-flickr-1"></i><span class="tooltip top">Flickr</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_youtube tooltip_container"><i class="icon-youtube"></i><span class="tooltip top">Youtube</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_vimeo tooltip_container"><i class="icon-vimeo-2"></i><span class="tooltip top">Vimeo</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_instagram tooltip_container"><i class="icon-instagram-4"></i><span class="tooltip top">Instagram</span></a>
-										</li>
-										<li>
-											<a href="#" class="icon_btn middle_btn social_linkedin tooltip_container"><i class="icon-linkedin-5"></i><span class="tooltip top">LinkedIn</span></a>
+											<a href="https://www.youtube.com/channel/UCk_GQ6HDBdWHoK2SaVfkuwA" target="_blank" class="icon_btn middle_btn social_youtube tooltip_container"><i class="icon-youtube"></i><span class="tooltip top">Youtube</span></a>
 										</li>
 									</ul>
 									
@@ -373,60 +352,63 @@
 				
 				<section class="dropdown">
 					<div class="animated_item">
-						<h3 class="title">Join Us on Facebook</h3>
+						<h3 class="title">Присъединете се към нас във Facebook</h3>
 					</div><!--/ .animated_item-->
 					<div class="animated_item">
-						<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fthemeforest&amp;width=235&amp;height=345&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=438889712801266" style="border:none; overflow:hidden; width:235px; height:345px;"></iframe>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAvalonLtd&tabs=timeline&width=235&height=345&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=102732653253201" width="235" height="345" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 					</div><!--/ .animated_item-->
 				</section><!--/ .dropdown-->
 			</li>
 			<!-- - - - - - - - - - - - - - End of Facebook - - - - - - - - - - - - - - - - -->
-			<!-- - - - - - - - - - - - - - Twitter - - - - - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - - - Twitter - - - - - - - - - - - - - - - - -->
+            <!--
 			<li>
 				<button class="icon_btn middle_btn social_twitter open_"><i class="icon-twitter"></i></button>
 				<section class="dropdown">
 					<div class="animated_item">
-						<h3 class="title">Latest Tweets</h3>
-					</div><!--/ .animated_item-->
+						<h3 class="title">Последни Tweets</h3>
+					</div>
 					<div class="tweet_list_wrap"></div>
 					 
 					<footer class="animated_item bottom_box">
 						<a href="#" class="button_grey middle_btn twitter_follow">Follow Us</a>	
-					</footer><!--/ .animated_item-->
-				</section><!--/ .dropdown-->
-			</li>
+					</footer>
+				</section>
+            </li>
+            -->
 			<!-- - - - - - - - - - - - - - End of Twitter - - - - - - - - - - - - - - - - -->
 			<!-- - - - - - - - - - - - - - Contact us - - - - - - - - - - - - - - - - -->
 			<li>
 				<button class="icon_btn middle_btn social_contact open_"><i class="icon-mail-8"></i></button>
 				<section class="dropdown">
 					<div class="animated_item">
-						<h3 class="title">Contact Us</h3>
+						<h3 class="title">За контакт</h3>
 					</div><!--/ .animated_item-->
 					 
 					<div class="animated_item">
-						<p class="form_caption">Lorem ipsum dolor sit amet, adipis mauris accumsan.</p>
-						<form class="contactform" novalidate>
-							<ul>
+						<p class="form_caption">Можете да ни изпратите съобщение от формата по-долу.</p>
+                        <form enctype="multipart/form-data" action="{{ route('send-contact-us') }}" method="post" name="send_contact_us" id="send_contact_us" novalidate>
+                            @csrf
+                            <ul>
 								<li class="row">
 									<div class="col-xs-12">
-										<input type="text" required title="Name" name="cf_name" placeholder="Your name">
+										<input type="text" required title="Name" name="cf_name" placeholder="Име">
 									</div>
 								</li>
 								<li class="row">
 									<div class="col-xs-12">
-										<input type="email" required title="Email" name="cf_email" placeholder="Your address">
+										<input type="email" required title="Email" name="cf_email" placeholder="e-mail">
 									</div>
 								</li>
 								<li class="row">
 									<div class="col-xs-12">
-										<textarea placeholder="Message" required title="Message" name="cf_message" rows="6"></textarea>
+										<textarea placeholder="Съобщение" required title="Message" name="cf_message" rows="6"></textarea>
 									</div>
 								</li>
 								
 								<li class="row">
 									<div class="col-xs-12">
-										<button class="button_grey middle_btn">Send</button>
+										<button class="button_grey middle_btn">Изпрати</button>
 									</div>
 								</li>
 							</ul>
@@ -441,23 +423,23 @@
 				<!--Location-->
 				<section class="dropdown">
 					<div class="animated_item">
-						<h3 class="title">Store Location</h3>
+						<h3 class="title">Адрес на Магазина</h3>
 					</div><!--/ .animated_item-->
 					 
 					<div class="animated_item">
 						
-						<p class="c_info_location">8901 Marmora Road,<br>Glasgow, D04 89GR.</p>
+						<p class="c_info_location">гр. Горна Оряховица<br>ул. Патриарх Евтимий 27</p>
 						<div class="proportional_frame">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3024.238131852431!2d-74.006059!3d40.712773999999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258fda88cefb3%3A0x7f1e88758d210007!2z0J3RjNGOLdC50L7RgNC60YHQutC40Lkg0KHQuNGC0Lgt0YXQvtC70Ls!5e0!3m2!1sru!2sua!4v1415946524959" style="border:0"></iframe>
+                            <iframe src="https://maps.google.com/maps?q=Горна%20Оряховица%20Патриарх%20Евтимий%2027&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 						</div>
 						<ul class="c_info_list">
-							<li class="c_info_phone">800-599-65-80</li>
-							<li class="c_info_mail"><a href="mailto:#">info@companyname.com</a></li>
+							<li class="c_info_phone">0619 22218</li>
+							<li class="c_info_mail"><a href="mailto:home@avalonbg.com">home@avalonbg.com</a></li>
 							<li class="c_info_schedule">
 								<ul>
-									<li>Monday-Friday: 8.00-20.00</li>
-									<li>Saturday: 9.00-15.00</li>
-									<li>Sunday: closed</li>
+									<li>Понеделник-Петък: 8.00-18.00</li>
+									<li>Събота: 9.00-15.00</li>
+									<li>Неделя: затворено</li>
 								</ul>
 							</li>
 						</ul>

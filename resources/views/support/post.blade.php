@@ -65,7 +65,9 @@
                                                         <span><i class="icon-calendar"></i>
                                                             {{ $date->format('d.m.Y') }}
                                                         </span>
-                                                        <span>{{ $best_support->visits }}</span>
+                                                    </div>
+                                                    <div class="entry_meta">
+                                                        <span>посещения:&nbsp;{{ $best_support->visits }}</span>
                                                     </div>
                                                     <!--/ .byline-->
                                                     <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
@@ -94,14 +96,6 @@
                                     </div>
                                     <!--/ .tags_container-->
                                 </section>
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="images/banner_img_11.png" alt="">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                             </aside>
                             <!--/ [col]-->
                             <main class="col-md-9 col-sm-8">
@@ -158,21 +152,6 @@
                                         <!-- - - - - - - - - - - - - - End of entry meta - - - - - - - - - - - - - - - - -->
                                         <h4 class="entry_title"><a href="#">{{ $support->name }}</a></h4>
                                         <p>{!! html_entity_decode($support->description) !!}</p>
-                                        <div class="v_centered share">
-                                            <span class="title">Споделете ни:</span>
-                                            <div class="addthis_widget_container">
-                                                <!-- AddThis Button BEGIN -->
-                                                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                                                    <a class="addthis_button_preferred_1"></a>
-                                                    <a class="addthis_button_preferred_2"></a>
-                                                    <a class="addthis_button_preferred_3"></a>
-                                                    <a class="addthis_button_preferred_4"></a>
-                                                    <a class="addthis_button_compact"></a>
-                                                    <a class="addthis_counter addthis_bubble_style"></a>
-                                                </div>
-                                                <!-- AddThis Button END -->
-                                            </div>
-                                        </div>
                                         <!--/ .v_centered-->
                                     </article>
                                     <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
@@ -205,7 +184,7 @@
                                                         </a>
                                                         <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
                                                         <div class="wrapper">
-                                                            <h6 class="entry_title"><a href="#">{{ $same_support->name }}</a></h6>
+                                                            <h6 class="entry_title"><a href="{{ route('support.software', ['id'=>$same_support->id]) }}">{{ $same_support->name }}</a></h6>
                                                             <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
                                                             <div class="entry_meta">
                                                                 @php
@@ -213,7 +192,9 @@
                                                                 @endphp
                                                                 <span><i class="icon-calendar"></i>
                                                                     {{ $date->format('d.m.Y') }}</span>
-                                                                <span>{{ $same_support->visits }}</span>
+                                                            </div>
+                                                            <div class="entry_meta">
+                                                                <span>посещения:&nbsp;{{ $same_support->visits }}</span>
                                                             </div>
                                                             <!--/ .byline-->
                                                             <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->

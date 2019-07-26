@@ -112,19 +112,19 @@
 				Tweets
 		------------------------------------------------ */
 
-		window.twitterConfig = {
-			username : 'fanfbmltemplate',
-			modpath: 'twitter/',
-			count : 2,
-			loading_text : '<div class="animated_item">Loading tweets...</div>',
-			template : '<li class="animated_item"><p class="tweet_inner"><a href="{user_url}">{screen_name}</a> {text}</p><ul class="tw_actions"><li><a target="_blank" href={tweet_url}>{tweet_date}</a></li><li>{reply_action}</li><li>{retweet_action}</li><li>{favorite_action}</li></ul></li>'
-		};
+		//window.twitterConfig = {
+		//	username : 'fanfbmltemplate',
+		//	modpath: 'twitter/',
+		//	count : 2,
+		//	loading_text : '<div class="animated_item">Loading tweets...</div>',
+		//	template : '<li class="animated_item"><p class="tweet_inner"><a href="{user_url}">{screen_name}</a> {text}</p><ul class="tw_actions"><li><a target="_blank" href={tweet_url}>{tweet_date}</a></li><li>{reply_action}</li><li>{retweet_action}</li><li>{favorite_action}</li></ul></li>'
+		//};
 
-		$('.tweet_list_wrap').tweet(window.twitterConfig);
-		$('.twitter_follow').attr({
-			'href' : 'http://www.twitter.com/' + window.twitterConfig.username,
-			'target' : '_blank'
-		});
+		//$('.tweet_list_wrap').tweet(window.twitterConfig);
+		//$('.twitter_follow').attr({
+		//	'href' : 'http://www.twitter.com/' + window.twitterConfig.username,
+		//	'target' : '_blank'
+		//});
 		
 
 		/* ------------------------------------------------
