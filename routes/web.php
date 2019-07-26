@@ -62,4 +62,5 @@ Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts'
 /** end products section */
 /** start help section */
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');
+Route::post('/send-contact-form.html', 'HelpController@submit_contactform')->name('send-contact-form');
 /** end help section */

@@ -72,4 +72,36 @@ class HelpController extends Controller
         ]);
     }
 
+    public function submit_contactform(Request $request){
+        $this->validate($request, [
+			'cf_name' => 'required',
+			'cf_email' => 'required',
+			'cf_message' => 'required'
+        ]);
+
+        $name = $request->input('cf_name');
+        $email = $request->input('cf_email');
+        $message = $request->input('cf_message');
+        
+        //to admin
+		$objMailAdmin = new \stdClass();
+		$objMailAdmin->app_name = env('APP_NAME','Авалон Магазин');
+		$objMailAdmin->name = $name;
+		$objMailAdmin->email = $email;
+		$objMailAdmin->message = $message;
+		$objMailAdmin->sender = env('MAIL_USERNAME','ilko.iv@gmail.com');
+        $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+ 
+        Mail::to('home@avalonbg.com')->send(new ContactUs($objMailAdmin));
+        
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('contact')->with([
+            'title' => 'За контакт с нас | Авалон',
+            'description' => 'За контакт с нас.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, контакти',
+            'root_categories' => $root_categories,
+            'message' => '<b>Благодарим Ви!</b> Вашето съобщение е получено от екипа на Авалон ООД.'
+        ]);
+    }
+
 }
