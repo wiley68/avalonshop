@@ -39,7 +39,7 @@
                                 <div class="section_offset">
                                     <a href="#" class="banner">
                                         
-                                        <img src="images/banner_img_11.png" alt="">
+                                        <img src="/images/banner_img_11.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
