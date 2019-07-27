@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Category;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +47,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($this->isHttpException($exception)) {
+            $root_categories = Category::where(['parent_id' => 0])->get();
+            if ($exception->getStatusCode() == 404) {
+                return response()->view('errors.' . '404', ['root_categories' => $root_categories], 404);
+            }
+        }
+
         return parent::render($request, $exception);
     }
 }
