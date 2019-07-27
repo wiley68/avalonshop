@@ -1,3 +1,4 @@
+<?php use App\Http\Controllers\HelpController; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -28,7 +29,7 @@
                                             <li><a href="{{ route('avalon.service-printeri') }}">Сервиз
                                                     принтери</a></li>
                                             <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
-                                            <li class="current"><a href="{{ route('avalon.news') }}">Новини</a></li>
+                                            <li class="current"><a href="{{ route('news.all') }}">Новини</a></li>
                                             <li><a href="{{ route('terms') }}">Общи условия</a></li>
                                             <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
                                             <li><a href="{{ route('gdpr') }}">Инструкция за обработка на лични данни</a>
@@ -304,11 +305,55 @@
                                 <!--/ [col]-->
                                 <main class="col-md-9 col-sm-8">
                                     <h1>Новини</h1>
-                                    <div class="theme_box clearfix">
-
-                                    </div>
-                                    <!--/ .theme_box-->
-                                </main>
+                                    <header class="top_box on_the_sides">
+                                        <div class="left_side v_centered">
+                                            <p>Покажи {{ $news->firstItem() }} до {{ $news->lastItem() }} от {{ $news->total() }} ({{ $news->lastPage() }} страници)</p>
+                                        </div>
+                                        <div class="right_side">
+                                            <!-- Start Pagination -->
+                                            {{ $news->links("vendor.pagination.bootstrap-4") }}
+                                            <!-- End Pagination -->
+                                        </div>
+                                    </header>
+                                    <!-- - - - - - - - - - - - - - List of entries - - - - - - - - - - - - - - - - -->
+                                    <ul id="main_blog_list" class="list_of_entries list_view">
+                                        @foreach ($news as $novina)
+                                        <li>
+                                            <!-- - - - - - - - - - - - - - Entry - - - - - - - - - - - - - - - - -->
+                                            <article class="entry">
+                                                <h4 class="entry_title"><a href="{{ route('news.post', ['id'=>$novina->id]) }}">{{ $novina->name }}</a></h4>
+                                                <!-- - - - - - - - - - - - - - Entry meta - - - - - - - - - - - - - - - - -->
+                                                <div class="entry_meta">
+                                                    <div class="alignleft">
+                                                        @php
+                                                        $date = new DateTime($novina->created_at);
+                                                        @endphp
+                                                        <span><i class="icon-calendar"></i>
+                                                            {{ $date->format('d.m.Y H:i:s') }}</span>
+                                                        <span>посещения:&nbsp;{{ $novina->visits }}</span>
+                                                        <span><i class="icon-user-8"></i> от {{ $novina->username }}</span>
+                                                    </div>
+                                                </div>
+                                                <!--/ .byline-->
+                                                <!-- - - - - - - - - - - - - - End of entry meta - - - - - - - - - - - - - - - - -->
+                                                <p>{!! html_entity_decode($novina->description) !!}</p>
+                                            </article>
+                                            <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                    <!-- - - - - - - - - - - - - - End of list of entries - - - - - - - - - - - - - - - - -->
+                                    <footer class="bottom_box on_the_sides">
+                                        <div class="left_side">
+                                            <p>Покажи {{ $news->firstItem() }} до {{ $news->lastItem() }} от {{ $news->total() }} ({{ $news->lastPage() }} страници)</p>
+                                        </div>
+                                        <div class="right_side">
+                                            <!-- Start Pagination -->
+                                            {{ $news->links("vendor.pagination.bootstrap-4") }}
+                                            <!-- End Pagination -->
+                                        </div>
+                                    </footer>
+                                    </main>
                                 <!--/ [col]-->
                                 <!--/ [col]-->
                             </div>

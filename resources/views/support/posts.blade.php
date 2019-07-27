@@ -203,9 +203,6 @@
                                                     @endphp
                                                     <span><i class="icon-folder-open-empty-1"></i> <a href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
                                                 </div>
-                                                <div class="alignright">
-                                                    брой посещения: {{ $support->visits }}
-                                                </div>
                                             </div>
                                             <!--/ .byline-->
                                             <!-- - - - - - - - - - - - - - End of entry meta - - - - - - - - - - - - - - - - -->

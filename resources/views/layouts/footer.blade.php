@@ -51,254 +51,91 @@
 						
 						<div class="row">
 							<div class="col-md-3 col-sm-6">
-								<!-- - - - - - - - - - - - - - Featured products widget- - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Blog widget - - - - - - - - - - - - - - - - -->
 								<section class="widget">
-									<h4>Избрани продукти</h4>
-									<ul class="products_list_widget">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_1.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Nemo Enim Ipsam Voluptatem, Lemon 4 fl oz (118 ml)</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$6.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_2.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet Consectetuer Elit</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$14.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_3.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Ipsum Dolor Sit Amet Consectetuer Elit</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$24.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</ul><!--/ .list_of_products-->
-								</section>
-								
-								<!-- - - - - - - - - - - - - - End of featured products widget - - - - - - - - - - - - - - - - -->
+									<h4>Новини</h4>
+									<ul class="list_of_entries">
+                                        @php
+                                            use App\News; 
+                                            $news = News::inRandomOrder()->take(3)->get();
+                                        @endphp
+                                        @foreach ($news as $novina_item)
+										<!-- - - - - - - - - - - - - - Entry - - - - - - - - - - - - - - - - -->
+										    <li>
+                                                <article class="entry">
+                                                    <div class="wrapper">
+                                                        <h6 class="entry_title"><a href="{{ route('news.post', ['id'=>$novina_item->id]) }}">{{ $novina_item->name }}</a></h6>
+                                                        <!-- - - - - - - - - - - - - - Byline - - - - - - - - - - - - - - - - -->
+                                                        <div class="entry_meta">
+                                                            @php
+                                                                $date = new DateTime($novina_item->created_at);
+                                                            @endphp
+                                                            <span><i class="icon-calendar"></i> {{ $date->format('d.m.Y H:i:s') }}</span>
+                                                        </div><!--/ .entry_meta-->
+                                                        <!-- - - - - - - - - - - - - - End of byline - - - - - - - - - - - - - - - - -->
+                                                    </div><!--/ .wrapper-->
+                                                </article><!--/ .clearfix-->
+                                            </li>
+                                        <!-- - - - - - - - - - - - - - End of entry - - - - - - - - - - - - - - - - -->                                                
+                                        @endforeach
+									</ul>
+								</section><!--/ .widget-->
+								<!-- - - - - - - - - - - - - - End of blog widget - - - - - - - - - - - - - - - - -->
 							</div><!--/ [col]-->
 							<div class="col-md-3 col-sm-6">
-								<!-- - - - - - - - - - - - - - Bestseller products widget - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Information widget - - - - - - - - - - - - - - - - -->
 								<section class="widget">
-									<h4>Най-продавани продукти</h4>
-									<ul class="products_list_widget">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_4.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Aenean Auctor Wisi Et Urna Amet, Liqui-gels 24...</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$5.99</b></p>
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li></li>
-													</ul>
-													
-													<!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_5.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Dolor Sit Amet Consectetuer Amet Ipsum</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$8.99</b></p>
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													
-													<!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_6.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Dolor Sit Amet Lorem, 2mg, Ice Mint 160 ea</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$76.99</b></p>
-													<!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-													<ul class="rating alignright">
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-													</ul>
-													
-													<!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</ul><!--/ .list_of_products-->
-								</section><!--/ .widget-->
-								
-								<!-- - - - - - - - - - - - - - End of bestseller products widget - - - - - - - - - - - - - - - - -->
-							
-							</div><!--/ [col]-->
+                                    <h4>Категории продукти</h4>
+                                    <ul class="list_of_links">
+                                        @php
+                                            use App\Category; 
+                                            $categories_random = Category::inRandomOrder()->take(6)->get();
+                                        @endphp
+                                        @foreach ($categories_random as $category_random)
+                                        @php
+                                            $category_ids = [];
+                                            $category_ids[] = $category_random->id;
+                                        @endphp
+                                        <li><a href="{{ route('products', ['category_id'=>$category_ids]) }}">{{ $category_random->name }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </section><!--/ .widget-->
+                                <!-- - - - - - - - - - - - - - End information widget - - - - - - - - - - - - - - - - -->
+                            </div><!--/ [col]-->
 							<div class="col-md-3 col-sm-6">
-								<!-- - - - - - - - - - - - - - New products widget - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Information widget - - - - - - - - - - - - - - - - -->
 								<section class="widget">
-									<h4>Нови продукти</h4>
-									<ul class="products_list_widget">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_7.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet Consectetuer Elit...</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$2.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_8.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Bounty - Paper Napkins, Assorted, 200 ea</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$4.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_9.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Lorem Ipsum Dolor Sit Amet, Deap Clean, Cool</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><b>$3.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</ul><!--/ .list_of_products-->
-								</section><!--/ .widget-->
-								<!-- - - - - - - - - - - - - - End of new products widget - - - - - - - - - - - - - - - - -->
-							</div><!--/ [col]-->
+                                    <h4>Информация</h4>
+                                    <ul class="list_of_links">
+                                        <li><a href="{{ route('avalon.shop') }}">Магазин Горна Оряховица</a></li>
+                                        <li><a href="{{ route('avalon.service') }}">Компютърен сервиз</a></li>
+                                        <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
+                                        <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
+                                        <li><a href="{{ route('news.all') }}">Новини</a></li>
+                                        <li><a href="{{ route('avalon.sitemap') }}">Карта на сайта</a></li>
+                                    </ul>
+                                </section><!--/ .widget-->
+                                <!-- - - - - - - - - - - - - - End information widget - - - - - - - - - - - - - - - - -->
+                            </div><!--/ [col]-->
 							<div class="col-md-3 col-sm-6">
-								<!-- - - - - - - - - - - - - - On sale products widget - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Contact Us widget - - - - - - - - - - - - - - - - -->
 								<section class="widget">
-									<h4>Продукти в продажба</h4>
-									<ul class="products_list_widget">
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_10.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Ipsum Dolor Sit Amet Adipiscing Elit Lorem...</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><s>$29.99</s> <b>$21.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_11.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Amet Consectetuer Adipiscing Elit Ut Dolor Amet...</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><s>$19.99</s> <b>$13.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-										<!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-										<li>
-											
-											<a href="#" class="product_thumb">
-												
-												<img src="/images/product_thumb_12.jpg" alt="">
-											</a>
-											<div class="wrapper">
-												<a href="#" class="product_title">Vestibulum Laculis Lacinia Est Dolor Amet</a>
-												<div class="clearfix product_info">
-													<p class="product_price alignleft"><s>$5.99</s> <b>$2.99</b></p>
-												</div>
-											</div>
-										</li>
-										<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-									</ul><!--/ .list_of_products-->
-								</section><!--/ .widget-->
-								<!-- - - - - - - - - - - - - - End of on sale products widget - - - - - - - - - - - - - - - - -->
-							</div>
+                                    <h4>За контакт</h4>
+                                    <ul class="c_info_list">
+                                        <li class="c_info_location">гр. Горна Оряховица<br>ул. Патриарх Евтимий 27</li>
+                                        <li class="c_info_phone">0619 22218</li>
+                                        <li class="c_info_mail"><a href="mailto:home@avalonbg.com">home@avalonbg.com</a></li>
+                                        <li class="c_info_schedule">
+                                            <ul>
+                                                <li>Понеделник-Петък: 8.00-18.00</li>
+                                                <li>Събота: 9.00-15.00</li>
+                                                <li>Неделя: затворено</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </section><!--/ .widget-->
+                                <!-- - - - - - - - - - - - - - End of contact us widget - - - - - - - - - - - - - - - - -->
+                            </div>
 						</div><!--/ .row-->
 					</div><!--/ .container-->
 				</div><!--/ .footer_section_2-->

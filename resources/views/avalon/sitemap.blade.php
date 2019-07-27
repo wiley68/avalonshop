@@ -29,7 +29,7 @@
                                         <li><a href="{{ route('avalon.service-printeri') }}">Сервиз
                                                 принтери</a></li>
                                         <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
-                                        <li><a href="{{ route('avalon.news') }}">Новини</a></li>
+                                        <li><a href="{{ route('news.all') }}">Новини</a></li>
                                         <li><a href="{{ route('terms') }}">Общи условия</a></li>
                                         <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
                                         <li><a href="{{ route('gdpr') }}">Инструкция за обработка на лични данни</a>
@@ -309,99 +309,66 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <section class="section_offset">
-                                                <h4>Начална страница</h4>
+                                                <h4>Информация</h4>
                                                 <ul class="list_type_5 links">
-                                                    @php
-                                                        $routeCollection = Route::getRoutes();
-                                                        dd($routeCollection);
-                                                        die;
-                                                    @endphp
-                                                    @foreach ($routeCollection as $item)
-                                                    @if (!empty($item->getName()))
-                                                    <li><a href="{{ route($item->getName()) }}">{{ $item->getName() }}</a></li>  
-                                                    @endif                                                      
-                                                    @endforeach
-                                                    
+                                                    <li><a href="{{ route('index') }}">Начало</a></li>
+                                                    <li><a href="{{ route('for_us') }}">За нас</a></li>
+                                                    <li><a href="{{ route('contact') }}">За контакт</a></li>  
+                                                    <li><a href="{{ route('avalon.shop') }}">магазин Горна Оряховица</a></li>
+                                                    <li><a href="{{ route('avalon.service') }}">Компютърен сервиз</a></li>
+                                                    <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
+                                                    <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
+                                                    <li><a href="{{ route('terms') }}">Общи условия</a></li>
+                                                    <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
+								                    <li><a href="{{ route('gdpr') }}">Инструкция за обработване на лични данни</a></li>
+                                                    <li><a href="{{ route('dostavka') }}">Доставка и плащане</a></li>
+                                                    <li><a href="{{ route('vrashtane') }}">Връщане на продукт</a></li>
+                                                    <li><a href="{{ route('news.all') }}">Новини</a></li>
+                                                    <li><a href="{{ route('products') }}">Продукти</a></li>
                                                 </ul>
                                             </section>
-                                            <!--/ .section_offset -->
-                                            <section class="section_offset">
-                                                <h4>Additional Pages</h4>
-                                                <ul class="list_type_5 links">
-                                                    <li><a href="additional_page_about.html">About Us</a></li>
-                                                    <li><a href="additional_page_contact.html">Contact Us</a></li>
-                                                    <li><a href="additional_page_faq.html">FAQ</a></li>
-                                                    <li><a href="additional_page_404.html">404 Page</a></li>
-                                                    <li><a href="additional_page_sitemap.html">Sitemap</a></li>
-                                                </ul>
-                                            </section>
-                                            <!--/ .section_offset -->
                                         </div>
-                                        <!--/ [col]-->
                                         <div class="col-sm-4">
                                             <section class="section_offset">
-                                                <h4>Category Page Layouts</h4>
+                                                <h4>Поддръжка</h4>
                                                 <ul class="list_type_5 links">
-                                                    <li><a href="category_page_v1.html">Category Page 1</a></li>
-                                                    <li><a href="category_page_v2.html">Category Page 2</a></li>
-                                                    <li><a href="category_page_v3.html">Category Page 3</a></li>
-                                                    <li><a href="category_page_v4.html">Category Page 4</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'gamings']) }}">Игрални компютри</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'offices']) }}">Офис компютри</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'printers']) }}">Принтери и Копири</a></li>  
+                                                    <li><a href="{{ route('support.posts', ['id'=>'instalations']) }}">Инсталация и настройки</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'networks']) }}">Локални Мрежи</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'cameras']) }}">Камери и Охрана</a></li>
+                                                    <li><a href="{{ route('support.posts', ['id'=>'softwares']) }}">Софтуер</a></li>
                                                 </ul>
                                             </section>
-                                            <!--/ .section_offset -->
-                                            <section class="section_offset">
-                                                <h4>Extra Stuff</h4>
-                                                <ul class="list_type_5 links">
-                                                    <li><a href="extra_stuff_elements.html">Elements</a></li>
-                                                    <li><a href="extra_stuff_typography.html">Typography</a></li>
-                                                    <li><a href="extra_stuff_columns.html">Columns</a></li>
-                                                </ul>
-                                            </section>
-                                            <!--/ .section_offset -->
                                         </div>
-                                        <!--/ [col]-->
                                         <div class="col-sm-4">
                                             <section class="section_offset">
-                                                <h4>Product Page Layouts</h4>
+                                                <h4>Разработен и внедрен от нас софтуер</h4>
                                                 <ul class="list_type_5 links">
-                                                    <li><a href="product_page_v1.html">Product Page 1</a></li>
-                                                    <li><a href="product_page_v2.html">Product Page 2</a></li>
-                                                    <li><a href="product_page_v3.html">Product Page 3</a></li>
+                                                    <li><a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a></li>
+                                                    <li><a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a></li>
+                                                    <li><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></li>  
+                                                    <li><a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a></li>
+                                                    <li><a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a></li>
+                                                    <li><a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a></li>
+                                                    <li><a href="{{ route('web.cc_woocommerce') }}">Кредитен Калкулатор Woocommerce</a></li>
+                                                    <li><a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор OpenCart</a></li>
+                                                    <li><a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор Magento</a></li>
+                                                    <li><a href="{{ route('web.cc_prestashop') }}">Кредитен Калкулатор PrestaShop</a></li>
+                                                    <li><a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade Store</a></li>
+                                                    <li><a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade StoreERP</a></li>
+                                                    <li><a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade INS</a></li>
+                                                    <li><a href="{{ route('web-soft.avamb') }}">AVAMB</a></li>
+                                                    <li><a href="{{ route('web-service.website') }}">Стандартен уеб сайт</a></li>
+                                                    <li><a href="{{ route('web-service.onlineshop') }}">Онлайн магазин</a></li>
+                                                    <li><a href="{{ route('web-service.webservice') }}">WEB услуги</a></li>
+                                                    <li><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></li>
+                                                    <li><a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a></li>
+                                                    <li><a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a></li>
                                                 </ul>
                                             </section>
-                                            <!--/ .section_offset -->
-                                            <section class="section_offset">
-                                                <h4>Blog Pages</h4>
-                                                <ul class="list_type_5 links">
-                                                    <li><a href="blog_v1.html">Blog 1</a></li>
-                                                    <li><a href="blog_v2.html">Blog 2</a></li>
-                                                    <li><a href="blog_v3.html">Blog 3</a></li>
-                                                    <li><a href="blog_post_v1.html">Blog Post 1</a></li>
-                                                    <li><a href="blog_post_v2.html">Blog Post 2</a></li>
-                                                </ul>
-                                            </section>
-                                            <!--/ .section_offset -->
                                         </div>
-                                        <!--/ [col] -->
-                                        <div class="col-sm-4">
-                                            <section class="section_offset">
-                                                <h4>Other Shop Pages</h4>
-                                                <ul class="list_type_5 links">
-                                                    <li><a href="shop_shopping_cart.html">Shopping Cart</a></li>
-                                                    <li><a href="shop_checkout.html">Checkout</a></li>
-                                                    <li><a href="shop_wishlist.html">Wishlist</a></li>
-                                                    <li><a href="shop_product_comparison.html">Product Comparison</a>
-                                                    </li>
-                                                    <li><a href="shop_my_account.html">My Account</a></li>
-                                                    <li><a href="shop_manufacturers.html">Manufacturers</a></li>
-                                                    <li><a href="shop_manufacturer_page.html">Manufacturer Page</a></li>
-                                                    <li><a href="shop_orders_list.html">Orders List</a></li>
-                                                    <li><a href="shop_order_page.html">Order Page</a></li>
-                                                </ul>
-                                            </section>
-                                            <!--/ .section_offset -->
-                                        </div>
-                                        <!--/ [col]-->
                                     </div>
                                     <!--/ .row-->
                                 </div>

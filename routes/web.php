@@ -20,7 +20,6 @@ Route::get('/avalon/magazin.html', 'IndexController@shop')->name('avalon.shop');
 Route::get('/avalon/serviz.html', 'IndexController@service')->name('avalon.service');
 Route::get('/avalon/serviz-printeri.html', 'IndexController@service_printeri')->name('avalon.service-printeri');
 Route::get('/avalon.komputarni-mrezi.html', 'IndexController@mrezi')->name('avalon.mrezi');
-Route::get('/avalon/novini.html', 'IndexController@news')->name('avalon.news');
 Route::get('/avalon/karta.html', 'IndexController@sitemap')->name('avalon.sitemap');
 /** stop menu Avalon */ 
 /** start footer menu */
@@ -68,3 +67,7 @@ Route::get('/sitemap.xml', function(){
    return Response::view('sitemap')->header('Content-Type', 'application/xml');
 });
 /** end sitemap */
+/** start news */
+Route::get('/news/all.html', 'NewsController@all')->name('news.all');
+Route::get('/news/post{id}.html', 'NewsController@post')->name('news.post');
+/** end news */
