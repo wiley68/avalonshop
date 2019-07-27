@@ -26,6 +26,7 @@
                                         <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
                                         <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
                                         <li><a href="{{ route('news.all') }}">Новини</a></li>
+                                        <li><a href="{{ route('faqs.all') }}">Често задавани въпроси</a>
                                         <li><a href="{{ route('terms') }}">Общи условия</a></li>
                                         <li><a href="{{ route('politika') }}">Политика на поверителност</a></li>
                                         <li><a href="{{ route('gdpr') }}">Инструкция за обработка на лични данни</a></li>

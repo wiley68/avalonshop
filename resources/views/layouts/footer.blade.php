@@ -113,6 +113,7 @@
                                         <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
                                         <li><a href="{{ route('news.all') }}">Новини</a></li>
                                         <li><a href="{{ route('avalon.sitemap') }}">Карта на сайта</a></li>
+                                        <li><a href="{{ route('faqs.all') }}">Често задавани въпроси</a>
                                     </ul>
                                 </section><!--/ .widget-->
                                 <!-- - - - - - - - - - - - - - End information widget - - - - - - - - - - - - - - - - -->

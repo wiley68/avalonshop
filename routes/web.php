@@ -71,3 +71,6 @@ Route::get('/sitemap.xml', function(){
 Route::get('/news/all.html', 'NewsController@all')->name('news.all');
 Route::get('/news/post{id}.html', 'NewsController@post')->name('news.post');
 /** end news */
+/** start faq */
+Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
+/** end faq */

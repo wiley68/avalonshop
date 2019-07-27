@@ -173,6 +173,9 @@
 														<li>
                                                             <a href="{{ route('news.all') }}">Новини</a>
                                                         </li>
+                                                        <li>
+                                                            <a href="{{ route('faqs.all') }}">Често задавани въпроси</a>
+                                                        </li>
 														<li>
                                                             <a href="{{ route('avalon.sitemap') }}">Карта на сайта</a>
                                                         </li>
