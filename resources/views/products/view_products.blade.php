@@ -269,15 +269,15 @@
                                         $rows = ceil($products->count() / 3);
                                         $products_collection = (new Collection($products))['data'];
                                         @endphp
-                                        @for ($i = 1; $i <= $rows; $i++) <div class="table_row">
+                                        @for ($i = 0; $i <= $rows*2; $i=$i+3) <div class="table_row">
                                             @for ($j = 0; $j < 3; $j++) <!-- - - - - - - - - - - - - - Product - - - -
                                                 - - - - - - - - - - - - -->
-                                                @if (!empty($products_collection[$i*$j]))
+                                                @if (!empty($products_collection[$i+$j]))
                                                 <div class="table_cell">
                                                         <div class="product_item">
                                                             <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
                                                             <div class="image_wrap">
-                                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $products_collection[$i*$j]['id'] }}_1.png" style="max-width:200px;" alt="{{ $products_collection[$i*$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $products_collection[$i+$j]['id'] }}_1.png" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
                                                                 <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                                 <div class="actions_wrap">
                                                                     <div class="centered_buttons">
@@ -302,9 +302,9 @@
                                                             <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
                                                             <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                                             <div class="description">
-                                                                <a href="#">{{ $products_collection[$i*$j]['name'] }}</a>
+                                                                <a href="#">{{ $products_collection[$i+$j]['name'] }}</a>
                                                                 <div class="clearfix product_info">
-                                                                    <p class="product_price alignleft"><b>{{ number_format($products_collection[$i*$j]['price'], 2, ".", "") }}</b></p>
+                                                                    <p class="product_price alignleft"><b>{{ number_format($products_collection[$i+$j]['price'], 2, ".", "") }}</b> лв.</p>
                                                                     <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                                     <ul class="rating alignright">
                                                                         <li class="active"></li>
