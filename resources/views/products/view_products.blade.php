@@ -23,17 +23,34 @@
                                         <div class="table_layout list_view">
                                             <div class="table_row">
                                                 <!-- - - - - - - - - - - - - - Category filter - - - - - - - - - - - - - - - - -->
+                                                @php
+                                                    $categories_in = [];
+                                                    if (!empty($queries['category_id'])){
+                                                        foreach ($queries['category_id'] as $categoryid) {
+                                                            $categories_in[] = $categoryid;
+                                                        }
+                                                    }
+                                                @endphp
+
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Категории</legend>
                                                         <ul class="checkboxes_list">
                                                             @foreach ($root_categories as $root_category)
                                                             <li>
-                                                                <input type="checkbox" checked name="category"
+                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif name="category_id"
                                                                     id="category_{{ $root_category->id }}">
                                                                 <label
                                                                     for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
                                                             </li>
+                                                            @foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)
+                                                            <li>
+                                                                <input type="checkbox" @if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif name="category_id"
+                                                                    id="category_{{ $item->id }}">
+                                                                <label
+                                                                    for="category_{{ $item->id }}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{ $item->name }}</span></label>
+                                                            </li>
+                                                            @endforeach
                                                             @endforeach
                                                         </ul>
                                                     </fieldset>

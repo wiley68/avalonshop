@@ -47,7 +47,8 @@ class ProductController extends Controller
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, продукти',
             'root_categories' => $root_categories,
             'paginate' => $paginate,
-            'products' => $products
+            'products' => $products,
+            'queries' => $queries
         ]);
     }
 
