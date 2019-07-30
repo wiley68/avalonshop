@@ -103,8 +103,12 @@
 																@php
 																	$categories = Category::where(['parent_id' => $category->id])->get();
 																@endphp
-																@foreach ($categories as $item)
-																	<li><a href="#">{{ $item->name }}</a></li>																	
+                                                                @foreach ($categories as $item)
+                                                                    @php
+                                                                        $item_ids = [];
+                                                                        $item_ids[] = $item->id;
+                                                                    @endphp
+																	<li><a href="{{ route('products', ['category_id'=>$item_ids]) }}">{{ $item->name }}</a></li>																	
 																@endforeach
 															</ul>
 														</div><!--/ .mega_menu_item-->
@@ -112,7 +116,7 @@
 												</li>													
 											@endforeach
 											
-											<li class="has_megamenu animated_item"><a href="#" class="all"><b>Всички продукти</b></a></li>
+											<li class="has_megamenu animated_item"><a href="{{ route('products') }}" class="all"><b>Всички продукти</b></a></li>
 										</ul>
 										<!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
 									</div><!--/ .nav_item-->

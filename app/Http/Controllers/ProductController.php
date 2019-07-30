@@ -11,9 +11,9 @@ class ProductController extends Controller
 {
     public function viewProducts(){
         $root_categories = Category::where(['parent_id' => 0])->get();
+        $products = Product::where('id' ,'>' ,0);
 
-        $products = Product::all();
-        $paginate = 8;
+        $paginate = 9;
         $queries = [];
 
         // Get category requests
@@ -28,15 +28,18 @@ class ProductController extends Controller
             }
             // get products array by categories
             $products_in = [];
-            $products_categories = ProductsCategories::whereIn('category_id', $categories_in);
+            $products_categories = ProductsCategories::whereIn('category_id', $categories_in)->get();
             foreach ($products_categories as $product_category) {
                 $products_in[] = $product_category->product_id;
             }
-            // filter products
-            $products = $products->whereIn('id', $products_in);
             // save queries
             $queries['category_id'] = request('category_id');
+
+            // filter products
+            $products = $products->whereIn('id', $products_in);
         }
+
+        $products = $products->paginate($paginate)->appends($queries);
         
         return view('/products/view_products')->with([
             'title' => 'Продуктов филтър. Софтуер - продажба на компютърна техника | Авалон',
