@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- Theme CSS
-		============================================ -->
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
@@ -59,7 +60,8 @@
     <!-- index controller -->
 	<!-- Include Libs & Plugins
 	============================================ -->
-	<script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
 	<script src="{{ asset('js/jquery.appear.js') }}"></script>

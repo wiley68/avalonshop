@@ -93,7 +93,15 @@
 	a:hover, button:hover{
 		-webkit-transition:color .1s ease, border-color .1s ease, background-color .1s ease;
 				transition:color .1s ease, border-color .1s ease, background-color .1s ease;
-	}
+    }
+    
+    legend a {
+        color:#E31E24;
+    }
+
+    legend a:hover {
+        text-decoration: underline;
+    }
 
 	::selection{
 		background:#E31E24;
@@ -6367,7 +6375,7 @@ flex-direction: column;
 	.call_to_action > .on_the_sides > [class*="_side"]{
 		display: block !important;
 		width: auto !important;
-	}
+    }
 
 }
 
@@ -6409,7 +6417,7 @@ flex-direction: column;
 		padding-left: 2px;
 		padding-right: 2px;
 		text-align: center;
-	}
+    }
 
 }
 @media only screen and (max-height:900px){

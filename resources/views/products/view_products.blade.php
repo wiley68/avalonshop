@@ -17,12 +17,13 @@
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
                                 <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
+                                <!--
                                 <section class="section_offset">
                                     <h3>Филтър продукти</h3>
                                     <form class="type_2">
                                         <div class="table_layout list_view">
                                             <div class="table_row">
-                                                <!-- - - - - - - - - - - - - - Category filter - - - - - - - - - - - - - - - - -->
+                                                {{--
                                                 @php
                                                     $categories_in = [];
                                                     if (!empty($queries['category_id'])){
@@ -31,33 +32,31 @@
                                                         }
                                                     }
                                                 @endphp
+                                                --}}
 
                                                 <div class="table_cell">
                                                     <fieldset>
-                                                        <legend>Категории</legend>
+                                                        <legend>Категории&nbsp;&raquo;&nbsp;<a href="#" id="viewall">виж всички</a></legend>
                                                         <ul class="checkboxes_list">
-                                                            @foreach ($root_categories as $root_category)
+                                                            {{--@foreach ($root_categories as $root_category)--}}
                                                             <li>
-                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif name="category_id"
-                                                                    id="category_{{ $root_category->id }}">
+                                                                <input type="checkbox" {{--@if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif--}} name="category_id"
+                                                                    id="category_{{--{{ $root_category->id }}--}}">
                                                                 <label
-                                                                    for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
+                                                                    for="category_{{--{{ $root_category->id }}--}}">{{--{{ $root_category->name }}--}}</label>
                                                             </li>
-                                                            @foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)
-                                                            <li>
-                                                                <input type="checkbox" @if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif name="category_id"
-                                                                    id="category_{{ $item->id }}">
+                                                            {{--@foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)--}}
+                                                            <li name="subcategories" style="display:none;">
+                                                                <input type="checkbox" {{--@if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif--}} name="category_id"
+                                                                    id="category_{{-- {{ $item->id }}--}}">
                                                                 <label
-                                                                    for="category_{{ $item->id }}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{ $item->name }}</span></label>
+                                                                    for="category_{{--{{ $item->id }}--}}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{--{{ $item->name }}--}}</span></label>
                                                             </li>
-                                                            @endforeach
-                                                            @endforeach
+                                                            {{--@endforeach--}}
+                                                            {{--@endforeach--}}
                                                         </ul>
                                                     </fieldset>
                                                 </div>
-                                                <!--/ .table_cell -->
-                                                <!-- - - - - - - - - - - - - - End Category filter - - - - - - - - - - - - - - -->
-                                                <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Price</legend>
@@ -71,9 +70,6 @@
                                                         <div id="slider"></div>
                                                     </fieldset>
                                                 </div>
-                                                <!--/ .table_cell -->
-                                                <!-- - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - -->
-                                                <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Color</legend>
@@ -119,12 +115,8 @@
                                                         </div>
                                                     </fieldset>
                                                 </div>
-                                                <!--/ .table_cell -->
-                                                <!-- - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - -->
                                             </div>
-                                            <!--/ .table_row -->
                                         </div>
-                                        <!--/ .table_layout -->
                                         <footer class="bottom_box">
                                             <div class="buttons_row">
                                                 <button type="submit" class="button_blue middle_btn">Search</button>
@@ -134,6 +126,7 @@
                                         </footer>
                                     </form>
                                 </section>
+                                -->
                                 <!-- - - - - - - - - - - - - - End of filter - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
@@ -143,10 +136,10 @@
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Already viewed products - - - - - - - - - - - - - - - - -->
+                                <!--
                                 <section class="section_offset">
                                     <h3>Already Viewed Products</h3>
                                     <ul class="products_list_widget">
-                                        <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
                                         <li>
                                             <a href="#" class="product_thumb">
                                                 <img src="images/product_thumb_4.jpg" alt="">
@@ -155,7 +148,6 @@
                                                 <a href="#" class="product_title">Aenean auctor wisi et urna...</a>
                                                 <div class="clearfix product_info">
                                                     <p class="product_price alignleft"><b>$5.99</b></p>
-                                                    <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                     <ul class="rating alignright">
                                                         <li class="active"></li>
                                                         <li class="active"></li>
@@ -163,20 +155,18 @@
                                                         <li class="active"></li>
                                                         <li></li>
                                                     </ul>
-                                                    <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
                                                 </div>
                                             </div>
                                         </li>
-                                        <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
                                     </ul>
-                                    <!--/ .list_of_products-->
                                 </section>
+                                -->
                                 <!-- - - - - - - - - - - - - - End of already viewed products - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Compare products - - - - - - - - - - - - - - - - -->
+                                <!--
                                 <section class="section_offset">
                                     <h3>Compare Products</h3>
                                     <ul class="products_list_widget">
-                                        <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
                                         <li>
                                             <a href="#" class="product_thumb">
                                                 <img src="images/product_thumb_10.jpg" alt="">
@@ -188,8 +178,6 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
-                                        <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
                                         <li>
                                             <a href="#" class="product_thumb">
                                                 <img src="images/product_thumb_11.jpg" alt="">
@@ -201,38 +189,22 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
                                     </ul>
-                                    <!--/ .list_of_products-->
                                     <footer class="bottom_box">
                                         <a href="shop_product_comparison.html" class="button_grey middle_btn">Go to
                                             Compare</a>
                                     </footer>
                                 </section>
+                                -->
                                 <!-- - - - - - - - - - - - - - End of compare products - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Tags - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
-                                    <h3>Tags</h3>
+                                    <h3>Етикети</h3>
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
-                                            <li><a href="#" class="button_grey">allergy</a></li>
-                                            <li><a href="#" class="button_grey">baby</a></li>
-                                            <li><a href="#" class="button_grey">beauty</a></li>
-                                            <li><a href="#" class="button_grey">ear care</a></li>
-                                            <li><a href="#" class="button_grey">for her</a></li>
-                                            <li><a href="#" class="button_grey">for him</a></li>
-                                            <li><a href="#" class="button_grey">first aid</a></li>
-                                            <li><a href="#" class="button_grey">gift sets</a></li>
-                                            <li><a href="#" class="button_grey">spa</a></li>
-                                            <li><a href="#" class="button_grey">hair care</a></li>
-                                            <li><a href="#" class="button_grey">herbs</a></li>
-                                            <li><a href="#" class="button_grey">medicine</a></li>
-                                            <li><a href="#" class="button_grey">natural</a></li>
-                                            <li><a href="#" class="button_grey">oral care</a></li>
-                                            <li><a href="#" class="button_grey">pain</a></li>
-                                            <li><a href="#" class="button_grey">pedicure</a></li>
-                                            <li><a href="#" class="button_grey">personal care</a></li>
-                                            <li><a href="#" class="button_grey">probiotics</a></li>
+                                            @foreach ($tagsp as $tag)
+                                                <li><a href="{{ route('products', ['tag_id'=>$tag->id]) }}" class="button_grey">{{ $tag->name }}</a></li>                                            
+                                            @endforeach
                                         </ul>
                                         <!--/ .tags_cloud-->
                                     </div>
@@ -250,17 +222,24 @@
 
                             <main class="col-md-9 col-sm-8">
                                 <div class="section_offset">
+                                    <form enctype="multipart/form-data" action="{{ route('products') }}" method="post" name="order_products" id="order_products" novalidate="novalidate">
+                                    @csrf
+                                    @foreach (Category::all() as $category)
+                                        <input style="display:none;" type="checkbox" @if(in_array($category->id, $category_id)) checked @endif name="category_id[]" value="{{ $category->id }}">
+                                    @endforeach
+                                    <input name="tag_id" type="hidden" value="{{ $tag_id }}">
                                     <header class="top_box on_the_sides">
                                         <div class="left_side clearfix v_centered">
                                             <!-- - - - - - - - - - - - - - Sort by - - - - - - - - - - - - - - - - -->
                                             <div class="v_centered">
                                                 <span>Подреди по:</span>
-                                                <div class="custom_select sort_select">
-                                                    <select name="">
-                                                        <option value="Въвеждане">Въвеждане</option>
-                                                        <option value="Цена">Цена</option>
-                                                        <option value="Име">Име</option>
-                                                        <option value="Дата">Дата</option>
+                                                <div class="sort_select">
+                                                    <select name="order_by" id="order_by">
+                                                        <option value="order_by_id" @if ($order_by == 'order_by_id') selected @endif>Въвеждане</option>
+                                                        <option value="order_by_price_desc" @if ($order_by == 'order_by_price_desc') selected @endif>Цена Низходящо</option>
+                                                        <option value="order_by_price_asc" @if ($order_by == 'order_by_price_asc') selected @endif>Цена Възходящо</option>
+                                                        <option value="order_by_name_asc" @if ($order_by == 'order_by_name_asc') selected @endif>Име А-Я</option>
+                                                        <option value="order_by_name_desc" @if ($order_by == 'order_by_name_desc') selected @endif>Име Я-А</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -268,19 +247,20 @@
                                             <!-- - - - - - - - - - - - - - Number of products shown - - - - - - - - - - - - - - - - -->
                                             <div class="v_centered">
                                                 <span>Покажи:</span>
-                                                <div class="custom_select">
-                                                    <select name="">
-                                                        <option value="15">15</option>
-                                                        <option value="12">12</option>
-                                                        <option value="9">9</option>
-                                                        <option value="6">6</option>
-                                                        <option value="3">3</option>
+                                                <div>
+                                                    <select name="paginate_by" id="paginate_by">
+                                                        <option value="15" @if ($paginate == '15') selected @endif>15</option>
+                                                        <option value="12" @if ($paginate == '12') selected @endif>12</option>
+                                                        <option value="9" @if ($paginate == '9') selected @endif>9</option>
+                                                        <option value="6" @if ($paginate == '6') selected @endif>6</option>
+                                                        <option value="3" @if ($paginate == '3') selected @endif>3</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <!-- - - - - - - - - - - - - - End of number of products shown - - - - - - - - - - - - - - - - -->
                                         </div>
                                     </header>
+                                    </form>
                                     <div class="table_layout" id="products_container">
                                         @php
                                         $rows = ceil($products->count() / 3);
@@ -300,7 +280,7 @@
                                                                     <div class="centered_buttons">
                                                                         <a href="#"
                                                                             class="button_dark_grey middle_btn quick_view"
-                                                                            data-modal-url="modals/quick_view.html">Бърз преглед</a>
+                                                                            data-modal-url="modals/quick_view.html">Подробно</a>
                                                                         <a href="#"
                                                                             class="button_blue middle_btn add_to_cart">Купи</a>
                                                                     </div>
@@ -400,4 +380,25 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    // Submit order form on change
+    $('#order_by').on('change', function(e) {
+        document.forms['order_products'].submit();
+    });
+
+    // Submit paginate form on change
+    $('#paginate_by').on('change', function(e) {
+        document.forms['order_products'].submit();
+    });
+
+    //$("#viewall").click(function(e){
+    //    e.preventDefault();
+    //    $("li[name='subcategories']").each(function(){
+    //        $(this).toggle('slow');
+    //    });
+    //});
+</script>  
 @endsection
