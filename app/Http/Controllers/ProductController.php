@@ -129,4 +129,39 @@ class ProductController extends Controller
         ]);
     }
 
+    /** start view product */
+    public function viewProduct(Request $request, $id=null){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        $product = Product::where(['id'=>$id])->first();
+        $product->visits += 1;
+        $product->save();
+
+        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $id])->first()->category_id])->first();
+        
+        $tagsp_ids = [];
+        $products_tagsp = ProductsTagsp::where(['product_id' => $id])->get();
+        foreach ($products_tagsp as $product_tagp) {
+            $tagsp_ids[] = $product_tagp->tagsp_id;
+        }
+        $tagsp = Tagsp::whereIn('id', $tagsp_ids)->get();
+        $all_tagsp_ids = [];
+        $all_products_tagsp = ProductsTagsp::all();
+        foreach ($all_products_tagsp as $all_product_tag) {
+            $all_tagsp_ids[] = $all_product_tag->tagsp_id;
+        }
+        $all_tagsp = Tagsp::whereIn('id', $all_tagsp_ids)->get();
+
+        return view('products.view_product')->with([
+            'title' => $product->name . ' | Авалон',
+            'description' => $product->name . '.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка, софтуер',
+            'root_categories' => $root_categories,
+            'product'=>$product,
+            'tagsp' => $tagsp,
+            'all_tagsp' => $all_tagsp,
+            'product_category' => $product_category
+        ]);
+    }
+    /** end view product */
+
 }

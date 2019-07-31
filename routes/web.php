@@ -57,6 +57,7 @@ Route::get('/support/software/{id}.html', 'SupportController@supportsoftware')->
 /** end support section */
 /** start products section */
 Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts')->name('products');
+Route::get('/products/product{id}.html', 'ProductController@viewProduct')->name('product');
 /** end products section */
 /** start help section */
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');

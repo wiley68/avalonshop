@@ -145,7 +145,7 @@
                                             <div class="product_item">
                                                     <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
                                                     <div class="image_wrap">
-                                                        <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product_item->id }}_1.png" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                        <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product_item->id }}_1.png" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                         <div class="actions_wrap">
                                                             <div class="centered_buttons">
@@ -216,7 +216,7 @@
                                         @foreach ($supports_gamings as $support_gaming)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" alt="{{ $support_gaming->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" alt="{{ $support_gaming->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Игрални компютри</p>
@@ -234,7 +234,7 @@
                                         @foreach ($supports_offices as $support_office)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" alt="{{ $support_office->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" alt="{{ $support_office->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Офис компютри</p>
@@ -252,7 +252,7 @@
                                         @foreach ($supports_printers as $support_printer)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" alt="{{ $support_printer->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" alt="{{ $support_printer->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Принтери и Копири</p>
@@ -270,7 +270,7 @@
                                         @foreach ($supports_instalations as $support_instalation)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" alt="{{ $support_instalation->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" alt="{{ $support_instalation->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Инсталация и настройка</p>
@@ -288,7 +288,7 @@
                                         @foreach ($supports_networks as $support_network)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" alt="{{ $support_network->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" alt="{{ $support_network->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Локални мрежи</p>
@@ -306,7 +306,7 @@
                                         @foreach ($supports_cameras as $support_camera)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" alt="{{ $support_camera->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" alt="{{ $support_camera->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Камери и Охрана</p>
@@ -324,7 +324,7 @@
                                         @foreach ($supports_softwares as $support_software)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" alt="{{ $support_software->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" alt="{{ $support_software->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Софтуер</p>
@@ -365,7 +365,7 @@
                                         @foreach ($webprojects as $webproject)
     										<div class="product_item">
                                                 <div class="image_wrap">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png" alt="{{ $webproject->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png" alt="{{ $webproject->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 </div><!--/. image_wrap-->
                                                 <hr /><br />
                                                 <div class="description align_center">

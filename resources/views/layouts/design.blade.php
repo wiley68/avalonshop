@@ -32,6 +32,8 @@
 
     <!-- Theme CSS
         ============================================ -->
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
@@ -61,6 +63,11 @@
 	<!-- Include Libs & Plugins
 	============================================ -->
     <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/queryloader2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+    <script src="{{ asset('js/fancybox/source/jquery.fancybox.pack.js') }}"></script>
+    <script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
+	<script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
