@@ -351,23 +351,23 @@
                     <div class="infoblocks_container">
                         <ul class="infoblocks_wrap">
                             <li>
-                                <a href="#" class="infoblock type_1">
+                                <a class="infoblock type_1">
                                     <i class="icon-paper-plane"></i>
-                                    <span class="caption"><b>Fast &amp; Free Delivery</b></span>
+                                    <span class="caption"><b>Бърза доставка</b></span>
                                 </a>
                                 <!--/ .infoblock-->
                             </li>
                             <li>
-                                <a href="#" class="infoblock type_1">
+                                <a class="infoblock type_1">
                                     <i class="icon-lock"></i>
-                                    <span class="caption"><b>Safe &amp; Secure Payment</b></span>
+                                    <span class="caption"><b>Защитено плащане</b></span>
                                 </a>
                                 <!--/ .infoblock-->
                             </li>
                             <li>
-                                <a href="#" class="infoblock type_1">
+                                <a class="infoblock type_1">
                                     <i class="icon-money"></i>
-                                    <span class="caption"><b>100% Money back Guaranted</b></span>
+                                    <span class="caption"><b>Безплатна доставка над 400 лв.</b></span>
                                 </a>
                                 <!--/ .infoblock-->
                             </li>
