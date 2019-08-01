@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function viewProducts(){
         // get root categories
         $root_categories = Category::where(['parent_id' => 0])->get();
+
         // get working tags
         $tags_working = [];
         $products_tagsp = DB::table('products_tagsp')
@@ -24,15 +25,22 @@ class ProductController extends Controller
             ->get();
         $tagsp_counter = 0;
         foreach ($products_tagsp as $tagp) {
-            if ($tagsp_counter < 30){
+            if ($tagsp_counter < 20){
                 $tags_working[] = $tagp->tagsp_id;
                 $tagsp_counter++;
             }else{
                 break;
             }
         }
-        $tagsp = Tagsp::whereIn('id', $tags_working)->get();
-        
+
+        // get manufacturers
+        $products_manufacturers = DB::table('products')
+            ->select('manufacturer_id', DB::raw('count(*) as total'))
+            ->groupBy('manufacturer_id')
+            ->orderBy('total', 'DESC')
+            ->take(20)
+            ->get();
+    
         // get products
         $products = Product::where('id' ,'>' ,0);
 
@@ -88,6 +96,15 @@ class ProductController extends Controller
             $tag_id = '';
         }
 
+        // Get manufacturer request
+        if (!empty(request('manufacturer_id'))){
+            // Get products by manufacturer
+            $manufacturer_id = request('manufacturer_id');
+            $products = $products->where('manufacturer_id', $manufacturer_id);
+        }else{
+            $manufacturer_id = '';
+        }
+
         // sorting
         // Sorting products
         if (request()->has('order_by')){
@@ -122,10 +139,12 @@ class ProductController extends Controller
             'paginate' => $paginate,
             'products' => $products,
             'queries' => $queries,
-            'tagsp' => $tagsp,
+            'tags_working' => $tags_working,
             'category_id' => $category_id,
             'tag_id' => $tag_id,
-            'order_by' => $order_by
+            'order_by' => $order_by,
+            'products_manufacturers' => $products_manufacturers,
+            'manufacturer_id' => $manufacturer_id
         ]);
     }
 
@@ -144,6 +163,7 @@ class ProductController extends Controller
             $tagsp_ids[] = $product_tagp->tagsp_id;
         }
         $tagsp = Tagsp::whereIn('id', $tagsp_ids)->get();
+
         $all_tagsp_ids = [];
         $all_products_tagsp = ProductsTagsp::all();
         foreach ($all_products_tagsp as $all_product_tag) {

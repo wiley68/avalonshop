@@ -1,4 +1,6 @@
 <?php use App\Category; ?>
+<?php use App\Tagsp; ?>
+<?php use App\Manufacturer; ?>
 <?php use Illuminate\Support\Collection; ?>
 @extends('layouts.design')
 @section('content')
@@ -197,13 +199,27 @@
                                 </section>
                                 -->
                                 <!-- - - - - - - - - - - - - - End of compare products - - - - - - - - - - - - - - - - -->
+                                <!-- - - - - - - - - - - - - - Manufacturers - - - - - - - - - - - - - - - - -->
+                                <section class="section_offset">
+                                    <h3>Производители</h3>
+                                    <div class="tags_container">
+                                        <ul class="tags_cloud">
+                                            @foreach ($products_manufacturers as $product_manufacturer)
+                                                <li><a href="{{ route('products', ['manufacturer_id'=>$product_manufacturer->manufacturer_id]) }}" class="button_grey">{{ Manufacturer::where(['id' => $product_manufacturer->manufacturer_id])->first()->name }}</a></li>                                            
+                                            @endforeach
+                                        </ul>
+                                        <!--/ .tags_cloud-->
+                                    </div>
+                                    <!--/ .tags_container-->
+                                </section>
+                                <!-- - - - - - - - - - - - - - End of Manufacturers - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Tags - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
                                     <h3>Етикети</h3>
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
-                                            @foreach ($tagsp as $tag)
-                                                <li><a href="{{ route('products', ['tag_id'=>$tag->id]) }}" class="button_grey">{{ $tag->name }}</a></li>                                            
+                                            @foreach ($tags_working as $working_tag_id)
+                                                <li><a href="{{ route('products', ['tag_id'=>$working_tag_id]) }}" class="button_grey">{{ Tagsp::where(['id' => $working_tag_id])->first()->name }}</a></li>                                            
                                             @endforeach
                                         </ul>
                                         <!--/ .tags_cloud-->
@@ -228,6 +244,7 @@
                                         <input style="display:none;" type="checkbox" @if(in_array($category->id, $category_id)) checked @endif name="category_id[]" value="{{ $category->id }}">
                                     @endforeach
                                     <input name="tag_id" type="hidden" value="{{ $tag_id }}">
+                                    <input name="manufacturer_id" type="hidden" value="{{ $manufacturer_id }}">
                                     <header class="top_box on_the_sides">
                                         <div class="left_side clearfix v_centered">
                                             <!-- - - - - - - - - - - - - - Sort by - - - - - - - - - - - - - - - - -->
