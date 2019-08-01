@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\ProductsTagsp;
 use App\Manufacturer;
 use App\ProductsAttributes;
+use App\Review;
 
 class ProductController extends Controller
 {
@@ -186,6 +187,11 @@ class ProductController extends Controller
         // get attributes
         $products_attributes = ProductsAttributes::where(['product_id' => $product->id])->get();
 
+        // get reviews
+        $reviews = Review::where(['product_id' => $product->id])->get();
+
+        // get featured products
+        $featured_products = Product::where(['isfeatured' => 1])->take(10)->get();
 
         return view('products.view_product')->with([
             'title' => $product->name . ' | Авалон',
@@ -198,7 +204,9 @@ class ProductController extends Controller
             'product_category' => $product_category,
             'manufacturer_name' => $manufacturer_name,
             'manufacturer_id' => $manufacturer_id,
-            'products_attributes' => $products_attributes
+            'products_attributes' => $products_attributes,
+            'reviews' => $reviews,
+            'featured_products' => $featured_products
         ]);
     }
     /** end view product */

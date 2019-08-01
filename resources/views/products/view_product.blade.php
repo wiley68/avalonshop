@@ -63,19 +63,25 @@
                                     <!-- - - - - - - - - - - - - - End of page navigation - - - - - - - - - - - - - - - - -->
                                     <div class="description_section v_centered">
                                         <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                    
+                                        @php
+                                            $all_rev = 0;
+                                            foreach ($reviews as $review){
+                                                $all_rev += $review->price + $review->value + $review->quantity;
+                                            }
+                                            $all_rev = floor($all_rev / $reviews->count() * 3);
+                                        @endphp
                                         <ul class="rating">
-                                            <li class="active"></li>
-                                            <li class="active"></li>
-                                            <li class="active"></li>
-                                            <li></li>
-                                            <li></li>
+                                            <li @if ($all_rev > 0) class="active" @endif></li>
+                                            <li @if ($all_rev > 1) class="active" @endif></li>
+                                            <li @if ($all_rev > 2) class="active" @endif></li>
+                                            <li @if ($all_rev > 3) class="active" @endif></li>
+                                            <li @if ($all_rev > 4) class="active" @endif></li>
                                         </ul>
                                             
                                         <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
                                         <!-- - - - - - - - - - - - - - Reviews menu - - - - - - - - - - - - - - - - -->
                                         <ul class="topbar">
-                                            <li>3 Отзив(а)</li>
+                                            <li>{{ $reviews->count() }} Отзив(а)</li>
                                             <li><a href="#">Добавете отзив</a></li>
                                             <li>{{ $product->visits }}&nbsp;посещения</li>
                                         </ul>
@@ -173,7 +179,7 @@
                                 <ul class="tabs_nav clearfix">
                                     <li><a href="#tab-1">Описание</a></li>
                                     <li><a href="#tab-2">Спецификация</a></li>
-                                    <li><a href="#tab-3">Отзиви (3)</a></li>
+                                    <li><a href="#tab-3">Отзиви ({{ $reviews->count() }})</a></li>
                                     <li><a href="#tab-4">Допълнителна информация</a></li>
                                 </ul>
                                 
@@ -197,191 +203,71 @@
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-3" class="tab_container">
                                         <section class="section_offset">
-                                            <h3>Customer Reviews</h3>
+                                            <h3>Потребителски отзиви</h3>
                                             <ul class="reviews">
+                                                @foreach ($reviews as $review)
                                                 <li>
-                                                    <!-- - - - - - - - - - - - - - Review - - - - - - - - - - - - - - - - -->
-                                                    
-                                                    <article class="review">
-                                                        <!-- - - - - - - - - - - - - - Rates - - - - - - - - - - - - - - - - -->
-                                                        <ul class="review-rates">
-                                                            <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Price</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of price - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Value - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Value</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of value - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Quality - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Quality</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of quality - - - - - - - - - - - - - - - - -->
-                                                        </ul>
-                                                        <!-- - - - - - - - - - - - - - End of rates - - - - - - - - - - - - - - - - -->
-                                                        <!-- - - - - - - - - - - - - - Review body - - - - - - - - - - - - - - - - -->
-                                                        <div class="review-body">
-                                                            <div class="review-meta">
-                                                                
-                                                                <h5 class="bold">Good Quality</h5>
-                                                                Review by <a href="#" class="bold">Ivana Wrong</a> on 12/4/2014
+                                                        <!-- - - - - - - - - - - - - - Review - - - - - - - - - - - - - - - - -->
+                                                        <article class="review">
+                                                            <!-- - - - - - - - - - - - - - Rates - - - - - - - - - - - - - - - - -->
+                                                            <ul class="review-rates">
+                                                                <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
+                                                                <li class="v_centered">
+                                                                    <span class="name">Цена</span>
+                                                                    <ul class="rating">
+                                                                        <li @if ($review->price > 0) class="active" @endif></li>
+                                                                        <li @if ($review->price > 1) class="active" @endif></li>
+                                                                        <li @if ($review->price > 2) class="active" @endif></li>
+                                                                        <li @if ($review->price > 3) class="active" @endif></li>
+                                                                        <li @if ($review->price > 4) class="active" @endif></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <!-- - - - - - - - - - - - - - End of price - - - - - - - - - - - - - - - - -->
+                                                                <!-- - - - - - - - - - - - - - Value - - - - - - - - - - - - - - - - -->
+                                                                <li class="v_centered">
+                                                                    <span class="name">Функционалност</span>
+                                                                    <ul class="rating">
+                                                                        <li @if ($review->value > 0) class="active" @endif></li>
+                                                                        <li @if ($review->value > 1) class="active" @endif></li>
+                                                                        <li @if ($review->value > 2) class="active" @endif></li>
+                                                                        <li @if ($review->value > 3) class="active" @endif></li>
+                                                                        <li @if ($review->value > 4) class="active" @endif></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <!-- - - - - - - - - - - - - - End of value - - - - - - - - - - - - - - - - -->
+                                                                <!-- - - - - - - - - - - - - - Quality - - - - - - - - - - - - - - - - -->
+                                                                <li class="v_centered">
+                                                                    <span class="name">Качество</span>
+                                                                    <ul class="rating">
+                                                                        <li @if ($review->quantity > 0) class="active" @endif></li>
+                                                                        <li @if ($review->quantity > 1) class="active" @endif></li>
+                                                                        <li @if ($review->quantity > 2) class="active" @endif></li>
+                                                                        <li @if ($review->quantity > 3) class="active" @endif></li>
+                                                                        <li @if ($review->quantity > 4) class="active" @endif></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <!-- - - - - - - - - - - - - - End of quality - - - - - - - - - - - - - - - - -->
+                                                            </ul>
+                                                            <!-- - - - - - - - - - - - - - End of rates - - - - - - - - - - - - - - - - -->
+                                                            <!-- - - - - - - - - - - - - - Review body - - - - - - - - - - - - - - - - -->
+                                                            <div class="review-body">
+                                                                <div class="review-meta">
+                                                                    <h5 class="bold">{{ $review->subject }}</h5>
+                                                                    @php
+                                                                        $date = new DateTime($review->created_at);
+                                                                    @endphp
+                                                                    Отзив от <span class="bold">{{ $review->name }}</span> на {{ $date->format('d.m.Y H:i:s') }}
+                                                                </div>
+                                                                <p>{{ $review->review }}</p>
                                                             </div>
-                                                            <p>Aliquam Erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo.</p>
-                                                        </div>
-                                                        <!-- - - - - - - - - - - - - - End of review body - - - - - - - - - - - - - - - - -->
-                                                    </article>
-                                                    <!-- - - - - - - - - - - - - - End of review - - - - - - - - - - - - - - - - -->
-                                                </li>
-                                                <li>
-                                                    <!-- - - - - - - - - - - - - - Review - - - - - - - - - - - - - - - - -->
-                                                    
-                                                    <article class="review">
-                                                        <!-- - - - - - - - - - - - - - Rates - - - - - - - - - - - - - - - - -->
-                                                        <ul class="review-rates">
-                                                            <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Price</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of price - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Value - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Value</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of value - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Quality - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Quality</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of quality - - - - - - - - - - - - - - - - -->
-                                                        </ul>
-                                                        <!-- - - - - - - - - - - - - - End of rates - - - - - - - - - - - - - - - - -->
-                                                        <!-- - - - - - - - - - - - - - Review body - - - - - - - - - - - - - - - - -->
-                                                        <div class="review-body">
-                                                            <div class="review-meta">
-                                                                
-                                                                <h5 class="bold">Excelent</h5>
-                                                                Review by <a href="#" class="bold">Bradley Grosh</a> on 26/3/2014
-                                                            </div>
-                                                            <p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.</p>
-                                                        </div>
-                                                        <!-- - - - - - - - - - - - - - End of review body - - - - - - - - - - - - - - - - -->
-                                                    </article>
-                                                    <!-- - - - - - - - - - - - - - End of review - - - - - - - - - - - - - - - - -->
-                                                </li>
-                                                <li>
-                                                    <!-- - - - - - - - - - - - - - Review - - - - - - - - - - - - - - - - -->
-                                                    
-                                                    <article class="review">
-                                                        <!-- - - - - - - - - - - - - - Rates - - - - - - - - - - - - - - - - -->
-                                                        <ul class="review-rates">
-                                                            <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Price</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of price - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Value - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Value</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of value - - - - - - - - - - - - - - - - -->
-                                                            <!-- - - - - - - - - - - - - - Quality - - - - - - - - - - - - - - - - -->
-                                                            <li class="v_centered">
-                                                                
-                                                                <span class="name">Quality</span>
-                                                                <ul class="rating">
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li class="active"></li>
-                                                                    <li></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- - - - - - - - - - - - - - End of quality - - - - - - - - - - - - - - - - -->
-                                                        </ul>
-                                                        <!-- - - - - - - - - - - - - - End of rates - - - - - - - - - - - - - - - - -->
-                                                        <!-- - - - - - - - - - - - - - Review body - - - - - - - - - - - - - - - - -->
-                                                        <div class="review-body">
-                                                            <div class="review-meta">
-                                                                
-                                                                <h5 class="bold">Fast Shipping</h5>
-                                                                Review by <a href="#" class="bold">Alan Smith</a> on 4/3/2014
-                                                            </div>
-                                                            <p>Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor ut, ligula.</p>
-                                                        </div>
-                                                        <!-- - - - - - - - - - - - - - End of review body - - - - - - - - - - - - - - - - -->
-                                                    </article>
-                                                    <!-- - - - - - - - - - - - - - End of review - - - - - - - - - - - - - - - - -->
-                                                </li>
+                                                            <!-- - - - - - - - - - - - - - End of review body - - - - - - - - - - - - - - - - -->
+                                                        </article>
+                                                        <!-- - - - - - - - - - - - - - End of review - - - - - - - - - - - - - - - - -->
+                                                    </li>                                                        
+                                                @endforeach
                                             </ul>
-                                            <a href="#" class="button_grey middle_btn">Show All</a>
                                         </section><!--/ .section_offset -->
+                                        @auth
                                         <section class="section_offset">
                                             <h3>Write Your Own Review</h3>
                                             <div class="row">
@@ -529,12 +415,14 @@
                                                 </div>
                                             </div><!--/ .row -->
                                         </section><!--/ .section_offset -->
+                                        @endauth
                                     </div><!--/ #tab-3-->
                                     <!-- - - - - - - - - - - - - - End tab - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-4" class="tab_container">
                                         <!-- - - - - - - - - - - - - - Youtube video - - - - - - - - - - - - - - - - -->
                                         <div class="video_wrap">
+                                            {!! $product->description2 !!}
                                         </div><!--/ .video_wrap -->
                                         <!-- - - - - - - - - - - - - - End of youtube video - - - - - - - - - - - - - - - - -->
                                     </div><!--/ #tab-4-->
@@ -546,371 +434,40 @@
                         <!-- - - - - - - - - - - - - - End of tabs - - - - - - - - - - - - - - - - -->
                         <!-- - - - - - - - - - - - - - Related products - - - - - - - - - - - - - - - - -->
                         <section class="section_offset">
-                            <h3 class="offset_title">Related Products</h3>
+                            <h3 class="offset_title">Промоционални продукти</h3>
                             <!-- - - - - - - - - - - - - - Carousel of featured products - - - - - - - - - - - - - - - - -->
                             <div class="owl_carousel five_items">
+                                @foreach ($featured_products as $featured_product)
                                 <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
                                 <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_24.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-                                    <div class="label_new">New</div>
-                                    <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Leo vel metus nulla facilisi etiam cursus 750mg, Softgels 120 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$44.99</b></p>
+                                        <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
+                                        <div class="image_wrap">
+                                            <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $featured_product->id }}_1.png" style="max-width:200px;" alt="{{ $featured_product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                            <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
+                                            <div class="actions_wrap">
+                                                <div class="centered_buttons">
+                                                    <a href="{{ route('product', ['id' => $featured_product->id]) }}" class="button_dark_grey middle_btn quick_view">Подробно</a>
+                                                    <a href="#" class="button_blue middle_btn add_to_cart">Купи</a>
+                                                </div><!--/ .centered_buttons -->
+                                                <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Добави към любими</span></a>
+                                            </div><!--/ .actions_wrap-->
+                                            <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                        </div><!--/. image_wrap-->
+                                        <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
+                                        <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
+                                        <div class="label_new">промо</div>
+                                        <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
+                                        <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
+                                        <div class="description">
+                                            <a href="{{ route('product', ['id' => $featured_product->id]) }}">{{ $featured_product->name }}</a>
+                                            <div class="clearfix product_info">
+                                                <p class="product_price alignleft"><b>{{ number_format($featured_product->price, 2, ".", "") }}</b>&nbsp;лв.</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_25.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Vestibulum libero nisl, porta vel 30</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$39.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_26.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-                                    <div class="label_hot">Hot</div>
-                                    <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Nam elit agna, endrerit sit amet, tincidunt ac, viverra, 2.5 fl oz (75ml)</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$14.99</b></p>
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_27.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Dictum magna sed laoreet aliquam, Capsules 60 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$27.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_28.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Ut tellus dolor dapibus eget elementum ut tellus dolor 5 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$11.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_24.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-                                    <div class="label_new">New</div>
-                                    <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Leo vel metus nulla facilisi etiam cursus 750mg, Softgels 120 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$44.99</b></p>
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_25.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Vestibulum libero nisl, porta vel 30</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$39.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_26.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
-                                    <div class="label_hot">Hot</div>
-                                    <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Nam elit agna, endrerit sit amet, tincidunt ac, viverra, 2.5 fl oz (75ml)</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$14.99</b></p>
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_27.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Dictum magna sed laoreet aliquam, Capsules 60 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$27.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
-                                <div class="product_item">
-                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <div class="image_wrap">
-                                        <img src="/images/product_img_28.jpg" alt="">
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="#" class="button_dark_grey middle_btn quick_view" data-modal-url="modals/quick_view.html">Quick View</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Add to Cart</a>
-                                            </div><!--/ .centered_buttons -->
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip right">Add to Wishlist</span></a>
-                                            <a href="#" class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip left">Add to Compare</span></a>
-                                        </div><!--/ .actions_wrap-->
-                                        
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                    </div><!--/. image_wrap-->
-                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
-                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
-                                    <div class="description">
-                                        <a href="#">Ut tellus dolor dapibus eget elementum ut tellus dolor 5 ea</a>
-                                        <div class="clearfix product_info">
-                                            <p class="product_price alignleft"><b>$11.99</b></p>
-                                            <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
-                                            <ul class="rating alignright">
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li class="active"></li>
-                                                <li></li>
-                                            </ul>
-                                            
-                                            <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                    </div>
-                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
-                                </div><!--/ .product_item-->
-                                
-                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+                                        <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
+                                    </div><!--/ .product_item-->
+                                    <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->                                        
+                                @endforeach
                             </div><!--/ .owl_carousel.five_items-->
                             <!-- - - - - - - - - - - - - - End of featured products - - - - - - - - - - - - - - - - -->
                         </section><!--/ .section_offset-->
