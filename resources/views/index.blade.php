@@ -15,9 +15,8 @@
 									<div class="rev_slider">
 										<ul>
 											<!-- - - - - - - - - - - - - - Slide 1 - - - - - - - - - - - - - - - - -->
-											<li data-transition="papercut" data-slotamount="7">
-												
-												<img src="/images/home_slide_4.jpg" alt="">
+											<li data-transition="papercut" data-slotamount="7">												
+												<img src="/images/home_slide_1.jpg" alt="">
 												<div class="caption sfl stl layer_1" data-x="left" data-hoffset="60" data-y="90" data-easing="easeOutBack" data-speed="600" data-start="900">Best Quality</div>
 												<div class="caption sfl stl layer_2" data-x="left" data-y="138" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1000">Medications</div>
 												<div class="caption sfl stl layer_3" data-x="left" data-y="190" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1100">at Low Prices</div>

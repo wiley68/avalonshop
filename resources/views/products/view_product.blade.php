@@ -73,8 +73,9 @@
                                         <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
                                         <!-- - - - - - - - - - - - - - Reviews menu - - - - - - - - - - - - - - - - -->
                                         <ul class="topbar">
-                                            <li><a href="#">3 Отзив(а)</a></li>
+                                            <li>3 Отзив(а)</li>
                                             <li><a href="#">Добавете отзив</a></li>
+                                            <li>{{ $product->visits }}&nbsp;посещения</li>
                                         </ul>
                                         <!-- - - - - - - - - - - - - - End of reviews menu - - - - - - - - - - - - - - - - -->
                                     </div>
@@ -83,7 +84,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Производител: </td>
-                                                    <td><a href="#">Chanel</a></td>
+                                                    <td><a href="#">{{ $manufacturer_name }}</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Наличност: </td>
