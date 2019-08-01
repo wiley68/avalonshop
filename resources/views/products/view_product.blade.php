@@ -1,3 +1,5 @@
+<?php use App\Attribute; ?>
+<?php use App\AttributeValues; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -84,11 +86,11 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Производител: </td>
-                                                    <td><a href="#">{{ $manufacturer_name }}</a></td>
+                                                    <td><a href="{{ route('products', ['manufacturer_id'=>$manufacturer_id]) }}">{{ $manufacturer_name }}</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Наличност: </td>
-                                                    <td><span class="in_stock">in stock</span> 20 item(s)</td>
+                                                    <td><span class="in_stock">{{ $product->instock }}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Продуктов код: </td>
@@ -133,9 +135,9 @@
                                     <section class="infoblock type_3">
                                         <div class="clearfix">
                                             <i class="icon-thumbs-up-1"></i>
-                                            <h4 class="caption">The Highest<br>Product Quality</h4>
+                                            <h4 class="caption">Най-добро качество</h4>
                                         </div>
-                                        <p>Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. <a href="#">Read More.</a></p>
+                                        <p>Всички предлагани от нас продукти имат гаранция и са тествани и подбрани от нашия екип. Гарантираме за доброто им качество.</p>
                                     </section><!--/ .infoblock.type_3 -->
                                     <!-- - - - - - - - - - - - - - End of infoblock - - - - - - - - - - - - - - - - -->
                                 </div><!--/ [col]-->
@@ -144,9 +146,9 @@
                                     <section class="infoblock type_3">
                                         <div class="clearfix">
                                             <i class="icon-money"></i>
-                                            <h4 class="caption">100% Money<br>Back Guaranteed</h4>
+                                            <h4 class="caption">Безплатна доставка</h4>
                                         </div>
-                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. <a href="#">Read More.</a></p>
+                                        <p>Безплатна доставка в страната. Важи за закупени стоки над 400 лв. Доставя се до офис на куриер избран от клиента.</a></p>
                                     </section><!--/ .infoblock.type_3 -->
                                     <!-- - - - - - - - - - - - - - End of infoblock - - - - - - - - - - - - - - - - -->
                                 </div><!--/ [col]-->
@@ -155,9 +157,9 @@
                                     <section class="infoblock type_3">
                                         <div class="clearfix">
                                             <i class="icon-lock"></i>
-                                            <h4 class="caption">Safe &amp; Secure<br>Payment</h4>
+                                            <h4 class="caption">Поверителност</h4>
                                         </div>
-                                        <p>Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Read More.</a></p>
+                                        <p>Авалон ООД се задължава да използва получените от клиентите лични данни само за нуждите на доставка на продуктите.</p>
                                     </section><!--/ .infoblock.type_3 -->
                                     <!-- - - - - - - - - - - - - - End of infoblock - - - - - - - - - - - - - - - - -->
                                 </div><!--/ [col]-->
@@ -186,11 +188,9 @@
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-2" class="tab_container">
                                         <ul class="specifications">
-                                            <li><span>Weight:</span>0.3 Kg</li>
-                                            <li><span>Dimensions:</span>20x10x30 Cm</li>
-                                            <li><span>Material:</span>Plastic</li>
-                                            <li><span>Manufacture:</span>G&amp;D</li>
-                                            <li><span>Guarantee:</span>2 Years</li>
+                                            @foreach ($products_attributes as $product_attribute)
+                                                <li><span>{{ Attribute::where(['id' => $product_attribute->attribute_id])->first()->name }} :</span>{{ AttributeValues::where(['id' => $product_attribute->attribute_value_id])->first()->value }}</li>                                            
+                                            @endforeach
                                         </ul>
                                     </div><!--/ #tab-2-->
                                     <!-- - - - - - - - - - - - - - End tab - - - - - - - - - - - - - - - - -->

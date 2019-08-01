@@ -10,6 +10,7 @@ use App\Tagsp;
 use Illuminate\Support\Facades\DB;
 use App\ProductsTagsp;
 use App\Manufacturer;
+use App\ProductsAttributes;
 
 class ProductController extends Controller
 {
@@ -182,6 +183,10 @@ class ProductController extends Controller
             $manufacturer_id = 0;
         }
 
+        // get attributes
+        $products_attributes = ProductsAttributes::where(['product_id' => $product->id])->get();
+
+
         return view('products.view_product')->with([
             'title' => $product->name . ' | Авалон',
             'description' => $product->name . '.',
@@ -192,7 +197,8 @@ class ProductController extends Controller
             'all_tagsp' => $all_tagsp,
             'product_category' => $product_category,
             'manufacturer_name' => $manufacturer_name,
-            'manufacturer_id' => $manufacturer_id
+            'manufacturer_id' => $manufacturer_id,
+            'products_attributes' => $products_attributes
         ]);
     }
     /** end view product */
