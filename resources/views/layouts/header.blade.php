@@ -127,7 +127,108 @@
 											<ul>
                                                 <li><a href="{{ route('index') }}">Начало</a></li>
 												<li><a href="{{ route('index') }}">Профил</a></li>
-												<li><a href="{{ route('index') }}">Поръчка</a></li>
+												<li class="has_submenu">
+													<a>Софтуер</a>
+													<ul class="theme_menu submenu">
+														<!--<li class="current" >-->
+                                                        <li class="has_submenu">
+                                                            <a>Десктоп софтуер</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="has_submenu">
+                                                            <a>WEB Модули</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('web.cc_woocommerce') }}">Кредитен Калкулатор WooCommerce</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор OpenCart</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор Magento</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web.cc_prestashop') }}">Кредитен Калкулатор PrestaShop</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="has_submenu">
+                                                            <a>WEB Софтуер</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade Store</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade StoreERP</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade INS</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web-soft.avamb') }}">AVAMB</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="has_submenu">
+                                                            <a>WEB Услуги</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('web-service.website') }}">Стандартен WEB Сайт</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web-service.onlineshop') }}">Онлайн Магазин</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('web-service.webservice') }}">WEB Услуги</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="has_submenu">
+                                                            <a>Мобилен Софтуер</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('mobile.avambmobile') }}">AVAMB Mobile</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="has_submenu">
+                                                            <a>Софтуер за Индустрията</a>
+                                                            <ul class="theme_menu submenu">
+                                                                <!--<li class="current" >-->
+                                                                <li>
+                                                                    <a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+													</ul>
+												</li>
 												<li class="has_submenu">
 													<a href="{{ route('support.posts', ['id'=>'all']) }}">Поддръжка</a>
 													<ul class="theme_menu submenu">
@@ -266,6 +367,22 @@
                         <div class="col-sm-12">
                             <div class="alert_box success">
                                 {!! $message !!}
+                                <button class="close"></button>
+                            </div>
+                        </div>            
+                    </div>            
+                </div>
+                @endif
+                @if ($errors->any())
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="alert_box error">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                                 <button class="close"></button>
                             </div>
                         </div>            

@@ -194,9 +194,9 @@ class ProductController extends Controller
         $featured_products = Product::where(['isfeatured' => 1])->take(10)->get();
 
         return view('products.view_product')->with([
-            'title' => $product->name . ' | Авалон',
-            'description' => $product->name . '.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка, софтуер',
+            'title' => $product->meta_title . ' | Авалон',
+            'description' => $product->meta_description,
+            'keywords' => $product->meta_keywords,
             'root_categories' => $root_categories,
             'product'=>$product,
             'tagsp' => $tagsp,

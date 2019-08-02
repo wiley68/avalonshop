@@ -316,7 +316,7 @@
                                                             <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
                                                             <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                                             <div class="description">
-                                                                <a href="#">{{ $products_collection[$i+$j]['name'] }}</a>
+                                                                <a href="{{ route('product', ['id' => $products_collection[$i+$j]['id']]) }}">{{ $products_collection[$i+$j]['name'] }}</a>
                                                                 <div class="clearfix product_info">
                                                                     <p class="product_price alignleft"><b>{{ number_format($products_collection[$i+$j]['price'], 2, ".", "") }}</b> лв.</p>
                                                                     <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->

@@ -155,6 +155,15 @@
                                                         <textarea id="cf_message" required name="cf_message" title="Съобщение" rows="6"></textarea>
                                                     </div><!--/ [col]-->
                                                 </li><!--/ .row -->
+                                                <li class="row">
+                                                    <div class="col-xs-12" style="padding-top:10px;">
+                                                        @if(env('GOOGLE_RECAPTCHA_KEY'))
+                                                        <div class="g-recaptcha"
+                                                             data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                                                        </div>
+                                                        @endif                                                    
+                                                    </div><!--/ [col]-->
+                                                </li><!--/ .row -->
                                             </ul>
                                         <!-- - - - - - - - - - - - - - End of contact form - - - - - - - - - - - - - - - - -->
                                     </div><!--/ .theme_box -->
@@ -206,4 +215,8 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

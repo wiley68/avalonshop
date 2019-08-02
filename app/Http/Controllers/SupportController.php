@@ -99,9 +99,9 @@ class SupportController extends Controller
         $same_supports = Support::where(['category_id' => $support->category_id])->get()->take($same_supports_count);
 
         return view('support.post')->with([
-            'title' => 'Техническа поддръжка и ревюта на софтуер - ' . $support->name . ' | Авалон',
-            'description' => 'Техническа поддръжка и ревюта на софтуер - ' . $support->name . '.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка, софтуер',
+            'title' => $support->meta_title . ' | Авалон',
+            'description' => $support->meta_description,
+            'keywords' => $support->meta_keywords,
             'root_categories' => $root_categories,
             'support'=>$support,
             'tags' => $tags,

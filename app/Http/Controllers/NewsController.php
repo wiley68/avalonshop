@@ -41,9 +41,9 @@ class NewsController extends Controller
         $news->save();
 
         return view('news.post')->with([
-            'title' => 'Новини - ' . $news->name . ' | Авалон',
-            'description' => 'Новини - ' . $news->name . '.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, поддръжка, софтуер',
+            'title' => $news->meta_title . ' | Авалон',
+            'description' => $news->meta_description,
+            'keywords' => $news->meta_keywords,
             'root_categories' => $root_categories,
             'news' => $news
         ]);
