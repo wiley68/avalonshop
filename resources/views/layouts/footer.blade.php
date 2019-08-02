@@ -244,11 +244,22 @@
 									</div>
 								</li>
 								
-								<li class="row">
+                                <li class="row">
+                                    <div class="col-xs-12">
+                                        @if(env('GOOGLE_RECAPTCHA_KEY'))
+                                        <div class="g-recaptcha"
+                                             data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                                        </div>
+                                        @endif                                                    
+                                    </div><!--/ [col]-->
+                                </li><!--/ .row -->
+
+                                <li class="row">
 									<div class="col-xs-12">
 										<button class="button_grey middle_btn">Изпрати</button>
 									</div>
-								</li>
+                                </li>
+                                
 							</ul>
 						</form>
 					</div><!--/ .animated_item-->
@@ -288,3 +299,4 @@
 			<!-- - - - - - - - - - - - - - End google map - - - - - - - - - - - - - - - - -->
 		</ul>
 		<!-- - - - - - - - - - - - - - End Social feeds - - - - - - - - - - - - - - - - -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>

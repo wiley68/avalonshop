@@ -160,7 +160,7 @@
                                                     <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
                                                     <!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
                                                     <div class="description align_center">
-                                                        <p><a href="#">{{ $product_item->name }}</a></p>
+                                                        <p style="height:30px;"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
                                                         <div class="clearfix product_info">
                                                             <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                             <ul class="rating alignright">
@@ -174,9 +174,11 @@
                                                             <p class="product_price alignleft"><b>{{ $product_item->price }}</b>&nbsp;лв.</p>
                                                         </div><!--/ .clearfix.product_info-->
                                                         <button class="button_blue middle_btn">Купи</button>
+                                                        @auth
                                                         <ul class="bottombar">
                                                             <li><a href="#">Добави към любими</a></li>
-                                                        </ul>
+                                                        </ul>                                                            
+                                                        @endauth
                                                     </div>
                                                     <!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
                                                 </div><!--/ .product_item-->

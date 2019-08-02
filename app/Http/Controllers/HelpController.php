@@ -30,7 +30,15 @@ class HelpController extends Controller
         $this->validate($request, [
             'cf_name' => 'required',
             'cf_email' => 'required',
-            'cf_message' => 'required'
+            'cf_message' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha'
+        ],
+        [
+            'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
+            'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
+            'cf_message.required' => 'Задължително е въвеждането на съобщение!',
+            'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
+            'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
         ]);
 
         $name = $request->input('cf_name');
@@ -79,7 +87,15 @@ class HelpController extends Controller
         $this->validate($request, [
             'cf_name' => 'required',
             'cf_email' => 'required',
-            'cf_message' => 'required'
+            'cf_message' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha'
+        ],
+        [
+            'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
+            'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
+            'cf_message.required' => 'Задължително е въвеждането на съобщение!',
+            'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
+            'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
         ]);
 
         $name = $request->input('cf_name');
