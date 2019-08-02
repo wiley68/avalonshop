@@ -60,8 +60,8 @@
 								<a href="#" class="banner">
 									<img src="/images/banner_img_10.png" alt="">
 								</a>
-								<a href="#" class="banner">
-									<img src="/images/banner_img_11.png" alt="">
+								<a href="{{ route('product', ['id' => 1]) }}" class="banner">
+									<img src="/images/cmr.png" alt="">
 								</a>
 							</div><!--/ [col]-->
 							<!-- - - - - - - - - - - - - - End of banners - - - - - - - - - - - - - - - - -->
