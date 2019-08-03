@@ -1,4 +1,4 @@
-<?php use App\Category; ?>		
+<?php use App\Category; ?>
 		<!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
 		<div class="wide_layout">
 			<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
@@ -26,7 +26,7 @@
 										<input type="text" name="" tabindex="1" placeholder="Търси..." class="alignleft">
 										<button class="button_blue def_icon_btn alignleft"></button>
 									</form><!--/ #search-->
-									
+
 									<!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
 								</div><!--/ [col]-->
 								<div class="col-lg-3 col-sm-4">
@@ -43,7 +43,7 @@
                                             -->
 										</div><!--/ .alignright.site_settings-->
 										<!-- - - - - - - - - - - - - - End of language change - - - - - - - - - - - - - - - - -->
-										
+
 										<!-- - - - - - - - - - - - - - Currency change - - - - - - - - - - - - - - - - -->
 										<div class="alignright site_settings currency">
                                             <span>лв.</span>
@@ -60,7 +60,7 @@
 									<!-- - - - - - - - - - - - - - Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
 									<ul class="account_bar">
                                         <!--
-										<li>							
+										<li>
 											<a href="#" class="wishlist_button" data-amount="7"></a>
 										</li>
 										<li>
@@ -68,7 +68,7 @@
                                         </li>
                                         -->
 										<li>
-											<div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="#" data-modal-url="modals/login.html">Вход</a> - <a href="#">Регистрация</a></div></div>
+											<div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход</a> - <a href="#">Регистрация</a></div></div>
 										</li>
 									</ul><!--/ .account_bar-->
 									<!-- - - - - - - - - - - - - - End Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
@@ -108,14 +108,14 @@
                                                                         $item_ids = [];
                                                                         $item_ids[] = $item->id;
                                                                     @endphp
-																	<li><a href="{{ route('products', ['category_id'=>$item_ids]) }}">{{ $item->name }}</a></li>																	
+																	<li><a href="{{ route('products', ['category_id'=>$item_ids]) }}">{{ $item->name }}</a></li>
 																@endforeach
 															</ul>
 														</div><!--/ .mega_menu_item-->
 													</div><!--/ .mega_menu-->
-												</li>													
+												</li>
 											@endforeach
-											
+
 											<li class="has_megamenu animated_item"><a href="{{ route('products') }}" class="all"><b>Всички продукти</b></a></li>
 										</ul>
 										<!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
@@ -308,7 +308,7 @@
 														<p>1 x $499.00</p>
 														<button class="close"></button>
 													</div><!--/ .clearfix.sc_product-->
-													
+
 													<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 												</div><!--/ .animated_item-->
 												<div class="animated_item">
@@ -319,7 +319,7 @@
 														<p>1 x $499.00</p>
 														<button class="close"></button>
 													</div><!--/ .clearfix.sc_product-->
-													
+
 													<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 												</div><!--/ .animated_item-->
 												<div class="animated_item">
@@ -330,7 +330,7 @@
 														<p>1 x $499.00</p>
 														<button class="close"></button>
 													</div><!--/ .clearfix.sc_product-->
-													
+
 													<!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
 												</div><!--/ .animated_item-->
 												<div class="animated_item">
@@ -340,7 +340,7 @@
 														<li><span class="price">Discount:</span> $37.00</li>
 														<li class="total"><b><span class="price">Total:</span> $999.00</b></li>
 													</ul>
-													
+
 													<!-- - - - - - - - - - - - - - End of total info - - - - - - - - - - - - - - - - -->
 												</div><!--/ .animated_item-->
 												<div class="animated_item">
@@ -348,9 +348,9 @@
 													<a href="#" class="button_blue">Купи</a>
 												</div><!--/ .animated_item-->
 											</div><!--/ .shopping_cart.dropdown-->
-										
+
 										<!-- - - - - - - - - - - - - - End of products list - - - - - - - - - - - - - - - - -->
-										
+
 									</div><!--/ .nav_item-->
 									<!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
 								</div><!--/ .sticky_inner -->
@@ -360,7 +360,7 @@
                     </div><!--/ .container-->
 				</div><!--/ .main_navigation_wrap-->
                 <!-- - - - - - - - - - - - - - End of main navigation wrapper - - - - - - - - - - - - - - - - -->
-                
+
                 @if (!empty($message))
                 <div class="container">
                     <div class="row">
@@ -369,8 +369,8 @@
                                 {!! $message !!}
                                 <button class="close"></button>
                             </div>
-                        </div>            
-                    </div>            
+                        </div>
+                    </div>
                 </div>
                 @endif
                 @if ($errors->any())
@@ -385,10 +385,10 @@
                                 </ul>
                                 <button class="close"></button>
                             </div>
-                        </div>            
-                    </div>            
+                        </div>
+                    </div>
                 </div>
                 @endif
             </header>
-			
+
 			<!-- - - - - - - - - - - - - - End Header - - - - - - - - - - - - - - - - -->

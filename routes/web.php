@@ -75,3 +75,7 @@ Route::get('/news/post{id}.html', 'NewsController@post')->name('news.post');
 /** start faq */
 Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 /** end faq */
+/** start users routes */
+// Users routes
+Route::get('/login-register', 'UsersController@loginRegisterUsers')->name('login-register');
+/** end users routes */
