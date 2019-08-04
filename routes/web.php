@@ -15,13 +15,13 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/za-nas.html', 'IndexController@forUs')->name('for_us');
 Route::get('/kontakt.html', 'IndexController@contact')->name('contact');
 /** end top menus */
-/** start menu Avalon */ 
+/** start menu Avalon */
 Route::get('/avalon/magazin.html', 'IndexController@shop')->name('avalon.shop');
 Route::get('/avalon/serviz.html', 'IndexController@service')->name('avalon.service');
 Route::get('/avalon/serviz-printeri.html', 'IndexController@service_printeri')->name('avalon.service-printeri');
 Route::get('/avalon.komputarni-mrezi.html', 'IndexController@mrezi')->name('avalon.mrezi');
 Route::get('/avalon/karta.html', 'IndexController@sitemap')->name('avalon.sitemap');
-/** stop menu Avalon */ 
+/** stop menu Avalon */
 /** start footer menu */
 Route::get('/obshti-uslovia.html', 'IndexController@terms')->name('terms');
 Route::get('/gdpr.html', 'IndexController@gdpr')->name('gdpr');
@@ -78,4 +78,6 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 /** start users routes */
 // Users routes
 Route::get('/login-register', 'UsersController@loginRegisterUsers')->name('login-register');
+Route::post('/user-register', 'UsersController@registerUser')->name('user-register');
+Route::post('/user-login', 'UsersController@loginUser')->name('user-login');
 /** end users routes */

@@ -68,7 +68,7 @@
                                         </li>
                                         -->
 										<li>
-											<div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход</a> - <a href="#">Регистрация</a></div></div>
+											<div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход | Регистрация</a></div></div>
 										</li>
 									</ul><!--/ .account_bar-->
 									<!-- - - - - - - - - - - - - - End Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
