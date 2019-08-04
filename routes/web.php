@@ -77,7 +77,18 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 /** end faq */
 /** start users routes */
 // Users routes
-Route::get('/login-register', 'UsersController@loginRegisterUsers')->name('login-register');
-Route::post('/user-register', 'UsersController@registerUser')->name('user-register');
-Route::post('/user-login', 'UsersController@loginUser')->name('user-login');
+Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
+Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
+Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
+Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
 /** end users routes */
+/** start fronend */
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::get('/home.html', 'UsersController@dashboard')->name('home');
+    }
+);
+/** stop frontend */
+
+Auth::routes();

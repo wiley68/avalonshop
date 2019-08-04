@@ -68,7 +68,11 @@
                                         </li>
                                         -->
 										<li>
-											<div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход | Регистрация</a></div></div>
+                                            @guest
+                                            <div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход | Регистрация</a></div></div>
+                                            @else
+                                            <div class="login_box"><div class="login_box_inner">{{ Auth::user()->name }}&nbsp;:&nbsp;<a href="{{ route('logout-user') }}">Изход</a></div></div>
+                                            @endguest
 										</li>
 									</ul><!--/ .account_bar-->
 									<!-- - - - - - - - - - - - - - End Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
@@ -373,7 +377,7 @@
                     </div>
                 </div>
                 @endif
-                @if ($errors->any())
+                @if (!empty($errors) && $errors->any())
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
