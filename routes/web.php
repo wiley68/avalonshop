@@ -87,6 +87,7 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('/home.html', 'UsersController@dashboard')->name('home');
+        Route::match(['get', 'post'], '/change-password.html', 'UsersController@changePassword')->name('change-password');
     }
 );
 /** stop frontend */

@@ -130,7 +130,11 @@
 										<nav class="main_navigation">
 											<ul>
                                                 <li><a href="{{ route('index') }}">Начало</a></li>
-												<li><a href="{{ route('index') }}">Профил</a></li>
+                                                @auth
+                                                    <li><a href="{{ route('home') }}">Профил</a></li>
+                                                @else
+                                                    <li><a href="{{ route('index') }}">Профил</a></li>                                                    
+                                                @endauth
 												<li class="has_submenu">
 													<a>Софтуер</a>
 													<ul class="theme_menu submenu">
@@ -364,7 +368,6 @@
                     </div><!--/ .container-->
 				</div><!--/ .main_navigation_wrap-->
                 <!-- - - - - - - - - - - - - - End of main navigation wrapper - - - - - - - - - - - - - - - - -->
-
                 @if (!empty($message))
                 <div class="container">
                     <div class="row">

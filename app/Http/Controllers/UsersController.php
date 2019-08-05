@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -24,9 +26,9 @@ class UsersController extends Controller
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         return view('users.dashboard')->with([
-            'title' => '' . ' | Авалон',
-            'description' => '',
-            'keywords' => '',
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
             'root_categories' => $root_categories
         ]);
     }
@@ -93,5 +95,40 @@ class UsersController extends Controller
         Auth::logout();
         $request->session()->flush();
         return redirect('/');
+    }
+
+    public function changePassword(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.change_password')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
     }
 }
