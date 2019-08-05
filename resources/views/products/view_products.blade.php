@@ -14,7 +14,18 @@
                         <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
                         <ul class="breadcrumbs">
                             <li><a href="{{ route('index') }}">Начало</a></li>
-                            <li>Филтър за продукти</li>
+                            @php
+                                $categories_names = '';
+                                if (!empty($category_id)){
+                                    $categories_names = '&nbsp;:&nbsp;<strong>';
+                                    foreach ($category_id as $catid) {
+                                        $categories_names .= Category::where(['id' => $catid])->first()->name . ', ';
+                                    }
+                                    $categories_names = rtrim($categories_names, ', ');
+                                    $categories_names .= '</strong>';
+                                }
+                            @endphp
+                            <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ: <strong>{{ $search_text }}</strong>)@endif{!! $categories_names !!}</li>
                         </ul>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
@@ -205,7 +216,7 @@
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
                                             @foreach ($products_manufacturers as $product_manufacturer)
-                                                <li><a href="{{ route('products', ['manufacturer_id'=>$product_manufacturer->manufacturer_id]) }}" class="button_grey">{{ Manufacturer::where(['id' => $product_manufacturer->manufacturer_id])->first()->name }}</a></li>                                            
+                                                <li><a href="{{ route('products', ['manufacturer_id'=>$product_manufacturer->manufacturer_id]) }}" class="button_grey">{{ Manufacturer::where(['id' => $product_manufacturer->manufacturer_id])->first()->name }}</a></li>
                                             @endforeach
                                         </ul>
                                         <!--/ .tags_cloud-->
@@ -219,7 +230,7 @@
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
                                             @foreach ($tags_working as $working_tag_id)
-                                                <li><a href="{{ route('products', ['tag_id'=>$working_tag_id]) }}" class="button_grey">{{ Tagsp::where(['id' => $working_tag_id])->first()->name }}</a></li>                                            
+                                                <li><a href="{{ route('products', ['tag_id'=>$working_tag_id]) }}" class="button_grey">{{ Tagsp::where(['id' => $working_tag_id])->first()->name }}</a></li>
                                             @endforeach
                                         </ul>
                                         <!--/ .tags_cloud-->
@@ -334,7 +345,7 @@
                                                         </div>
                                                         <!--/ .product_item-->
                                                     </div>
-                                                    <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->                                                        
+                                                    <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
                                                 @endif
                                             @endfor
                                         </div>
@@ -417,5 +428,5 @@
     //        $(this).toggle('slow');
     //    });
     //});
-</script>  
+</script>
 @endsection

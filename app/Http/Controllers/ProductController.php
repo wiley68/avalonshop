@@ -43,7 +43,7 @@ class ProductController extends Controller
             ->orderBy('total', 'DESC')
             ->take(20)
             ->get();
-    
+
         // get products
         $products = Product::where('id' ,'>' ,0);
 
@@ -55,6 +55,18 @@ class ProductController extends Controller
         }
         $paginate = $paginate_by;
         $queries = [];
+
+        // Get search requests
+        if (!empty(request('search_text'))){
+            // save queries
+            $queries['search_text'] = request('search_text');
+
+            // filter products
+            $products = $products->where('name', 'LIKE', '%' . request('search_text') . '%')->orWhere('description', 'LIKE', '%' . request('search_text') . '%');
+            $search_text = request('search_text');
+        }else{
+            $search_text = '';
+        }
 
         // Get category requests
         if (!empty(request('category_id'))){
@@ -133,7 +145,7 @@ class ProductController extends Controller
         }
 
         $products = $products->paginate($paginate)->appends($queries);
-        
+
         return view('/products/view_products')->with([
             'title' => 'Продуктов филтър. Софтуер - продажба на компютърна техника | Авалон',
             'description' => 'Продуктов филтър. Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
@@ -147,7 +159,8 @@ class ProductController extends Controller
             'tag_id' => $tag_id,
             'order_by' => $order_by,
             'products_manufacturers' => $products_manufacturers,
-            'manufacturer_id' => $manufacturer_id
+            'manufacturer_id' => $manufacturer_id,
+            'search_text' => $search_text
         ]);
     }
 
@@ -159,7 +172,7 @@ class ProductController extends Controller
         $product->save();
 
         $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $id])->first()->category_id])->first();
-        
+
         $tagsp_ids = [];
         $products_tagsp = ProductsTagsp::where(['product_id' => $id])->get();
         foreach ($products_tagsp as $product_tagp) {

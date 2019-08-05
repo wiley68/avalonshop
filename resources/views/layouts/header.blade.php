@@ -22,9 +22,10 @@
 									</div><!--/ .call_us-->
 									<!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
 									<!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
-									<form class="clearfix search">
-										<input type="text" name="" tabindex="1" placeholder="Търси..." class="alignleft">
-										<button class="button_blue def_icon_btn alignleft"></button>
+									<form class="clearfix search" enctype="multipart/form-data" name="search_form" id="search_form" method="POST" action="{{ route('products') }}">
+                                        <input type="text" name="search_text" tabindex="1" placeholder="Търси..." class="alignleft">
+                                        @csrf
+										<button class="button_blue def_icon_btn alignleft" type="submit"></button>
 									</form><!--/ #search-->
 
 									<!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
@@ -133,7 +134,7 @@
                                                 @auth
                                                     <li><a href="{{ route('home') }}">Профил</a></li>
                                                 @else
-                                                    <li><a href="{{ route('index') }}">Профил</a></li>                                                    
+                                                    <li><a href="{{ route('index') }}">Профил</a></li>
                                                 @endauth
 												<li class="has_submenu">
 													<a>Софтуер</a>
