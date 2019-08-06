@@ -88,6 +88,12 @@ Route::group(
     function () {
         Route::get('/home.html', 'UsersController@dashboard')->name('home');
         Route::match(['get', 'post'], '/change-password.html', 'UsersController@changePassword')->name('change-password');
+        Route::match(['get', 'post'], '/change-data.html', 'UsersController@changeData')->name('change-data');
+        Route::match(['get', 'post'], '/show-orders.html', 'UsersController@showOrders')->name('show-orders');
+        Route::match(['get', 'post'], '/show-reviews.html', 'UsersController@showReviews')->name('show-reviews');
+        Route::match(['get', 'post'], '/show-favorites.html', 'UsersController@showFavorites')->name('show-favorites');
+        Route::match(['get', 'post'], '/edit-news.html', 'UsersController@editNews')->name('edit-news');
+        Route::match(['get', 'post'], '/person-settings.html', 'UsersController@personSettings')->name('person-settings');
     }
 );
 /** stop frontend */

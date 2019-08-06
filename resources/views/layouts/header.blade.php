@@ -72,7 +72,7 @@
                                             @guest
                                             <div class="login_box"><div class="login_box_inner">Потребител&nbsp;:&nbsp;<a href="{{ route('login-register') }}">Вход | Регистрация</a></div></div>
                                             @else
-                                            <div class="login_box"><div class="login_box_inner">{{ Auth::user()->name }}&nbsp;:&nbsp;<a href="{{ route('logout-user') }}">Изход</a></div></div>
+                                            <div class="login_box"><div class="login_box_inner"><a href="{{ route('home') }}" title="Преглед на профила.">{{ Auth::user()->name }}</a>&nbsp;:&nbsp;<a href="{{ route('logout-user') }}">Изход</a></div></div>
                                             @endguest
 										</li>
 									</ul><!--/ .account_bar-->

@@ -131,4 +131,223 @@ class UsersController extends Controller
             'root_categories' => $root_categories
         ]);
     }
+
+    public function changeData(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('POST')){
+            $this->validate($request, [
+                'user_name' => 'required'
+            ],
+            [
+                'user_name.required' => 'Задължително е въвеждането на Вашите имена!'
+            ]);
+    
+            $user = Auth::user();
+            $user->name = $request->input('user_name');
+            if (!empty($request->input('user_phone'))){
+                $user->phone = $request->input('user_phone');
+            }
+            if (!empty($request->input('user_city'))){
+                $user->city = $request->input('user_city');
+            }
+            if (!empty($request->input('user_address'))){
+                $user->address = $request->input('user_address');
+            }
+            if (!empty($request->input('user_phone2'))){
+                $user->phone2 = $request->input('user_phone2');
+            }
+            if (!empty($request->input('user_city2'))){
+                $user->city2 = $request->input('user_city2');
+            }
+            if (!empty($request->input('user_address2'))){
+                $user->address2 = $request->input('user_address2');
+            }
+            $user->save();
+            return redirect('/change-data.html')->with('message', 'Успешно променихте вашите данни!');
+        }
+
+        return view('users.change_data')->with([
+            'title' => 'Смяна на данните на текущия потребител' . ' | Авалон',
+            'description' => 'Смяна на данните на текущия потребител',
+            'keywords' => 'панел, управление, потребител, данни',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function showOrders(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.show_orders')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function showReviews(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.show_reviews')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function showFavorites(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.show_favorites')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function editNews(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.edit_news')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function personSettings(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        // Add user
+        if($request->isMethod('post')){
+            $this->validate($request, [
+                'old_password' => 'required',
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
+            ],
+            [
+                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+            ]);
+    
+            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
+                $password = bcrypt($request->input('new_password'));
+                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
+                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            }else{
+                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+
+        return view('users.person_settings')->with([
+            'title' => 'Панел за управление на потребител' . ' | Авалон',
+            'description' => 'Панел за управление на потребител',
+            'keywords' => 'панел, управление, потребител',
+            'root_categories' => $root_categories
+        ]);
+    }
 }
