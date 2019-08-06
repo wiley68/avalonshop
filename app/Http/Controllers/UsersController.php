@@ -8,6 +8,8 @@ use Auth;
 use App\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use App\Project;
+use App\Support;
 
 class UsersController extends Controller
 {
@@ -286,32 +288,20 @@ class UsersController extends Controller
 
         // Add user
         if($request->isMethod('post')){
-            $this->validate($request, [
-                'old_password' => 'required',
-                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
-                'register_password_again' => 'min:6'
-            ],
-            [
-                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
-                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
-                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
-                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
-                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
-            ]);
-    
-            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
-                $password = bcrypt($request->input('new_password'));
-                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
-                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
+            $user = Auth::user();
+            if ($request->input('isnews') == 'on'){
+                $user->isnews = 1;
             }else{
-                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+                $user->isnews = 0;
             }
+            $user->save();
+            return redirect('/edit-news.html')->with('message', 'Успешно променихте вашите данни!');
         }
 
         return view('users.edit_news')->with([
-            'title' => 'Панел за управление на потребител' . ' | Авалон',
-            'description' => 'Панел за управление на потребител',
-            'keywords' => 'панел, управление, потребител',
+            'title' => 'Записване за новини' . ' | Авалон',
+            'description' => 'Записване за новини',
+            'keywords' => 'панел, управление, потребител, новини',
             'root_categories' => $root_categories
         ]);
     }
@@ -350,4 +340,50 @@ class UsersController extends Controller
             'root_categories' => $root_categories
         ]);
     }
+
+    public function newsSuscribe(Request $request){
+        $this->validate($request, [
+            'sc_email' => 'required'
+        ],
+        [
+            'sc_email.required' => 'Задължително е въвеждането на Вашия e-mail адрес!'
+        ]);
+
+        // Add user
+        if($request->isMethod('post')){
+            $user = User::where(['email' => $request->input('sc_email')])->first();
+            if (!empty($user)){
+                $user->isnews = 1;
+                $user->save();
+                $root_categories = Category::where(['parent_id' => 0])->get();
+                
+                $webprojects = Project::all();
+                $supports_gamings = Support::where(['category_id' => 'gamings'])->get();
+                $supports_offices = Support::where(['category_id' => 'offices'])->get();
+                $supports_printers = Support::where(['category_id' => 'printers'])->get();
+                $supports_instalations = Support::where(['category_id' => 'instalations'])->get();
+                $supports_networks = Support::where(['category_id' => 'networks'])->get();
+                $supports_cameras = Support::where(['category_id' => 'cameras'])->get();
+                $supports_softwares = Support::where(['category_id' => 'softwares'])->get();
+                return view('index')->with([
+                    'title' => 'Софтуер - продажба на компютърна техника | Авалон',
+                    'description' => 'Проектиране и инсталиране на софтуер. Продажба на компютърна техника.',
+                    'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи',
+                    'root_categories' => $root_categories,
+                    'webprojects' => $webprojects,
+                    'supports_gamings' => $supports_gamings,
+                    'supports_offices' => $supports_offices,
+                    'supports_printers' => $supports_printers,
+                    'supports_instalations' => $supports_instalations,
+                    'supports_networks' => $supports_networks,
+                    'supports_cameras' => $supports_cameras,
+                    'supports_softwares' => $supports_softwares,
+                    'message' => 'Успешно се записахте за получаване на новини!'
+                ]);
+            }else{
+                return redirect('/')->withErrors(['Грешка при запис за новини:', 'Необходимо е да имате създаден профил в магазина за да използвате услугата!']);
+            }
+        }
+    }
+
 }

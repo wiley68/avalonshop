@@ -44,14 +44,40 @@
                             <!--/ [col]-->
                             <main class="col-md-9 col-sm-8">
                                 <h1>Записване за новини</h1>
+                                @if(session()->has('message'))
+                                <div class="alert_box success">
+                                    {{ session()->get('message') }}
+                                    <button class="close"></button>
+                                </div>
+                                @endif
                                 <section class="theme_box">
-                                    <h4></h4>
-                                    <p></p>
+                                    <h4>Промяна в настройките за получаване на новини</h4>
+                                    <p>От тук можете да променяте условието дали да Ви изпращаме дадена новина, свързана с нашите продукти.</p>
                                 </section>
                                 <!--/ .theme_box -->
                                 <!-- - - - - - - - - - - - - - Contact information - - - - - - - - - - - - - - - - -->
                                 <section class="theme_box">
-
+                                    <form class="login-form" id="isnews_form" name="isnews_form"
+                                    action="{{ route('edit-news') }}" method="post">
+                                    @csrf
+                                    <ul>
+                                        <li class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form_el">
+                                                    <input @if(Auth::user()->isnews != 0)checked="checked"@endif type="checkbox" name="isnews" id="isnews">
+                                                    <label for="isnews">Записване за новини</label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form_el">
+                                                    <button type="submit" class="button_dark_grey middle_btn">Запиши промените</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </form>
                                 </section>
                                 <!--/ .theme_box -->
                             </main>

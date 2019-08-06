@@ -81,6 +81,7 @@ Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
 Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
+Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
 /** start fronend */
 Route::group(

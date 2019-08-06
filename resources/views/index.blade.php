@@ -2,6 +2,19 @@
 <?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
+@if (!empty($message))
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert_box success">
+                {!! $message !!}
+                <button class="close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 			<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
 			<div class="page_wrapper">
 				<div class="container">

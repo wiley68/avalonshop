@@ -11,9 +11,10 @@
 								<section class="streamlined_type_2">
 								
 									<h4 class="streamlined_title">Запиши се за новини</h4>
-									<form class="newsletter subscribe" novalidate>
-										<input type="email" name="sc_email" placeholder="Въведете Вашия email адрес">
-										<button class="button_blue def_icon_btn"></button>
+									<form class="newsletter" enctype="multipart/form-data" name="news_subscribe" method="POST" action="{{ route('news-subscribe') }}">
+                                        <input type="email" name="sc_email" placeholder="Въведете Вашия email адрес">
+                                        @csrf
+										<button class="button_blue def_icon_btn" type="submit"></button>
 									</form>
 								</section><!--/ .streamlined-->
 							</div><!--/ [col]-->
