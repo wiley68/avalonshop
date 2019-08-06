@@ -313,12 +313,11 @@
                                                                             class="button_blue middle_btn add_to_cart">Купи</a>
                                                                     </div>
                                                                     <!--/ .centered_buttons -->
+                                                                    @auth
                                                                     <a href="#"
                                                                         class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"><span
-                                                                            class="tooltip right">Добави към любими</span></a>
-                                                                    <a href="#"
-                                                                        class="button_dark_grey def_icon_btn middle_btn add_to_compare tooltip_container"><span
-                                                                            class="tooltip left">Добави за сравнение</span></a>
+                                                                            class="tooltip right">Добави към любими</span></a>                                                                        
+                                                                    @endauth
                                                                 </div>
                                                                 <!--/ .actions_wrap-->
                                                                 <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
