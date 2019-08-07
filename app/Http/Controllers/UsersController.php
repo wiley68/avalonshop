@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\Support;
+use App\Favorite;
 
 class UsersController extends Controller
 {
@@ -250,36 +251,14 @@ class UsersController extends Controller
 
     public function showFavorites(Request $request){
         $root_categories = Category::where(['parent_id' => 0])->get();
-
-        // Add user
-        if($request->isMethod('post')){
-            $this->validate($request, [
-                'old_password' => 'required',
-                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
-                'register_password_again' => 'min:6'
-            ],
-            [
-                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
-                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
-                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
-                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
-                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
-            ]);
-    
-            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
-                $password = bcrypt($request->input('new_password'));
-                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
-                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
-            }else{
-                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
-            }
-        }
+        $favorites = Favorite::where(['user_id' => Auth::user()->id])->get();
 
         return view('users.show_favorites')->with([
-            'title' => 'Панел за управление на потребител' . ' | Авалон',
-            'description' => 'Панел за управление на потребител',
-            'keywords' => 'панел, управление, потребител',
-            'root_categories' => $root_categories
+            'title' => 'Любими продукти' . ' | Авалон',
+            'description' => 'Любими продукти',
+            'keywords' => 'панел, управление, любими, продукти',
+            'root_categories' => $root_categories,
+            'favorites' => $favorites
         ]);
     }
 

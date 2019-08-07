@@ -10,6 +10,7 @@
     <title>{{ $title ?? "Софтуер - продажба на компютърна техника | Авалон" }}</title>
     <meta name="description" content="{{ $description ?? "Проектиране и инсталиране на софтуер. Продажба на компютърна техника." }}">
     <meta name="keywords" content="{{ $keywords ?? "софтуер, програми, компютри, продажба, сержиз, консумативи" }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Mobile specific metas
 	============================================ -->

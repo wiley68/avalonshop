@@ -92,9 +92,11 @@ Route::group(
         Route::match(['get', 'post'], '/change-data.html', 'UsersController@changeData')->name('change-data');
         Route::match(['get', 'post'], '/show-orders.html', 'UsersController@showOrders')->name('show-orders');
         Route::match(['get', 'post'], '/show-reviews.html', 'UsersController@showReviews')->name('show-reviews');
-        Route::match(['get', 'post'], '/show-favorites.html', 'UsersController@showFavorites')->name('show-favorites');
+        Route::get('/show-favorites.html', 'UsersController@showFavorites')->name('show-favorites');
         Route::match(['get', 'post'], '/edit-news.html', 'UsersController@editNews')->name('edit-news');
         Route::match(['get', 'post'], '/person-settings.html', 'UsersController@personSettings')->name('person-settings');
+        Route::post('/add-favorite.html', 'FavoriteController@addFavorite')->name('add-favorite');
+        Route::post('/del-favorite.html', 'FavoriteController@delFavorite')->name('del-favorite');
     }
 );
 /** stop frontend */

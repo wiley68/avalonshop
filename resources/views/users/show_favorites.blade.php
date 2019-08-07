@@ -1,3 +1,4 @@
+<?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -45,13 +46,68 @@
                             <main class="col-md-9 col-sm-8">
                                 <h1>Моите любими продукти</h1>
                                 <section class="theme_box">
-                                    <h4></h4>
-                                    <p></p>
+                                    <h4>Налични любими продукти: {{ $favorites->count() }}</h4>
+                                    <p>Можете да купувате директно от таблицата с Вашите любими продукти, или да триете продукт от нея.</p>
                                 </section>
                                 <!--/ .theme_box -->
                                 <!-- - - - - - - - - - - - - - Contact information - - - - - - - - - - - - - - - - -->
                                 <section class="theme_box">
-
+                                    <table class="table_type_1 wishlist_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="product_image_col">Снимка</th>
+                                                <th class="product_title_col">Име на продукт и код</th>
+                                                <th class="product_price_col">Цена</th>
+                                                <th class="product_qty_col">Количество</th>
+                                                <th>Управление</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($favorites as $favorite)
+                                            @php
+                                                $product = Product::where(['id' => $favorite->product_id])->first(); 
+                                            @endphp
+                                            <tr>
+                                                <!-- - - - - - - - - - - - - - Product image - - - - - - - - - - - - - - - - -->
+                                                <td data-title="Product Image">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                                </td>
+                                                <!-- - - - - - - - - - - - - - End of product image - - - - - - - - - - - - - - - - -->
+                                                <!-- - - - - - - - - - - - - - Product name & category - - - - - - - - - - - - - - - - -->
+                                                <td data-title="Product Name and Category">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}" class="product_title">{{ $product->name }}</a><br />
+                                                    <span>{{ $product->code }}</span>
+                                                </td>
+                                                <!-- - - - - - - - - - - - - - End of product name & category - - - - - - - - - - - - - - - - -->
+                                                <!-- - - - - - - - - - - - - - Product price - - - - - - - - - - - - - - - - -->
+                                                <td data-title="Price" class="total">{{ number_format($product->price, 2, ".", "") }}&nbsp;лв.</td>
+                                                <!-- - - - - - - - - - - - - - End of product price - - - - - - - - - - - - - - - - -->
+                                                <!-- - - - - - - - - - - - - - Product quantity - - - - - - - - - - - - - - - - -->
+                                                <td data-title="Quantity">
+                                                    
+                                                    <div class="qty min clearfix">
+                                                        <button class="theme_button" data-direction="minus">&#45;</button>
+                                                        <input type="text" name="" value="1">
+                                                        <button class="theme_button" data-direction="plus">&#43;</button>
+                                                    </div><!--/ .qty.min.clearfix-->
+                                                </td>
+                                                <!-- - - - - - - - - - - - - - End of product quantity - - - - - - - - - - - - - - - - -->
+                                                <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
+                                                <td data-title="Action">
+                                                    <ul class="buttons_col">
+                                                        <li>
+                                                            <a href="#" class="button_blue">Купи</a>
+                                                        </li>
+                                                        <li>
+                                                            <button onclick="clickBtnDelFavorite(event, {{ $product->id }})" class="button_dark_grey">Премахни</button>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                            </tr>                                                
+                                            @endforeach
+                                        </tbody>
+                                    </table>    
                                 </section>
                                 <!--/ .theme_box -->
                             </main>
@@ -68,4 +124,32 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function clickBtnDelFavorite(e, id){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'/del-favorite.html',
+            data:{id:id},
+            success:function(data){
+                console.log(data);
+                if (data.result == "del"){
+                    alert("Успешно изтрихте този продукт от Любите си продукти.");
+                    window.location.reload();
+                }else{
+                    alert("Опитвате се да изтриете продукт, който липсва в листата от Любими продукти.");
+                }
+            }
+        });
+    };
+</script>
 @endsection

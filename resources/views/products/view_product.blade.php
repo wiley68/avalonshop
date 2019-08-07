@@ -127,7 +127,8 @@
                                     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                     <div class="buttons_row">
                                         <button class="button_blue middle_btn">Купи</button>
-                                        <button class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"><span class="tooltip top">Добави към любими</span></button>
+                                        <button class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container" 
+                                        onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span class="tooltip top">Добави към любими</span></button>
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                 </div>
@@ -482,4 +483,31 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function clickBtnAddFavorite(e, id){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'/add-favorite.html',
+            data:{id:id},
+            success:function(data){
+                console.log(data);
+                if (data.result == "new"){
+                    alert("Успешно добавихте този продукт към Любите си продукти.");
+                }else{
+                    alert("Вече сте добавили този продукт в Любимите си продукти.");
+                }
+            }
+        });
+    };
+</script>
 @endsection

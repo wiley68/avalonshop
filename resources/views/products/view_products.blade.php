@@ -314,7 +314,7 @@
                                                                     </div>
                                                                     <!--/ .centered_buttons -->
                                                                     @auth
-                                                                    <a href="#"
+                                                                    <a href="#" id="btn_add_favorite" onclick="clickBtnAddFavorite(event, {{ $products_collection[$i+$j]['id'] }})"
                                                                         class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"><span
                                                                             class="tooltip right">Добави към любими</span></a>                                                                        
                                                                     @endauth
@@ -421,11 +421,27 @@
         document.forms['order_products'].submit();
     });
 
-    //$("#viewall").click(function(e){
-    //    e.preventDefault();
-    //    $("li[name='subcategories']").each(function(){
-    //        $(this).toggle('slow');
-    //    });
-    //});
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function clickBtnAddFavorite(e, id){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'/add-favorite.html',
+            data:{id:id},
+            success:function(data){
+                console.log(data);
+                if (data.result == "new"){
+                    alert("Успешно добавихте този продукт към Любите си продукти.");
+                }else{
+                    alert("Вече сте добавили този продукт в Любимите си продукти.");
+                }
+            }
+        });
+    };
 </script>
 @endsection
