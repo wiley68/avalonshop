@@ -84,7 +84,7 @@
                                         <!-- - - - - - - - - - - - - - Reviews menu - - - - - - - - - - - - - - - - -->
                                         <ul class="topbar">
                                             <li>{{ $reviews->count() }} Отзив(а)</li>
-                                            <li><a href="#">Добавете отзив</a></li>
+                                            <li><a id="add_review">Добавете отзив</a></li>
                                             <li>{{ $product->visits }}&nbsp;посещения</li>
                                         </ul>
                                         <!-- - - - - - - - - - - - - - End of reviews menu - - - - - - - - - - - - - - - - -->
@@ -509,5 +509,7 @@
             }
         });
     };
+
+    $("#add_review").on('click', 'a:not(.all)', { tabs : $(".tabs") }, $(".tabs").openSubContainer);
 </script>
 @endsection
