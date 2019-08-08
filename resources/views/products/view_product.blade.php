@@ -272,109 +272,90 @@
                                         </section><!--/ .section_offset -->
                                         @auth
                                         <section class="section_offset">
-                                            <h3>Write Your Own Review</h3>
+                                            <h3>Напишете отзив за този продукт</h3>
                                             <div class="row">
                                                 <div class="col-lg-5 col-md-6">
-                                                    <p>You're reviewing: <a href="#">Metus nulla facilisi, Original 24 fl oz</a><br>How do you rate this product? *</p>
+                                                    <p>Вие оценявате: <a href="{{ route('product', ['id' => $product->id]) }}">{{ $product->name }}</a><br>Каква оценка ще дадете за този продукт? *</p>
                                                     <!-- - - - - - - - - - - - - - Rate the - - - - - - - - - - - - - - - - -->
                                                     <div class="table_wrap rate_table">
                                                         <table>
                                                             <thead>
                                                                 <tr>
-                                                                        
                                                                     <th></th>
-                                                                    <th>1 Star</th>
-                                                                    <th>2 Stars</th>
-                                                                    <th>3 Stars</th>
-                                                                    <th>4 Stars</th>
-                                                                    <th>5 Stars</th>
+                                                                    <th>1 звезда</th>
+                                                                    <th>2 звезди</th>
+                                                                    <th>3 звезди</th>
+                                                                    <th>4 звезди</th>
+                                                                    <th>5 звезди</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    
-                                                                    <td>Price</td>
+                                                                    <td>Цена</td>
                                                                     <td>
-                                                                            
-                                                                        <input checked type="radio" name="price_rate" id="rate_1">
+                                                                        <input type="radio" name="price_rate" id="rate_1">
                                                                         <label for="rate_1"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="price_rate" id="rate_2">
                                                                         <label for="rate_2"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="price_rate" id="rate_3">
                                                                         <label for="rate_3"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="price_rate" id="rate_4">
                                                                         <label for="rate_4"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
-                                                                        <input type="radio" name="price_rate" id="rate_5">
+                                                                        <input checked type="radio" name="price_rate" id="rate_5">
                                                                         <label for="rate_5"></label>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    
-                                                                    <td>Value</td>
+                                                                    <td>Функцион.</td>
                                                                     <td>
-                                                                            
-                                                                        <input checked type="radio" name="value_rate" id="rate_6">
+                                                                        <input type="radio" name="value_rate" id="rate_6">
                                                                         <label for="rate_6"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="value_rate" id="rate_7">
                                                                         <label for="rate_7"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="value_rate" id="rate_8">
                                                                         <label for="rate_8"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="value_rate" id="rate_9">
                                                                         <label for="rate_9"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
-                                                                        <input type="radio" name="value_rate" id="rate_10">
+                                                                        <input checked type="radio" name="value_rate" id="rate_10">
                                                                         <label for="rate_10"></label>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    
-                                                                    <td>Quality</td>
+                                                                    <td>Качество</td>
                                                                     <td>
-                                                                            
-                                                                        <input checked type="radio" name="quality_rate" id="rate_11">
+                                                                        <input type="radio" name="quality_rate" id="rate_11">
                                                                         <label for="rate_11"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="quality_rate" id="rate_12">
                                                                         <label for="rate_12"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="quality_rate" id="rate_13">
                                                                         <label for="rate_13"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
                                                                         <input type="radio" name="quality_rate" id="rate_14">
                                                                         <label for="rate_14"></label>
                                                                     </td>
                                                                     <td>
-                                                                            
-                                                                        <input type="radio" name="quality_rate" id="rate_15">
+                                                                        <input checked type="radio" name="quality_rate" id="rate_15">
                                                                         <label for="rate_15"></label>
                                                                     </td>
                                                                 </tr>
@@ -384,32 +365,29 @@
                                                     <!-- - - - - - - - - - - - - - End of rate the - - - - - - - - - - - - - - - - -->
                                                 </div><!--/ [col]-->
                                                 <div class="col-lg-7 col-md-6">
-                                                    <p class="subcaption">All fields are required.</p>
+                                                    <p class="subcaption">Всички полета са задължителни.</p>
                                                     <!-- - - - - - - - - - - - - - Review form - - - - - - - - - - - - - - - - -->
                                                     <form class="type_2">
                                                         <ul>
                                                             <li class="row">
                                                                 <div class="col-sm-6">
-                                                                    
-                                                                    <label for="nickname">Nickname</label>
-                                                                    <input type="text" name="" id="nickname">
+                                                                    <label for="nickname">Име</label>
+                                                                    <input type="text" name="nickname" id="nickname">
                                                                 </div>
                                                                 <div class="col-sm-6">
-                                                                    
-                                                                    <label for="summary">Summary of Your Review</label>
-                                                                    <input type="text" name="" id="summary">
+                                                                    <label for="summary">Относно</label>
+                                                                    <input type="text" name="summary" id="summary">
                                                                 </div>
                                                             </li>
                                                             <li class="row">
                                                                 <div class="col-xs-12">
-                                                                    <label for="review_message">Review</label>
-                                                                    <textarea rows="5" id="review_message"></textarea>
+                                                                    <label for="review_message">Отзив</label>
+                                                                    <textarea rows="5" name="review_message" id="review_message"></textarea>
                                                                 </div>
                                                             </li>
                                                             <li class="row">
                                                                 <div class="col-xs-12">
-                                                                
-                                                                    <button class="button_dark_grey middle_btn">Submit Review</button>
+                                                                    <button class="button_dark_grey middle_btn">Изпрати отзива</button>
                                                                 </div>
                                                             </li>
                                                         </ul>
