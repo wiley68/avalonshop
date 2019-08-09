@@ -1,3 +1,4 @@
+<?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -45,13 +46,42 @@
                             <main class="col-md-9 col-sm-8">
                                 <h1>Моите отзиви</h1>
                                 <section class="theme_box">
-                                    <h4></h4>
-                                    <p></p>
+                                    <h4>Oтзиви за продукти: {{ $reviews->count() }}</h4>
+                                    <p>Можете да прегледате всички Ваши отзиви.</p>
                                 </section>
                                 <!--/ .theme_box -->
                                 <!-- - - - - - - - - - - - - - Contact information - - - - - - - - - - - - - - - - -->
                                 <section class="theme_box">
-
+                                    <table class="table_type_1 wishlist_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="product_image_col">Снимка</th>
+                                                <th class="product_price_col">Дата</th>
+                                                <th class="product_qty_col">Цена</th>
+                                                <th class="product_qty_col">Функционалност</th>
+                                                <th class="product_qty_col">Качество</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($reviews as $review)
+                                            @php
+                                                $product = Product::where(['id' => $review->product_id])->first(); 
+                                            @endphp
+                                            <tr>
+                                                <td data-title="Снимка">
+                                                    <a title="{{ $product->name }}" href="{{ route('product', ['id' => $product->id]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                                </td>
+                                                @php
+                                                    $newDate = date("d.m.Y H:i:s", strtotime($review->created_at));
+                                                @endphp
+                                                <td data-title="Дата">{{ $newDate }}</td>
+                                                <td data-title="Цена">{{ $review->price }}</td>
+                                                <td data-title="Функционалност">{{ $review->value }}</td>
+                                                <td data-title="Качество">{{ $review->quantity }}</td>
+                                            </tr>                                                
+                                            @endforeach
+                                        </tbody>
+                                    </table>    
                                 </section>
                                 <!--/ .theme_box -->
                             </main>

@@ -80,7 +80,6 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
-Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
 /** start fronend */
@@ -88,6 +87,7 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('/home.html', 'UsersController@dashboard')->name('home');
+        Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
         Route::match(['get', 'post'], '/change-password.html', 'UsersController@changePassword')->name('change-password');
         Route::match(['get', 'post'], '/change-data.html', 'UsersController@changeData')->name('change-data');
         Route::match(['get', 'post'], '/show-orders.html', 'UsersController@showOrders')->name('show-orders');

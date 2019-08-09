@@ -45,13 +45,33 @@
                             <main class="col-md-9 col-sm-8">
                                 <h1>Лични настройки</h1>
                                 <section class="theme_box">
-                                    <h4></h4>
-                                    <p></p>
+                                    <h4>Изтриване на профил</h4>
+                                    <p>От тук можете да изтриете Вашия личен профил в нашия магазин. Моля отбележете полето за проверка за бот.</p>
                                 </section>
                                 <!--/ .theme_box -->
                                 <!-- - - - - - - - - - - - - - Contact information - - - - - - - - - - - - - - - - -->
                                 <section class="theme_box">
-
+                                    <form enctype="multipart/form-data" action="{{ route('person-settings') }}" method="post" name="person_settings" id="person_settings">
+                                        @csrf
+                                        <ul>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    @if(env('GOOGLE_RECAPTCHA_KEY'))
+                                                    <div class="g-recaptcha"
+                                                         data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                                                    </div>
+                                                    @endif                                                    
+                                                </div><!--/ [col]-->
+                                            </li><!--/ .row -->
+            
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <button class="button_grey middle_btn">Изтрий профила</button>
+                                                </div>
+                                            </li>
+                                            
+                                        </ul>
+                                    </form>            
                                 </section>
                                 <!--/ .theme_box -->
                             </main>
@@ -68,4 +88,8 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

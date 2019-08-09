@@ -29,6 +29,7 @@ class ReviewController extends Controller
                 $review->value = intval($value);
                 $review->quantity = intval($quality);
                 $review->product_id = $product_id;
+                $review->user_id = $user_id;
                 $review->save();
                 return response()->json(['success' => true]);
             }    

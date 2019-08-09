@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\Support;
 use App\Favorite;
+use App\Review;
 
 class UsersController extends Controller
 {
@@ -216,36 +217,14 @@ class UsersController extends Controller
 
     public function showReviews(Request $request){
         $root_categories = Category::where(['parent_id' => 0])->get();
-
-        // Add user
-        if($request->isMethod('post')){
-            $this->validate($request, [
-                'old_password' => 'required',
-                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
-                'register_password_again' => 'min:6'
-            ],
-            [
-                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
-                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
-                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
-                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
-                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
-            ]);
-    
-            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
-                $password = bcrypt($request->input('new_password'));
-                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
-                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
-            }else{
-                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
-            }
-        }
+        $reviews = Review::where(['user_id' => Auth::user()->id])->get();
 
         return view('users.show_reviews')->with([
-            'title' => 'Панел за управление на потребител' . ' | Авалон',
-            'description' => 'Панел за управление на потребител',
-            'keywords' => 'панел, управление, потребител',
-            'root_categories' => $root_categories
+            'title' => 'Моите отзиви' . ' | Авалон',
+            'description' => 'Моите отзиви',
+            'keywords' => 'панел, управление, отзиви, продукти',
+            'root_categories' => $root_categories,
+            'reviews' => $reviews
         ]);
     }
 
@@ -291,31 +270,24 @@ class UsersController extends Controller
         // Add user
         if($request->isMethod('post')){
             $this->validate($request, [
-                'old_password' => 'required',
-                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
-                'register_password_again' => 'min:6'
+                'g-recaptcha-response' => 'required|recaptcha'
             ],
             [
-                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
-                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
-                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
-                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
-                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
+                'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
+                'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
             ]);
-    
-            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
-                $password = bcrypt($request->input('new_password'));
-                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
-                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
-            }else{
-                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
-            }
+        
+            // delete users
+            Review::where(['user_id' => Auth::user()->id])->delete();
+            Favorite::where(['user_id' => Auth::user()->id])->delete();
+            User::where(['id' => Auth::user()->id])->delete();
+            return redirect('/');
         }
 
         return view('users.person_settings')->with([
-            'title' => 'Панел за управление на потребител' . ' | Авалон',
-            'description' => 'Панел за управление на потребител',
-            'keywords' => 'панел, управление, потребител',
+            'title' => 'Панел за управление на лични настройки' . ' | Авалон',
+            'description' => 'Панел за управление на лични настройки',
+            'keywords' => 'панел, управление, потребител, лични настройки',
             'root_categories' => $root_categories
         ]);
     }
