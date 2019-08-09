@@ -23,6 +23,16 @@
                             <li>{{ $product->name }}</li>
                         </ul>
                         <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
+                        <div id="message_div" style="display:none;" class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert_box success">
+                                        <span id="message"></span>
+                                        <button class="close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- - - - - - - - - - - - - - Product images & description - - - - - - - - - - - - - - - - -->
                         <section class="section_offset">
                             <div class="clearfix">
@@ -144,7 +154,7 @@
                                         <p>{!! $product->short_description !!}</p>
                                     </div>
                                     <hr>
-                                    <p class="product_price"><b
+                                    <p class="product_price"><b id="total_price"
                                             class="theme_color">{{ number_format($product->price, 2, ".", "") }}</b>&nbsp;лв.
                                     </p>
                                     <!-- - - - - - - - - - - - - - Quantity - - - - - - - - - - - - - - - - -->
@@ -153,14 +163,14 @@
                                         <span class="title">Количество:</span>
                                         <div class="qty min clearfix">
                                             <button class="theme_button" data-direction="minus">&#45;</button>
-                                            <input type="text" name="" value="1">
+                                            <input type="text" id="quantity" value="1">
                                             <button class="theme_button" data-direction="plus">&#43;</button>
                                         </div>
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of quantity - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                     <div class="buttons_row">
-                                        <button class="button_blue middle_btn">Купи</button>
+                                        <button id="btn_buy" class="button_blue middle_btn">Купи</button>
                                         <button
                                             class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span
@@ -639,5 +649,24 @@
             }
         });
     };
+
+    $("#btn_buy").click(function(){
+        $.ajax({    
+            url: '/product/set-session.html',
+            type: 'POST',
+            data: {
+                product_id: '{{ $product->id }}',
+                product_quantity: $("#quantity").val()
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                // add to mini cart
+                window.scrollTo(0, 0);
+                $("#message_div").show("slow", function () {
+                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+                });
+            }
+        });
+    });
 </script>
 @endsection

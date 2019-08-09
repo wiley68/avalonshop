@@ -224,4 +224,49 @@ class ProductController extends Controller
     }
     /** end view product */
 
+    public function setSession(Request $request){
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))){
+            $product_id = $request->input('product_id');
+            $product_quantity = $request->input('product_quantity');
+            $product = Product::where(['id' => $product_id])->first();
+
+            $cart_session = array();
+
+            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                $cart_id = $cart_session['cart_id'];
+                //add new item
+                $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                $item['product_name'] = $product->name; //add new item product_name
+                $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                $item['product_description'] = $product->description; //add new item product_description
+                $item['product_code'] = $product->code; //add new item product_code
+                $item['product_id'] = $product_id; //add new item product_code
+                //add new item
+                $cart_session['items'][] = $item;
+            }else{ // niama nalicna cart
+                $cart_id = $request->session()->getId(); //set new cart info
+                $cart_session['cart_id'] = $cart_id; //set new cart id
+                //set new item
+                $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                $item['product_name'] = $product->name; //add new item product_name
+                $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                $item['product_description'] = $product->description; //add new item product_description
+                $item['product_code'] = $product->code; //add new item product_code
+                $item['product_id'] = $product_id; //add new item product_code
+                $cart_session['items'][] = $item; //add new item
+            }
+            $request->session()->put('cart_session', $cart_session);
+            $response = array(
+                'status' => 'success'
+            );
+        }else{
+            $response = array(
+                'status' => 'unsuccess'
+            );
+        }
+		
+		return response()->json($response);
+	}
+
 }

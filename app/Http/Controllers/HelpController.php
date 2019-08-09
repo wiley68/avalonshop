@@ -122,4 +122,15 @@ class HelpController extends Controller
             'message' => '<b>Благодарим Ви!</b> Вашето съобщение е получено от екипа на Авалон ООД.'
         ]);
     }
+
+    public function cart(Request $request)
+    {
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('cart')->with([
+            'title' => 'Продуктова кошница | Авалон',
+            'description' => 'Продуктова кошница.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
+            'root_categories' => $root_categories
+        ]);
+    }
 }

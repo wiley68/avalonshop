@@ -58,6 +58,8 @@ Route::get('/support/software/{id}.html', 'SupportController@supportsoftware')->
 /** start products section */
 Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts')->name('products');
 Route::get('/products/product{id}.html', 'ProductController@viewProduct')->name('product');
+Route::post('/product/set-session.html', 'ProductController@setSession')->name('product.set-session');
+Route::get('/cart.html', 'HelpController@cart')->name('cart');
 /** end products section */
 /** start help section */
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');
