@@ -97,6 +97,7 @@ Route::group(
         Route::match(['get', 'post'], '/person-settings.html', 'UsersController@personSettings')->name('person-settings');
         Route::post('/add-favorite.html', 'FavoriteController@addFavorite')->name('add-favorite');
         Route::post('/del-favorite.html', 'FavoriteController@delFavorite')->name('del-favorite');
+        Route::post('/add-review.html', 'ReviewController@addReview')->name('add-review');
     }
 );
 /** stop frontend */
