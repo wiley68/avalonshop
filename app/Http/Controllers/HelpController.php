@@ -133,4 +133,16 @@ class HelpController extends Controller
             'root_categories' => $root_categories
         ]);
     }
+
+    public function cartClear(Request $request)
+    {
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        Session::forget('cart_session');
+        return view('cart')->with([
+            'title' => 'Продуктова кошница | Авалон',
+            'description' => 'Продуктова кошница.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
+            'root_categories' => $root_categories
+        ]);
+    }
 }

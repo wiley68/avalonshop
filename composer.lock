@@ -865,12 +865,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "a891a049fa742da089bd4dba0c57c4ec2c977184"
+                "reference": "fd6517b8916331d78cb4fa31bd19a787a693d1da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/a891a049fa742da089bd4dba0c57c4ec2c977184",
-                "reference": "a891a049fa742da089bd4dba0c57c4ec2c977184",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/fd6517b8916331d78cb4fa31bd19a787a693d1da",
+                "reference": "fd6517b8916331d78cb4fa31bd19a787a693d1da",
                 "shasum": ""
             },
             "require-dev": {
@@ -901,7 +901,7 @@
                 "stubs",
                 "type"
             ],
-            "time": "2019-08-07T15:21:33+00:00"
+            "time": "2019-08-08T14:49:53+00:00"
         },
         {
             "name": "kylekatarnls/update-helper",
@@ -1315,8 +1315,8 @@
             "authors": [
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
-                    "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "lcobucci@gmail.com"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2693,9 +2693,9 @@
             "authors": [
                 {
                     "name": "Evert Pot",
+                    "role": "Developer",
                     "email": "me@evertpot.com",
-                    "homepage": "http://evertpot.com/",
-                    "role": "Developer"
+                    "homepage": "http://evertpot.com/"
                 }
             ],
             "description": "Functions for making sense out of URIs.",
@@ -4880,18 +4880,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
