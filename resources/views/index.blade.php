@@ -14,7 +14,16 @@
     </div>
 </div>
 @endif
-
+<div id="message_div" style="display:none;" class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert_box success">
+                <span id="message"></span>
+                <button class="close"></button>
+            </div>
+        </div>
+    </div>
+</div>
 			<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
 			<div class="page_wrapper">
 				<div class="container">
@@ -22,13 +31,13 @@
 						<div class="row">
 							<!-- - - - - - - - - - - - - - Main slider - - - - - - - - - - - - - - - - -->
 							<div class="col-sm-9">
-								
+
 								<!-- - - - - - - - - - - - - - Revolution slider - - - - - - - - - - - - - - - - -->
 								<div class="revolution_slider">
 									<div class="rev_slider">
 										<ul>
 											<!-- - - - - - - - - - - - - - Slide 1 - - - - - - - - - - - - - - - - -->
-											<li data-transition="papercut" data-slotamount="7">												
+											<li data-transition="papercut" data-slotamount="7">
 												<img src="/images/home_slide_1.jpg" alt="">
 												<div class="caption sfl stl layer_1" data-x="left" data-hoffset="60" data-y="90" data-easing="easeOutBack" data-speed="600" data-start="900">Best Quality</div>
 												<div class="caption sfl stl layer_2" data-x="left" data-y="138" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1000">Medications</div>
@@ -40,7 +49,7 @@
 											<!-- - - - - - - - - - - - - - End of Slide 1 - - - - - - - - - - - - - - - - -->
 											<!-- - - - - - - - - - - - - - Slide 2 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7" class="align_center">
-												
+
 												<img src="/images/home_slide_5.jpg" alt="">
 												<div class="caption sfl stl layer_5" data-x="center" data-y="77" data-easing="easeOutBack" data-speed="600" data-start="900">Have A Question?</div>
 												<div class="caption sfl stl layer_6" data-x="center" data-y="135" data-easing="easeOutBack" data-speed="600" data-start="1050"><small>Our</small> Pharmacists<br><small>Are</small> Ready <small>to</small> Help You!</div>
@@ -51,7 +60,7 @@
 											<!-- - - - - - - - - - - - - - End of Slide 2 - - - - - - - - - - - - - - - - -->
 											<!-- - - - - - - - - - - - - - Slide 3 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7">
-												
+
 												<img src="/images/home_slide_6.jpg" alt="">
 												<div class="caption sfl stl layer_8" data-x="right" data-y="73" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="900">Get 10% Off</div>
 												<div class="caption sfl stl layer_9" data-x="right" data-y="122" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="1000">For Reorders</div>
@@ -64,7 +73,7 @@
 										</ul>
 									</div><!--/ .rev_slider-->
 								</div><!--/ .revolution_slider-->
-								
+
 								<!-- - - - - - - - - - - - - - End of Revolution slider - - - - - - - - - - - - - - - - -->
 							</div><!--/ [col]-->
 							<!-- - - - - - - - - - - - - - End of main slider - - - - - - - - - - - - - - - - -->
@@ -119,7 +128,7 @@
 							</a><!--/ .infoblock-->
 						</li>
 					</ul><!--/ .infoblocks_wrap.section_offset.clearfix-->
-					
+
 					<!-- - - - - - - - - - - - - - End of infoblocks - - - - - - - - - - - - - - - - -->
 					<!-- - - - - - - - - - - - - - Today's deals - - - - - - - - - - - - - - - - -->
 					<section class="section_offset animated transparent" data-animation="fadeInDown">
@@ -164,7 +173,7 @@
                                                                 <a href="#" class="button_dark_grey middle_btn quick_view pb">Подробно</a>
                                                             </div><!--/ .centered_buttons -->
                                                         </div><!--/ .actions_wrap-->
-                                                        
+
                                                         <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                                     </div><!--/. image_wrap-->
                                                     <!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->
@@ -186,21 +195,21 @@
                                                             <!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
                                                             <p class="product_price alignleft"><b>{{ $product_item->price }}</b>&nbsp;лв.</p>
                                                         </div><!--/ .clearfix.product_info-->
-                                                        <button class="button_blue middle_btn">Купи</button>
+                                                        <button onclick="buyProduct('{{ $product_item->id }}');" class="button_blue middle_btn">Купи</button>
                                                         @auth
                                                         <ul class="bottombar">
                                                             <li><a href="#">Добави към любими</a></li>
-                                                        </ul>                                                            
+                                                        </ul>
                                                         @endauth
                                                     </div>
                                                     <!-- - - - - - - - - - - - - - End of product description - - - - - - - - - - - - - - - - -->
                                                 </div><!--/ .product_item-->
-                                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->                                                    
-                                            @endforeach                                            
+                                                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+                                            @endforeach
                                         </div><!--/ .owl_carousel-->
-                                        
+
                                         <!-- - - - - - - - - - - - - - End of carousel of today's deals - - - - - - - - - - - - - - - - -->
-                                    </div><!--/ #tab-1-->                                        
+                                    </div><!--/ #tab-1-->
                                 @endforeach
 							</div>
 							<!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
@@ -239,10 +248,10 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_gaming->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
     								</div><!--/ #tab-1-->
                                 </div>
-                                
+
                                 <div id="offices" class="tab_container">
 									<div class="owl_carousel carousel_in_tabs type_3">
                                         @foreach ($supports_offices as $support_office)
@@ -257,7 +266,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_office->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-2-->
 
@@ -275,7 +284,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_printer->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-3-->
 
@@ -293,7 +302,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_instalation->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-4-->
 
@@ -311,7 +320,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_network->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-5-->
 
@@ -329,7 +338,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_camera->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-6-->
 
@@ -347,7 +356,7 @@
                                                     <a href="{{ route('support.software', ['id'=>$support_software->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
                                             </div><!--/ .product_item-->
-                                        @endforeach                                        
+                                        @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-7-->
 
@@ -386,7 +395,7 @@
                                                     <p>WEB проект</p>
                                                     <p><a target="_blank" href="{{ $webproject->url }}">{{ $webproject->name }}</a></p>
                                                 </div>
-                                            </div><!--/ .product_item-->                                            
+                                            </div><!--/ .product_item-->
                                         @endforeach
 									</div><!--/ .owl_carousel-->
 								</div><!--/ #tab-15-->
@@ -608,7 +617,36 @@
 					<!-- - - - - - - - - - - - - - End of Beauty - - - - - - - - - - - - - - - - -->
 				</div><!--/ .container-->
 			</div><!--/ .page_wrapper-->
-			
+
 			<!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
 
+@endsection
+
+@section('scripts')
+<script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+function buyProduct(product_id){
+    $.ajax({
+        url: '/product/add-to-cart.html',
+        type: 'POST',
+        data: {
+            product_id: product_id,
+            product_quantity: '1'
+        },
+        dataType: 'JSON',
+        success: function (data) {
+            // add to mini cart
+            window.scrollTo(0, 0);
+            $("#message_div").show("slow", function () {
+                $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+            });
+        }
+    });
+};
+</script>
 @endsection

@@ -137,7 +137,7 @@ class HelpController extends Controller
     public function cartClear(Request $request)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        Session::forget('cart_session');
+        $request->session()->flush();
         return view('cart')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
@@ -145,4 +145,24 @@ class HelpController extends Controller
             'root_categories' => $root_categories
         ]);
     }
+
+    public function cartRemoveProduct(Request $request, $id=null)
+    {
+        if ($id != null){
+            $cart_session = $request->session()->get('cart_session'); //get current cart info
+            if (!empty($cart_session['items'])){
+                foreach($cart_session['items'] as $elementKey => $element) {
+                    foreach($element as $valueKey => $value) {
+                        if($valueKey == 'product_id' && $value == $id){
+                            //delete this particular object from the $array
+                            unset($cart_session['items'][$elementKey]);
+                            $request->session()->put('cart_session', $cart_session);
+                        }
+                    }
+                }
+            }
+        }
+        return redirect('/cart.html');
+    }
+
 }

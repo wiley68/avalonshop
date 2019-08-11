@@ -58,8 +58,10 @@ Route::get('/support/software/{id}.html', 'SupportController@supportsoftware')->
 /** start products section */
 Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts')->name('products');
 Route::get('/products/product{id}.html', 'ProductController@viewProduct')->name('product');
-Route::post('/product/set-session.html', 'ProductController@setSession')->name('product.set-session');
+Route::post('/product/add-to-cart.html', 'ProductController@addToCart')->name('product.add-to-cart');
+Route::post('/product/change-cart-quantity.html', 'ProductController@changeCartQuantity')->name('product.change-cart-quantity');
 Route::get('/cart.html', 'HelpController@cart')->name('cart');
+Route::get('/cart-remove-product-{id}.html', 'HelpController@cartRemoveProduct')->name('cart-remove-product');
 Route::get('/cart-clear.html', 'HelpController@cartClear')->name('cart-clear');
 /** end products section */
 /** start help section */

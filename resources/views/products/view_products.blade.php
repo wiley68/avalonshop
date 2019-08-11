@@ -27,6 +27,15 @@
                             @endphp
                             <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ: <strong>{{ $search_text }}</strong>)@endif{!! $categories_names !!}</li>
                         </ul>
+                        <div id="message_div" style="display:none;">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert_box success">
+                                        <span id="message"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
                                 <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
@@ -309,14 +318,13 @@
                                                                         <a href="{{ route('product', ['id' => $products_collection[$i+$j]['id']]) }}"
                                                                             class="button_dark_grey middle_btn quick_view"
                                                                         >Подробно</a>
-                                                                        <a href="#"
-                                                                            class="button_blue middle_btn add_to_cart">Купи</a>
+                                                                        <button onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');" class="button_blue middle_btn add_to_cart">Купи</a>
                                                                     </div>
                                                                     <!--/ .centered_buttons -->
                                                                     @auth
                                                                     <a href="#" id="btn_add_favorite" onclick="clickBtnAddFavorite(event, {{ $products_collection[$i+$j]['id'] }})"
                                                                         class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"><span
-                                                                            class="tooltip right">Добави към любими</span></a>                                                                        
+                                                                            class="tooltip right">Добави към любими</span></a>
                                                                     @endauth
                                                                 </div>
                                                                 <!--/ .actions_wrap-->
@@ -440,6 +448,25 @@
                 }else{
                     alert("Вече сте добавили този продукт в Любимите си продукти.");
                 }
+            }
+        });
+    };
+
+    function buyProduct(product_id){
+        $.ajax({
+            url: '/product/add-to-cart.html',
+            type: 'POST',
+            data: {
+                product_id: product_id,
+                product_quantity: '1'
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                // add to mini cart
+                window.scrollTo(0, 0);
+                $("#message_div").show("slow", function () {
+                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+                });
             }
         });
     };

@@ -14,6 +14,16 @@
                             <li><a href="{{ route('index') }}">Начало</a></li>
                             <li>Моите любими продукти</li>
                         </ul>
+                        <div id="message_div" style="display:none;" class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert_box success">
+                                        <span id="message"></span>
+                                        <button class="close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
                         <div class="row">
                             <aside class="col-md-3 col-sm-4">
@@ -58,14 +68,13 @@
                                                 <th class="product_image_col">Снимка</th>
                                                 <th class="product_title_col">Име на продукт и код</th>
                                                 <th class="product_price_col">Цена</th>
-                                                <th class="product_qty_col">Количество</th>
                                                 <th>Управление</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($favorites as $favorite)
                                             @php
-                                                $product = Product::where(['id' => $favorite->product_id])->first(); 
+                                                $product = Product::where(['id' => $favorite->product_id])->first();
                                             @endphp
                                             <tr>
                                                 <!-- - - - - - - - - - - - - - Product image - - - - - - - - - - - - - - - - -->
@@ -82,21 +91,11 @@
                                                 <!-- - - - - - - - - - - - - - Product price - - - - - - - - - - - - - - - - -->
                                                 <td data-title="Price" class="total">{{ number_format($product->price, 2, ".", "") }}&nbsp;лв.</td>
                                                 <!-- - - - - - - - - - - - - - End of product price - - - - - - - - - - - - - - - - -->
-                                                <!-- - - - - - - - - - - - - - Product quantity - - - - - - - - - - - - - - - - -->
-                                                <td data-title="Quantity">
-                                                    
-                                                    <div class="qty min clearfix">
-                                                        <button class="theme_button" data-direction="minus">&#45;</button>
-                                                        <input type="text" name="" value="1">
-                                                        <button class="theme_button" data-direction="plus">&#43;</button>
-                                                    </div><!--/ .qty.min.clearfix-->
-                                                </td>
-                                                <!-- - - - - - - - - - - - - - End of product quantity - - - - - - - - - - - - - - - - -->
                                                 <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                 <td data-title="Action">
                                                     <ul class="buttons_col">
                                                         <li>
-                                                            <a href="#" class="button_blue">Купи</a>
+                                                            <button onclick="buyProduct('{{ $product->id }}');" class="button_blue">Купи</button>
                                                         </li>
                                                         <li>
                                                             <button onclick="clickBtnDelFavorite(event, {{ $product->id }})" class="button_dark_grey">Премахни</button>
@@ -104,10 +103,10 @@
                                                     </ul>
                                                 </td>
                                                 <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
-                                            </tr>                                                
+                                            </tr>
                                             @endforeach
                                         </tbody>
-                                    </table>    
+                                    </table>
                                 </section>
                                 <!--/ .theme_box -->
                             </main>
@@ -148,6 +147,25 @@
                 }else{
                     alert("Опитвате се да изтриете продукт, който липсва в листата от Любими продукти.");
                 }
+            }
+        });
+    };
+
+    function buyProduct(product_id){
+        $.ajax({
+            url: '/product/add-to-cart.html',
+            type: 'POST',
+            data: {
+                product_id: product_id,
+                product_quantity: '1'
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                // add to mini cart
+                window.scrollTo(0, 0);
+                $("#message_div").show("slow", function () {
+                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+                });
             }
         });
     };

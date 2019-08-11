@@ -55,9 +55,9 @@
                                             <!-- - - - - - - - - - - - - - Quantity - - - - - - - - - - - - - - - - -->
                                             <td data-title="Quantity">
                                                 <div class="qty min clearfix">
-                                                    <button class="theme_button" data-direction="minus">&#45;</button>
-                                                    <input type="text" id="quantity" value="{{ $item['product_quantity'] }}">
-                                                    <button class="theme_button" data-direction="plus">&#43;</button>
+                                                    <button onclick="subQuantity('{{ $item['product_id'] }}');" class="theme_button" data-direction="minus">&#45;</button>
+                                                    <input id="quantity{{ $item['product_id'] }}" oninput="changeCartQuantity('{{ $item['product_id'] }}', this.value);" type="text" id="quantity" value="{{ $item['product_quantity'] }}">
+                                                    <button onclick="addQuantity('{{ $item['product_id'] }}');" class="theme_button" data-direction="plus">&#43;</button>
                                                 </div>
                                                 <!--/ .qty.min.clearfix-->
                                             </td>
@@ -72,7 +72,7 @@
                                             <!-- - - - - - - - - - - - - - End of total - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Action - - - - - - - - - - - - - - - - -->
                                             <td data-title="Action">
-                                                <a href="#" title="Изтрий този продукт от кошницата." class="button_dark_grey icon_btn remove_product"><i
+                                                <a href="{{ route('cart-remove-product', ['id' => $item['product_id']]) }}" title="Изтрий този продукт от кошницата." class="button_dark_grey icon_btn remove_product"><i
                                                         class="icon-cancel-2"></i></a>
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of action - - - - - - - - - - - - - - - - -->
@@ -87,7 +87,7 @@
                                     <a href="{{ route('index') }}" class="button_blue middle_btn">Продъкжи пазаруването</a>
                                 </div>
                                 <div class="right_side">
-                                    <a href="#" class="button_grey middle_btn">Изчисти продуктовата кошница</a>
+                                    <a href="{{ route('cart-clear') }}" class="button_grey middle_btn">Изчисти продуктовата кошница</a>
                                 </div>
                             </footer>
                             <!--/ .bottom_box -->
@@ -156,4 +156,37 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    function subQuantity(id){
+        changeCartQuantity(id, parseInt($("#quantity"+id).val()) - 1);
+    };
+
+    function addQuantity(id){
+        changeCartQuantity(id, parseInt($("#quantity"+id).val()) + 1);
+    };
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function changeCartQuantity(product_id, product_quantity){
+        $.ajax({
+            url: '/product/change-cart-quantity.html',
+            type: 'POST',
+            data: {
+                product_id: product_id,
+                product_quantity: product_quantity
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    };
+</script>
 @endsection

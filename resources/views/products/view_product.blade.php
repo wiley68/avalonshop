@@ -23,12 +23,11 @@
                             <li>{{ $product->name }}</li>
                         </ul>
                         <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
-                        <div id="message_div" style="display:none;" class="container">
+                        <div id="message_div" style="display:none;">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="alert_box success">
                                         <span id="message"></span>
-                                        <button class="close"></button>
                                     </div>
                                 </div>
                             </div>
@@ -484,7 +483,7 @@
                                                         </li>
                                                         <li class="row" style="padding-top:10px;">
                                                             <div class="col-xs-12">
-                                                                <button onclick="clickBtnAddReview();" 
+                                                                <button onclick="clickBtnAddReview();"
                                                                     class="button_dark_grey middle_btn">Изпрати
                                                                     отзива</button>
                                                             </div>
@@ -537,7 +536,7 @@
                                             <div class="centered_buttons">
                                                 <a href="{{ route('product', ['id' => $featured_product->id]) }}"
                                                     class="button_dark_grey middle_btn quick_view">Подробно</a>
-                                                <a href="#" class="button_blue middle_btn add_to_cart">Купи</a>
+                                                <button onclick="buyProduct('{{ $featured_product->id }}');" class="button_blue middle_btn add_to_cart">Купи</button>
                                             </div>
                                             <!--/ .centered_buttons -->
                                             <a href="#"
@@ -651,8 +650,8 @@
     };
 
     $("#btn_buy").click(function(){
-        $.ajax({    
-            url: '/product/set-session.html',
+        $.ajax({
+            url: '/product/add-to-cart.html',
             type: 'POST',
             data: {
                 product_id: '{{ $product->id }}',
@@ -663,10 +662,29 @@
                 // add to mini cart
                 window.scrollTo(0, 0);
                 $("#message_div").show("slow", function () {
-                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
                 });
             }
         });
     });
+
+    function buyProduct(product_id){
+        $.ajax({
+            url: '/product/add-to-cart.html',
+            type: 'POST',
+            data: {
+                product_id: product_id,
+                product_quantity: '1'
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                // add to mini cart
+                window.scrollTo(0, 0);
+                $("#message_div").show("slow", function () {
+                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
+                });
+            }
+        });
+    };
 </script>
 @endsection

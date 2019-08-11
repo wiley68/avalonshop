@@ -224,7 +224,7 @@ class ProductController extends Controller
     }
     /** end view product */
 
-    public function setSession(Request $request){
+    public function addToCart(Request $request){
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))){
             $product_id = $request->input('product_id');
             $product_quantity = $request->input('product_quantity');
@@ -236,14 +236,38 @@ class ProductController extends Controller
                 $cart_session = $request->session()->get('cart_session'); //get current cart info
                 $cart_id = $cart_session['cart_id'];
                 //add new item
-                $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
-                $item['product_name'] = $product->name; //add new item product_name
-                $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
-                $item['product_description'] = $product->description; //add new item product_description
-                $item['product_code'] = $product->code; //add new item product_code
-                $item['product_id'] = $product_id; //add new item product_code
-                //add new item
-                $cart_session['items'][] = $item;
+                // check if exist
+                if (!empty($cart_session['items'])){
+                    $current_item = 0;
+                    $iscart = true;
+                    foreach ($cart_session['items'] as $cart_item) {
+                        if ($cart_item['product_id'] == $product_id){
+                            $cart_session['items'][$current_item]['total_price'] = floatval($cart_item['total_price']) + floatval($product_quantity) * floatval($product->price); //add new item total_price
+                            $cart_session['items'][$current_item]['product_quantity'] = intval($cart_item['product_quantity']) + intval($product_quantity); //add new item product_quantity
+                            $iscart = false;
+                        }
+                        $current_item++;
+                    }
+                    if ($iscart){
+                        $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                        $item['product_name'] = $product->name; //add new item product_name
+                        $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                        $item['product_description'] = $product->description; //add new item product_description
+                        $item['product_code'] = $product->code; //add new item product_code
+                        $item['product_id'] = $product_id; //add new item product_code
+                        //add new item
+                        $cart_session['items'][] = $item;
+                    }
+                }else{
+                    $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                    $item['product_name'] = $product->name; //add new item product_name
+                    $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                    $item['product_description'] = $product->description; //add new item product_description
+                    $item['product_code'] = $product->code; //add new item product_code
+                    $item['product_id'] = $product_id; //add new item product_code
+                    //add new item
+                    $cart_session['items'][] = $item;
+                }
             }else{ // niama nalicna cart
                 $cart_id = $request->session()->getId(); //set new cart info
                 $cart_session['cart_id'] = $cart_id; //set new cart id
@@ -265,7 +289,46 @@ class ProductController extends Controller
                 'status' => 'unsuccess'
             );
         }
-		
+
+		return response()->json($response);
+	}
+
+    public function changeCartQuantity(Request $request){
+        $response = array(
+            'status' => 'unsuccess'
+        );
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity')) && ($request->input('product_quantity') > 0)){
+            $product_id = $request->input('product_id');
+            $product_quantity = $request->input('product_quantity');
+            $product = Product::where(['id' => $product_id])->first();
+
+            $cart_session = array();
+
+            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                $cart_id = $cart_session['cart_id'];
+                // check if exist
+                if (!empty($cart_session['items'])){
+                    $current_item = 0;
+                    foreach ($cart_session['items'] as $cart_item) {
+                        if ($cart_item['product_id'] == $product_id){
+                            $cart_session['items'][$current_item]['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                            $cart_session['items'][$current_item]['product_name'] = $product->name; //add new item product_name
+                            $cart_session['items'][$current_item]['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                            $cart_session['items'][$current_item]['product_description'] = $product->description;
+                            $cart_session['items'][$current_item]['product_code'] = $product->code;
+                            $cart_session['items'][$current_item]['product_id'] = $product_id;
+                        }
+                        $current_item++;
+                    }
+                    $request->session()->put('cart_session', $cart_session);
+                    $response = array(
+                        'status' => 'success'
+                    );
+                }
+            }
+        }
+
 		return response()->json($response);
 	}
 

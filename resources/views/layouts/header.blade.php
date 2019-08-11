@@ -353,7 +353,7 @@
 													<!-- - - - - - - - - - - - - - End of total info - - - - - - - - - - - - - - - - -->
 												</div><!--/ .animated_item-->
 												<div class="animated_item">
-													<a href="#" class="button_grey">Виж кошницата</a>
+													<a href="{{ route('cart') }}" class="button_grey">Виж кошницата</a>
 													<a href="#" class="button_blue">Купи</a>
 												</div><!--/ .animated_item-->
 											</div><!--/ .shopping_cart.dropdown-->
