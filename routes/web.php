@@ -98,7 +98,9 @@ Route::group(
         Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
         Route::match(['get', 'post'], '/change-password.html', 'UsersController@changePassword')->name('change-password');
         Route::match(['get', 'post'], '/change-data.html', 'UsersController@changeData')->name('change-data');
-        Route::match(['get', 'post'], '/show-orders.html', 'UsersController@showOrders')->name('show-orders');
+        Route::match(['get', 'post'], '/show-orders.html', 'OrderController@showOrders')->name('show-orders');
+        Route::get('/show-order-{id}.html', 'OrderController@showOrder')->name('show-order');
+        Route::post('/del-order.html', 'OrderController@delOrder')->name('del-order');
         Route::match(['get', 'post'], '/show-reviews.html', 'UsersController@showReviews')->name('show-reviews');
         Route::get('/show-favorites.html', 'UsersController@showFavorites')->name('show-favorites');
         Route::match(['get', 'post'], '/edit-news.html', 'UsersController@editNews')->name('edit-news');

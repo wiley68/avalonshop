@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\Support;
 use App\Favorite;
+use App\Order;
 use App\Review;
 
 class UsersController extends Controller
@@ -213,41 +214,6 @@ class UsersController extends Controller
             'title' => 'Смяна на данните на текущия потребител' . ' | Авалон',
             'description' => 'Смяна на данните на текущия потребител',
             'keywords' => 'панел, управление, потребител, данни',
-            'root_categories' => $root_categories
-        ]);
-    }
-
-    public function showOrders(Request $request){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-
-        // Add user
-        if($request->isMethod('post')){
-            $this->validate($request, [
-                'old_password' => 'required',
-                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
-                'register_password_again' => 'min:6'
-            ],
-            [
-                'old_password.required' => 'Задължително е въвеждането на Старата парола!',
-                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
-                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
-                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
-                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
-            ]);
-    
-            if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
-                $password = bcrypt($request->input('new_password'));
-                User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
-                return redirect('/home.html')->with('message', 'Успешно променихте вашата парола!');
-            }else{
-                return redirect('/change-password.html')->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
-            }
-        }
-
-        return view('users.show_orders')->with([
-            'title' => 'Панел за управление на потребител' . ' | Авалон',
-            'description' => 'Панел за управление на потребител',
-            'keywords' => 'панел, управление, потребител',
             'root_categories' => $root_categories
         ]);
     }

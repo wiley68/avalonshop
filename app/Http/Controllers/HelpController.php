@@ -259,9 +259,7 @@ class HelpController extends Controller
             // delete cart
             $request->session()->forget('cart_session');
 
-            return redirect('/checkout-result-.html')->with([
-                'id' => $order->id
-            ]);
+            return redirect()->route('checkout-result', ['id' => $order->id]);
         }
       
         return view('checkout')->with([
@@ -272,19 +270,15 @@ class HelpController extends Controller
         ]);
     }
 
-    public function checkoutResult(Request $request)
+    public function checkoutResult(Request $request, $id=0)
     {
-        $order_id = 0;
-        if ($request->has('order_id')){
-            $order_id = $request->input('id');
-        }
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('checkout-result')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
             'root_categories' => $root_categories,
-            'order_id' => $order_id
+            'order' => Order::where(['id' => $id])->first()
         ]);
     }
 
