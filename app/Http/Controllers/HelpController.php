@@ -11,6 +11,7 @@ use App\Support;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
 use App\Suborder;
+use Illuminate\Support\Facades\Redirect;
 
 class HelpController extends Controller
 {
@@ -170,6 +171,8 @@ class HelpController extends Controller
 
     public function checkout(Request $request)
     {
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
         // Add order
         if($request->isMethod('POST')){
             $this->validate($request, [
@@ -253,12 +256,14 @@ class HelpController extends Controller
                 }
             }
 
+            // delete cart
+            $request->session()->forget('cart_session');
+
             return redirect('/checkout-result.html')->with([
                 'order_id' => $order->id
             ]);
         }
       
-        $root_categories = Category::where(['parent_id' => 0])->get();
         return view('checkout')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',

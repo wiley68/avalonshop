@@ -1,5 +1,16 @@
 <?php use App\Category; ?>
 <!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
+@php
+$cart_item_quantity = 0;
+$cart_total_price = 0.00;
+if (!empty((Session::get('cart_session'))['items'])){
+    foreach ((Session::get('cart_session'))['items'] as $cart_item) {
+        $cart_item_quantity += intval($cart_item['product_quantity']);
+        $cart_total_price += floatval($cart_item['total_price']);
+    }
+}
+@endphp
+
 <div class="wide_layout">
     <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
     <header id="header" class="type_5">
@@ -163,9 +174,17 @@
                                     <ul>
                                         <li><a href="{{ route('index') }}">Начало</a></li>
                                         @auth
-                                        <li><a href="{{ route('home') }}">Профил</a></li>
+                                        @if ($cart_item_quantity > 0)
+                                            <li><a href="{{ route('cart') }}">Кошница</a></li>
                                         @else
-                                        <li><a href="{{ route('login-register') }}">Профил</a></li>
+                                            <li><a href="{{ route('home') }}">Профил</a></li>
+                                        @endif
+                                        @else
+                                        @if ($cart_item_quantity > 0)
+                                            <li><a href="{{ route('cart') }}">Кошница</a></li>
+                                        @else
+                                            <li><a href="{{ route('login-register') }}">Профил</a></li>
+                                        @endif
                                         @endauth
                                         <li class="has_submenu">
                                             <a>Софтуер</a>
@@ -356,16 +375,6 @@
                             </div>
                             <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
                             <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
-                            @php
-                            $cart_item_quantity = 0;
-                            $cart_total_price = 0.00;
-                            if (!empty((Session::get('cart_session'))['items'])){
-                            foreach ((Session::get('cart_session'))['items'] as $cart_item) {
-                            $cart_item_quantity += intval($cart_item['product_quantity']);
-                            $cart_total_price += floatval($cart_item['total_price']);
-                            }
-                            }
-                            @endphp
                             <div class="nav_item size_3">
                                 <button id="open_shopping_cart" class="open_button"
                                     data-amount="{{ $cart_item_quantity }}">
