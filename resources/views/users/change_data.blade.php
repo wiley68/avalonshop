@@ -91,7 +91,7 @@
                                                     <label for="user_phone">Телефон</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_phone" name="user_phone"
-                                                            class="form-control" placeholder="Вашия телефонен номер" value="{{ Auth::user()->phone }}">
+                                                            class="form-control" value="{{ Auth::user()->phone }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -100,7 +100,16 @@
                                                     <label for="user_phone">Населено място</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_city" name="user_city"
-                                                            class="form-control" placeholder="Вашето населено място" value="{{ Auth::user()->city }}">
+                                                            class="form-control" value="{{ Auth::user()->city }}">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <label for="user_postcode">Пощенски код</label>
+                                                    <div class="form_el">
+                                                        <input type="text" id="user_postcode" name="user_postcode"
+                                                            class="form-control" value="{{ Auth::user()->postcode }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -109,7 +118,7 @@
                                                     <label for="user_phone">Адрес</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_address" name="user_address"
-                                                            class="form-control" placeholder="Вашия адрес" value="{{ Auth::user()->address }}">
+                                                            class="form-control" value="{{ Auth::user()->address }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -125,7 +134,7 @@
                                                     <label for="user_phone">Телефон</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_phone2" name="user_phone2"
-                                                            class="form-control" placeholder="Вашия телефонен номер" value="{{ Auth::user()->phone2 }}">
+                                                            class="form-control" value="{{ Auth::user()->phone2 }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -134,7 +143,16 @@
                                                     <label for="user_phone">Населено място</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_city2" name="user_city2"
-                                                            class="form-control" placeholder="Вашето населено място" value="{{ Auth::user()->city2 }}">
+                                                            class="form-control" value="{{ Auth::user()->city2 }}">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <label for="user_postcode">Пощенски код</label>
+                                                    <div class="form_el">
+                                                        <input type="text" id="user_postcode2" name="user_postcode2"
+                                                            class="form-control" value="{{ Auth::user()->postcode2 }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -143,7 +161,41 @@
                                                     <label for="user_phone">Адрес</label>
                                                     <div class="form_el">
                                                         <input type="text" id="user_address2" name="user_address2"
-                                                            class="form-control" placeholder="Вашия адрес" value="{{ Auth::user()->address2 }}">
+                                                            class="form-control" value="{{ Auth::user()->address2 }}">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form_el">
+                                                        <i>Данни за издаване на документи на фирма:</i><hr />
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <label for="user_firm">Име на фирма</label>
+                                                    <div class="form_el">
+                                                        <input type="text" id="user_firm" name="user_firm"
+                                                            class="form-control" value="{{ Auth::user()->firm }}">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <label for="user_eik">ЕИК / ДДС №</label>
+                                                    <div class="form_el">
+                                                        <input type="text" id="user_eik" name="user_eik"
+                                                            class="form-control" value="{{ Auth::user()->eik }}">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="row">
+                                                <div class="col-xs-12">
+                                                    <label for="user_mol">МОЛ</label>
+                                                    <div class="form_el">
+                                                        <input type="text" id="user_mol" name="user_mol"
+                                                            class="form-control" value="{{ Auth::user()->mol }}">
                                                     </div>
                                                 </div>
                                             </li>

@@ -136,7 +136,7 @@
                                         </table>
                                     </div>
                                     <footer class="bottom_box">
-                                        <a class="button_blue middle_btn" href="#">Премини към плащане</a>
+                                        <a class="button_blue middle_btn" href="{{ route('checkout') }}">Премини към плащане</a>
                                     </footer>
                                 </section><!-- / [col] -->
                             </div>

@@ -63,6 +63,8 @@ Route::post('/product/change-cart-quantity.html', 'ProductController@changeCartQ
 Route::get('/cart.html', 'HelpController@cart')->name('cart');
 Route::get('/cart-remove-product-{id}.html', 'HelpController@cartRemoveProduct')->name('cart-remove-product');
 Route::get('/cart-clear.html', 'HelpController@cartClear')->name('cart-clear');
+Route::match(['get', 'post'], '/checkout.html', 'HelpController@checkout')->name('checkout');
+Route::get('/checkout-result.html', 'HelpController@checkoutResult')->name('checkout-result');
 /** end products section */
 /** start help section */
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');
@@ -85,6 +87,7 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
+Route::post('/user-checkout-login.html', 'UsersController@loginCheckoutUser')->name('user-checkout-login');
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
 /** start fronend */

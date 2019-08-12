@@ -399,7 +399,7 @@
                                     <!--/ .animated_item-->
                                     <div class="animated_item">
                                         <a href="{{ route('cart') }}" class="button_grey">Виж кошницата</a>
-                                        <a href="#" class="button_blue">Купи</a>
+                                        <a href="{{ route('checkout') }}" class="button_blue">Купи</a>
                                     </div>
                                     <!--/ .animated_item-->
                                     @else

@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Category;
 use App\Project;
 use App\Support;
+use App\Order;
+use Illuminate\Support\Facades\Auth;
+use App\Suborder;
 
 class HelpController extends Controller
 {
@@ -163,6 +166,116 @@ class HelpController extends Controller
             }
         }
         return redirect('/cart.html');
+    }
+
+    public function checkout(Request $request)
+    {
+        // Add order
+        if($request->isMethod('POST')){
+            $this->validate($request, [
+                'user_name' => 'required',
+                'user_email' => 'required',
+                'user_address' => 'required',
+                'user_city' => 'required',
+                'user_postcode' => 'required',
+                'user_phone' => 'required',
+                'user_name2' => 'required',
+                'user_address2' => 'required',
+                'user_city2' => 'required',
+                'user_postcode2' => 'required',
+                'user_phone2' => 'required'
+            ],
+            [
+                'user_name.required' => 'Задължително е въвеждането на Вашите имена!',
+                'user_email.required' => 'Задължително е въвеждането на Вашия e-mail адрес!',
+                'user_address.required' => 'Задължително е въвеждането на Вашия адрес!',
+                'user_city.required' => 'Задължително е въвеждането на Вашето населено място!',
+                'user_postcode.required' => 'Задължително е въвеждането на Вашия пощенски код!',
+                'user_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
+                'user_name2.required' => 'Задължително е въвеждането на Вашите имена за доставка!',
+                'user_address2.required' => 'Задължително е въвеждането на Вашия адрес!',
+                'user_city2.required' => 'Задължително е въвеждането на Вашето населено място!',
+                'user_postcode2.required' => 'Задължително е въвеждането на Вашия пощенски код!',
+                'user_phone2.required' => 'Задължително е въвеждането на Вашия телефон!'
+            ]);
+
+            $order = new Order();
+            
+            if (!empty(Auth::user())){
+                $order->user_id = Auth::user()->id;
+            }
+            $order->user_name = $request->input('user_name');
+            if (!empty($request->input('user_firm'))){
+                $order->firm = $request->input('user_firm');
+            }
+            $order->email = $request->input('user_email');
+            if (!empty($request->input('user_eik'))){
+                $order->eik = $request->input('user_eik');
+            }
+            if (!empty($request->input('user_mol'))){
+                $order->mol = $request->input('user_mol');
+            }
+            $order->address = $request->input('user_address');
+            $order->city = $request->input('user_city');
+            $order->postcode = $request->input('user_postcode');
+            $order->phone = $request->input('user_phone');
+            $order->user_name2 = $request->input('user_name2');
+            $order->address2 = $request->input('user_address2');
+            $order->city2 = $request->input('user_city2');
+            $order->postcode2 = $request->input('user_postcode2');
+            $order->phone2 = $request->input('user_phone2');
+            if ($request->input('type_shipping') == 'shipping_free'){
+                $order->shipping = 'free';
+            }else{
+                $order->shipping = 'spedy';
+            }
+            if ($request->input('type_payment') == 'payment_nalozen'){
+                $order->payment = 'platez';
+            }else{
+                $order->payment = 'bank';
+            }
+            
+            $order->save();
+
+            //save suborders
+            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                // check if exist
+                if (!empty($cart_session['items'])){
+                    foreach ($cart_session['items'] as $cart_item) {
+                        $suborder = new Suborder();
+                        $suborder->order_id = $order->id;
+                        $suborder->product_id = $cart_item['product_id'];
+                        $suborder->product_quantity = $cart_item['product_quantity'];
+                        $suborder->total_price = $cart_item['total_price'];
+                        $suborder->save();
+                    }
+                }
+            }
+
+            return redirect('/checkout-result.html')->with([
+                'order_id' => $order->id
+            ]);
+        }
+      
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('checkout')->with([
+            'title' => 'Продуктова кошница | Авалон',
+            'description' => 'Продуктова кошница.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function checkoutResult(Request $request)
+    {
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('checkout-result')->with([
+            'title' => 'Продуктова кошница | Авалон',
+            'description' => 'Продуктова кошница.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
+            'root_categories' => $root_categories
+        ]);
     }
 
 }

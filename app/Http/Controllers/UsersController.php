@@ -95,6 +95,28 @@ class UsersController extends Controller
         }
     }
 
+    public function loginCheckoutUser(Request $request){
+        $this->validate($request, [
+            'login_email' => 'required',
+            'login_password' => 'required'
+        ],
+        [
+            'login_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
+            'login_password.required' => 'Задължително е въвеждането на вашата парола!'
+        ]);
+
+        // Add user
+        if($request->isMethod('post')){
+            // Login new user
+            if(Auth::attempt(['email' => $request->input('login_email'), 'password' => $request->input('login_password')])){
+                Session::put('frontUserLogin', $request->input('login_email'));
+                return redirect('/checkout.html');
+            }else{
+                return redirect()->back()->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            }
+        }
+    }
+
     public function logoutUser(Request $request){
         Auth::logout();
         $request->session()->flush();
@@ -156,6 +178,9 @@ class UsersController extends Controller
             if (!empty($request->input('user_city'))){
                 $user->city = $request->input('user_city');
             }
+            if (!empty($request->input('user_postcode'))){
+                $user->postcode = $request->input('user_postcode');
+            }
             if (!empty($request->input('user_address'))){
                 $user->address = $request->input('user_address');
             }
@@ -165,8 +190,20 @@ class UsersController extends Controller
             if (!empty($request->input('user_city2'))){
                 $user->city2 = $request->input('user_city2');
             }
+            if (!empty($request->input('user_postcode2'))){
+                $user->postcode2 = $request->input('user_postcode2');
+            }
             if (!empty($request->input('user_address2'))){
                 $user->address2 = $request->input('user_address2');
+            }
+            if (!empty($request->input('user_firm'))){
+                $user->firm = $request->input('user_firm');
+            }
+            if (!empty($request->input('user_eik'))){
+                $user->eik = $request->input('user_eik');
+            }
+            if (!empty($request->input('user_mol'))){
+                $user->mol = $request->input('user_mol');
             }
             $user->save();
             return redirect('/change-data.html')->with('message', 'Успешно променихте вашите данни!');
