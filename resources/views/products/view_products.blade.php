@@ -27,15 +27,6 @@
                             @endphp
                             <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ: <strong>{{ $search_text }}</strong>)@endif{!! $categories_names !!}</li>
                         </ul>
-                        <div id="message_div" style="display:none;">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="alert_box success">
-                                        <span id="message"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
                                 <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
@@ -463,10 +454,8 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.scrollTo(0, 0);
-                $("#message_div").show("slow", function () {
-                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
-                });
+                window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
+                window.location.reload();
             }
         });
     };

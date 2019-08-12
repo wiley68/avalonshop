@@ -23,15 +23,6 @@
                             <li>{{ $product->name }}</li>
                         </ul>
                         <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
-                        <div id="message_div" style="display:none;">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="alert_box success">
-                                        <span id="message"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- - - - - - - - - - - - - - Product images & description - - - - - - - - - - - - - - - - -->
                         <section class="section_offset">
                             <div class="clearfix">
@@ -660,10 +651,8 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.scrollTo(0, 0);
-                $("#message_div").show("slow", function () {
-                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
-                });
+                window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
+                window.location.reload();
             }
         });
     });
@@ -679,10 +668,8 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.scrollTo(0, 0);
-                $("#message_div").show("slow", function () {
-                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
-                });
+                window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
+                window.location.reload();
             }
         });
     };
