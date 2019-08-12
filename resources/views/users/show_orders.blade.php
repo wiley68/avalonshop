@@ -71,10 +71,10 @@
                                                     <td data-title="Action">
                                                         <ul class="buttons_col">
                                                             <li>
-                                                                <a href="{{ route('show-order', ['id' => $order->id]) }}" class="button_grey">Преглед</a>
+                                                                <a href="{{ route('show-order', ['id' => $order->id]) }}" class="button_blue">Преглед</a>
                                                             </li>
                                                             <li>
-                                                                <button onclick="clickBtnDelOrder(event, {{ $order->id }})" class="button_grey">Изтрий</button>
+                                                                <button onclick="clickBtnDelOrder(event, {{ $order->id }})" class="button_dark_grey">Изтрий</button>
                                                             </li>
                                                         </ul>
                                                     </td>

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\Support;
 use App\Favorite;
-use App\Order;
 use App\Review;
 
 class UsersController extends Controller
@@ -141,7 +140,7 @@ class UsersController extends Controller
                 'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
                 'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
             ]);
-    
+
             if (Hash::check($request->input('old_password'), User::where(['email'=>Auth::user()->email])->first()->password)){
                 $password = bcrypt($request->input('new_password'));
                 User::where(['email'=>Auth::user()->email])->update(['password'=>$password]);
@@ -170,7 +169,7 @@ class UsersController extends Controller
             [
                 'user_name.required' => 'Задължително е въвеждането на Вашите имена!'
             ]);
-    
+
             $user = Auth::user();
             $user->name = $request->input('user_name');
             if (!empty($request->input('user_phone'))){
@@ -279,7 +278,7 @@ class UsersController extends Controller
                 'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
                 'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
             ]);
-        
+
             // delete users
             Review::where(['user_id' => Auth::user()->id])->delete();
             Favorite::where(['user_id' => Auth::user()->id])->delete();
@@ -310,7 +309,7 @@ class UsersController extends Controller
                 $user->isnews = 1;
                 $user->save();
                 $root_categories = Category::where(['parent_id' => 0])->get();
-                
+
                 $webprojects = Project::all();
                 $supports_gamings = Support::where(['category_id' => 'gamings'])->get();
                 $supports_offices = Support::where(['category_id' => 'offices'])->get();
