@@ -36,4 +36,18 @@ class OrderController extends Controller
         }
     }
 
+    public function showOrder(Request $request, $id = null)
+    {
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        $order = Order::where(['id' => $id])->first();
+
+        return view('users.show_order')->with([
+            'title' => 'Информация за моите поръчки' . ' | Авалон',
+            'description' => 'Информация за моите поръчки',
+            'keywords' => 'панел, управление, потребител, поръчка',
+            'root_categories' => $root_categories,
+            'order' => $order
+        ]);
+    }
+
 }
