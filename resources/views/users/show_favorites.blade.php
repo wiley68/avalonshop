@@ -162,10 +162,8 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.scrollTo(0, 0);
-                $("#message_div").show("slow", function () {
-                    $("#message").html("Успешно добавихте продукта. Можете да продължите с разглеждането на магазина ни, или да закупите продуктите във вашата <a href='/cart.html' title='Вижте съдържанието на Вашата Количка.'>Количка</a>.");
-                });
+                window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
+                window.location.reload();
             }
         });
     };
