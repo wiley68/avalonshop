@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\ContactUs;
 use Illuminate\Support\Facades\Mail;
 use App\Category;
+use App\Mail\OrderOk;
 use App\Project;
 use App\Support;
 use App\Order;
@@ -273,12 +274,26 @@ class HelpController extends Controller
     public function checkoutResult(Request $request, $id=0)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
+        $order = Order::where(['id' => $id])->first();
+
+        // send mail
+        //to admin
+        $objMailAdmin = new \stdClass();
+        $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailAdmin->name = $order->user_name;
+        $objMailAdmin->email = $order->email;
+        $objMailAdmin->order = $order->id;
+        $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+        $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+
+        Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
+        
         return view('checkout-result')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кошница',
             'root_categories' => $root_categories,
-            'order' => Order::where(['id' => $id])->first()
+            'order' => $order
         ]);
     }
 
