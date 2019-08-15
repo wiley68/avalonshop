@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Order;
+use App\Suborder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,13 +41,15 @@ class OrderController extends Controller
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $order = Order::where(['id' => $id])->first();
+        $suborders = Suborder::where(['order_id' => $order->id])->get();
 
         return view('users.show_order')->with([
             'title' => 'Информация за моите поръчки' . ' | Авалон',
             'description' => 'Информация за моите поръчки',
             'keywords' => 'панел, управление, потребител, поръчка',
             'root_categories' => $root_categories,
-            'order' => $order
+            'order' => $order,
+            'suborders' => $suborders
         ]);
     }
 

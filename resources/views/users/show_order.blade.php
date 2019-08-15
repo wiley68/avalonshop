@@ -1,4 +1,4 @@
-<?php use App\Suborder; ?>
+<?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -43,17 +43,16 @@
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                             </aside>
                             <!--/ [col]-->
-                            <main class="col-md-9 col-sm-8">
+                            <main id="OrderIdToPrint" class="col-md-9 col-sm-8">
                                 <h1>Поръчка № {{ $order->id }}</h1>
 							<!-- - - - - - - - - - - - - - Order table - - - - - - - - - - - - - - - - -->
 							<div class="section_offset">
 								<header class="top_box">
 									<div class="buttons_row">
-										<a href="#" class="button_grey middle_btn">Печат на поръчката</a>
+										<button id="btn_print" class="button_grey middle_btn">Печат на поръчката</button>
 									</div>
                                 </header>
                                 @php
-                                    $suborders = Suborder::where(['order_id' => $order->id])->get();
                                     $all_price = 0;
                                     foreach ($suborders as $suborder) {
                                         $all_price += floatval($suborder->total_price);
@@ -190,29 +189,16 @@
 															<td>{{ $order->address }}</td>
 														</tr>
 														<tr>
-																
-															<th>Zip/Postal Code</th>
-															<td>2000</td>
+															<th>Пощенски код</th>
+															<td>{{ $order->postcode2 }}</td>
 														</tr>
 														<tr>
-																
-															<th>City</th>
-															<td>New York</td>
+															<th>Населено място</th>
+															<td>{{ $order->city2 }}</td>
 														</tr>
 														<tr>
-																
-															<th>Country</th>
-															<td>USA</td>
-														</tr>
-														<tr>
-																
-															<th>State</th>
-															<td>NY</td>
-														</tr>
-														<tr>
-																
-															<th>Phone</th>
-															<td>876-54-32</td>
+															<th>Телефон</th>
+															<td>{{ $order->phone }}</td>
 														</tr>
 													</tbody>
 												</table>
@@ -224,87 +210,44 @@
 							</div><!--/ .section_offset -->
 							<!-- - - - - - - - - - - - - - Items ordered - - - - - - - - - - - - - - - - -->
 							<section class="section_offset">
-								<h3>Items Ordered</h3>
+								<h3>Поръчани продукти</h3>
 								<div class="table_wrap">
 									<table class="table_type_1 order_review">
 										<thead>
-											
 											<tr>
-												
-												<th class="product_title_col">Product Name</th>
-												<th class="product_sku_col">SKU</th>
-												<th class="product_price_col">Price</th>
-												<th class="product_qty_col">Quantity</th>
-												<th class="product_total_col">Total</th>
+												<th class="product_title_col">Продукт</th>
+												<th class="product_sku_col">КОД</th>
+												<th class="product_price_col">Цена</th>
+												<th class="product_qty_col">Колич.</th>
+												<th class="product_total_col">Об. цена</th>
 											</tr>
 										</thead>
 										<tbody>
+                                            @foreach ($suborders as $suborder)
+                                            @php
+                                                $product = Product::where(['id' => $suborder->product_id])->first();
+                                            @endphp
 											<tr>
-												
-												<td data-title="Product Name">
-													
-													<a href="#" class="product_title">Adipiscing aliquet sed in lacus, Liqui-gels 24</a>
-													<ul class="sc_product_info">
-														<li>Size: Big</li>
-														<li>Color: Red</li>
-													</ul>
-												</td>
-												<td data-title="SKU">PS01</td>
-												<td data-title="Price" class="subtotal">$5.99</td>
-												<td data-title="Quantity">1</td>
-												<td data-title="Total" class="total">$5.99</td>
-											</tr>
-											<tr>
-												
-												<td data-title="Product Name">
-													
-													<a href="#" class="product_title">Sed in lacus ut enim adipiscing dictum elementum velit<br>Relief 4.25 fl oz (126ml)</a>
-													<ul class="sc_product_info">
-														<li>Size: Big</li>
-														<li>Color: Red</li>
-													</ul>
-												</td>
-												<td data-title="SKU">PS02</td>
-												<td data-title="Price" class="subtotal">$8.99</td>
-												<td data-title="Quantity">1</td>
-												<td data-title="Total" class="total">$8.99</td>
-											</tr>
-											<tr>
-												<td data-title="Product Name">
-													
-													<a href="#" class="product_title">Donec porta diam eu massa quisque Mint 160 ea</a>
-													<ul class="sc_product_info">
-														<li>Size: Big</li>
-														<li>Color: Red</li>
-													</ul>
-												</td>
-												<td data-title="SKU">PS03</td>
-												<td data-title="Price" class="subtotal">$76.99</td>
-												<td data-title="Quantity">1</td>
-												<td data-title="Total" class="total">$76.99</td>
-											</tr>
+                                                <td data-title="Product Name">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}" class="product_title">{{ $product->name }}</a>
+                                                </td>
+                                                <td data-title="SKU">{{ $product->code }}</td>
+                                                <td data-title="Price" class="subtotal">{{ $product->price }}</td>
+                                                <td data-title="Quantity">{{ $suborder->product_quantity }}</td>
+                                                <td data-title="Total" class="total">{{ $suborder->total_price }}&nbsp;лв.</td>
+                                            </tr>
+                                            @endforeach
 										</tbody>
 										<tfoot>
 											<tr>
-												
-												<td colspan="4" class="bold">Subtotal</td>
-												<td class="total">$146.87</td>
-											</tr>
-											<tr>
-												
-												<td colspan="4" class="bold">Shipping &amp; Heading (Flat Rate - Fixed)</td>
-												<td class="total">$5.00</td>
-											</tr>
-											<tr>
-												
-												<td colspan="4" class="grandtotal">Grand Total</td>
-												<td class="grandtotal">$151.87</td>
+												<td colspan="4" class="grandtotal">Обща цена</td>
+												<td class="grandtotal">{{ number_format($all_price, 2, ".", "") }}&nbsp;лв.</td>
 											</tr>
 										</tfoot>
 									</table>
 								</div><!--/ .table_wrap -->
 								<footer class="bottom_box">
-									<a href="shop_orders_list.html" class="button_grey middle_btn">Back to My Orders</a>
+									<a href="{{ route('show-orders') }}" class="button_grey middle_btn">Обратно в моите поръчки</a>
 								</footer>
 							</section>
 							<!-- - - - - - - - - - - - - - End of items ordered - - - - - - - - - - - - - - - - -->
@@ -322,4 +265,21 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    function printOrder(){
+        var divToPrint=document.getElementById('OrderIdToPrint');
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
+    }
+
+    $("#btn_print").click(function(){
+        printOrder();
+    });
+    </script>
 @endsection
