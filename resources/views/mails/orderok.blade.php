@@ -4,4 +4,30 @@
 <div>
 <p><b>E-mail:</b>&nbsp;{{ $orderok->email }}</p>
 <p><b>Поръчка №:</b>&nbsp;{{ $orderok->order }}</p>
+@php
+    switch ($orderok->shipping) {
+        case 'free':
+            $shipping = 'Безплатна доставка за стока над 400.00 лв. без ДДС.';
+            break;
+        case 'spedy':
+            $shipping = 'Куриерска компания Спиди.';
+            break;
+        default:
+            $shipping = 'Куриерска компания Спиди.';
+            break;
+    }
+    switch ($orderok->payment) {
+        case 'platez':
+            $payment = 'Наложен платеж.';
+            break;
+        case 'bank':
+            $payment = 'Плащане по Банков път. Банка: УниКредит Булбанк клон Горна Оряховица, IBAN: BG20UNCR70001520104558, BIC: UNCRBGSF, Основание: Поръчка №: ' . $orderok->order;
+            break;
+        default:
+            $payment = 'Наложен платеж.';
+            break;
+    }
+@endphp
+<p><b>Доставка:</b>&nbsp;{{ $shipping }}</p>
+<p><b>Плащане:</b>&nbsp;{{ $payment }}</p>
 </div>

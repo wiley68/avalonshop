@@ -7,6 +7,7 @@ use App\Mail\ContactUs;
 use Illuminate\Support\Facades\Mail;
 use App\Category;
 use App\Mail\OrderOk;
+use App\Mail\OrderUser;
 use App\Project;
 use App\Support;
 use App\Order;
@@ -201,7 +202,7 @@ class HelpController extends Controller
                 'user_city2.required' => 'Задължително е въвеждането на Вашето населено място!',
                 'user_postcode2.required' => 'Задължително е въвеждането на Вашия пощенски код!',
                 'user_phone2.required' => 'Задължително е въвеждането на Вашия телефон!'
-            ]);
+            ]);    
 
             $order = new Order();
             
@@ -283,10 +284,27 @@ class HelpController extends Controller
         $objMailAdmin->name = $order->user_name;
         $objMailAdmin->email = $order->email;
         $objMailAdmin->order = $order->id;
+        $objMailAdmin->shipping = $order->shipping;
+        $objMailAdmin->payment = $order->payment;
         $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
 
         Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
+        
+        //to user
+        $objMailUser = new \stdClass();
+        $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailUser->name = $order->user_name;
+        $objMailUser->email = $order->email;
+        $objMailUser->order = $order->id;
+        $objMailUser->shipping = $order->shipping;
+        $objMailUser->payment = $order->payment;
+        $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+
+        $suborders = Suborder::where(['order_id' => $order->id])->get();
+        $objMailUser->suborders = $suborders;
+
+        Mail::to($order->email)->send(new OrderUser($objMailUser));
         
         return view('checkout-result')->with([
             'title' => 'Продуктова кошница | Авалон',

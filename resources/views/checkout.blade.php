@@ -40,13 +40,11 @@ $all_price += floatval($item['total_price']);
                                                     <ul>
                                                         <li>
                                                             <input type="radio" checked name="type_order"
-                                                                id="type_order_guest">
+                                                                id="type_order_guest" value="type_order_guest">
                                                             <label for="type_order_guest">Поръчка като Гост</label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" name="type_order"
-                                                                id="type_order_register">
-                                                            <label for="type_order_register">Регистрирай се</label>
+                                                            <a href="{{ route('login-register') }}" class="button_grey middle_btn">Регистрирай се</a>
                                                         </li>
                                                     </ul>
                                                 </form>
@@ -233,12 +231,12 @@ $all_price += floatval($item['total_price']);
                                         <li class="row">
                                             <div class="col-sm-6" id="order_password1_div">
                                                 <label for="password" class="required">Парола</label>
-                                                <input type="password" name="" id="password">
+                                                <input type="password" name="register_password" id="register_password">
                                             </div>
                                             <!--/ [col] -->
                                             <div class="col-sm-6" id="order_password2_div">
-                                                <label for="confirm" class="required">Пофтори паролата</label>
-                                                <input type="password" name="" id="confirm">
+                                                <label for="confirm" class="required">Повтори паролата</label>
+                                                <input type="password" name="register_password_again" id="register_password_again">
                                             </div>
                                             <!--/ [col] -->
                                         </li>
