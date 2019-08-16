@@ -4877,20 +4877,20 @@ transition-duration:0.1s;
 	.layer_1,
 	.layer_3{ 
 		font-weight: 900;
-		color: #E31E24;
+		color: #fff;
 	}
 
 	.layer_2{
 		font-weight: 300;
 		letter-spacing: -1px;
-		color:#333;
+		color:#DCDCDC;
 	}
 
 	.layer_5{
 		letter-spacing: -1px;
 		font-weight: 300;
 		text-transform: uppercase;
-		color:#fff;
+		color:#FFD700;
 	}
 
 	.layer_6,
@@ -4906,7 +4906,7 @@ transition-duration:0.1s;
 	}
 
 	.layer_10{
-		color:#fff;
+		color:#FFD700;
 		line-height: 20px;
 		text-align: right;
 		white-space: pre-wrap;
