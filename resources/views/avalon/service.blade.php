@@ -40,9 +40,8 @@
                                 <!-- - - - - - - - - - - - - - End of information - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="/images/banner_img_11.png" alt="">
+                                    <a href="{{ route('product', ['id' => 1]) }}" class="banner">
+                                        <img src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->

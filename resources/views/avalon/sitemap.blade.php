@@ -42,9 +42,8 @@
                                 <!-- - - - - - - - - - - - - - End of information - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="#" class="banner">
-
-                                        <img src="/images/banner_img_11.png" alt="">
+                                    <a href="{{ route('product', ['id' => 1]) }}" class="banner">
+                                        <img src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -313,7 +312,7 @@
                                                 <ul class="list_type_5 links">
                                                     <li><a href="{{ route('index') }}">Начало</a></li>
                                                     <li><a href="{{ route('for_us') }}">За нас</a></li>
-                                                    <li><a href="{{ route('contact') }}">За контакт</a></li>  
+                                                    <li><a href="{{ route('contact') }}">За контакт</a></li>
                                                     <li><a href="{{ route('avalon.shop') }}">магазин Горна Оряховица</a></li>
                                                     <li><a href="{{ route('avalon.service') }}">Компютърен сервиз</a></li>
                                                     <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
@@ -334,7 +333,7 @@
                                                 <ul class="list_type_5 links">
                                                     <li><a href="{{ route('support.posts', ['id'=>'gamings']) }}">Игрални компютри</a></li>
                                                     <li><a href="{{ route('support.posts', ['id'=>'offices']) }}">Офис компютри</a></li>
-                                                    <li><a href="{{ route('support.posts', ['id'=>'printers']) }}">Принтери и Копири</a></li>  
+                                                    <li><a href="{{ route('support.posts', ['id'=>'printers']) }}">Принтери и Копири</a></li>
                                                     <li><a href="{{ route('support.posts', ['id'=>'instalations']) }}">Инсталация и настройки</a></li>
                                                     <li><a href="{{ route('support.posts', ['id'=>'networks']) }}">Локални Мрежи</a></li>
                                                     <li><a href="{{ route('support.posts', ['id'=>'cameras']) }}">Камери и Охрана</a></li>
@@ -348,7 +347,7 @@
                                                 <ul class="list_type_5 links">
                                                     <li><a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a></li>
                                                     <li><a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></li>  
+                                                    <li><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></li>
                                                     <li><a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a></li>
                                                     <li><a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a></li>
                                                     <li><a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a></li>

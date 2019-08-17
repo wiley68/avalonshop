@@ -37,9 +37,8 @@
                                 <!-- - - - - - - - - - - - - - End of information - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="#" class="banner">
-                                        
-                                        <img src="/images/banner_img_11.png" alt="">
+                                    <a href="{{ route('product', ['id' => 1]) }}" class="banner">
+                                        <img src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -161,7 +160,7 @@
                                                         <div class="g-recaptcha"
                                                              data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
                                                         </div>
-                                                        @endif                                                    
+                                                        @endif
                                                     </div><!--/ [col]-->
                                                 </li><!--/ .row -->
                                             </ul>
@@ -208,8 +207,8 @@
                         </div><!--/ .row-->
                     </div><!--/ .container-->
                 </div><!--/ .page_wrapper-->
-                
-                <!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->    
+
+                <!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
             </div>
         </div>
     </div>
