@@ -10,21 +10,7 @@ if (!empty((Session::get('cart_session'))['items'])){
     }
 }
 @endphp
-<!-- - - - - - - - - - - - - - Cookie Message - - - - - - - - - - - - - - - - -->
-<div class="cookie_message">
-    <div class="container">
-        <div class="on_the_sides">
-            <div class="left_side">Моля имайте предвид че този сайт се нуждае от cookies за да функционира нормално.</div>
-            <div class="right_side">
-                <div class="buttons_row">
-                    <a href="#" class="button_blue accept_cookie">Приемам</a>
-                    <a href="{{ route('politika') }}" class="button_dark_grey">Виж още</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- - - - - - - - - - - - - - End of Cookie Message - - - - - - - - - - - - - - - - -->
+@include('cookieConsent::index')
 <div class="wide_layout">
     <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
     <header id="header" class="type_5">
