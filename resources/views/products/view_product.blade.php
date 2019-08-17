@@ -590,7 +590,6 @@
             url:'/add-favorite.html',
             data:{id:id},
             success:function(data){
-                console.log(data);
                 if (data.result == "new"){
                     alert("Успешно добавихте този продукт към Любите си продукти.");
                 }else{

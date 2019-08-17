@@ -1,5 +1,6 @@
 <?php use App\ProductsCategories; ?>
 <?php use App\Product; ?>
+<?php use App\Review; ?>
 @extends('layouts.design')
 @section('content')
 @if (!empty($message))
@@ -151,6 +152,16 @@
                                         <div class="owl_carousel carousel_in_tabs type_3">
                                             @foreach ($products_by_categories as $product_item)
                                             <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                                            @php
+                                            $reviews = Review::where(['product_id' => $product_item->id])->get();
+                                            $all_rev = 0;
+                                            foreach ($reviews as $review){
+                                                $all_rev += $review->price + $review->value + $review->quantity;
+                                            }
+                                            if ($reviews->count() > 0){
+                                                $all_rev = floor($all_rev / $reviews->count() * 3);
+                                            }
+                                            @endphp
                                             <div class="product_item">
                                                     <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
                                                     <div class="image_wrap">
@@ -158,7 +169,7 @@
                                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                         <div class="actions_wrap">
                                                             <div class="centered_buttons">
-                                                                <a href="#" class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                                                                <a href="{{ route('product', ['id' => $product_item->id]) }}" class="button_dark_grey middle_btn quick_view pb">Подробно</a>
                                                             </div><!--/ .centered_buttons -->
                                                         </div><!--/ .actions_wrap-->
 
@@ -174,11 +185,11 @@
                                                         <div class="clearfix product_info">
                                                             <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                             <ul class="rating alignright">
-                                                                <li class="active"></li>
-                                                                <li class="active"></li>
-                                                                <li class="active"></li>
-                                                                <li class="active"></li>
-                                                                <li></li>
+                                                                <li @if ($all_rev> 0) class="active" @endif></li>
+                                                                <li @if ($all_rev> 1) class="active" @endif></li>
+                                                                <li @if ($all_rev> 2) class="active" @endif></li>
+                                                                <li @if ($all_rev> 3) class="active" @endif></li>
+                                                                <li @if ($all_rev> 4) class="active" @endif></li>
                                                             </ul>
                                                             <!-- - - - - - - - - - - - - - End product rating - - - - - - - - - - - - - - - - -->
                                                             <p class="product_price alignleft"><b>{{ $product_item->price }}</b>&nbsp;лв.</p>
@@ -186,7 +197,7 @@
                                                         <button onclick="buyProduct('{{ $product_item->id }}');" class="button_blue middle_btn">Купи</button>
                                                         @auth
                                                         <ul class="bottombar">
-                                                            <li><a href="#">Добави към любими</a></li>
+                                                            <li><a href="#" onclick="clickBtnAddFavorite(event, {{ $product_item->id }})">Добави към любими</a></li>
                                                         </ul>
                                                         @endauth
                                                     </div>
@@ -631,6 +642,22 @@ function buyProduct(product_id){
             // add to mini cart
             window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
             window.location.reload();
+        }
+    });
+};
+
+function clickBtnAddFavorite(e, id){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'/add-favorite.html',
+        data:{id:id},
+        success:function(data){
+            if (data.result == "new"){
+                alert("Успешно добавихте този продукт към Любите си продукти.");
+            }else{
+                alert("Вече сте добавили този продукт в Любимите си продукти.");
+            }
         }
     });
 };
