@@ -27,19 +27,17 @@
 									<div class="rev_slider">
 										<ul>
 											<!-- - - - - - - - - - - - - - Slide 1 - - - - - - - - - - - - - - - - -->
-											<li data-transition="papercut" data-slotamount="7">
+											<li data-transition="papercut" data-slotamount="7" class="align_center">
 												<img src="/images/slide_comp.jpg" alt="Авалон магазин компютри">
-												<div class="caption sfl stl layer_1" data-x="left" data-hoffset="60" data-y="90" data-easing="easeOutBack" data-speed="600" data-start="900">Най-добро качество</div>
-												<div class="caption sfl stl layer_2" data-x="left" data-y="138" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1000">Игрални компютри</div>
-												<div class="caption sfl stl layer_3" data-x="left" data-y="190" data-hoffset="60" data-easing="easeOutBack" data-speed="600" data-start="1100">на отлична цена</div>
-												<div class="caption sfb stb" data-x="left" data-y="245" data-hoffset="60" data-easing="easeOutBack" data-speed="700" data-start="1100">
-													<a href="{{ route('products') }}" class="button_blue big_btn">Към нашия магазин!</a>
+												<div class="caption sfl stl layer_1" data-x="center" data-y="77" data-easing="easeOutBack" data-speed="600" data-start="900">Компютърни компоненти</div>
+												<div class="caption sfl stl layer_2" data-x="center" data-y="135" data-easing="easeOutBack" data-speed="600" data-start="1050">Добри цени<br><small> на отлично</small> Качество <small>и безпроблемна</small> Гаранция!</div>
+												<div class="caption sfb stb" data-x="center" data-y="260" data-easing="easeOutBack" data-speed="700" data-start="1150">
+													<a href="{{ route('contact') }}" class="button_blue big_btn">Разгледайте нашия магазин!</a>
 												</div>
 											</li>
 											<!-- - - - - - - - - - - - - - End of Slide 1 - - - - - - - - - - - - - - - - -->
 											<!-- - - - - - - - - - - - - - Slide 2 - - - - - - - - - - - - - - - - -->
 											<li data-transition="papercut" data-slotamount="7" class="align_center">
-
 												<img src="/images/slide_software.jpg" alt="">
 												<div class="caption sfl stl layer_5" data-x="center" data-y="77" data-easing="easeOutBack" data-speed="600" data-start="900">Разработка на софтуер</div>
 												<div class="caption sfl stl layer_6" data-x="center" data-y="135" data-easing="easeOutBack" data-speed="600" data-start="1050">Програми<br><small> и</small> Модули <small>по</small> Поръчка!</div>

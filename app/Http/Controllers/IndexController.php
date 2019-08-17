@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Category;
 use App\Project;
 use App\Support;
@@ -399,5 +398,5 @@ class IndexController extends Controller
         ]);
     }
     /** end kantar */
-    
+
 }
