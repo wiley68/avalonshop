@@ -10,7 +10,6 @@ if (!empty((Session::get('cart_session'))['items'])){
     }
 }
 @endphp
-@include('cookieConsent::index')
 <div class="wide_layout">
     <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
     <header id="header" class="type_5">
