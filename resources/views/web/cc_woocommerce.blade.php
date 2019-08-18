@@ -46,6 +46,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <section>
+                    <h3>Помощна информация, начин на работа и инсталиране на модулите</h3>
+					<ul class="lightbox_list">
+						<li>
+							<a class="fancybox_item" data-rel="group_1" href="/images/lightbox_thumb_1.jpg" title="Title 1">
+        						<img src="/images/lightbox_thumb_1.jpg" alt="">
+								<span class="helper_icon">
+    								<span class="helper_left"></span>
+	    							<span class="helper_right"></span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a class="fancybox_item" data-rel="group_1" href="i/mages/lightbox_thumb_2.jpg" title="Title 2">
+	    						<img src="/images/lightbox_thumb_2.jpg" alt="">
+		    					<span class="helper_icon">
+			    					<span class="helper_left"></span>
+				    				<span class="helper_right"></span>
+					    		</span>
+    						</a>
+						</li>
+						<li>
+							<a class="fancybox_item_media" data-rel="group_1" href="https://youtu.be/VqfsxYMmipA">
+								<img src="/images/lightbox_thumb_3.jpg" alt="">
+								<span class="helper_icon">
+									<span class="helper_left"></span>
+    								<span class="helper_right"></span>
+								</span>
+							</a>
+						</li>
+                    </ul>
+                    </section>
             </div>
         </div>
     </div>
