@@ -11,9 +11,9 @@ use App\Mail\OrderUser;
 use App\Project;
 use App\Support;
 use App\Order;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Suborder;
-use Illuminate\Support\Facades\Redirect;
 
 class HelpController extends Controller
 {
@@ -202,10 +202,10 @@ class HelpController extends Controller
                 'user_city2.required' => 'Задължително е въвеждането на Вашето населено място!',
                 'user_postcode2.required' => 'Задължително е въвеждането на Вашия пощенски код!',
                 'user_phone2.required' => 'Задължително е въвеждането на Вашия телефон!'
-            ]);    
+            ]);
 
             $order = new Order();
-            
+
             if (!empty(Auth::user())){
                 $order->user_id = Auth::user()->id;
             }
@@ -239,7 +239,7 @@ class HelpController extends Controller
             }else{
                 $order->payment = 'bank';
             }
-            
+
             $order->save();
 
             //save suborders
@@ -263,7 +263,7 @@ class HelpController extends Controller
 
             return redirect()->route('checkout-result', ['id' => $order->id]);
         }
-      
+
         return view('checkout')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
@@ -290,7 +290,7 @@ class HelpController extends Controller
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
 
         Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
-        
+
         //to user
         $objMailUser = new \stdClass();
         $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
@@ -305,7 +305,7 @@ class HelpController extends Controller
         $objMailUser->suborders = $suborders;
 
         Mail::to($order->email)->send(new OrderUser($objMailUser));
-        
+
         return view('checkout-result')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
@@ -313,6 +313,20 @@ class HelpController extends Controller
             'root_categories' => $root_categories,
             'order' => $order
         ]);
+    }
+
+    public function addDownload(Request $request)
+    {
+        if ($request->method('post')){
+            if (!empty($request->input('id'))){
+                $product = Product::where(['id' => $request->input('id')])->first();
+                if (!empty($product)){
+                    $product->downloads += 1;
+                    $product->save();
+                    return response()->json(['result' => 'success']);
+                }
+            }
+        }
     }
 
 }

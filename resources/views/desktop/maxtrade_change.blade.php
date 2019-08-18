@@ -1,3 +1,4 @@
+<?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -112,11 +113,29 @@
                 <p>Програма за регистриране на дейността по продажба и обмен на валута</p>
             </div>
             <div class="right_side">
-                <a href="https://avalonbg.com/download/MaxtradeChange.zip" class="button_blue huge_btn"><i class="icon-thumbs-up-1"></i>Изтегли демо версия!</a>
+                <a href="https://avalonbg.com/download/MaxtradeChange.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ Product::where(['id' => 6])->first()->downloads }})&nbsp;Изтегли демо версия!</a>
             </div>
         </div>
 
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function clickBtnDownload(e){
+        $.ajax({
+            type:'POST',
+            url:'/add-download.html',
+            data:{id:6}
+        });
+    };
+</script>
 @endsection

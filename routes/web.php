@@ -60,6 +60,7 @@ Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts'
 Route::get('/products/product{id}.html', 'ProductController@viewProduct')->name('product');
 Route::post('/product/add-to-cart.html', 'ProductController@addToCart')->name('product.add-to-cart');
 Route::post('/product/change-cart-quantity.html', 'ProductController@changeCartQuantity')->name('product.change-cart-quantity');
+Route::post('/add-download.html', 'HelpController@addDownload')->name('add-download');
 Route::get('/cart.html', 'HelpController@cart')->name('cart');
 Route::get('/cart-remove-product-{id}.html', 'HelpController@cartRemoveProduct')->name('cart-remove-product');
 Route::get('/cart-clear.html', 'HelpController@cartClear')->name('cart-clear');
