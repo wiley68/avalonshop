@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- JS Libs
@@ -85,9 +86,27 @@
 	============================================ -->
 	<script src="{{ asset('js/theme.plugins.js') }}"></script>
 	<script src="{{ asset('js/theme.core.js') }}"></script>
-   <!-- index controller -->
-
-   @yield('scripts')
+    <!-- index controller -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+            "background": "#3937a3"
+            },
+            "button": {
+                "background": "#e62576"
+            }
+        },
+        "content": {
+            "message": "Нашият сайт използва cookies за да подобри Вашата работа сайта ни. Желаете ли да използвате cookies.",
+            "dismiss": "Разбрах!",
+            "link": "Виж подробно.",
+            "href": "/politika.html"
+        }
+        });
+    </script>
+    @yield('scripts')
 </body>
 
 </html>
