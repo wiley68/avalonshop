@@ -2,6 +2,7 @@
 <?php use App\Tagsp; ?>
 <?php use App\Manufacturer; ?>
 <?php use Illuminate\Support\Collection; ?>
+<?php use App\Review; ?>
 @extends('layouts.design')
 @section('content')
 <div class="page_wrapper">
@@ -329,12 +330,22 @@
                                                                 <div class="clearfix product_info">
                                                                     <p class="product_price alignleft"><b>{{ number_format($products_collection[$i+$j]['price'], 2, ".", "") }}</b> лв.</p>
                                                                     <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
+                                                                    @php
+                                                                    $all_rev = 0;
+                                                                    $reviews = Review::where(['product_id' => $products_collection[$i+$j]['id']])->get();
+                                                                    foreach ($reviews as $review){
+                                                                        $all_rev += $review->price + $review->value + $review->quantity;
+                                                                    }
+                                                                    if ($reviews->count() > 0){
+                                                                        $all_rev = floor($all_rev / $reviews->count() * 3);
+                                                                    }
+                                                                    @endphp
                                                                     <ul class="rating alignright">
-                                                                        <li class="active"></li>
-                                                                        <li class="active"></li>
-                                                                        <li class="active"></li>
-                                                                        <li class="active"></li>
-                                                                        <li></li>
+                                                                        <li @if ($all_rev> 0) class="active" @endif></li>
+                                                                        <li @if ($all_rev> 1) class="active" @endif></li>
+                                                                        <li @if ($all_rev> 2) class="active" @endif></li>
+                                                                        <li @if ($all_rev> 3) class="active" @endif></li>
+                                                                        <li @if ($all_rev> 4) class="active" @endif></li>
                                                                     </ul>
                                                                     <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->
                                                                 </div>

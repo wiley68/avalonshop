@@ -68,10 +68,10 @@
                                             </a>
                                             <a href="#"
                                                 data-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png"
-                                                    alt="{{ $product->name }}-3"
+                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
+                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
+                                                    alt="{{ $product->name }}-4"
                                                     onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                             </a>
                                         </div>
@@ -492,12 +492,7 @@
                                     <!-- - - - - - - - - - - - - - End tab - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-4" class="tab_container">
-                                        <!-- - - - - - - - - - - - - - Youtube video - - - - - - - - - - - - - - - - -->
-                                        <div class="video_wrap">
-                                            {!! $product->description2 !!}
-                                        </div>
-                                        <!--/ .video_wrap -->
-                                        <!-- - - - - - - - - - - - - - End of youtube video - - - - - - - - - - - - - - - - -->
+                                        {!! html_entity_decode($product->description2) !!}
                                     </div>
                                     <!--/ #tab-4-->
                                     <!-- - - - - - - - - - - - - - End tab - - - - - - - - - - - - - - - - -->
