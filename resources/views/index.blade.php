@@ -33,7 +33,7 @@
 												<div class="caption sfl stl layer_1" data-x="center" data-y="77" data-easing="easeOutBack" data-speed="600" data-start="900">Компютърни компоненти</div>
 												<div class="caption sfl stl layer_2" data-x="center" data-y="135" data-easing="easeOutBack" data-speed="600" data-start="1050">Добри цени<br><small> на отлично</small> Качество <small>и безпроблемна</small> Гаранция!</div>
 												<div class="caption sfb stb" data-x="center" data-y="260" data-easing="easeOutBack" data-speed="700" data-start="1150">
-													<a href="{{ route('contact') }}" class="button_blue big_btn">Разгледайте нашия магазин!</a>
+													<a href="{{ route('products') }}" class="button_blue big_btn">Разгледайте нашия магазин!</a>
 												</div>
 											</li>
 											<!-- - - - - - - - - - - - - - End of Slide 1 - - - - - - - - - - - - - - - - -->
@@ -81,37 +81,37 @@
 					<!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
 					<ul class="infoblocks_wrap section_offset six_items">
 						<li class="animated transparent" data-animation="fadeInDown">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-thumbs-up-1"></i>
 								<span class="caption"><b>Най-добро качество</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="100">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-paper-plane"></i>
 								<span class="caption"><b>Бърза доставка в страната</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="200">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-lock"></i>
 								<span class="caption"><b>Политика на поверителност</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="300">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-diamond"></i>
 								<span class="caption"><b>Големи отстъпки</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="400">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-money"></i>
 								<span class="caption"><b>Гаранции за стоката</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="500">
-							<a href="#" class="infoblock type_1">
+							<a class="infoblock type_1">
 								<i class="icon-lifebuoy-1"></i>
 								<span class="caption"><b>24/7 Поддръжка за клиенти</b></span>
 							</a><!--/ .infoblock-->

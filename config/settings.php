@@ -2,6 +2,6 @@
 
 return [
 
-    'backend' => 'http://admin.avalonbg.com'
+    'backend' => 'https://admin.avalonbg.com'
 
 ];

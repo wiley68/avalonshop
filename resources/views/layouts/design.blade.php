@@ -22,7 +22,7 @@
 
     <!-- Google web fonts
 		============================================ -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic,900,900italic'
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
 
     <!-- Libs CSS
@@ -81,7 +81,7 @@
 	<script src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
 	<script src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
 	<script src="{{ asset('js/retina.min.js') }}"></script>
-	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
+	<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
 	<!-- Theme files
 	============================================ -->
 	<script src="{{ asset('js/theme.plugins.js') }}"></script>

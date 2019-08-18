@@ -414,8 +414,6 @@ if (!empty((Session::get('cart_session'))['items'])){
                                     <div class="animated_item">
                                         <!-- - - - - - - - - - - - - - Total info - - - - - - - - - - - - - - - - -->
                                         <ul class="total_info">
-                                            <li><span class="price">Такси:</span> 0.00&nbsp;лв.</li>
-                                            <li><span class="price">Отстъпки:</span> 0.00&nbsp;лв.</li>
                                             <li class="total"><b><span class="price">Общо:</span> 0.00&nbsp;лв.</b></li>
                                         </ul>
 
