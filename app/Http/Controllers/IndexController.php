@@ -248,8 +248,8 @@ class IndexController extends Controller
     public function cc_woocommerce(){
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_woocommerce')->with([
-            'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ | Авалон',
-            'description' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ.',
+            'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за WooCommerce | Авалон',
+            'description' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за WooCommerce.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, woocommerce',
             'root_categories' => $root_categories
         ]);

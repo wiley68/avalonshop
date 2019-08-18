@@ -21,6 +21,19 @@
                     <li>Административен панел</li>
                     </ul>
                     <p>Предлагаме помощ за закупуване на домейн и хостинг, като цената е по договаряне.</p>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <div class="call_to_action">
+                        <div class="on_the_sides">
+                            <div class="left_side">
+                                <div class="title">Изграждане на Стандартен уеб сайт</div>
+                                <p>Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него</p>
+                            </div>
+                            <div class="right_side">
+                                <a href="{{ route('product', ['id' => 16]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 600.00 лв.</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

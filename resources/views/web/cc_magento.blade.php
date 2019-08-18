@@ -24,6 +24,32 @@
                     <p>Инсталирането на <span class="important">Кредитен калкулатор - Magento</span> става като разархивирате намиращите се в архивния файл<span class="important">"CreditCalculatorMagento[_xxx]_X.X.XX.rar"</span> , който сте получили при закупуването на програмата в главната директорията на вашия <span class="important">Magento</span>. След което отваряте Адмистративния панел на Вашя <span class="important">Magento</span> магазин и отваряте менюто: "Система" - "Конфигурация". В секцията "Продажби", намирате менюто "Продажба на лизинг". От тук извършвате конфигуриране на модула.<br />При нужда можем да инсталираме вместо Вас модула, като процедурата е безплатна за Вас. За целта е нужно да се свържете с нас и да заявите това Ваше желание. Ще са ни необходими данни за вашия сървърен акаунт за , които ще се уточним допълнително.</p>
                     <p>Приятна работа!</p>
                     <p>При нужда можем да инсталираме вместо Вас модула, като процедурата е безплатна за Вас. За целта е нужно да се свържете с нас и да заявите това Ваше желание. Ще са ни необходими данни за вашия сървърен акаунт за , които ще се уточним допълнително.</p>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <div class="call_to_action">
+                        <div class="on_the_sides">
+                            <div class="left_side">
+                                <div class="title">Кредитен калкулатор BNP Paribas за Magento</div>
+                                <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на Magento</p>
+                            </div>
+                            <div class="right_side">
+                                <a href="{{ route('product', ['id' => 17]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <div class="call_to_action">
+                        <div class="on_the_sides">
+                            <div class="left_side">
+                                <div class="title">Кредитен калкулатор UniCredit за Magento</div>
+                                <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на Magento</p>
+                            </div>
+                            <div class="right_side">
+                                <a href="{{ route('product', ['id' => 18]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

@@ -23,6 +23,32 @@
                     <h4>IV. ИНСТАЛИРАНЕ</h4>
                     <p>Инсталирането на <span class="important">Кредитен калкулатор - PrestaShop</span> става като разархивирате намиращите се в архивния файл<span class="important">"CC_PrestaShop_[xxx]_ver_X.X.X.rar"</span> , който сте получили при закупуването на програмата в директорията за модули на вашия <span class="important">PrestaShop</span>. След което отваряте Адмистративния панел на Вашя <span class="important">PrestaShop</span> магазин и отваряте менюто: "Modules and Services" Избирате да се показват всички неинсталирани модули. В най-долната част би трябвало да видите нашият модул "Кредитен калкулатор vX.X.XX". Бутона в дясната част на избрания от Вас модул, "Install" извършва инсталирането на модула във Вашата система. След извършването на инсталирането сте готови за конфигуриране на модула.<br />Приятна работа!</p>
                     <p>При нужда можем да инсталираме вместо Вас модула, като процедурата е безплатна за Вас. За целта е нужно да се свържете с нас и да заявите това Ваше желание. Ще са ни необходими данни за вашия сървърен акаунт за , които ще се уточним допълнително.</p>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <div class="call_to_action">
+                        <div class="on_the_sides">
+                            <div class="left_side">
+                                <div class="title">Кредитен калкулатор BNP Paribas за PrestaShop</div>
+                                <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на PrestaShop</p>
+                            </div>
+                            <div class="right_side">
+                                <a href="{{ route('product', ['id' => 19]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <div class="call_to_action">
+                        <div class="on_the_sides">
+                            <div class="left_side">
+                                <div class="title">Кредитен калкулатор UniCredit за PrestaShop</div>
+                                <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на PrestaShop</p>
+                            </div>
+                            <div class="right_side">
+                                <a href="{{ route('product', ['id' => 20]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
