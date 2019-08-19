@@ -49,37 +49,31 @@
                     <div class="section_offset clearfix">
                     </div>
                     <section>
-                    <h3>Помощна информация, начин на работа и инсталиране на модулите</h3>
+                    <h3>TBI Bank Калкулатори</h3>
 					<ul class="lightbox_list">
 						<li>
-							<a class="fancybox_item" data-rel="group_1" href="/images/lightbox_thumb_1.jpg" title="Title 1">
-        						<img src="/images/lightbox_thumb_1.jpg" alt="">
-								<span class="helper_icon">
-    								<span class="helper_left"></span>
-	    							<span class="helper_right"></span>
-								</span>
-							</a>
+                            <a href="https://youtu.be/VqfsxYMmipA" title="Описание на работата с Контролен Панел за управление на Кредитен Калкулатор TBI Bank, за вграждане в електронни магазини" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
 						</li>
 						<li>
-							<a class="fancybox_item" data-rel="group_1" href="i/mages/lightbox_thumb_2.jpg" title="Title 2">
-	    						<img src="/images/lightbox_thumb_2.jpg" alt="">
-		    					<span class="helper_icon">
-			    					<span class="helper_left"></span>
-				    				<span class="helper_right"></span>
-					    		</span>
-    						</a>
-						</li>
+                            <a href="https://youtu.be/R6w7WlpVrTw" title="Промяна на настройките на инсталиран Кредитен Калкулатор на TBI Bank за вграждане в онлайн платформи" target="_blank" class="button_dark_grey middle_btn">Промяна на настройките</a>
+                        </li>
 						<li>
-							<a class="fancybox_item_media" data-rel="group_1" href="https://youtu.be/VqfsxYMmipA">
-								<img src="/images/lightbox_thumb_3.jpg" alt="">
-								<span class="helper_icon">
-									<span class="helper_left"></span>
-    								<span class="helper_right"></span>
-								</span>
-							</a>
-						</li>
+                            <a href="https://youtu.be/Cq3uxeKyesc" title="Извършване на покупки на кредит от онлайн платформа, чрез Кредитен Калкулатор на TBI Bank" target="_blank" class="button_dark_grey middle_btn">Покупка на кредит</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/VqfsxYMmipA" title="Инсталиране на Кредитен Калкулатор на TBI Bank за платформа за онлайн търговия WooCommerce" target="_blank" class="button_dark_grey middle_btn">WooCommerce</a>
+                        </li>
                     </ul>
-                    </section>
+                    <h3>TBI Bank API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/d-49uJwBWmg" title="Работа с контролен панел - TBI Bank e-Commerce" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/OYQhEFZcA6o" title="Инсталация на модул за WooCommerce" target="_blank" class="button_dark_grey middle_btn">WooCommerce</a>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
     </div>
