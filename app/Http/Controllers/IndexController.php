@@ -259,8 +259,8 @@ class IndexController extends Controller
     public function cc_opencart(){
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_opencart')->with([
-            'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ | Авалон',
-            'description' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ.',
+            'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за OpenCart | Авалон',
+            'description' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за OpenCart.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредитен калкулатор, opencart',
             'root_categories' => $root_categories
         ]);

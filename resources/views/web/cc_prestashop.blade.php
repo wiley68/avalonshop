@@ -49,6 +49,37 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <section>
+                    <h3>TBI Bank Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/VqfsxYMmipA" title="Описание на работата с Контролен Панел за управление на Кредитен Калкулатор TBI Bank, за вграждане в електронни магазини" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+						<li>
+                            <a href="https://youtu.be/R6w7WlpVrTw" title="Промяна на настройките на инсталиран Кредитен Калкулатор на TBI Bank за вграждане в онлайн платформи" target="_blank" class="button_dark_grey middle_btn">Промяна на настройките</a>
+                        </li>
+						<li>
+                            <a href="https://youtu.be/Cq3uxeKyesc" title="Извършване на покупки на кредит от онлайн платформа, чрез Кредитен Калкулатор на TBI Bank" target="_blank" class="button_dark_grey middle_btn">Покупка на кредит</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/OCmYgTwhmvM" title="Кредитен калкулатор на TBIBank за PrestaShop 1.6.x" target="_blank" class="button_dark_grey middle_btn">PrestaShop 1.6.x</a>
+                        </li>
+                    </ul>
+                    <h3>TBI Bank API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/d-49uJwBWmg" title="Работа с контролен панел - TBI Bank e-Commerce" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/JvQ8vEruKfY" title="Инсталация на модул за PrestaShop 1.6.x" target="_blank" class="button_dark_grey middle_btn">PrestaShop 1.6.x</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/dOOEWx11Kjw" title="Инсталация на модул за PrestaShop 1.7.x" target="_blank" class="button_dark_grey middle_btn">PrestaShop 1.7.x</a>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
     </div>

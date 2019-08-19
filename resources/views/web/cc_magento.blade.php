@@ -50,6 +50,52 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <section>
+                    <h3>TBI Bank Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/VqfsxYMmipA" title="Описание на работата с Контролен Панел за управление на Кредитен Калкулатор TBI Bank, за вграждане в електронни магазини" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+						<li>
+                            <a href="https://youtu.be/R6w7WlpVrTw" title="Промяна на настройките на инсталиран Кредитен Калкулатор на TBI Bank за вграждане в онлайн платформи" target="_blank" class="button_dark_grey middle_btn">Промяна на настройките</a>
+                        </li>
+						<li>
+                            <a href="https://youtu.be/Cq3uxeKyesc" title="Извършване на покупки на кредит от онлайн платформа, чрез Кредитен Калкулатор на TBI Bank" target="_blank" class="button_dark_grey middle_btn">Покупка на кредит</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/QT6JZKbGZ8I" title="Кредитен калкулатор на TBIBank за Magento 1.9.x" target="_blank" class="button_dark_grey middle_btn">Magento 1.9.x</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/5MlS6sn6r2s" title="Кредитен калкулатор на TBIBank за Magento 2.x" target="_blank" class="button_dark_grey middle_btn">Magento 2.x</a>
+                        </li>
+                    </ul>
+                    <h3>TBI Bank API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/d-49uJwBWmg" title="Работа с контролен панел - TBI Bank e-Commerce" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/sCcPr7ntutw" title="Инсталация на модул за Magento 1" target="_blank" class="button_dark_grey middle_btn">Magento 1</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/MDPCc_D3450" title="Инсталация на модул за Magento 2" target="_blank" class="button_dark_grey middle_btn">Magento 2</a>
+                        </li>
+                    </ul>
+                    <h3>UNI Credit API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/zsfFkCqocTg" title="Работа с Кредитен калкулатор UniCredit Bulbank" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/45tcg3NIGJ0" title="Кредитен калкулатор UniCredit Bulbank за Magento 1" target="_blank" class="button_dark_grey middle_btn">Magento 1</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/XAE05onJ3XU" title="Кредитен калкулатор UniCredit Bulbank за Magento 2" target="_blank" class="button_dark_grey middle_btn">Magento 2</a>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
     </div>

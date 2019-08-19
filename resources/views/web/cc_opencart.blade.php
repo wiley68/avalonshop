@@ -55,6 +55,55 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section_offset clearfix">
+                    </div>
+                    <section>
+                    <h3>TBI Bank Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/VqfsxYMmipA" title="Описание на работата с Контролен Панел за управление на Кредитен Калкулатор TBI Bank, за вграждане в електронни магазини" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+						<li>
+                            <a href="https://youtu.be/R6w7WlpVrTw" title="Промяна на настройките на инсталиран Кредитен Калкулатор на TBI Bank за вграждане в онлайн платформи" target="_blank" class="button_dark_grey middle_btn">Промяна на настройките</a>
+                        </li>
+						<li>
+                            <a href="https://youtu.be/Cq3uxeKyesc" title="Извършване на покупки на кредит от онлайн платформа, чрез Кредитен Калкулатор на TBI Bank" target="_blank" class="button_dark_grey middle_btn">Покупка на кредит</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/gu8ApqG0FS8" title="Кредитен калкулатор на TBIBank за OpenCart2.x" target="_blank" class="button_dark_grey middle_btn">OpenCart</a>
+                        </li>
+                    </ul>
+                    <h3>TBI Bank API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/d-49uJwBWmg" title="Работа с контролен панел - TBI Bank e-Commerce" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/Su76h6xVhMI" title="Инсталация на модул за OpenCart 2.x" target="_blank" class="button_dark_grey middle_btn">OpenCart 2.x</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/4EqzOGzCXf8" title="Инсталация на модул за OpenCart 2.3" target="_blank" class="button_dark_grey middle_btn">OpenCart 2.3</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/pjj6nmTbye0" title="Инсталация на модул за OpenCart 3.x" target="_blank" class="button_dark_grey middle_btn">OpenCart 3.x</a>
+                        </li>
+                    </ul>
+                    <h3>UNI Credit API Калкулатори</h3>
+					<ul class="lightbox_list">
+						<li>
+                            <a href="https://youtu.be/zsfFkCqocTg" title="Работа с Кредитен калкулатор UniCredit Bulbank" target="_blank" class="button_dark_grey middle_btn">Контролен Панел</a>
+						</li>
+                        <li>
+                            <a href="https://youtu.be/jWnvilew-C8" title="Кредитен калкулатор UniCredit Bulbank за OpenCart 2.x" target="_blank" class="button_dark_grey middle_btn">OpenCart 2.x</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/7byC-5yeLS0" title="Кредитен калкулатор UniCredit Bulbank за OpenCart 2.3.x" target="_blank" class="button_dark_grey middle_btn">OpenCart 2.3.x</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/NKR0BuigG1g" title="Кредитен калкулатор UniCredit Bulbank за OpenCart 3.x" target="_blank" class="button_dark_grey middle_btn">OpenCart 3.x</a>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
     </div>
