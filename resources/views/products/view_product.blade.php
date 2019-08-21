@@ -166,6 +166,63 @@
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span
                                                 class="tooltip top">Добави към любими</span></button>
                                     </div>
+                                            <!-- TBI Credit -->
+                                            @if (($paramstbi['tbi_status'] == 'Yes') && ( $product->price  > $paramstbi['tbi_minstojnost']))
+                                                <div style="padding-bottom:10px;"></div>
+                                                @if ($paramstbi['tbi_vnoska'] == 'Yes')
+                                                    @if (($paramstbi['tbi_zaglavie'] != '') || ($paramstbi['tbi_opisanie'] != '') || ($paramstbi['tbi_product'] != ''))
+                                                        <span style="font-size:22px;font-weight:bold;">{{$paramstbi['tbi_zaglavie']}}</span> <span style="font-size:18px;"> {{$paramstbi['tbi_opisanie']}}</span> {{$paramstbi['tbi_product']}}
+                                                    @endif
+                                                    <table style="border:1px solid #dadada;">
+                                                        @if ($iszerrolihva == 'Yes')
+                                                        <tr>
+                                                            <td colspan="2" valign="bottom" style="padding-bottom:0px;">
+                                                                <span style="color:{{$tbi_btn_color}};font-size:11pt;font-weight:bold;">Можете да закупите продукта с 0% лихва!</span>
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+                                                        <tr>
+                                                            @if ($paramstbi['tbi_button_position'] == 1)
+                                                            <td style="vertical-align:middle;padding-right:5px;padding-bottom:5px;">
+                                                                <p style="color:{{$tbi_btn_color}}font-size:11pt;font-weight:bold;">Само за {{number_format($vnoska, 2, '.', '')}} лв. на месец</p>
+                                                            </td>
+                                                            <td style="padding-right:5px;padding-bottom:5px;">
+                                                                @if ($paramstbi['tbi_custom_button_status'] == 'Yes')
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}_hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png'">
+                                                                @else
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}-hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png'">
+                                                                @endif
+                                                            </td>
+                                                            @endif
+                                                            @if ($paramstbi['tbi_button_position'] == 2)
+                                                            <td style="padding-right:5px;padding-bottom:5px;">
+                                                                @if ($paramstbi['tbi_custom_button_status'] == 'Yes')
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}_hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png'">
+                                                                @else
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}-hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png'">
+                                                                @endif
+                                                            </td>
+                                                            <td style="vertical-align:middle;padding-right:5px;padding-bottom:5px;">
+                                                                <p style="color:{{$tbi_btn_color}}font-size:11pt;font-weight:bold;">Само за {{number_format($vnoska, 2, '.', '')}} лв. на месец</p>
+                                                            </td>
+                                                            @endif
+                                                            @if ($paramstbi['tbi_button_position'] == 3)
+                                                            <td style="padding-right:5px;padding-bottom:5px;">
+                                                                @if ($paramstbi['tbi_custom_button_status'] == 'Yes')
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}_hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/custom_buttons/{{$unicid}}.png'">
+                                                                @else
+                                                                <img id="btn_tbi" style="padding-bottom: 5px;cursor:pointer;" src="https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png" alt="Кредитен модул TBI Bank 19.68" onmouseover="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}-hover.png'" onmouseout="this.src='https://tbibank.support/calculators/assets/img/buttons/{{$paramstbi['tbi_btn_theme']}}.png'">
+                                                                @endif
+                                                                <p style="color:{{$tbi_btn_color}}font-size:11pt;font-weight:bold;">Само за {{number_format($vnoska, 2, '.', '')}} лв. на месец</p>
+                                                            </td>
+                                                            @endif
+                                                        </tr>
+                                                    </table>
+                                                @else
+                                                    222
+                                                @endif
+                                            @endif
+                                            <!-- TBI Credit -->
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of product description column - - - - - - - - - - - - - - - - -->

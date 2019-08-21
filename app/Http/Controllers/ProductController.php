@@ -15,7 +15,8 @@ use App\Review;
 
 class ProductController extends Controller
 {
-    public function viewProducts(){
+    public function viewProducts()
+    {
         // get root categories
         $root_categories = Category::where(['parent_id' => 0])->get();
 
@@ -28,10 +29,10 @@ class ProductController extends Controller
             ->get();
         $tagsp_counter = 0;
         foreach ($products_tagsp as $tagp) {
-            if ($tagsp_counter < 20){
+            if ($tagsp_counter < 20) {
                 $tags_working[] = $tagp->tagsp_id;
                 $tagsp_counter++;
-            }else{
+            } else {
                 break;
             }
         }
@@ -45,34 +46,34 @@ class ProductController extends Controller
             ->get();
 
         // get products
-        $products = Product::where('id' ,'>' ,0);
+        $products = Product::where('id', '>', 0);
 
         // get paginate
-        if (!empty(request('paginate_by'))){
+        if (!empty(request('paginate_by'))) {
             $paginate_by = request('paginate_by');
-        }else{
+        } else {
             $paginate_by = 9;
         }
         $paginate = $paginate_by;
         $queries = [];
 
         // Get search requests
-        if (!empty(request('search_text'))){
+        if (!empty(request('search_text'))) {
             // save queries
             $queries['search_text'] = request('search_text');
 
             // filter products
             $products = $products->where('name', 'LIKE', '%' . request('search_text') . '%')->orWhere('description', 'LIKE', '%' . request('search_text') . '%');
             $search_text = request('search_text');
-        }else{
+        } else {
             $search_text = '';
         }
 
         // Get category requests
-        if (!empty(request('category_id'))){
+        if (!empty(request('category_id'))) {
             // Get root category and parent categories
             foreach (request('category_id') as $item) {
-                $categories_parent = Category::where(['parent_id'=>$item])->get();
+                $categories_parent = Category::where(['parent_id' => $item])->get();
                 $categories_in[] = $item;
                 foreach ($categories_parent as $category_parent) {
                     $categories_in[] = $category_parent->id;
@@ -90,15 +91,15 @@ class ProductController extends Controller
             // filter products
             $products = $products->whereIn('id', $products_in);
             $category_id = request('category_id');
-        }else{
+        } else {
             $category_id = [];
         }
 
         // Get tag requests
         $tags_in = [];
-        if (!empty(request('tag_id'))){
+        if (!empty(request('tag_id'))) {
             // Get products_tagsp
-            $products_tags = ProductsTagsp::where(['tagsp_id'=>request('tag_id')])->get();
+            $products_tags = ProductsTagsp::where(['tagsp_id' => request('tag_id')])->get();
             foreach ($products_tags as $product_tag) {
                 $tags_in[] = $product_tag->product_id;
             }
@@ -107,40 +108,40 @@ class ProductController extends Controller
             // save queries
             $queries['tag'] = request('tag_id');
             $tag_id = request('tag_id');
-        }else{
+        } else {
             $tag_id = '';
         }
 
         // Get manufacturer request
-        if (!empty(request('manufacturer_id'))){
+        if (!empty(request('manufacturer_id'))) {
             // Get products by manufacturer
             $manufacturer_id = request('manufacturer_id');
             $products = $products->where('manufacturer_id', $manufacturer_id);
-        }else{
+        } else {
             $manufacturer_id = '';
         }
 
         // sorting
         // Sorting products
-        if (request()->has('order_by')){
-            if (request('order_by') == 'order_by_price_desc'){
+        if (request()->has('order_by')) {
+            if (request('order_by') == 'order_by_price_desc') {
                 $products = $products->orderBy('price', 'asc');
                 $queries['order_by'] = request('order_by');
             }
-            if (request('order_by') == 'order_by_price_asc'){
+            if (request('order_by') == 'order_by_price_asc') {
                 $products = $products->orderBy('price', 'desc');
                 $queries['order_by'] = request('order_by');
             }
-            if (request('order_by') == 'order_by_name_asc'){
+            if (request('order_by') == 'order_by_name_asc') {
                 $products = $products->orderBy('name', 'asc');
                 $queries['order_by'] = request('order_by');
             }
-            if (request('order_by') == 'order_by_name_desc'){
+            if (request('order_by') == 'order_by_name_desc') {
                 $products = $products->orderBy('name', 'desc');
                 $queries['order_by'] = request('order_by');
             }
             $order_by = request('order_by');
-        }else{
+        } else {
             $order_by = 'Въвеждане';
         }
 
@@ -165,9 +166,24 @@ class ProductController extends Controller
     }
 
     /** start view product */
-    public function viewProduct(Request $request, $id=null){
+    public function isProductInCategories($categories_id = array(), $prod_categories_id = array())
+    {
+        if ($categories_id[0] != "") {
+            if ($prod_categories_id[0] != 0) {
+                foreach ($prod_categories_id as $prod_category_id) {
+                    if (in_array($prod_category_id, $categories_id)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public function viewProduct(Request $request, $id = null)
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $product = Product::where(['id'=>$id])->first();
+        $product = Product::where(['id' => $id])->first();
         $product->visits += 1;
         $product->save();
 
@@ -189,10 +205,10 @@ class ProductController extends Controller
 
         // get manufacturer
         $manufacturer = Manufacturer::where(['id' => $product->manufacturer_id])->first();
-        if (!empty($manufacturer)){
+        if (!empty($manufacturer)) {
             $manufacturer_name = $manufacturer->name;
             $manufacturer_id = $manufacturer->id;
-        }else{
+        } else {
             $manufacturer_name = '';
             $manufacturer_id = 0;
         }
@@ -206,12 +222,355 @@ class ProductController extends Controller
         // get featured products
         $featured_products = Product::where(['isfeatured' => 1])->take(10)->get();
 
+        /* Начало на PHP кода за Кредитен Калкулатор TBI Bank */
+        $tbi_mod_version = '2.2.3';
+        $product_id = $product->id;
+        $product_price = $product->price;
+        $product_name = $product->name;
+        $prod_categories = null;
+        $manufacturer_id = null;
+        ///////////////////////////////////////////////////////////////////////////////////
+        $unicid = '1af4d77b-70a2-4771-a04b-1c6d63f07680';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, 'https://tbibank.support/function/getparameters.php?cid=' . $unicid);
+        $paramstbi = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        $tbi_theme = $paramstbi['tbi_theme'];
+        $tbi_zastrahovka_select = $paramstbi['tbi_zastrahovka_select'];
+        $tbi_btn_color = '#e55a00;';
+        if ($paramstbi['tbi_btn_theme'] == 'tbi') {
+            $tbi_btn_color = '#e55a00;';
+        }
+        if ($paramstbi['tbi_btn_theme'] == 'tbi2') {
+            $tbi_btn_color = '#00368a;';
+        }
+        if ($paramstbi['tbi_btn_theme'] == 'tbi3') {
+            $tbi_btn_color = '#2b7953;';
+        }
+        if ($paramstbi['tbi_btn_theme'] == 'tbi4') {
+            $tbi_btn_color = '#848789;';
+        }
+
+        $tpurcent = 12;
+        if ($paramstbi['tbi_purcent_default'] == 1) {
+            $tpurcent = 3;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 2) {
+            $tpurcent = 4;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 3) {
+            $tpurcent = 6;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 4) {
+            $tpurcent = 9;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 5) {
+            $tpurcent = 12;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 6) {
+            $tpurcent = 15;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 7) {
+            $tpurcent = 18;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 8) {
+            $tpurcent = 24;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 9) {
+            $tpurcent = 30;
+        }
+        if ($paramstbi['tbi_purcent_default'] == 10) {
+            $tpurcent = 36;
+        }
+        // схема 10+1
+        if ($paramstbi['tbi_purcent_default'] == 11) {
+            $tpurcent = 10;
+        }
+        // схема 10+1
+        // схема 8-1
+        if ($paramstbi['tbi_purcent_default'] == 12) {
+            $tpurcent = 7;
+        }
+        // схема 8-1
+        // схема 13-2
+        if ($paramstbi['tbi_purcent_default'] == 13) {
+            $tpurcent = 11;
+        }
+        // схема 13-2
+        // схема 12-5
+        if ($paramstbi['tbi_purcent_default'] == 14) {
+            $tpurcent = 14;
+        }
+        // схема 12-5
+        // схема 10+1
+        if (($paramstbi['tbi_purcent_default'] == 11) || ((($paramstbi['tbi_purcent_default'] == 2) && (($paramstbi['tbi_4m'] == "Yes") || ($paramstbi['tbi_4m_pv'] == "Yes"))) || (($paramstbi['tbi_purcent_default'] == 3) && (($paramstbi['tbi_6m'] == "Yes") || ($paramstbi['tbi_6m_pv'] == "Yes"))))) {
+            $oskapiavane_12 = 0.015;
+            $vnoska = $product_price / $tpurcent;
+        } else {
+            if ($paramstbi['tbi_purcent_default'] == 14) {
+                $oskapiavane_12 = 0.0198;
+                $vnoska = (($product_price - ($product_price * 0.10)) * (1 + $oskapiavane_12 * 12)) / 12;
+            } else {
+                $meseci = "tbi_" . $tpurcent . "m_purcent";
+                $oskapiavane_12 = 0.015;
+                if ($paramstbi["$meseci"]) {
+                    if (is_numeric($paramstbi["$meseci"])) {
+                        $oskapiavane_12 = $paramstbi["$meseci"] / 100;
+                    }
+                }
+                $vnoska = ($product_price * (1 + $oskapiavane_12 * $tpurcent)) / $tpurcent;
+            }
+        }
+        // схема 10+1
+
+        if ($paramstbi['tbi_4m'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_4m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is4m = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_4m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is4m = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_4m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_4m_max']))) {
+                            $is4m = 'Yes';
+                        } else {
+                            $is4m = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is4m = 'No';
+            }
+        } else {
+            $is4m = 'No';
+        }
+
+        if ($paramstbi['tbi_4m_pv'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_4m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is4m_pv = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_4m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is4m_pv = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_4m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_4m_max']))) {
+                            $is4m_pv = 'Yes';
+                        } else {
+                            $is4m_pv = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is4m_pv = 'No';
+            }
+        } else {
+            $is4m_pv = 'No';
+        }
+
+        if ($paramstbi['tbi_5m'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_5m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is5m = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_5m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is5m = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_5m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_5m_max']))) {
+                            $is5m = 'Yes';
+                        } else {
+                            $is5m = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is5m = 'No';
+            }
+        } else {
+            $is5m = 'No';
+        }
+
+        if ($paramstbi['tbi_5m_pv'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_5m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is5m_pv = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_5m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is5m_pv = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_5m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_5m_max']))) {
+                            $is5m_pv = 'Yes';
+                        } else {
+                            $is5m_pv = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is5m_pv = 'No';
+            }
+        } else {
+            $is5m_pv = 'No';
+        }
+
+        if ($paramstbi['tbi_6m'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_6m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is6m = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_6m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is6m = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_6m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_6m_max']))) {
+                            $is6m = 'Yes';
+                        } else {
+                            $is6m = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is6m = 'No';
+            }
+        } else {
+            $is6m = 'No';
+        }
+
+        if ($paramstbi['tbi_6m_pv'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_6m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is6m_pv = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_6m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is6m_pv = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_6m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_6m_max']))) {
+                            $is6m_pv = 'Yes';
+                        } else {
+                            $is6m_pv = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is6m_pv = 'No';
+            }
+        } else {
+            $is6m_pv = 'No';
+        }
+
+        if ($paramstbi['tbi_9m'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_9m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is9m = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_9m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is9m = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_9m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_9m_max']))) {
+                            $is9m = 'Yes';
+                        } else {
+                            $is9m = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is9m = 'No';
+            }
+        } else {
+            $is9m = 'No';
+        }
+
+        if ($paramstbi['tbi_9m_pv'] == "Yes") {
+            if (is_numeric($product_id)) {
+                $categories = explode('_', $paramstbi['tbi_9m_categories']);
+                if (isProductInCategories($categories, $prod_categories)) {
+                    $is9m_pv = 'Yes';
+                } else {
+                    $manufacturers = explode('_', $paramstbi['tbi_9m_manufacturers']);
+                    if (($manufacturer_id != null) && in_array($manufacturer_id, $manufacturers)) {
+                        $is9m_pv = 'Yes';
+                    } else {
+                        if ((doubleval($paramstbi['tbi_9m_min']) <= $product_price) && ($product_price <= doubleval($paramstbi['tbi_9m_max']))) {
+                            $is9m_pv = 'Yes';
+                        } else {
+                            $is9m_pv = 'No';
+                        }
+                    }
+                }
+            } else {
+                $is9m_pv = 'No';
+            }
+        } else {
+            $is9m_pv = 'No';
+        }
+
+        // shema 101
+        if ($paramstbi['tbi_pokazi']  & 1024) {
+            $is101 = 'Yes';
+        } else {
+            $is101 = 'No';
+        }
+        // shema 101
+        // shema 8-1
+        if ($paramstbi['tbi_pokazi']  & 2048) {
+            $is81 = 'Yes';
+        } else {
+            $is81 = 'No';
+        }
+        // shema 8-1
+        // shema 13-2
+        if ($paramstbi['tbi_pokazi']  & 4096) {
+            $is112 = 'Yes';
+        } else {
+            $is112 = 'No';
+        }
+        // shema 13-2
+        // shema 12-5
+        if ($paramstbi['tbi_pokazi']  & 8192) {
+            $is13 = 'Yes';
+        } else {
+            $is13 = 'No';
+        }
+        // shema 12-5
+
+        if ($paramstbi['tbi_taksa_categories'] != "") {
+            $cats = explode('_', $paramstbi['tbi_taksa_categories']);
+            if (isProductInCategories($cats, $prod_categories)) {
+                $isTaksa = 'Yes';
+            } else {
+                $isTaksa = 'No';
+            }
+        } else {
+            $isTaksa = 'Yes';
+        }
+
+        //test 0%
+        if ((($is4m == 'Yes' || $is4m_pv == 'Yes') && $paramstbi['tbi_purcent_default'] == 2) || (($is6m == 'Yes' || $is6m_pv == 'Yes') && $paramstbi['tbi_purcent_default'] == 3) || (($is9m == 'Yes' || $is9m_pv == 'Yes') && $paramstbi['tbi_purcent_default'] == 4)) {
+            $iszerrolihva = 'Yes';
+        } else {
+            $iszerrolihva = 'No';
+        }
+
         return view('products.view_product')->with([
             'title' => $product->meta_title . ' | Авалон',
             'description' => $product->meta_description,
             'keywords' => $product->meta_keywords,
             'root_categories' => $root_categories,
-            'product'=>$product,
+            'product' => $product,
             'tagsp' => $tagsp,
             'all_tagsp' => $all_tagsp,
             'product_category' => $product_category,
@@ -219,36 +578,42 @@ class ProductController extends Controller
             'manufacturer_id' => $manufacturer_id,
             'products_attributes' => $products_attributes,
             'reviews' => $reviews,
-            'featured_products' => $featured_products
+            'featured_products' => $featured_products,
+            'paramstbi' => $paramstbi,
+            'iszerrolihva' => $iszerrolihva,
+            'tbi_btn_color' => $tbi_btn_color,
+            'vnoska' => $vnoska,
+            'unicid' => $unicid
         ]);
     }
     /** end view product */
 
-    public function addToCart(Request $request){
-        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))){
+    public function addToCart(Request $request)
+    {
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
             $product_id = $request->input('product_id');
             $product_quantity = $request->input('product_quantity');
             $product = Product::where(['id' => $product_id])->first();
 
             $cart_session = array();
 
-            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 $cart_session = $request->session()->get('cart_session'); //get current cart info
                 $cart_id = $cart_session['cart_id'];
                 //add new item
                 // check if exist
-                if (!empty($cart_session['items'])){
+                if (!empty($cart_session['items'])) {
                     $current_item = 0;
                     $iscart = true;
                     foreach ($cart_session['items'] as $cart_item) {
-                        if ($cart_item['product_id'] == $product_id){
+                        if ($cart_item['product_id'] == $product_id) {
                             $cart_session['items'][$current_item]['total_price'] = floatval($cart_item['total_price']) + floatval($product_quantity) * floatval($product->price); //add new item total_price
                             $cart_session['items'][$current_item]['product_quantity'] = intval($cart_item['product_quantity']) + intval($product_quantity); //add new item product_quantity
                             $iscart = false;
                         }
                         $current_item++;
                     }
-                    if ($iscart){
+                    if ($iscart) {
                         $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
                         $item['product_name'] = $product->name; //add new item product_name
                         $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
@@ -258,7 +623,7 @@ class ProductController extends Controller
                         //add new item
                         $cart_session['items'][] = $item;
                     }
-                }else{
+                } else {
                     $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
                     $item['product_name'] = $product->name; //add new item product_name
                     $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
@@ -268,7 +633,7 @@ class ProductController extends Controller
                     //add new item
                     $cart_session['items'][] = $item;
                 }
-            }else{ // niama nalicna cart
+            } else { // niama nalicna cart
                 $cart_id = $request->session()->getId(); //set new cart info
                 $cart_session['cart_id'] = $cart_id; //set new cart id
                 //set new item
@@ -284,34 +649,35 @@ class ProductController extends Controller
             $response = array(
                 'status' => 'success'
             );
-        }else{
+        } else {
             $response = array(
                 'status' => 'unsuccess'
             );
         }
 
-		return response()->json($response);
-	}
+        return response()->json($response);
+    }
 
-    public function changeCartQuantity(Request $request){
+    public function changeCartQuantity(Request $request)
+    {
         $response = array(
             'status' => 'unsuccess'
         );
-        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity')) && ($request->input('product_quantity') > 0)){
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity')) && ($request->input('product_quantity') > 0)) {
             $product_id = $request->input('product_id');
             $product_quantity = $request->input('product_quantity');
             $product = Product::where(['id' => $product_id])->first();
 
             $cart_session = array();
 
-            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 $cart_session = $request->session()->get('cart_session'); //get current cart info
                 $cart_id = $cart_session['cart_id'];
                 // check if exist
-                if (!empty($cart_session['items'])){
+                if (!empty($cart_session['items'])) {
                     $current_item = 0;
                     foreach ($cart_session['items'] as $cart_item) {
-                        if ($cart_item['product_id'] == $product_id){
+                        if ($cart_item['product_id'] == $product_id) {
                             $cart_session['items'][$current_item]['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
                             $cart_session['items'][$current_item]['product_name'] = $product->name; //add new item product_name
                             $cart_session['items'][$current_item]['product_quantity'] = intval($product_quantity); //add new item product_quantity
@@ -329,7 +695,6 @@ class ProductController extends Controller
             }
         }
 
-		return response()->json($response);
-	}
-
+        return response()->json($response);
+    }
 }
