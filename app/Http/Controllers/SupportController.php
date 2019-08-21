@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\ReviewSupport;
 use App\Support;
 use App\SupportsTags;
 use App\Tag;
@@ -98,6 +99,9 @@ class SupportController extends Controller
         }
         $same_supports = Support::where(['category_id' => $support->category_id])->get()->take($same_supports_count);
 
+        // get reviews
+        $reviews_support = ReviewSupport::where(['support_id' => $support->id])->get();
+
         return view('support.post')->with([
             'title' => $support->meta_title . ' | Авалон',
             'description' => $support->meta_description,
@@ -107,7 +111,8 @@ class SupportController extends Controller
             'tags' => $tags,
             'all_tags' => $all_tags,
             'best_supports' => $best_supports,
-            'same_supports' => $same_supports
+            'same_supports' => $same_supports,
+            'reviews_support' => $reviews_support
         ]);
     }
     /** end support software */

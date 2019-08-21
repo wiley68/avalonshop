@@ -109,6 +109,7 @@ Route::group(
         Route::post('/add-favorite.html', 'FavoriteController@addFavorite')->name('add-favorite');
         Route::post('/del-favorite.html', 'FavoriteController@delFavorite')->name('del-favorite');
         Route::post('/add-review.html', 'ReviewController@addReview')->name('add-review');
+        Route::post('/add-review-support.html', 'ReviewSupportController@addReview')->name('add-review-support');
     }
 );
 /** stop frontend */

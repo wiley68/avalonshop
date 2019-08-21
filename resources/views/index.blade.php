@@ -350,7 +350,7 @@
                                                 </div><!--/. image_wrap-->
                                                 <div class="description align_center">
                                                     <p>Софтуер</p>
-                                                    <p>{{ $support_software->name }}</p>
+                                                    <p style="min-height:60px;">{{ $support_software->name }}</p>
                                                     <br />
                                                     <a href="{{ route('support.software', ['id'=>$support_software->id]) }}" class="button_blue middle_btn">Виж подробно</a>
                                                 </div>
