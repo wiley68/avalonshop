@@ -164,7 +164,7 @@
                                             @endphp
                                             <div class="product_item">
                                                     <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-                                                    <div class="image_wrap">
+                                                    <div class="image_wrap" style="min-height:200px;">
                                                         <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product_item->id }}_1.png" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                         <div class="actions_wrap">
@@ -181,7 +181,7 @@
                                                     <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
                                                     <!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
                                                     <div class="description align_center">
-                                                        <p style="height:30px;"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
+                                                        <p style="min-height:40px;"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
                                                         <div class="clearfix product_info">
                                                             <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                             <ul class="rating alignright">

@@ -302,14 +302,14 @@
                                                 <div class="table_cell">
                                                         <div class="product_item">
                                                             <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
-                                                            <div class="image_wrap">
+                                                            <div class="image_wrap" style="min-height:240px;">
                                                                 <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $products_collection[$i+$j]['id'] }}_1.png" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                                 <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                                 <div class="actions_wrap">
                                                                     <div class="centered_buttons">
                                                                         <a href="{{ route('product', ['id' => $products_collection[$i+$j]['id']]) }}"
                                                                             class="button_dark_grey middle_btn quick_view"
-                                                                        >Подробно</a>
+                                                                        >Подробно</a><br />
                                                                         <button onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');" class="button_blue middle_btn add_to_cart">Купи</a>
                                                                     </div>
                                                                     <!--/ .centered_buttons -->
