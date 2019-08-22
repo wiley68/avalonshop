@@ -166,21 +166,7 @@ class ProductController extends Controller
     }
 
     /** start view product */
-    public function isProductInCategories($categories_id = array(), $prod_categories_id = array())
-    {
-        if ($categories_id[0] != "") {
-            if ($prod_categories_id[0] != 0) {
-                foreach ($prod_categories_id as $prod_category_id) {
-                    if (in_array($prod_category_id, $categories_id)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public function viewProduct(Request $request, $id = null)
+     public function viewProduct(Request $request, $id = null)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $product = Product::where(['id' => $id])->first();
@@ -239,6 +225,19 @@ class ProductController extends Controller
         ]);
     }
     /** end view product */
+
+    public function isProductInCategories($categories_id=array(), $products_id=array()) {
+        if ($categories_id[0] != ""){
+            if ($products_id[0] != ""){
+                foreach ($products_id as $product_id){
+                    if (in_array(strval($product_id->term_id), $categories_id)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     public function addToCart(Request $request)
     {
