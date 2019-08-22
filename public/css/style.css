@@ -1,8 +1,8 @@
-/* 
+/*
 -----------------------------------------------------
 	Stylesheet Guide
 -----------------------------------------------------
-	
+
 	1. Default stylesheets
 	2. General classes
 	3. Basic Elements
@@ -94,7 +94,7 @@
 		-webkit-transition:color .1s ease, border-color .1s ease, background-color .1s ease;
 				transition:color .1s ease, border-color .1s ease, background-color .1s ease;
     }
-    
+
     legend a {
         color:#E31E24;
     }
@@ -179,9 +179,9 @@
 	.wrapper{ overflow:hidden; }
 
 	.boxed_layout,
-	.wide_layout{ 
+	.wide_layout{
 		overflow-x: hidden;
-		background: #fff; 
+		background: #fff;
 		margin: auto;
 	}
 
@@ -209,7 +209,7 @@
 
 	.main_product .title a:hover{ color:#E31E24; }
 
-	.thumbnail{ 
+	.thumbnail{
 		display: block;
 		overflow: hidden;
 	}
@@ -396,13 +396,13 @@
 
 	.transparent{ opacity:0; }
 
-	.invisible{ 
+	.invisible{
 		opacity: 0;
 		visibility: hidden;
 	}
 
-	.visible{ 
-		opacity:1; 
+	.visible{
+		opacity:1;
 		visibility: visible;
 	}
 
@@ -630,7 +630,7 @@
 
 		.big_btn{
 			padding:11px 20px;
-			font-size:16px;	
+			font-size:16px;
 			font-weight: 600;
 		}
 
@@ -689,7 +689,7 @@
 
 		.button_grey_2{
 			color: #333;
-			background: #f8f8f8;	
+			background: #f8f8f8;
 		}
 
 		.button_blue,
@@ -910,7 +910,7 @@
 		[class*="toggle_menu"]{
 			display: none;
 			border:1px solid #eaeaea;
-			width: 100%; 
+			width: 100%;
 			height: 50px;
 			text-align: center;
 			color: #b2b2b2;
@@ -1140,7 +1140,7 @@
 			margin-bottom: 5px;
 		}
 
-		.custom_select{ 
+		.custom_select{
 			min-width: 80px;
 			position: relative;
 			background-color: #fff;
@@ -1241,7 +1241,7 @@
 
 		form li:last-child > [class|="col"] > [class*="button"]:only-child{ margin-top: 10px; }
 
-		.prompt{ 
+		.prompt{
 			font-size: 13px;
 			line-height: 21px;
 		}
@@ -1513,8 +1513,8 @@
 
 		.search .categories_list li:first-child a{ border-radius:0px; }
 
-		.categories_list{ 
-			position: relative; 
+		.categories_list{
+			position: relative;
 			text-align: left;
 		}
 
@@ -1530,7 +1530,7 @@
 			border-bottom-color:#eaeaea;
 		}
 
-		.categories_list li:last-child a{ 
+		.categories_list li:last-child a{
 			border-bottom-color:#EC6266;
 			border-radius:0 0 3px 3px;
 		}
@@ -1592,7 +1592,7 @@
 		.c_info_schedule::after{ content: "\ee8d"; }
 
 		.shop_links_list{ text-align:left; }
-		.shop_links_list li:not(:first-child){ margin-top:4px; }		
+		.shop_links_list li:not(:first-child){ margin-top:4px; }
 
 		.shipping_method li:not(:first-child){ margin-top: 20px; }
 
@@ -1745,7 +1745,7 @@
 
 		.table_wrap{
 			overflow: hidden;
-			border: 1px solid #eaeaea;	
+			border: 1px solid #eaeaea;
 			border-radius: 3px;
 		}
 
@@ -1786,7 +1786,7 @@
 		table > *:last-child > tr:last-child th,
 		table > *:last-child > tr:last-child td{ border-bottom-width: 0px; }
 
-		tfoot{ 
+		tfoot{
 			font-size: 16px;
 			font-weight: 600;
 		}
@@ -2139,7 +2139,7 @@
 		#main_navigation_wrap::after{ top: 0px; }
 
 		#main_navigation_wrap::before{ bottom :0px; }
-		
+
 		.sticky_inner,
 		.full_width_nav{
 			display: table;
@@ -2477,7 +2477,7 @@ transition-duration:0.1s;
 }
 }
 		/* --------------------------------------------
-				4.3.1 Mega menu 
+				4.3.1 Mega menu
 		-------------------------------------------- */
 
 			.mega_menu{
@@ -2591,7 +2591,7 @@ transition-duration:0.1s;
 			}
 
 		/* --------------------------------------------
-				4.3.2 Sticky menu 
+				4.3.2 Sticky menu
 		-------------------------------------------- */
 
 			#main_navigation_wrap.sticky{
@@ -2633,7 +2633,7 @@ transition-duration:0.1s;
 			}
 
 		/* --------------------------------------------
-				4.3.3 Sticky header 
+				4.3.3 Sticky header
 		-------------------------------------------- */
 
 			.sticky_part{
@@ -2808,8 +2808,8 @@ transition-duration:0.1s;
 			margin-right: 0px;
 		}
 
-		.infoblock.type_3 .caption{ 
-			overflow: hidden; 
+		.infoblock.type_3 .caption{
+			overflow: hidden;
 			padding-top: 5px;
 			margin-bottom: 12px;
 			line-height: 20px;
@@ -2839,7 +2839,7 @@ transition-duration:0.1s;
 			border-radius: 0px;
 		}
 
-		.infoblocks_container .infoblocks_wrap > li{ 
+		.infoblocks_container .infoblocks_wrap > li{
 			width: 33.333%;
 			margin: 0;
 		}
@@ -2972,7 +2972,7 @@ transition-duration:0.1s;
 
 		.product_item .image_wrap{ text-align: center; }
 
-		.product_price{ 
+		.product_price{
 			font-size:16px;
 			color:#E31E24;
 		}
@@ -2992,7 +2992,7 @@ transition-duration:0.1s;
 		}
 
 		.product_reviews{ margin-bottom: 10px; }
-		
+
 		/* Product actions (default type) */
 
 		.actions_wrap{ position: absolute; }
@@ -3313,7 +3313,7 @@ transition-duration:0.1s;
 				right: 5px;
 				z-index: 109;
 			}
-			
+
 			.zoomContainer{ z-index: 108; }
 
 			.single_product_description .topbar{ font-size: 13px; }
@@ -3488,8 +3488,8 @@ transition-duration:0.1s;
 
 		.tab_containers_wrap{ top:-1px; }
 
-		.ts_containers_wrap{ 
-			left: -1px; 
+		.ts_containers_wrap{
+			left: -1px;
 			overflow: hidden;
 		}
 
@@ -3753,7 +3753,7 @@ transition-duration:0.1s;
 			background: #E31E24;
 
 			-webkit-transition: background-color .1s ease, color .1s ease;
-					transition: background-color .1s ease, color .1s ease;	
+					transition: background-color .1s ease, color .1s ease;
 		}
 
 		.toggle > dt.active::after,
@@ -3787,7 +3787,7 @@ transition-duration:0.1s;
 			position: relative;
 			top: -1px;
 			font-size: 13px;
-			font-family: 'fontello';	
+			font-family: 'fontello';
 		}
 
 		.pags > li:first-child > a::before{ content: '\eab8'; }
@@ -3871,7 +3871,7 @@ transition-duration:0.1s;
 			margin:0 10px 10px 0;
 		}
 
-		a[class*="fancybox_item"]{ 
+		a[class*="fancybox_item"]{
 			display: block;
 			position: relative;
 			overflow: hidden;
@@ -3921,7 +3921,7 @@ transition-duration:0.1s;
 		.helper_icon::after{ top: 100%; }
 
 		a[class*="fancybox_item"]:hover > .helper_icon{
-			opacity: 1; 
+			opacity: 1;
 
 			-webkit-transition: opacity .1s ease;
 					transition: opacity .1s ease;
@@ -4031,7 +4031,7 @@ transition-duration:0.1s;
 	/* --------------------------------------------
 			6.1 Navigation buttons
 	-------------------------------------------- */
-	
+
 		.owl-nav,
 		.edit_button,
 		.page-nav{
@@ -4166,7 +4166,7 @@ transition-duration:0.1s;
 		font-size: 13px;
 		width: 240px;
 		border-radius: 3px;
-		
+
 		-ms-box-shadow: 0 0 7px 0 rgba(0, 0, 0, .12);
 			box-shadow: 0 0 7px 0 rgba(0, 0, 0, .12);
 	}
@@ -4283,8 +4283,8 @@ transition-duration:0.1s;
 
 		8. Main
 
------------------------------------------------- */	
-	
+------------------------------------------------ */
+
 	.social_feeds{
 		position: fixed;
 		top: 190px;
@@ -4761,7 +4761,7 @@ transition-duration:0.1s;
 
 	.avatar{
 		float: left;
-		margin-right: 15px; 
+		margin-right: 15px;
 	}
 
 	.comment-meta{
@@ -4871,11 +4871,11 @@ transition-duration:0.1s;
 		12. Sliders
 
 ------------------------------------------------ */
-	
+
 	[class*="layer_"]{ line-height: 1em; }
 
 	.layer_1,
-	.layer_3{ 
+	.layer_3{
 		font-weight: 900;
 		color: #fff;
 	}
@@ -5020,7 +5020,7 @@ transition-duration:0.1s;
 			top:47.54%;
 		}
 
-		.royalSlider .layer_4{ 
+		.royalSlider .layer_4{
 			top:59.43%;
 			line-height: 20px;
 		}
@@ -5030,7 +5030,7 @@ transition-duration:0.1s;
 			top:27.13%;
 		}
 
-		.royalSlider .layer_6{ 
+		.royalSlider .layer_6{
 			top:36.43%;
 			color:#fff;
 			font-size:36px;
@@ -5074,7 +5074,7 @@ transition-duration:0.1s;
 		}
 
 		.rev_slider li{ border-radius: 3px; }
-		 
+
 		.rev_slider{
 			width:100%;
 			position:relative;
@@ -5207,7 +5207,7 @@ transition-duration:0.1s;
 		padding-left: 17px;
 		padding-right: 17px;
 	}
-	
+
 	/* --------------------------------------------
 				13.1 Widgets
 	-------------------------------------------- */
@@ -5257,7 +5257,7 @@ transition-duration:0.1s;
 
 			.products_list_widget > li:not(:first-child){ border-top-width: 0px; }
 
-			
+
 			.products_list_widget:last-child > li:first-child:last-child{ border-radius: 3px; }
 
 			.products_list_widget > li:first-child{ border-radius: 3px 3px 0 0; }
@@ -5353,7 +5353,7 @@ transition-duration:0.1s;
 
 	.footer_logo{ margin-bottom:15px; }
 
-	.payments{ 
+	.payments{
 		display: inline-block;
 		margin-bottom:10px;
 	}
@@ -5531,7 +5531,7 @@ transition-duration:0.1s;
 	}
 
 	.main_navigation > ul > li > .submenu .submenu{
-		min-width: 0px; 
+		min-width: 0px;
 		width: 165px;
 	}
 
@@ -5605,7 +5605,7 @@ transition-duration:0.1s;
     width: 320px;
    }
   }
-  
+
 @media only screen and (max-width:991px){
 
 	.boxed_layout{ width:780px; }
@@ -5648,7 +5648,7 @@ transition-duration:0.1s;
 		display: block;
 		float:none !important;
 	}
-	
+
 	[class*="streamlined"] > .streamlined_title{ padding-top:0px; }
 
 	.mega_menu,
@@ -5671,7 +5671,7 @@ transition-duration:0.1s;
 				transform: none !important;
 	}
 
-	.main_navigation .submenu{ 
+	.main_navigation .submenu{
 		width: 100% !important;
 		margin-left: 0px !important;
 		display: none;
@@ -5742,7 +5742,7 @@ transition-duration:0.1s;
 	.tabs.many_tabs .tabs_nav{ margin-bottom: 11px; }
 
 	.tabs.many_tabs .tabs_nav li{
-		float:none !important; 
+		float:none !important;
 		margin:0 !important;
 	}
 
@@ -5837,7 +5837,7 @@ transition-duration:0.1s;
 	.main_navigation:not(.full_width_nav) > ul > li{ float: none; }
 
 	.main_navigation:not(.full_width_nav) > ul > li > a{ border-top-width: 0px !important; }
-	
+
 	.main_navigation > ul > li:not(:first-child),
 	.main_navigation:not(.full_width_nav) > ul > li:not(:first-child) > a,
 	.nav_item .main_navigation > ul > li:first-child > a{ border-left-width: 1px; }
@@ -6033,8 +6033,8 @@ transition-duration:0.1s;
 
 	/* layout */
 
-	.boxed_layout{ 
-		width:auto; 
+	.boxed_layout{
+		width:auto;
 		margin-left:10px;
 		margin-right:10px;
 	}
@@ -6059,7 +6059,7 @@ transition-duration:0.1s;
 		padding-left: 50%;
 	}
 
-	.table_type_1 td[data-title]::before{ 
+	.table_type_1 td[data-title]::before{
 		content: attr(data-title);
 		position: absolute;
 		padding: 14px 19px;
@@ -6161,12 +6161,12 @@ transition-duration:0.1s;
 
 	/* product blocks */
 
-	.products_list_widget .product_price, 
+	.products_list_widget .product_price,
 	.products_list_widget .rating{ float:none; }
 
-	.products_list_widget .rating{ 
-		margin-bottom:5px; 
-		display: inline-block; 
+	.products_list_widget .rating{
+		margin-bottom:5px;
+		display: inline-block;
 	}
 
 	.products_list_widget .product_thumb{ margin-right: 15px; }
@@ -6184,7 +6184,7 @@ transition-duration:0.1s;
 
 	.layout_type{ display: none !important; }
 
-	.md_flexbox .list_of_entries.grid_view{ 
+	.md_flexbox .list_of_entries.grid_view{
 	-webkit-flex-direction: column;
 	flex-direction: column;
 	}
@@ -6433,7 +6433,7 @@ flex-direction: column;
 		16. Retina Ready
 
 ------------------------------------------------ */
-		
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (min-resolution: 144 dpi){
 	blockquote::before{
