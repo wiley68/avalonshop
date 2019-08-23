@@ -298,36 +298,6 @@ class ProductController extends Controller
             }
             $request->session()->put('cart_session', $cart_session);
 
-            //add tbi bank session variables
-            if (
-                ($request->has('tbipayment_mesecna')) &&
-                ($request->has('tbipayment_gpr_input')) &&
-                ($request->has('tbipayment_parva_input')) &&
-                ($request->has('tbipayment_obshtozaplashtane_input')) &&
-                ($request->has('tpaymentpurcent')) &&
-                ($request->has('tbipayment_price')) &&
-                ($request->has('tbipayment_product_name')) &&
-                ($request->has('tbipayment_product_image'))
-            ){
-                $request->session()->put('tbipayment_mesecna', $request->input('tbipayment_mesecna'));
-                $request->session()->put('tbipayment_gpr_input', $request->input('tbipayment_gpr_input'));
-                $request->session()->put('tbipayment_parva_input', $request->input('tbipayment_parva_input'));
-                $request->session()->put('tbipayment_obshtozaplashtane_input', $request->input('tbipayment_obshtozaplashtane_input'));
-                $request->session()->put('tpaymentpurcent', $request->input('tpaymentpurcent'));
-                $request->session()->put('tbipayment_price', $request->input('tbipayment_price'));
-                $request->session()->put('tbipayment_product_name', $request->input('tbipayment_product_name'));
-                $request->session()->put('tbipayment_product_image', $request->input('tbipayment_product_image'));
-            }else{
-                $request->session()->forget('tbipayment_mesecna');
-                $request->session()->forget('tbipayment_gpr_input');
-                $request->session()->forget('tbipayment_parva_input');
-                $request->session()->forget('tbipayment_obshtozaplashtane_input');
-                $request->session()->forget('tpaymentpurcent');
-                $request->session()->forget('tbipayment_price');
-                $request->session()->forget('tbipayment_product_name');
-                $request->session()->forget('tbipayment_product_image');
-            }
-
             $response = array(
                 'status' => 'success'
             );

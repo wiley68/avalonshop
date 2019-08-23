@@ -241,9 +241,6 @@ class HelpController extends Controller
                 case 'payment_bank':
                     $order->payment = 'bank';
                     break;
-                case 'payment_tbi':
-                    $order->payment = 'tbi';
-                    break;
                 default:
                     $order->payment = 'bank';
                     break;
