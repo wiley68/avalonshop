@@ -234,10 +234,19 @@ class HelpController extends Controller
             }else{
                 $order->shipping = 'spedy';
             }
-            if ($request->input('type_payment') == 'payment_nalozen'){
-                $order->payment = 'platez';
-            }else{
-                $order->payment = 'bank';
+            switch ($request->input('type_payment')) {
+                case 'payment_nalozen':
+                    $order->payment = 'platez';
+                    break;
+                case 'payment_bank':
+                    $order->payment = 'bank';
+                    break;
+                case 'payment_tbi':
+                    $order->payment = 'tbi';
+                    break;
+                default:
+                    $order->payment = 'bank';
+                    break;
             }
 
             $order->save();

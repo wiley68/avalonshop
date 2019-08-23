@@ -367,6 +367,11 @@ $all_price += floatval($item['total_price']);
                                                 id="type_payment_bank">
                                             <label for="type_payment_bank">Плащане по банков път</label>
                                         </li>
+                                        <li>
+                                            <input type="radio" value="payment_tbi" name="type_payment"
+                                                id="type_payment_tbi">
+                                            <label for="type_payment_tbi">На изплащане с кредит от TBI Bank. (При избор на този метод на плащане и завършване на поръчката, ще бъдете препратени към системата за ТБИ Банк за да потвърдите или промените параметрите на лизинга. Можете да си изберете брой месечни вноски според месечната сума за изплащане, да изберете при желание първоначална вноска, да прегледата финансовите данни на лизинга и др.)</label>
+                                        </li>
                                     </ul>
                                 </div>
                             </section>

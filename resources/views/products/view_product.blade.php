@@ -145,16 +145,16 @@
                                     </div>
                                     <hr>
                                     <p class="product_price"><b id="total_price"
-                                            class="theme_color">{{ number_format($product->price, 2, ".", "") }}</b>&nbsp;лв.
+                                        class="theme_color">{{ number_format($product->price, 2, ".", "") }}</b>&nbsp;лв.
                                     </p>
                                     <!-- - - - - - - - - - - - - - Quantity - - - - - - - - - - - - - - - - -->
                                     <div class="description_section_2 v_centered">
 
                                         <span class="title">Количество:</span>
                                         <div class="qty min clearfix">
-                                            <button class="theme_button" data-direction="minus">&#45;</button>
+                                            <button id="minus" class="theme_button" data-direction="minus">&#45;</button>
                                             <input type="text" id="quantity" value="1">
-                                            <button class="theme_button" data-direction="plus">&#43;</button>
+                                            <button id="plus" class="theme_button" data-direction="plus">&#43;</button>
                                         </div>
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of quantity - - - - - - - - - - - - - - - - -->
@@ -1395,6 +1395,28 @@
         });
     };
 
+    $(document).on("change, mouseup, keyup", "#quantity", function(e){
+        changeTotalPrice(parseInt($('#quantity').val()));
+    });
+
+    $("#minus").click(function(e){
+        if (parseInt($('#quantity').val()) > 1){
+            var quantity = parseInt($('#quantity').val()) - 1;
+        }else{
+            var quantity = parseInt($('#quantity').val());
+        }
+        changeTotalPrice(quantity);
+    });
+
+    $("#plus").click(function(e){
+        var quantity = parseInt($('#quantity').val()) + 1;
+        changeTotalPrice(quantity);
+    });
+
+    function changeTotalPrice(quantity){
+        $("#total_price").html((quantity * parseFloat('{{$product->price}}')).toFixed(2));
+    }
+
     function tbipaymentChangeContainer(){
         var tbipayment_label_container = document.getElementsByClassName("tbipayment-label-container")[0];
         if (tbipayment_label_container.style.visibility == 'visible'){
@@ -1412,6 +1434,8 @@
     }
 
     $( "#btn_tbipayment" ).click(function() {
+        $("#tbipayment_price").val($("#total_price").html());
+        tbipayment_change_value();
         $( "#tbipayment_box" ).show("slow");
     });
 
@@ -1455,7 +1479,6 @@
                     window.location = "/cart.html";
                 }
             });
-            redirectPost('<?php echo $tbipayment_confirm; ?>', {'product_id': {{$product->id}}, 'product_quantity': $("#quantity").val(), 'tbipayment_mesecna': $("#tbipayment_mesecna").val(), 'tbipayment_gpr_input': $("#tbipayment_gpr_input").val(), 'tbipayment_parva_input': $("#tbipayment_parva_input").val(), 'tbipayment_obshtozaplashtane_input': $("#tbipayment_obshtozaplashtane_input").val(), 'tpaymentpurcent': $("#tpaymentpurcent").val(), 'product_id': '<?php echo $product_id; ?>', 'tbipayment_price': '<?php echo $tbipayment_price; ?>', 'product_quantity': '<?php echo $product_quantity; ?>', 'tbipayment_product_name': '<?php echo $tbipayment_product_name; ?>', 'tbipayment_product_image': '<?php echo $tbipayment_product_image; ?>'});
         }else{
             alert("Моля да дадете съгласие с Общите Условия на TBI Bank за онлайн кредитиране.");
         }
