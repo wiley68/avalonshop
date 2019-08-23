@@ -46,7 +46,8 @@ class ProductController extends Controller
             ->get();
 
         // get products
-        $products = Product::where('id', '>', 0);
+        $products = Product::where('id', '>', 0)->where(['instock' => 'в наличност']);
+        $products = $products->where(['instock' => 'в наличност']);
 
         // get paginate
         if (!empty(request('paginate_by'))) {
@@ -206,7 +207,7 @@ class ProductController extends Controller
         $reviews = Review::where(['product_id' => $product->id])->get();
 
         // get featured products
-        $featured_products = Product::where(['isfeatured' => 1])->take(10)->get();
+        $featured_products = Product::where(['isfeatured' => 1])->where(['instock' => 'в наличност'])->take(10)->get();
 
         return view('products.view_product')->with([
             'title' => $product->meta_title . ' | Авалон',

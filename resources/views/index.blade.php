@@ -146,7 +146,7 @@
                                             foreach ($product_ids_by_category_get as $pitem) {
                                                 $product_ids_by_category[] = $pitem->product_id;
                                             }
-                                            $products_by_categories = Product::whereIn('id', $product_ids_by_category)->inRandomOrder()->take(5)->get();
+                                            $products_by_categories = Product::whereIn('id', $product_ids_by_category)->where(['instock' => 'в наличност'])->inRandomOrder()->take(5)->get();
                                         @endphp
                                         <!-- - - - - - - - - - - - - - Carousel of today's deals - - - - - - - - - - - - - - - - -->
                                         <div class="owl_carousel carousel_in_tabs type_3">
