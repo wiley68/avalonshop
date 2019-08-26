@@ -1,3 +1,5 @@
+<?php use App\Property; ?>
+<?php use App\Http\Controllers\HelpController; ?>
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -12,7 +14,25 @@
     </script>
     <!-- Basic page needs
     ============================================ -->
+    @php
+        $property = Property::where('id', '>', 0)->first(); 
+        $show = false;
+        if (!empty($property)){
+            if ($property->status == 'Yes'){
+                $ip = explode(",", $property->ip);
+                foreach ($ip as $ip_address) {
+                    if (($ip_address == HelpController::getUserIP()) || ('::1' == HelpController::getUserIP())){
+                        $show = true;
+                    }
+                }              
+            }else{
+                $show = true;
+            }
+        }       
+    @endphp
+    @if(!$show)
     <meta http-equiv="refresh" content="0; url=/maintanence.html" />
+    @endif
     <meta charset="utf-8">
     <meta name="author" content="Илко Иванов">
 
