@@ -11,6 +11,8 @@
 |
 */
 /** start top menus */
+Route::get('/maintanence.html', 'IndexController@maintanence')->name('maintanence');
+
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/za-nas.html', 'IndexController@forUs')->name('for_us');
 Route::get('/kontakt.html', 'IndexController@contact')->name('contact');

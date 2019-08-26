@@ -11,7 +11,8 @@
         gtag('config', 'UA-118342723-1');
     </script>
     <!-- Basic page needs
-	============================================ -->
+    ============================================ -->
+    <meta http-equiv="refresh" content="0; url=/maintanence.html" />
     <meta charset="utf-8">
     <meta name="author" content="Илко Иванов">
 

@@ -8,6 +8,10 @@ use App\Support;
 
 class IndexController extends Controller
 {
+    public function maintanence(){
+        return view('maintanence');
+    }
+
     /** start index menu */
     public function index(){
         $root_categories = Category::where(['parent_id' => 0])->get();
