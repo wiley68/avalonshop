@@ -31,7 +31,7 @@
                                     <!-- - - - - - - - - - - - - - Image preview container - - - - - - - - - - - - - - - - -->
                                     <div class="image_preview_container">
                                         @if (!empty($imgsrc1))
-                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}">                                                                                
+                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                                                
                                         @else
                                             <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">                                        
                                         @endif
@@ -45,7 +45,7 @@
                                         <div class="owl_carousel" id="thumbnails">
                                             @if (!empty($imgsrc1))
                                             <a href="#" data-image="{{ $imgsrc1 }}" data-zoom-image="{{ $imgsrc1 }}">
-                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" alt="{{ $product->name }}-1">
+                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" alt="{{ $product->name }}-1" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                             </a>                                                                                                
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
@@ -54,7 +54,7 @@
                                             @endif
                                             @if (!empty($imgsrc2))
                                             <a href="#" data-image="{{ $imgsrc2 }}" data-zoom-image="{{ $imgsrc2 }}">
-                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" alt="{{ $product->name }}-2">
+                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" alt="{{ $product->name }}-2" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                             </a>                                                                                                
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
@@ -63,7 +63,7 @@
                                             @endif
                                             @if (!empty($imgsrc3))
                                             <a href="#" data-image="{{ $imgsrc3 }}" data-zoom-image="{{ $imgsrc3 }}">
-                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" alt="{{ $product->name }}-3">
+                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" alt="{{ $product->name }}-3" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                             </a>                                                                                                
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
@@ -72,7 +72,7 @@
                                             @endif
                                             @if (!empty($imgsrc4))
                                             <a href="#" data-image="{{ $imgsrc4 }}" data-zoom-image="{{ $imgsrc4 }}">
-                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" alt="{{ $product->name }}-4">
+                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" alt="{{ $product->name }}-4" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                             </a>                                                                                                
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
@@ -497,6 +497,13 @@
                                     <!-- - - - - - - - - - - - - - End tab - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-4" class="tab_container">
+                                        @if (!empty($product->fileurl))
+                                            @if (!empty($product->filedescription))
+                                                {{ $product->filedescription }}: <a href="{{ $product->fileurl }}" target="_blank" title="Документ за изтегляне">{{ $product->fileurl }}</a>
+                                            @else
+                                                Документ с описание: <a href="{{ $product->fileurl }}" target="_blank" title="Документ за изтегляне">{{ $product->fileurl }}</a>
+                                            @endif
+                                        @endif
                                         {!! html_entity_decode($product->description2) !!}
                                     </div>
                                     <!--/ #tab-4-->
@@ -523,7 +530,7 @@
                                             $imgsrc1 = $featured_product->imgurl1;
                                         @endphp
                                         @if (!empty($imgsrc1))
-                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">                                                        
+                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                        
                                         @else
                                             <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $featured_product->name }}">
                                         @endif

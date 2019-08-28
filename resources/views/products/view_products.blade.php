@@ -307,7 +307,7 @@
                                                             @endphp
                                                             <div class="image_wrap" style="min-height:240px;">
                                                                 @if (!empty($imgsrc1))
-                                                                    <img src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}">                                                                
+                                                                    <img src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                                
                                                                 @else
                                                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @endif

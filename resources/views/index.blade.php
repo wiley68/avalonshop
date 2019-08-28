@@ -169,7 +169,7 @@
                                                             $imgsrc1 = $product_item->imgurl1;
                                                         @endphp
                                                         @if (!empty($imgsrc1))
-                                                            <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">                                                        
+                                                            <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                        
                                                         @else
                                                             <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product_item->name }}">
                                                         @endif
