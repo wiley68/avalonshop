@@ -1,4 +1,5 @@
 <?php use App\Category; ?>
+<?php use App\Product; ?>
 <!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
 @php
 $cart_item_quantity = 0;
@@ -387,9 +388,19 @@ if (!empty((Session::get('cart_session'))['items'])){
                                         <p class="title">Последно добавени продукти</p>
                                     </div>
                                     @foreach ((Session::get('cart_session'))['items'] as $cart_item)
+                                    @php
+                                        $product_cart = Product::where(['id' => $cart_item['product_id']])->first();
+                                        $imgsrc1 = $product_cart->imgurl1;
+                                    @endphp
                                     <div class="animated_item">
                                         <div class="clearfix sc_product">
-                                            <a href="{{ route('product', ['id' => $cart_item['product_id']]) }}" class="product_thumb"><img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $cart_item['product_id'] }}_1.png" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                            <a href="{{ route('product', ['id' => $cart_item['product_id']]) }}" class="product_thumb">
+                                                @if (!empty($imgsrc1))
+                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                @else
+                                                    <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}">
+                                                @endif
+                                            </a>
                                             <a href="{{ route('product', ['id' => $cart_item['product_id']]) }}" class="product_name">{{ $cart_item['product_name'] }}</a>
                                             <p>{{ $cart_item['product_quantity'] }} x {{ number_format(floatval($cart_item['total_price']) / floatval($cart_item['product_quantity']), 2, ".", "") }}&nbsp;лв.</p>
                                             <a href="{{ route('cart-remove-product', ['id' => $cart_item['product_id']]) }}" class="close"></a>

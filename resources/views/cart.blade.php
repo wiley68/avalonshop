@@ -1,3 +1,4 @@
+<?php use App\Product; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -34,9 +35,18 @@
                                             $all_price = 0;
                                         @endphp
                                         @foreach ((Session::get('cart_session'))['items'] as $item)
+                                        @php
+                                            $product_cart = Product::where(['id' => $item['product_id']])->first();
+                                            $imgsrc1 = $product_cart->imgurl1;
+                                        @endphp
                                         <tr>
                                             <td class="product_image_col" data-title="Product Image">
-                                                <a href="{{ route('product', ['id' => $item['product_id']]) }}"><img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $item['product_id'] }}_1.png" style="max-width:200px;" alt="{{ $item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                                <a href="{{ route('product', ['id' => $item['product_id']]) }}">
+                                                @if (!empty($imgsrc1))
+                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                @else
+                                                    <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $item['product_name'] }}">
+                                                @endif                                                </a>
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of product Image - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Product name - - - - - - - - - - - - - - - - -->
