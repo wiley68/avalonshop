@@ -30,10 +30,11 @@
                                 <div class="single_product">
                                     <!-- - - - - - - - - - - - - - Image preview container - - - - - - - - - - - - - - - - -->
                                     <div class="image_preview_container">
-                                        <img id="img_zoom"
-                                            data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png"
-                                            src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png"
-                                            alt="">
+                                        @if (!empty($imgsrc1))
+                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}">                                                                                
+                                        @else
+                                            <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">                                        
+                                        @endif
                                         <button class="button_grey_2 icon_btn middle_btn open_qv"><i
                                                 class="icon-resize-full-6"></i></button>
                                     </div>
@@ -42,38 +43,42 @@
                                     <!-- - - - - - - - - - - - - - Prodcut thumbs carousel - - - - - - - - - - - - - - - - -->
                                     <div class="product_preview">
                                         <div class="owl_carousel" id="thumbnails">
-                                            <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png"
-                                                    alt="{{ $product->name }}-1"
-                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>
-                                            <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_2.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_2.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_2.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_2.png"
-                                                    alt="{{ $product->name }}-2"
-                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>
-                                            <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_3.png"
-                                                    alt="{{ $product->name }}-3"
-                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>
-                                            <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_4.png"
-                                                    alt="{{ $product->name }}-4"
-                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>
+                                            @if (!empty($imgsrc1))
+                                            <a href="#" data-image="{{ $imgsrc1 }}" data-zoom-image="{{ $imgsrc1 }}">
+                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" alt="{{ $product->name }}-1">
+                                            </a>                                                                                                
+                                            @else
+                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-1">
+                                            </a>                                                
+                                            @endif
+                                            @if (!empty($imgsrc2))
+                                            <a href="#" data-image="{{ $imgsrc2 }}" data-zoom-image="{{ $imgsrc2 }}">
+                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" alt="{{ $product->name }}-2">
+                                            </a>                                                                                                
+                                            @else
+                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-2">
+                                            </a>                                                
+                                            @endif
+                                            @if (!empty($imgsrc3))
+                                            <a href="#" data-image="{{ $imgsrc3 }}" data-zoom-image="{{ $imgsrc3 }}">
+                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" alt="{{ $product->name }}-3">
+                                            </a>                                                                                                
+                                            @else
+                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-3">
+                                            </a>                                                
+                                            @endif
+                                            @if (!empty($imgsrc4))
+                                            <a href="#" data-image="{{ $imgsrc4 }}" data-zoom-image="{{ $imgsrc4 }}">
+                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" alt="{{ $product->name }}-4">
+                                            </a>                                                                                                
+                                            @else
+                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-4">
+                                            </a>                                                
+                                            @endif
                                         </div>
                                         <!--/ .owl-carousel-->
                                     </div>
@@ -514,9 +519,14 @@
                                 <div class="product_item">
                                     <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
                                     <div class="image_wrap">
-                                        <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $featured_product->id }}_1.png"
-                                            style="max-width:200px;" alt="{{ $featured_product->name }}"
-                                            onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                        @php
+                                            $imgsrc1 = $featured_product->imgurl1;
+                                        @endphp
+                                        @if (!empty($imgsrc1))
+                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">                                                        
+                                        @else
+                                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $featured_product->name }}">
+                                        @endif
                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                         <div class="actions_wrap">
                                             <div class="centered_buttons">

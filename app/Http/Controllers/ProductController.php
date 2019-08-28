@@ -209,6 +209,12 @@ class ProductController extends Controller
         // get featured products
         $featured_products = Product::where(['isfeatured' => 1])->where(['instock' => 'в наличност'])->take(10)->get();
 
+        // get images
+        $imgsrc1 = $product->imgurl1;
+        $imgsrc2 = $product->imgurl2;
+        $imgsrc3 = $product->imgurl3;
+        $imgsrc4 = $product->imgurl4;
+
         return view('products.view_product')->with([
             'title' => $product->meta_title . ' | Авалон',
             'description' => $product->meta_description,
@@ -222,7 +228,11 @@ class ProductController extends Controller
             'manufacturer_id' => $manufacturer_id,
             'products_attributes' => $products_attributes,
             'reviews' => $reviews,
-            'featured_products' => $featured_products
+            'featured_products' => $featured_products,
+            'imgsrc1' => $imgsrc1,
+            'imgsrc2' => $imgsrc2,
+            'imgsrc3' => $imgsrc3,
+            'imgsrc4' => $imgsrc4
         ]);
     }
     /** end view product */

@@ -302,8 +302,15 @@
                                                 <div class="table_cell">
                                                         <div class="product_item">
                                                             <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
+                                                            @php
+                                                                $imgsrc1 = $products_collection[$i+$j]['imgurl1'];
+                                                            @endphp
                                                             <div class="image_wrap" style="min-height:240px;">
-                                                                <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $products_collection[$i+$j]['id'] }}_1.png" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                                @if (!empty($imgsrc1))
+                                                                    <img src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}">                                                                
+                                                                @else
+                                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $products_collection[$i+$j]['name'] }}">
+                                                                @endif
                                                                 <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                                 <div class="actions_wrap">
                                                                     <div class="centered_buttons">

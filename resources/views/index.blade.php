@@ -165,7 +165,14 @@
                                             <div class="product_item">
                                                     <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
                                                     <div class="image_wrap" style="min-height:200px;">
-                                                        <img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product_item->id }}_1.png" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                        @php
+                                                            $imgsrc1 = $product_item->imgurl1;
+                                                        @endphp
+                                                        @if (!empty($imgsrc1))
+                                                            <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">                                                        
+                                                        @else
+                                                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product_item->name }}">
+                                                        @endif
                                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                         <div class="actions_wrap">
                                                             <div class="centered_buttons">
