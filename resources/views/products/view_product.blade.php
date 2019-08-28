@@ -251,6 +251,22 @@
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-2" class="tab_container">
                                         <ul class="specifications">
+                                            <li>
+                                                @php
+                                                    switch ($product->warranty) {
+                                                        case -1:
+                                                            $warranty = "Без гаранция";
+                                                            break;
+                                                        case 0:
+                                                            $warranty = "Доживотна";
+                                                            break;
+                                                        default:
+                                                            $warranty = $product->warranty . " месеца";
+                                                            break;
+                                                    }
+                                                @endphp
+                                                <span>Гаранционен срок :</span>{{ $warranty }}
+                                            </li>
                                             @foreach ($products_attributes as $product_attribute)
                                             <li><span>{{ Attribute::where(['id' => $product_attribute->attribute_id])->first()->name }}
                                                     :</span>{{ AttributeValues::where(['id' => $product_attribute->attribute_value_id])->first()->value }}
