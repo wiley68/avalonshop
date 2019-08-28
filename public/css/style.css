@@ -324,7 +324,7 @@
 		vertical-align: middle;
 	}
 
-	.on_the_sides > .left_side{ width: 70%; }
+	.on_the_sides > .left_side{ width: 50%; }
 
 	.on_the_sides > .right_side{ text-align: right; }
 
