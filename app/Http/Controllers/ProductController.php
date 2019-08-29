@@ -126,11 +126,11 @@ class ProductController extends Controller
         // Sorting products
         if (request()->has('order_by')) {
             if (request('order_by') == 'order_by_price_desc') {
-                $products = $products->orderBy('price', 'asc');
+                $products = $products->orderBy('price', 'desc');
                 $queries['order_by'] = request('order_by');
             }
             if (request('order_by') == 'order_by_price_asc') {
-                $products = $products->orderBy('price', 'desc');
+                $products = $products->orderBy('price', 'asc');
                 $queries['order_by'] = request('order_by');
             }
             if (request('order_by') == 'order_by_name_asc') {
