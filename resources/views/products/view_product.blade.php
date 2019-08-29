@@ -102,10 +102,10 @@
                                         @php
                                         $all_rev = 0;
                                         foreach ($reviews as $review){
-                                        $all_rev += $review->price + $review->value + $review->quantity;
+                                        $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
                                         }
                                         if ($reviews->count() > 0){
-                                        $all_rev = floor($all_rev / $reviews->count() * 3);
+                                        $all_rev = floor($all_rev / ($reviews->count() * 3));
                                         }
                                         @endphp
                                         <ul class="rating">

@@ -167,7 +167,7 @@ class ProductController extends Controller
     }
 
     /** start view product */
-     public function viewProduct(Request $request, $id = null)
+    public function viewProduct(Request $request, $id = null)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $product = Product::where(['id' => $id])->first();
