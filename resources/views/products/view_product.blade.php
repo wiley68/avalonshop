@@ -141,6 +141,10 @@
                                                     <td>Продуктов код: </td>
                                                     <td>{{ $product->code }}</td>
                                                 </tr>
+                                                <tr>
+                                                    <td>EAN: </td>
+                                                    <td>{{ $product->ean }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
