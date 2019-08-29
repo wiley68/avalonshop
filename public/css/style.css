@@ -4277,7 +4277,8 @@ transition-duration:0.1s;
 
 	#promo_mw .do_not_show_checkbox{ margin-top:21px !important; }
 
-	.in_stock{ color: #54bd45; }
+    .in_stock{ color: #54bd45; }
+    .min_stock{ color: #FF8C00; }
 
 /* ------------------------------------------------
 

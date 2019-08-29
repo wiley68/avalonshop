@@ -135,7 +135,19 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Наличност: </td>
-                                                    <td><span class="in_stock">{{ $product->instock }}</span></td>
+                                                    @switch($product->instock)
+                                                        @case('в наличност')
+                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>                                                        
+                                                            @break
+                                                        @case('минимално количество')
+                                                            <td><span class="min_stock">{{ $product->instock }}</span></td>
+                                                            @break
+                                                        @case('очаква се')
+                                                            <td><span class="out_of_stock">{{ $product->instock }}</span></td>
+                                                            @break
+                                                        @default
+                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>
+                                                    @endswitch
                                                 </tr>
                                                 <tr>
                                                     <td>Продуктов код: </td>
