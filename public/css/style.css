@@ -70,7 +70,8 @@
 ------------------------------------------------ */
 
 	body{
-		font:400 14px/21px 'Roboto', sans-serif;
+        /* font:400 14px/21px 'Roboto', sans-serif; */
+        font: 400 14px/21px 'Exo 2', sans-serif;
 		color:#777;
 		background-color: #004969;
 		background-attachment: fixed;
