@@ -214,7 +214,14 @@
                 <p>Програма за управление на дейността на Служба по трудова медицина</p>
             </div>
             <div class="right_side">
-                <a href="https://avalonbg.com/download/MaxtradeCTM.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ Product::where(['id' => 7])->first()->downloads }})&nbsp;Изтегли демо версия!</a>
+                @php
+                    if (!empty(Product::where(['id' => 7])->first())){
+                        $download_counts = Product::where(['id' => 7])->first()->downloads;
+                    }else{
+                        $download_counts = 0;
+                    }
+                @endphp
+                <a href="https://avalonbg.com/download/MaxtradeCTM.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ $download_counts }})&nbsp;Изтегли демо версия!</a>
             </div>
         </div>
 

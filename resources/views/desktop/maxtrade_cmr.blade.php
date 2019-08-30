@@ -121,7 +121,14 @@
                 <p>Програма за съхранение и печат на митнически товарителници (ЧМР)</p>
             </div>
             <div class="right_side">
-                <a href="https://avalonbg.com/download/MaxtradeCMR.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ Product::where(['id' => 1])->first()->downloads }})&nbsp;Изтегли демо версия!</a>
+                @php
+                    if (!empty(Product::where(['id' => 1])->first())){
+                        $download_counts = Product::where(['id' => 1])->first()->downloads;
+                    }else{
+                        $download_counts = 0;
+                    }
+                @endphp
+                <a href="https://avalonbg.com/download/MaxtradeCMR.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ $download_counts }})&nbsp;Изтегли демо версия!</a>
             </div>
         </div>
 

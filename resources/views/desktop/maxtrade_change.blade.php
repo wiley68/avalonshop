@@ -113,7 +113,14 @@
                 <p>Програма за регистриране на дейността по продажба и обмен на валута</p>
             </div>
             <div class="right_side">
-                <a href="https://avalonbg.com/download/MaxtradeChange.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ Product::where(['id' => 6])->first()->downloads }})&nbsp;Изтегли демо версия!</a>
+                @php
+                    if (!empty(Product::where(['id' => 6])->first())){
+                        $download_counts = Product::where(['id' => 6])->first()->downloads;
+                    }else{
+                        $download_counts = 0;
+                    }
+                @endphp
+                <a href="https://avalonbg.com/download/MaxtradeChange.zip" onclick="clickBtnDownload(event)" class="button_blue huge_btn">({{ $download_counts }})&nbsp;Изтегли демо версия!</a>
             </div>
         </div>
 
