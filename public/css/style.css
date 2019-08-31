@@ -2984,7 +2984,11 @@ transition-duration:0.1s;
 
 		.product_price{
 			font-size:16px;
-			color:#E31E24;
+            color:#E31E24;
+        }
+
+        .credit_text{
+			font-size:18px;
 		}
 
 		.product_item .bottombar{

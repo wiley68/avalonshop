@@ -31,9 +31,9 @@
                                     <!-- - - - - - - - - - - - - - Image preview container - - - - - - - - - - - - - - - - -->
                                     <div class="image_preview_container">
                                         @if (!empty($imgsrc1))
-                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                                                
+                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                         @else
-                                            <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">                                        
+                                            <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">
                                         @endif
                                         <button class="button_grey_2 icon_btn middle_btn open_qv"><i
                                                 class="icon-resize-full-6"></i></button>
@@ -46,38 +46,38 @@
                                             @if (!empty($imgsrc1))
                                             <a href="#" data-image="{{ $imgsrc1 }}" data-zoom-image="{{ $imgsrc1 }}">
                                                 <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" alt="{{ $product->name }}-1" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>                                                                                                
+                                            </a>
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
                                                 <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-1">
-                                            </a>                                                
+                                            </a>
                                             @endif
                                             @if (!empty($imgsrc2))
                                             <a href="#" data-image="{{ $imgsrc2 }}" data-zoom-image="{{ $imgsrc2 }}">
                                                 <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" alt="{{ $product->name }}-2" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>                                                                                                
+                                            </a>
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
                                                 <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-2">
-                                            </a>                                                
+                                            </a>
                                             @endif
                                             @if (!empty($imgsrc3))
                                             <a href="#" data-image="{{ $imgsrc3 }}" data-zoom-image="{{ $imgsrc3 }}">
                                                 <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" alt="{{ $product->name }}-3" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>                                                                                                
+                                            </a>
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
                                                 <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-3">
-                                            </a>                                                
+                                            </a>
                                             @endif
                                             @if (!empty($imgsrc4))
                                             <a href="#" data-image="{{ $imgsrc4 }}" data-zoom-image="{{ $imgsrc4 }}">
                                                 <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" alt="{{ $product->name }}-4" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
-                                            </a>                                                                                                
+                                            </a>
                                             @else
                                             <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
                                                 <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-4">
-                                            </a>                                                
+                                            </a>
                                             @endif
                                         </div>
                                         <!--/ .owl-carousel-->
@@ -137,7 +137,7 @@
                                                     <td>Наличност: </td>
                                                     @switch($product->instock)
                                                         @case('в наличност')
-                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>                                                        
+                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>
                                                             @break
                                                         @case('минимално количество')
                                                             <td><span class="min_stock">{{ $product->instock }}</span></td>
@@ -188,6 +188,40 @@
                                                 class="tooltip top">Добави към любими</span></button>
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                    <!-- Credit -->
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="theme_box clearfix">
+                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                            <div class="col-sm-12" style="padding:0px;text-align:center;">
+                                                <p class="product_price">
+                                                    12 x <b class="theme_color">23.56</b> лв.&nbsp;&nbsp;
+                                                    <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
+                                                    <a href="#" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                            <div class="col-sm-12" style="padding:0px;text-align:center;">
+                                                <p>Можете да изберете лизинг с компанията, която предлага най-добрите за Вас условия!</p>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="border-top:1px solid whitesmoke;padding-top:15px;">
+                                            <div class="col-sm-2">&nbsp;</div>
+                                            <div class="col-sm-2">
+                                                <img src="/images/credit/tbi_bank_logo.png" alt="TBI Bank кредитен калкулатор" title="TBI Bank кредитен калкулатор">
+                                            </div>
+                                            <div class="col-sm-1">&nbsp;</div>
+                                            <div class="col-sm-2">
+                                                <img src="/images/credit/unicredit_logo.png" alt="UNI Credit кредитен калкулатор" title="UNI Credit кредитен калкулатор">
+                                            </div>
+                                            <div class="col-sm-1">&nbsp;</div>
+                                            <div class="col-sm-2">
+                                                <img src="/images/credit/pariba_logo.png" alt="Париба Лични Финанси кредитен калкулатор" title="Париба Лични Финанси кредитен калкулатор">
+                                            </div>
+                                            <div class="col-sm-2">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <!-- Credit -->
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of product description column - - - - - - - - - - - - - - - - -->
                             </div>
@@ -562,7 +596,7 @@
                                             $imgsrc1 = $featured_product->imgurl1;
                                         @endphp
                                         @if (!empty($imgsrc1))
-                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                        
+                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                         @else
                                             <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $featured_product->name }}">
                                         @endif
