@@ -3309,6 +3309,8 @@ transition-duration:0.1s;
 			}
 
 			.image_preview_container{
+                background-color: white;
+                border: 1px solid #F9D0D1;
 				margin-bottom: 10px;
 				position: relative;
                 -webkit-backface-visibility: hidden;
@@ -4232,12 +4234,15 @@ transition-duration:0.1s;
 
     .owl_carousel .entry{ border-radius: 0px; }
 
-    .product_preview .owl_carousel div{ 
-        max-height: 120px;    
+    .product_preview .owl_carousel{
+        background-color: white; 
+        border: 1px solid #DCDCDC;
+        padding: 5px;
+        max-height: 120px;   
     }
 
     .product_preview .owl_carousel img{ 
-        height: auto;
+        max-height: 110px;
         width: auto;
         margin: auto;
     }
