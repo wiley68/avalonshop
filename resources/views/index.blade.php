@@ -164,7 +164,7 @@
                                             @endphp
                                             <div class="product_item">
                                                     <!-- - - - - - - - - - - - - - Thumbnail - - - - - - - - - - - - - - - - -->
-                                                    <div class="image_wrap" style="min-height:200px;">
+                                                    <div class="image_wrap">
                                                         @php
                                                             $imgsrc1 = $product_item->imgurl1;
                                                         @endphp
