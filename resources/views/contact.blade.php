@@ -125,6 +125,9 @@
                                         </blockquote>
                                     </div><!--/ .widgets_carousel-->
                                     <!-- - - - - - - - - - - - - - End of carousel of testimonials - - - - - - - - - - - - - - - - -->
+                                    <footer class="bottom_box">
+                                        <a href="{{ route('klienti') }}" class="button_grey middle_btn">Виж всички мнения</a>
+                                    </footer>
                                 </section><!--/ .section_offset.animated.transparent-->
                                 <!-- - - - - - - - - - - - - - End of testimonials - - - - - - - - - - - - - - - - -->
                             </aside><!--/ [col]-->
