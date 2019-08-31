@@ -81,19 +81,19 @@
 					<!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
 					<ul class="infoblocks_wrap section_offset six_items">
 						<li class="animated transparent" data-animation="fadeInDown">
-							<a class="infoblock type_1">
+							<a href="{{ route('klienti') }}" class="infoblock type_1">
 								<i class="icon-thumbs-up-1"></i>
 								<span class="caption"><b>Най-добро качество</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="100">
-							<a class="infoblock type_1">
+							<a href="{{ route('dostavka') }}" class="infoblock type_1">
 								<i class="icon-paper-plane"></i>
 								<span class="caption"><b>Бърза доставка в страната</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="200">
-							<a class="infoblock type_1">
+							<a href="{{ route('politika') }}" class="infoblock type_1">
 								<i class="icon-lock"></i>
 								<span class="caption"><b>Политика на поверителност</b></span>
 							</a><!--/ .infoblock-->
@@ -105,13 +105,13 @@
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="400">
-							<a class="infoblock type_1">
+							<a href="{{ route('vrashtane') }}" class="infoblock type_1">
 								<i class="icon-money"></i>
 								<span class="caption"><b>Гаранции за стоката</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="500">
-							<a class="infoblock type_1">
+							<a href="{{ route('contact') }}" class="infoblock type_1">
 								<i class="icon-lifebuoy-1"></i>
 								<span class="caption"><b>24/7 Поддръжка за клиенти</b></span>
 							</a><!--/ .infoblock-->

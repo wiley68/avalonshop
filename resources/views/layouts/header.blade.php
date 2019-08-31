@@ -361,6 +361,9 @@ if (!empty((Session::get('cart_session'))['items'])){
                                                     <a href="{{ route('news.all') }}">Новини</a>
                                                 </li>
                                                 <li>
+                                                    <a href="{{ route('klienti') }}">Клиентите за нас</a>
+                                                </li>
+                                                <li>
                                                     <a href="{{ route('faqs.all') }}">Често задавани въпроси</a>
                                                 </li>
                                                 <li>

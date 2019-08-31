@@ -171,6 +171,17 @@ class IndexController extends Controller
         ]);
     }
     /** end dostavka menu */
+    /** start klienti menu */
+    public function klienti(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('klienti')->with([
+            'title' => 'Добра търговска практика. Клиентите за нас. | Авалон',
+            'description' => 'Добра търговска практика. Клиентите за нас.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, клиенти',
+            'root_categories' => $root_categories
+        ]);
+    }
+    /** end klienti menu */
     /** start vrashtane menu */
     public function vrashtane(){
         $root_categories = Category::where(['parent_id' => 0])->get();

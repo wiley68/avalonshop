@@ -29,6 +29,7 @@ Route::get('/obshti-uslovia.html', 'IndexController@terms')->name('terms');
 Route::get('/gdpr.html', 'IndexController@gdpr')->name('gdpr');
 Route::get('/politika.html', 'IndexController@politika')->name('politika');
 Route::get('/dostavka.html', 'IndexController@dostavka')->name('dostavka');
+Route::get('/klienti.html', 'IndexController@klienti')->name('klienti');
 Route::get('/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
 /** end footer menu */
 /** start index web section */
