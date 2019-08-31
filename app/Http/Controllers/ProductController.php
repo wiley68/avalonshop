@@ -122,6 +122,15 @@ class ProductController extends Controller
             $manufacturer_id = '';
         }
 
+        // Get featured request
+        if (!empty(request('featured'))) {
+            // Get products by featured
+            $featured = request('featured');
+            $products = $products->where(['isfeatured' => 1]);
+        } else {
+            $featured = 0;
+        }
+
         // sorting
         // Sorting products
         if (request()->has('order_by')) {
@@ -162,6 +171,7 @@ class ProductController extends Controller
             'order_by' => $order_by,
             'products_manufacturers' => $products_manufacturers,
             'manufacturer_id' => $manufacturer_id,
+            'featured' => $featured,
             'search_text' => $search_text
         ]);
     }

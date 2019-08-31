@@ -83,7 +83,7 @@
 						<li class="animated transparent" data-animation="fadeInDown">
 							<a href="{{ route('klienti') }}" class="infoblock type_1">
 								<i class="icon-thumbs-up-1"></i>
-								<span class="caption"><b>Най-добро качество</b></span>
+								<span class="caption"><b>Клиентите за нас</b></span>
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="100">
@@ -99,7 +99,7 @@
 							</a><!--/ .infoblock-->
 						</li>
 						<li class="animated transparent" data-animation="fadeInDown" data-animation-delay="300">
-							<a class="infoblock type_1">
+							<a href="{{ route('products', ['featured'=>1]) }}" class="infoblock type_1">
 								<i class="icon-diamond"></i>
 								<span class="caption"><b>Големи отстъпки</b></span>
 							</a><!--/ .infoblock-->
@@ -169,7 +169,7 @@
                                                             $imgsrc1 = $product_item->imgurl1;
                                                         @endphp
                                                         @if (!empty($imgsrc1))
-                                                            <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                        
+                                                            <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                         @else
                                                             <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product_item->name }}">
                                                         @endif

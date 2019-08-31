@@ -257,6 +257,7 @@
                                     @endforeach
                                     <input name="tag_id" type="hidden" value="{{ $tag_id }}">
                                     <input name="manufacturer_id" type="hidden" value="{{ $manufacturer_id }}">
+                                    <input name="featured" type="hidden" value="{{ $featured }}">
                                     <header class="top_box on_the_sides">
                                         <div class="left_side clearfix v_centered">
                                             <!-- - - - - - - - - - - - - - Sort by - - - - - - - - - - - - - - - - -->
@@ -307,7 +308,7 @@
                                                             @endphp
                                                             <div class="image_wrap">
                                                                 @if (!empty($imgsrc1))
-                                                                    <img src="{{ $imgsrc1 }}" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">                                                                
+                                                                    <img src="{{ $imgsrc1 }}" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                                 @else
                                                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @endif
