@@ -588,8 +588,9 @@
                                     <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                     <div class="description">
-                                        <a
-                                            href="{{ route('product', ['id' => $featured_product->id]) }}">{{ $featured_product->name }}</a>
+                                        <p class="crop2">
+                                            <a href="{{ route('product', ['id' => $featured_product->id]) }}">{{ $featured_product->name }}</a>
+                                        </p>
                                         <div class="clearfix product_info">
                                             <p class="product_price alignleft">
                                                 <b>{{ number_format($featured_product->price, 2, ".", "") }}</b>&nbsp;лв.

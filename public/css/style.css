@@ -4241,6 +4241,11 @@ transition-duration:0.1s;
         width: auto;
         margin: auto;
     }
+
+    .crop2{
+        height:40px;
+        overflow:hidden;
+    }
     
 	.owl_carousel .owl-item > *{ background-clip: border-box; }
 

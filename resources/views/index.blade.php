@@ -188,7 +188,7 @@
                                                     <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
                                                     <!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
                                                     <div class="description align_center">
-                                                        <p style="min-height:40px;"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
+                                                        <p class="crop2"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
                                                         <div class="clearfix product_info">
                                                             <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                             <ul class="rating alignright">
