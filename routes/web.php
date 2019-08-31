@@ -119,3 +119,5 @@ Route::group(
 /** stop frontend */
 
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

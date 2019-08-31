@@ -181,6 +181,9 @@ class ProductController extends Controller
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $product = Product::where(['id' => $id])->first();
+        if (empty($product)){
+            return abort(404);
+        }
         $product->visits += 1;
         $product->save();
 
