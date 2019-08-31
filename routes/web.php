@@ -95,6 +95,9 @@ Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login')
 Route::post('/user-checkout-login.html', 'UsersController@loginCheckoutUser')->name('user-checkout-login');
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
+/** start credit routes */
+Route::get('/credit.html', 'CreditController@index')->name('credit');
+/** end credit routes */
 /** start fronend */
 Route::group(
     ['middleware' => ['auth','verified']],
