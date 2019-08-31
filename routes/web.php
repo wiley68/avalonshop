@@ -97,7 +97,7 @@ Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-
 /** end users routes */
 /** start fronend */
 Route::group(
-    ['middleware' => ['auth']],
+    ['middleware' => ['auth','verified']],
     function () {
         Route::get('/home.html', 'UsersController@dashboard')->name('home');
         Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
@@ -118,6 +118,6 @@ Route::group(
 );
 /** stop frontend */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
