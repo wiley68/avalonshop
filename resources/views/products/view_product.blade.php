@@ -197,7 +197,7 @@
                                                 <p class="product_price">
                                                     {{ $tbipayment_meseci_new }} x <b class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
                                                     <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
-                                                    <a href="#" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
+                                                    <a href="{{ route('credit', ['product_id' => $product->id, 'product_qt' => 1]) }}" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
                                                 </p>
                                             </div>
                                         </div>

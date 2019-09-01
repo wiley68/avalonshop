@@ -4007,7 +4007,8 @@ transition-duration:0.1s;
 			color: #E31E24;
 			padding: 13px 19px 9px;
 			background-color: #f8f8f8;
-			border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            height: 76px;
 		}
 
 		.pricing_table .price{
