@@ -47,10 +47,15 @@
                             <div class="pricing_table">
                                 <header style="color:darkgrey;">Банка</header>
                                 <div class="pt_price">
-                                    <div class="price"></div>
+                                    <p>Общ размер на кредита: {{ number_format($product->price, 2, ".", "") }} лв.</p>
                                 </div>
                                 <ul class="pt_list">
-                                    <li>3 вноски</li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>3 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
                                     <li>6 вноски</li>
                                     <li>9 вноски</li>
                                     <li>12 вноски</li>
@@ -71,7 +76,11 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p>Общ размер на кредита: 209.00 лв.</p>
+                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
+                                        <p>325.65 лв.</p>
+                                        <p style="padding-bottom:10px;">35.25 %</p>
+                                        <input checked type="radio" name="credit_variant" id="tbi_3">
+                                        <label for="tbi_3">Избери варианта</label>
                                     </li>
                                     <li>6 вноски</li>
                                     <li>9 вноски</li>
@@ -92,7 +101,13 @@
                                     <img src="/images/credit/unicredit_logo.png">
                                 </div>
                                 <ul class="pt_list">
-                                    <li>3 вноски</li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
+                                        <p>325.65 лв.</p>
+                                        <p style="padding-bottom:10px;">35.25 %</p>
+                                        <input type="radio" name="credit_variant" id="uni_3">
+                                        <label for="uni_3">Избери варианта</label>
+                                    </li>
                                     <li>6 вноски</li>
                                     <li>9 вноски</li>
                                     <li>12 вноски</li>
@@ -112,7 +127,13 @@
                                     <img src="/images/credit/pariba_logo.png">
                                 </div>
                                 <ul class="pt_list">
-                                    <li>3 вноски</li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
+                                        <p>325.65 лв.</p>
+                                        <p style="padding-bottom:10px;">35.25 %</p>
+                                        <input type="radio" name="credit_variant" id="jet_3">
+                                        <label for="jet_3">Избери варианта</label>
+                                    </li>
                                     <li>6 вноски</li>
                                     <li>9 вноски</li>
                                     <li>12 вноски</li>
