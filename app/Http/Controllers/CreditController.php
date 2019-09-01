@@ -15,4 +15,16 @@ class CreditController extends Controller
             'root_categories' => $root_categories
         ]);
     }
+
+    public static function isProductInCategories($categories_id=array(), $products_id) {
+        if ($categories_id[0] != ""){
+            if ($products_id != ""){
+                if (in_array(strval($products_id), $categories_id)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }

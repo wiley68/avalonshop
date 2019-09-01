@@ -189,12 +189,13 @@
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                     <!-- Credit -->
+                                    @if (floatval($product->price) > 150)
                                     <div class="clearfix">&nbsp;</div>
                                     <div class="theme_box clearfix">
                                         <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
                                             <div class="col-sm-12" style="padding:0px;text-align:center;">
                                                 <p class="product_price">
-                                                    12 x <b class="theme_color">23.56</b> лв.&nbsp;&nbsp;
+                                                    {{ $tbipayment_meseci_new }} x <b class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
                                                     <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
                                                     <a href="#" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
                                                 </p>
@@ -221,6 +222,7 @@
                                             <div class="col-sm-2">&nbsp;</div>
                                         </div>
                                     </div>
+                                    @endif
                                     <!-- Credit -->
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of product description column - - - - - - - - - - - - - - - - -->

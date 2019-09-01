@@ -3,6 +3,67 @@
 <?php use App\Review; ?>
 @extends('layouts.design')
 @section('content')
+<style>
+    *{padding:0;margin:0;}
+
+    /* tbi float */
+    .tbi-label-container{
+    z-index:999;
+    position:fixed;
+    top:calc(100% / 2 - 130px);
+    left:67px;
+    display:table;
+    visibility: hidden;
+    }
+    .tbi-label-text{
+    width:410px;
+    height:260px;
+    color:#696969;
+    background:#f5f5f5;
+    display:table-cell;
+    vertical-align:top;
+    padding-left:5px;
+    border:1px solid #f18900;
+    border-radius:3px;
+    }
+    .tbi-label-text-a{
+    text-align:center;
+    }
+    .tbi-label-text-a a{
+    color:#b73607;
+    }
+    .tbi-label-text-a a:hover{
+    color:#672207;
+    text-decoration:underline;
+    }
+    .tbi-label-arrow{
+    display:table-cell;
+    vertical-align:middle;
+    color:#f5f5f5;
+    opacity:1;
+    }
+    .tbi_float{
+    z-index:999;
+    position:fixed;
+    width:60px;
+    height:60px;
+    top:calc(100% / 2 - 30px);
+    left:0px;
+    background-color:#ffffff;
+    border-top:1px solid #f18900;
+    border-right:1px solid #f18900;
+    border-bottom:1px solid #f18900;
+    color:#FFF;
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    cursor:pointer;
+    }
+    .tbi-my-float{
+    margin-top:12px;
+    }
+</style>
 @if (!empty($message))
 <div class="container">
     <div class="row">
@@ -623,7 +684,29 @@
 					<!-- - - - - - - - - - - - - - End of Beauty - - - - - - - - - - - - - - - - -->
 				</div><!--/ .container-->
 			</div><!--/ .page_wrapper-->
-
+            <!-- Credit -->
+            <!-- TBI Bank -->
+            @if ($paramstbi['tbi_container_status'] == 'Yes')
+                @if ($deviceis == 'pc')
+                <div class="tbi_float" onclick="tbiChangeContainer();">
+					<img src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
+				</div>
+                @else
+                <div class="tbi_float" onclick="tbipaymentGoTo();">
+					<img src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
+				</div>
+                @endif
+                <div class="tbi-label-container">
+                    <div class="tbi-label-text">
+                        <div style="padding-bottom:5px;"></div>
+                        <img src="{{ $tbi_picture }}">
+                        <div style="font-size:16px;padding-top:3px;">{{ $paramstbi['tbi_container_txt1'] }}</div>
+                        <p style="font-size:14px;">{{ $paramstbi['tbi_container_txt2'] }}</p>
+                        <div class="tbi-label-text-a"><a href="{{ $paramstbi['tbi_backurl'] }}" target="_blank" alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
+                    </div>
+                </div>
+            @endif
+            <!-- Credit -->
 			<!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
 @endsection
 
@@ -667,5 +750,21 @@ function clickBtnAddFavorite(e, id){
         }
     });
 };
+
+function tbiChangeContainer(){
+	var tbi_label_container = document.getElementsByClassName("tbi-label-container")[0];
+	if (tbi_label_container.style.visibility == 'visible'){
+		tbi_label_container.style.visibility = 'hidden';
+		tbi_label_container.style.opacity = 0;
+		tbi_label_container.style.transition = 'visibility 0s, opacity 0.5s ease';
+	}else{
+		tbi_label_container.style.visibility = 'visible';
+		tbi_label_container.style.opacity = 1;
+	}
+}
+
+function tbipaymentGoTo(url){
+	window.open('{{ $paramstbi['tbi_backurl'] }}','_blank');
+}
 </script>
 @endsection
