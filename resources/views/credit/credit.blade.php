@@ -56,14 +56,53 @@
                                         <p>ГПР:</p>
                                         <p>&nbsp;</p>
                                     </li>
-                                    <li>6 вноски</li>
-                                    <li>9 вноски</li>
-                                    <li>12 вноски</li>
-                                    <li>15 вноски</li>
-                                    <li>18 вноски</li>
-                                    <li>24 вноски</li>
-                                    <li>30 вноски</li>
-                                    <li>36 вноски</li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>6 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>9 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>12 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>15 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>18 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>24 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    <li>
+                                        <p title="Месечна вноска"><b>30 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b>36 вноски x</b></p>
+                                        <p>Обща дължима сума:</p>
+                                        <p>ГПР:</p>
+                                        <p>&nbsp;</p>
+                                    </li>
                                 </ul>
                                 <footer>
                                     <a href="#" class="button_blue middle_btn">Sign Up</a>
@@ -76,20 +115,86 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
-                                        <p>325.65 лв.</p>
-                                        <p style="padding-bottom:10px;">35.25 %</p>
+                                        @if ($tbipayment_mesecna_3 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_3 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_3 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_3 }} %</p>
                                         <input checked type="radio" name="credit_variant" id="tbi_3">
                                         <label for="tbi_3">Избери варианта</label>
+                                        @endif
                                     </li>
-                                    <li>6 вноски</li>
-                                    <li>9 вноски</li>
-                                    <li>12 вноски</li>
-                                    <li>15 вноски</li>
-                                    <li>18 вноски</li>
-                                    <li>24 вноски</li>
-                                    <li>30 вноски</li>
-                                    <li>36 вноски</li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_6 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_6 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_6 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_6 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_6">
+                                        <label for="tbi_6">Избери варианта</label>                                            
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_9 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_9 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_9 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_9 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_9">
+                                        <label for="tbi_9">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_12 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_12 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_12 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_12 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_12">
+                                        <label for="tbi_12">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_15 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_15 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_15 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_15 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_15">
+                                        <label for="tbi_15">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_18 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_18 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_18 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_18 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_18">
+                                        <label for="tbi_18">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_24 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_24 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_24 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_24 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_24">
+                                        <label for="tbi_24">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_30 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_30 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_30 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_30 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_30">
+                                        <label for="tbi_30">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($tbipayment_mesecna_36 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $tbipayment_mesecna_36 }} лв.</b></p>
+                                        <p>{{ $tbipayment_obshtozaplashtane_input_36 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $tbipayment_gpr_36 }} %</p>
+                                        <input type="radio" name="credit_variant" id="tbi_36">
+                                        <label for="tbi_36">Избери варианта</label>
+                                        @endif
+                                    </li>
                                 </ul>
                                 <footer>
                                     <a href="#" class="button_blue middle_btn">Sign Up</a>
@@ -102,9 +207,9 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
-                                        <p>325.65 лв.</p>
-                                        <p style="padding-bottom:10px;">35.25 %</p>
+                                        <p title="Месечна вноска"><b>0</b></p>
+                                        <p>0</p>
+                                        <p style="padding-bottom:10px;">0</p>
                                         <input type="radio" name="credit_variant" id="uni_3">
                                         <label for="uni_3">Избери варианта</label>
                                     </li>
@@ -128,11 +233,11 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b>32.56 лв.</b></p>
-                                        <p>325.65 лв.</p>
-                                        <p style="padding-bottom:10px;">35.25 %</p>
-                                        <input type="radio" name="credit_variant" id="jet_3">
-                                        <label for="jet_3">Избери варианта</label>
+                                        <p title="Месечна вноска"><b>0</b></p>
+                                        <p>0</p>
+                                        <p style="padding-bottom:10px;">0</p>
+                                        <input type="radio" name="credit_variant" id="uni_3">
+                                        <label for="uni_3">Избери варианта</label>
                                     </li>
                                     <li>6 вноски</li>
                                     <li>9 вноски</li>
