@@ -207,20 +207,50 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b>0</b></p>
-                                        <p>0</p>
-                                        <p style="padding-bottom:10px;">0</p>
-                                        <input type="radio" name="credit_variant" id="uni_3">
-                                        <label for="uni_3">Избери варианта</label>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
                                     </li>
-                                    <li>6 вноски</li>
-                                    <li>9 вноски</li>
-                                    <li>12 вноски</li>
-                                    <li>15 вноски</li>
-                                    <li>18 вноски</li>
-                                    <li>24 вноски</li>
-                                    <li>30 вноски</li>
-                                    <li>36 вноски</li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
+                                    <li>
+                                        <p title="Месечна вноска"><b></b></p>
+                                        <p></p>
+                                        <p style="padding-bottom:10px;"></p>
+                                    </li>
                                 </ul>
                                 <footer>
                                     <a href="#" class="button_blue middle_btn">Sign Up</a>
