@@ -51,9 +51,8 @@
 
     <!-- Google web fonts
 		============================================ -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic,900,900italic'
-        rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Libs CSS
 		============================================ -->

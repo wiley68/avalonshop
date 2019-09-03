@@ -197,7 +197,7 @@
                                                 <p class="product_price">
                                                     {{ $tbipayment_meseci_new }} x <b class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
                                                     <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
-                                                    <a href="{{ route('credit', ['product_id' => $product->id, 'product_qt' => 1]) }}" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
+                                                    <a id="show_credit" href="{{ route('credit', ['product_id' => $product->id, 'product_qt' => 1]) }}" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
                                                 </p>
                                             </div>
                                         </div>
@@ -221,7 +221,10 @@
                                             </div>
                                             <div class="col-sm-2">&nbsp;</div>
                                         </div>
-                                    </div>
+                                        <div id="save_box" class="overlay" style="display:none;">
+                                            <i class="fa fa-refresh fa-spin"></i>
+                                        </div>
+                                    </div>    
                                     @endif
                                     <!-- Credit -->
                                 </div>
@@ -782,5 +785,9 @@
     function changeTotalPrice(quantity){
         $("#total_price").html((quantity * parseFloat('{{$product->price}}')).toFixed(2));
     }
+
+    $("#show_credit").click(function(e){
+        $('#save_box').show();
+    });
 </script>
 @endsection

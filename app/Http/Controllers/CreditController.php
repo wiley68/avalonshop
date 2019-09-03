@@ -297,87 +297,78 @@ class CreditController extends Controller
                     $CreditPropositions[] = $this->CalculateLoan($goods, $price, "0.00", $PricingVariantId);
                     // //////////////////////// todo
                 }
+                $jet_gpr_3 = 0;
+                $jet_obshtozaplashtane_input_3 = 0;
+                $jet_mesecna_3 = 0;
+                $jet_gpr_6 = 0;
+                $jet_obshtozaplashtane_input_6 = 0;
+                $jet_mesecna_6 = 0;
+                $jet_gpr_9 = 0;
+                $jet_obshtozaplashtane_input_9 = 0;
+                $jet_mesecna_9 = 0;
+                $jet_gpr_12 = 0;
+                $jet_obshtozaplashtane_input_12 = 0;
+                $jet_mesecna_12 = 0;
+                $jet_gpr_15 = 0;
+                $jet_obshtozaplashtane_input_15 = 0;
+                $jet_mesecna_15 = 0;
+                $jet_gpr_18 = 0;
+                $jet_obshtozaplashtane_input_18 = 0;
+                $jet_mesecna_18 = 0;
+                $jet_gpr_24 = 0;
+                $jet_obshtozaplashtane_input_24 = 0;
+                $jet_mesecna_24 = 0;
+                $jet_gpr_30 = 0;
+                $jet_obshtozaplashtane_input_30 = 0;
+                $jet_mesecna_30 = 0;
+                $jet_gpr_36 = 0;
+                $jet_obshtozaplashtane_input_36 = 0;
+                $jet_mesecna_36 = 0;
                 foreach ($CreditPropositions as $CreditProposition) {
                     if ((string)$CreditProposition->Maturity == '3'){
                         $jet_gpr_3 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_3 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_3 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_3 = 0;
-                        $jet_obshtozaplashtane_input_3 = 0;
-                        $jet_mesecna_3 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '6'){
                         $jet_gpr_6 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_6 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_6 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_6 = 0;
-                        $jet_obshtozaplashtane_input_6 = 0;
-                        $jet_mesecna_6 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '9'){
                         $jet_gpr_9 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_9 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_9 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_9 = 0;
-                        $jet_obshtozaplashtane_input_9 = 0;
-                        $jet_mesecna_9 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '12'){
                         $jet_gpr_12 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_12 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_12 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_12 = 0;
-                        $jet_obshtozaplashtane_input_12 = 0;
-                        $jet_mesecna_12 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '15'){
                         $jet_gpr_15 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_15 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_15 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_15 = 0;
-                        $jet_obshtozaplashtane_input_15 = 0;
-                        $jet_mesecna_15 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '18'){
                         $jet_gpr_18 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_18 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_18 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_18 = 0;
-                        $jet_obshtozaplashtane_input_18 = 0;
-                        $jet_mesecna_18 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '24'){
                         $jet_gpr_24 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_24 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_24 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_24 = 0;
-                        $jet_obshtozaplashtane_input_24 = 0;
-                        $jet_mesecna_24 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '30'){
                         $jet_gpr_30 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_30 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_30 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_30 = 0;
-                        $jet_obshtozaplashtane_input_30 = 0;
-                        $jet_mesecna_30 = 0;
                     }
                     if ((string)$CreditProposition->Maturity == '36'){
                         $jet_gpr_36 = (float)$CreditProposition->APR;
                         $jet_obshtozaplashtane_input_36 = (float)$CreditProposition->TotalRepaymentAmount;
                         $jet_mesecna_36 = (float)$CreditProposition->InstallmentAmount;
-                    }else{
-                        $jet_gpr_36 = 0;
-                        $jet_obshtozaplashtane_input_36 = 0;
-                        $jet_mesecna_36 = 0;
                     }
                 }
             }

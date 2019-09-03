@@ -19,24 +19,21 @@
                             <h3>Информация</h3>
                             <ul class="list_of_infoblocks">
                                 <li>
-                                    <i class="icon-thumbs-up-1"></i>
-                                    <h6>The Highest Product Quality</h6>
-                                    <p>Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci.</p>
+                                    <i class="icon-ok-circle success"></i>
+                                    <h6 class="success">Избор на подходяща вноска</h6>
+                                    <p class="success">От таблицата показано в десния край на тази страница можете да видите предложенията 
+                                        на трите кредитни институции с които работим. Използвайте някой от чекбоксовете "Избери варианта" 
+                                        за да изберете най-подходящата за Вас месечна вноска от която компания желаете. Имате възможност 
+                                        да избирате между следните брой вноски <span class="error">(3, 6, 9, 12, 15, 18, 24, 30, 36 месеца)</span> за всяка една от 
+                                        Компаниите. Някой от комбинациите Месеца/Компания може да не се прдлагат. След като направите своя избор 
+                                        можете да натиснете бутона <span class="error">"Продължи към лични данни"</span>. Ще бъдете пренасочени към втора страница в която 
+                                        ще можете да въведете личните си данни, необходими за завършване на процедурата по заявка за лизинг.
+                                    </p>
                                 </li>
                                 <li>
-                                    <i class="icon-paper-plane"></i>
-                                    <h6>Fast &amp; Free Delivery</h6>
-                                    <p>Luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit.</p>
-                                </li>
-                                <li>
-                                    <i class="icon-lock"></i>
-                                    <h6>Safe &amp; Secure Payment</h6>
-                                    <p>Ut phareta augue nec augue. Nam elit agna, endrerit sot amet.</p>
-                                </li>
-                                <li>
-                                    <i class="icon-money"></i>
-                                    <h6>100% Money back Guaranted</h6>
-                                    <p>Donec porta diam eu massa. Quisque diam lorem, interdum vitae.</p>
+                                    <i class="icon-ok-3"></i>
+                                    <h6>Попълване на лични данни</h6>
+                                    <p>В тази страница е необходимо да попълните Вашите лични данни.</p>
                                 </li>
                             </ul>
                         </section><!--/ .section_offset -->
@@ -104,9 +101,6 @@
                                         <p>&nbsp;</p>
                                     </li>
                                 </ul>
-                                <footer>
-                                    <a href="#" class="button_blue middle_btn">Sign Up</a>
-                                </footer>
                             </div>
                             <div class="pricing_table free">
                                 <header>ТБИ Банка</header>
@@ -196,9 +190,6 @@
                                         @endif
                                     </li>
                                 </ul>
-                                <footer>
-                                    <a href="#" class="button_blue middle_btn">Sign Up</a>
-                                </footer>
                             </div>
                             <div class="pricing_table">
                                 <header>УНИ Кредит</header>
@@ -252,9 +243,6 @@
                                         <p style="padding-bottom:10px;"></p>
                                     </li>
                                 </ul>
-                                <footer>
-                                    <a href="#" class="button_blue middle_btn">Sign Up</a>
-                                </footer>
                             </div>
                             <div class="pricing_table">
                                 <header>Париба</header>
@@ -267,7 +255,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_3 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_3 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_3 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_3">
+                                        <input type="radio" name="credit_variant" id="jet_3">
                                         <label for="jet_3">Избери варианта</label>
                                         @endif
                                     </li>
@@ -276,7 +264,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_6 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_6 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_6 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_6">
+                                        <input type="radio" name="credit_variant" id="jet_6">
                                         <label for="jet_6">Избери варианта</label>
                                         @endif
                                     </li>
@@ -285,7 +273,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_9 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_9 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_9 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_9">
+                                        <input type="radio" name="credit_variant" id="jet_9">
                                         <label for="jet_9">Избери варианта</label>
                                         @endif
                                     </li>
@@ -294,7 +282,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_12 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_12 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_12 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_12">
+                                        <input type="radio" name="credit_variant" id="jet_12">
                                         <label for="jet_12">Избери варианта</label>
                                         @endif
                                     </li>
@@ -303,7 +291,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_15 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_15 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_15 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_15">
+                                        <input type="radio" name="credit_variant" id="jet_15">
                                         <label for="jet_15">Избери варианта</label>
                                         @endif
                                     </li>
@@ -312,7 +300,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_18 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_18 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_18 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_18">
+                                        <input type="radio" name="credit_variant" id="jet_18">
                                         <label for="jet_18">Избери варианта</label>
                                         @endif
                                     </li>
@@ -321,7 +309,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_24 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_24 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_24 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_24">
+                                        <input type="radio" name="credit_variant" id="jet_24">
                                         <label for="jet_24">Избери варианта</label>
                                         @endif
                                     </li>
@@ -330,7 +318,7 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_30 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_30 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_30 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_30">
+                                        <input type="radio" name="credit_variant" id="jet_30">
                                         <label for="jet_30">Избери варианта</label>
                                         @endif
                                     </li>
@@ -339,16 +327,22 @@
                                         <p title="Месечна вноска"><b>{{ $jet_mesecna_36 }} лв.</b></p>
                                         <p>{{ $jet_obshtozaplashtane_input_36 }} лв.</p>
                                         <p style="padding-bottom:10px;">{{ $jet_gpr_36 }} %</p>
-                                        <input checked type="radio" name="credit_variant" id="jet_36">
+                                        <input type="radio" name="credit_variant" id="jet_36">
                                         <label for="jet_36">Избери варианта</label>
                                         @endif
                                     </li>
                                 </ul>
-                                <footer>
-                                    <a href="#" class="button_blue middle_btn">Sign Up</a>
-                                </footer>
                             </div>
                         </div>
+                        <div style="padding-bottom:10px;"></div>
+                        <div class="section_offset">
+                            <div class="row">
+                                <div class="col-sm-8"></div><!--/ [col]-->
+                                <div class="col-sm-4">
+                                    <a href="#" class="button_blue middle_btn">Продължи към лични данни</a>
+                                </div>
+                            </div><!--/ .row-->
+                        </div><!--/ .section_offset -->
                     </main><!--/ [col]-->
                 </div><!--/ .row-->
                 @endif
