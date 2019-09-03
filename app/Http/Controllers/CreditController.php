@@ -216,6 +216,177 @@ class CreditController extends Controller
         }
         /** TBI Bank */
 
+        /** Pariba */
+        $PricingSchemes = null;
+        $PricingVariants = null;
+        $PricingVariantId = null;
+        $CreditPropositions = null;
+        $CurrentCreditProposition = null;
+        $merchantId = '421370';
+        $cert = public_path() . '/keys/key.pem';
+        $key = public_path() . '/keys/privatekey.pem';
+        $password = '123456';
+        $downpayment = "0.00";
+        $installment = "0.00";
+
+        $goods = '';
+        $category_id = '40';
+        $goods_objects = $this->CalculateGoodTypes($category_id);
+        foreach ($goods_objects as $good_object) {
+            $goods .= (string) $good_object->GoodTypeId . ',';
+        }
+        $goods = rtrim($goods, ',');
+
+        $price = number_format($product->price, 2, '.', '');
+        $downpayment = "0.00";
+        $installment = "0.00";
+
+        $PricingSchemes = $this->CalculatePricingSchemes($goods, $price, $downpayment);
+        
+        if (sizeof($PricingSchemes) > 0) {
+            $curr_shemaId = (string) $PricingSchemes[0]->PricingSchemeId;
+            foreach ($PricingSchemes as $PricingScheme) {
+                
+                if ((string) $PricingScheme->PricingSchemeId == '1967'){
+                    $curr_shemaId = '1967';
+                }
+            }
+        } else {
+            $curr_shemaId = '0';
+        }
+        
+        /** test */
+        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+        /** real */
+        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+        $schemeId = $curr_shemaId;
+        $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
+        $curl = curl_init();
+        $options = array(
+            CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
+            CURLOPT_HEADER => FALSE, // Не връщай headers
+            CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
+            CURLOPT_ENCODING => '', // Всички кодировки
+            CURLOPT_USERAGENT => 'MerchantPos', // Представяне
+            CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
+            CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
+            CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
+            CURLOPT_NOBODY => FALSE,
+            CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
+            CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
+            CURLOPT_SSLCERT => $cert, // Клиентски сертификат
+            CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
+            CURLOPT_SSLCERTPASSWD => '',
+            CURLOPT_SSLKEY => $key, // Клиентски частен ключ
+            CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
+            CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
+            CURLOPT_SSLVERSION => 1,
+            CURLOPT_URL => $url
+        );
+        curl_setopt_array($curl, $options);
+        $content = curl_exec($curl);
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($code == 200) {
+            $oXML = new \SimpleXMLElement($content);
+            
+            if ($oXML->ErrorCode == 0) {
+                $PricingVariants = $oXML->Data->PricingVariant;
+                foreach ($PricingVariants as $variant) {
+                    $Maturity = $variant->Maturity;
+                    $PricingVariantId = $variant->PricingVariantId;
+                    $CreditPropositions[] = $this->CalculateLoan($goods, $price, "0.00", $PricingVariantId);
+                    // //////////////////////// todo
+                }
+                foreach ($CreditPropositions as $CreditProposition) {
+                    if ((string)$CreditProposition->Maturity == '3'){
+                        $jet_gpr_3 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_3 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_3 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_3 = 0;
+                        $jet_obshtozaplashtane_input_3 = 0;
+                        $jet_mesecna_3 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '6'){
+                        $jet_gpr_6 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_6 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_6 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_6 = 0;
+                        $jet_obshtozaplashtane_input_6 = 0;
+                        $jet_mesecna_6 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '9'){
+                        $jet_gpr_9 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_9 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_9 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_9 = 0;
+                        $jet_obshtozaplashtane_input_9 = 0;
+                        $jet_mesecna_9 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '12'){
+                        $jet_gpr_12 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_12 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_12 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_12 = 0;
+                        $jet_obshtozaplashtane_input_12 = 0;
+                        $jet_mesecna_12 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '15'){
+                        $jet_gpr_15 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_15 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_15 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_15 = 0;
+                        $jet_obshtozaplashtane_input_15 = 0;
+                        $jet_mesecna_15 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '18'){
+                        $jet_gpr_18 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_18 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_18 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_18 = 0;
+                        $jet_obshtozaplashtane_input_18 = 0;
+                        $jet_mesecna_18 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '24'){
+                        $jet_gpr_24 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_24 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_24 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_24 = 0;
+                        $jet_obshtozaplashtane_input_24 = 0;
+                        $jet_mesecna_24 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '30'){
+                        $jet_gpr_30 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_30 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_30 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_30 = 0;
+                        $jet_obshtozaplashtane_input_30 = 0;
+                        $jet_mesecna_30 = 0;
+                    }
+                    if ((string)$CreditProposition->Maturity == '36'){
+                        $jet_gpr_36 = (float)$CreditProposition->APR;
+                        $jet_obshtozaplashtane_input_36 = (float)$CreditProposition->TotalRepaymentAmount;
+                        $jet_mesecna_36 = (float)$CreditProposition->InstallmentAmount;
+                    }else{
+                        $jet_gpr_36 = 0;
+                        $jet_obshtozaplashtane_input_36 = 0;
+                        $jet_mesecna_36 = 0;
+                    }
+                }
+            }
+        }
+        curl_close($curl);
+        // Get AvailablePricingVariants//
+
+        /** Pariba */
+
         return view('credit.credit')->with([
             'title' => 'Продажба на техника на изплащане, кредитен калкулатор | Авалон',
             'description' => 'Продажба на техника на изплащане, кредитен калкулатор.',
@@ -249,7 +420,34 @@ class CreditController extends Controller
             'tbipayment_gpr_30' => $tbipayment_gpr_30,
             'tbipayment_mesecna_36' => $tbipayment_mesecna_36,
             'tbipayment_obshtozaplashtane_input_36' => $tbipayment_obshtozaplashtane_input_36,
-            'tbipayment_gpr_36' => $tbipayment_gpr_36
+            'tbipayment_gpr_36' => $tbipayment_gpr_36,
+            'jet_gpr_3' => $jet_gpr_3,
+            'jet_obshtozaplashtane_input_3' => $jet_obshtozaplashtane_input_3,
+            'jet_mesecna_3' => $jet_mesecna_3,
+            'jet_gpr_6' => $jet_gpr_6,
+            'jet_obshtozaplashtane_input_6' => $jet_obshtozaplashtane_input_6,
+            'jet_mesecna_6' => $jet_mesecna_6,
+            'jet_gpr_9' => $jet_gpr_9,
+            'jet_obshtozaplashtane_input_9' => $jet_obshtozaplashtane_input_9,
+            'jet_mesecna_9' => $jet_mesecna_9,
+            'jet_gpr_12' => $jet_gpr_12,
+            'jet_obshtozaplashtane_input_12' => $jet_obshtozaplashtane_input_12,
+            'jet_mesecna_12' => $jet_mesecna_12,
+            'jet_gpr_15' => $jet_gpr_15,
+            'jet_obshtozaplashtane_input_15' => $jet_obshtozaplashtane_input_15,
+            'jet_mesecna_15' => $jet_mesecna_15,
+            'jet_gpr_18' => $jet_gpr_18,
+            'jet_obshtozaplashtane_input_18' => $jet_obshtozaplashtane_input_18,
+            'jet_mesecna_18' => $jet_mesecna_18,
+            'jet_gpr_24' => $jet_gpr_24,
+            'jet_obshtozaplashtane_input_24' => $jet_obshtozaplashtane_input_24,
+            'jet_mesecna_24' => $jet_mesecna_24,
+            'jet_gpr_30' => $jet_gpr_30,
+            'jet_obshtozaplashtane_input_30' => $jet_obshtozaplashtane_input_30,
+            'jet_mesecna_30' => $jet_mesecna_30,
+            'jet_gpr_36' => $jet_gpr_36,
+            'jet_obshtozaplashtane_input_36' => $jet_obshtozaplashtane_input_36,
+            'jet_mesecna_36' => $jet_mesecna_36
         ]);
     }
 
@@ -279,6 +477,163 @@ class CreditController extends Controller
             }
         }
         return false;
+    }
+
+    public function CalculateGoodTypes($category)
+    {
+        /** test */
+        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+        /** real */
+        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+        
+        $merchantId = '421370';
+        $cert = public_path() . '/keys/key.pem';
+        $key = public_path() . '/keys/privatekey.pem';
+        $password = '123456';
+
+        // AvailablePricingSchemes//
+        $url = $creditjetapi_env . $category;
+        $curl = curl_init();
+        $options = array(
+            CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
+            CURLOPT_HEADER => FALSE, // Не връщай headers
+            CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
+            CURLOPT_ENCODING => '', // Всички кодировки
+            CURLOPT_USERAGENT => 'MerchantPos', // Представяне
+            CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
+            CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
+            CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
+            CURLOPT_NOBODY => FALSE,
+            CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
+            CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
+            CURLOPT_SSLCERT => $cert, // Клиентски сертификат
+            CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
+            CURLOPT_SSLCERTPASSWD => '',
+            CURLOPT_SSLKEY => $key, // Клиентски частен ключ
+            CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
+            CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
+            CURLOPT_SSLVERSION => 1,
+            CURLOPT_URL => $url
+        );
+        curl_setopt_array($curl, $options);
+        $content = curl_exec($curl);
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $AvailableGoodTypes = null;
+        if ($code == 200) {
+            $oXML = new \SimpleXMLElement($content);
+            if ($oXML->ErrorCode == 0) {
+                $AvailableGoodTypes = $oXML->Data->GoodType;
+                return $AvailableGoodTypes;
+            }
+        }
+        curl_close($curl);
+        return $AvailableGoodTypes;
+    }
+
+    public function CalculatePricingSchemes($goods, $price, $downpayment)
+    {
+        /** test */
+        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
+        /** real */
+        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
+
+        $merchantId = '421370';
+        $cert = public_path() . '/keys/key.pem';
+        $key = public_path() . '/keys/privatekey.pem';
+        $password = '123456';
+
+        // AvailablePricingSchemes//
+        $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment;
+        $curl = curl_init();
+        $options = array(
+            CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
+            CURLOPT_HEADER => FALSE, // Не връщай headers
+            CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
+            CURLOPT_ENCODING => '', // Всички кодировки
+            CURLOPT_USERAGENT => 'MerchantPos', // Представяне
+            CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
+            CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
+            CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
+            CURLOPT_NOBODY => FALSE,
+            CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
+            CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
+            CURLOPT_SSLCERT => $cert, // Клиентски сертификат
+            CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
+            CURLOPT_SSLCERTPASSWD => '',
+            CURLOPT_SSLKEY => $key, // Клиентски частен ключ
+            CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
+            CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
+            CURLOPT_SSLVERSION => 1,
+            CURLOPT_URL => $url
+        );
+        curl_setopt_array($curl, $options);
+        $content = curl_exec($curl);
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $AvailablePricingSchemes = [];
+        if ($code == 200) {
+            $oXML = new \SimpleXMLElement($content);
+            if ($oXML->ErrorCode == 0) {
+                foreach ($oXML->Data->PricingScheme as $PricingScheme) {
+                    $AvailablePricingSchemes[] = $PricingScheme;
+                }
+                return $AvailablePricingSchemes;
+            }
+        }
+        curl_close($curl);
+        return $AvailablePricingSchemes;
+        // AvailablePricingSchemes//
+    }
+
+    public function CalculateLoan($goods, $price, $downpayment, $variantId)
+    {
+        /** test */
+        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
+        /** real */
+        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
+
+        $merchantId = '421370';
+        $cert = public_path() . '/keys/key.pem';
+        $key = public_path() . '/keys/privatekey.pem';
+        $password = '123456';
+
+        // CalculateLoan//
+        $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $variantId;
+        $curl = curl_init();
+        $options = array(
+            CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
+            CURLOPT_HEADER => FALSE, // Не връщай headers
+            CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
+            CURLOPT_ENCODING => '', // Всички кодировки
+            CURLOPT_USERAGENT => 'MerchantPos', // Представяне
+            CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
+            CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
+            CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
+            CURLOPT_NOBODY => FALSE,
+            CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
+            CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
+            CURLOPT_SSLCERT => $cert, // Клиентски сертификат
+            CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
+            CURLOPT_SSLCERTPASSWD => '',
+            CURLOPT_SSLKEY => $key, // Клиентски частен ключ
+            CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
+            CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
+            CURLOPT_SSLVERSION => 1,
+            CURLOPT_URL => $url
+        );
+        curl_setopt_array($curl, $options);
+        $content = curl_exec($curl);
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($code == 200) {
+            $oXML = new \SimpleXMLElement($content);
+            $CreditPropositions = null;
+            if ($oXML->ErrorCode == 0) {
+                $CreditPropositions = $oXML->Data->CreditProposition;
+                return $CreditPropositions;
+            }
+        }
+        curl_close($curl);
+        return $CreditPropositions;
+        // CalculateLoan//
     }
 
 }

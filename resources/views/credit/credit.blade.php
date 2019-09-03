@@ -263,20 +263,86 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b>0</b></p>
-                                        <p>0</p>
-                                        <p style="padding-bottom:10px;">0</p>
-                                        <input type="radio" name="credit_variant" id="uni_3">
-                                        <label for="uni_3">Избери варианта</label>
+                                        @if ($jet_mesecna_3 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_3 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_3 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_3 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_3">
+                                        <label for="jet_3">Избери варианта</label>
+                                        @endif
                                     </li>
-                                    <li>6 вноски</li>
-                                    <li>9 вноски</li>
-                                    <li>12 вноски</li>
-                                    <li>15 вноски</li>
-                                    <li>18 вноски</li>
-                                    <li>24 вноски</li>
-                                    <li>30 вноски</li>
-                                    <li>36 вноски</li>
+                                    <li>
+                                        @if ($jet_mesecna_6 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_6 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_6 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_6 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_6">
+                                        <label for="jet_6">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_9 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_9 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_9 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_9 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_9">
+                                        <label for="jet_9">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_12 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_12 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_12 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_12 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_12">
+                                        <label for="jet_12">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_15 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_15 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_15 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_15 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_15">
+                                        <label for="jet_15">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_18 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_18 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_18 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_18 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_18">
+                                        <label for="jet_18">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_24 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_24 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_24 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_24 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_24">
+                                        <label for="jet_24">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_30 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_30 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_30 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_30 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_30">
+                                        <label for="jet_30">Избери варианта</label>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        @if ($jet_mesecna_36 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $jet_mesecna_36 }} лв.</b></p>
+                                        <p>{{ $jet_obshtozaplashtane_input_36 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $jet_gpr_36 }} %</p>
+                                        <input checked type="radio" name="credit_variant" id="jet_36">
+                                        <label for="jet_36">Избери варианта</label>
+                                        @endif
+                                    </li>
                                 </ul>
                                 <footer>
                                     <a href="#" class="button_blue middle_btn">Sign Up</a>

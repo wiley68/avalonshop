@@ -49,8 +49,8 @@ class IndexController extends Controller
 			$tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim10.png';
 		}else{
 			$tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim' . $paramstbi['tbi_container_reklama'] . '.png';
-		}
-
+        }
+        
         /** Credit */
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
