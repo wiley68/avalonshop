@@ -16,7 +16,7 @@
                     <aside class="col-md-3 col-sm-4">
                     <!-- - - - - - - - - - - - - - Information - - - - - - - - - - - - - - - - -->
                         <section class="section_offset">
-                            <h3>Информация</h3>
+                            <h3>Покупка на кредит</h3>
                             <ul class="list_of_infoblocks">
                                 <li>
                                     <i class="icon-ok-circle success"></i>
@@ -33,7 +33,27 @@
                                 <li>
                                     <i class="icon-ok-3"></i>
                                     <h6>Попълване на лични данни</h6>
-                                    <p>В тази страница е необходимо да попълните Вашите лични данни.</p>
+                                    <p>
+                                        В тази страница е необходимо да попълните Вашите лични данни.
+                                        Ако вече сте се логнали в нашия магазин тези данни ще бъдат предварително попълнени. Ако не са 
+                                        или ако желаете да ги промените, можете да го направите в тази страница. След коректното попълване 
+                                        на необходимите данни ще имате възможност да приключите процедурата по закупуване на стоката на 
+                                        изплащане. В случай , че сте избрали ТБИ Банка или УНИ Кредит и натиснете бутона <span class="error">"Приключване на покупката"</span>, 
+                                        ще бъдете прехвърлени към съответната страница на избраната от Вас кредитна институция за да завършите 
+                                        своята покупка. В случай, че сте избрали Париба Лични Финанси и натиснете бутона <span class="error">"Приключване на покупката"</span> 
+                                        ще получите e-mail съобщение с вашата заявка и можете да очаквате обаждане от Банката за потвърждение
+                                        на извършената заявка. 
+                                    </p>
+                                </li>
+                                <li>
+                                    <i class="icon-ok-3"></i>
+                                    <h6>Приключване на покупката</h6>
+                                    <p>
+                                        В тази страница ще бъдете известени за приключване на покупката. От нея ще бъдете автоматично 
+                                        прехвърлени към страницата на съответната избрана от Вас кредитна институция за приключване на покупката.
+                                        След одобрение от съответната Банка ще се свържем с Вас за уточнение на начина за изпращане 
+                                        на стоката и съответните документи за покупката.
+                                    </p>
                                 </li>
                             </ul>
                         </section><!--/ .section_offset -->
@@ -198,49 +218,85 @@
                                 </div>
                                 <ul class="pt_list">
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_3 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_3 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_3 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_3 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_3">
+                                        <label for="uni_3">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_6 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_6 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_6 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_6 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_6">
+                                        <label for="uni_6">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_9 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_9 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_9 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_9 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_9">
+                                        <label for="uni_9">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_12 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_12 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_12 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_12 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_12">
+                                        <label for="uni_12">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_15 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_15 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_15 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_15 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_15">
+                                        <label for="uni_15">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_18 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_18 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_18 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_18 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_18">
+                                        <label for="uni_18">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_24 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_24 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_24 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_24 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_24">
+                                        <label for="uni_24">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_30 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_30 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_30 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_30 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_30">
+                                        <label for="uni_30">Избери варианта</label>
+                                        @endif
                                     </li>
                                     <li>
-                                        <p title="Месечна вноска"><b></b></p>
-                                        <p></p>
-                                        <p style="padding-bottom:10px;"></p>
+                                        @if ($uni_mesecna_36 >= 30)
+                                        <p title="Месечна вноска"><b>{{ $uni_mesecna_36 }} лв.</b></p>
+                                        <p>{{ $uni_obshtozaplashtane_input_36 }} лв.</p>
+                                        <p style="padding-bottom:10px;">{{ $uni_gpr_36 }} %</p>
+                                        <input type="radio" name="credit_variant" id="uni_36">
+                                        <label for="uni_36">Избери варианта</label>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
@@ -339,7 +395,7 @@
                             <div class="row">
                                 <div class="col-sm-8"></div><!--/ [col]-->
                                 <div class="col-sm-4">
-                                    <a href="#" class="button_blue middle_btn">Продължи към лични данни</a>
+                                    <a href="{{ route('credit-danni', ['product_id' => $product->id, 'product_qt' => $product_qt]) }}" class="button_blue middle_btn">Продължи към лични данни</a>
                                 </div>
                             </div><!--/ .row-->
                         </div><!--/ .section_offset -->

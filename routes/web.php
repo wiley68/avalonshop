@@ -97,6 +97,7 @@ Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-
 /** end users routes */
 /** start credit routes */
 Route::get('/credit/product-{product_id}/qt-{product_qt}.html', 'CreditController@index')->name('credit');
+Route::get('/credit/danni-{product_id}/qt-{product_qt}.html', 'CreditController@danni')->name('credit-danni');
 /** end credit routes */
 /** start fronend */
 Route::group(

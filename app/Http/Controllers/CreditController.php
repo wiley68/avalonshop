@@ -375,8 +375,60 @@ class CreditController extends Controller
         }
         curl_close($curl);
         // Get AvailablePricingVariants//
-
         /** Pariba */
+
+        /** UniCredit */
+        if (!defined('UNIPAYMENT_LIVEURL'))
+            define('UNIPAYMENT_LIVEURL', 'https://unicreditconsumerfinancing.info');
+        define('FINANCIAL_PRECISION', 1.0e-08);
+        define('FINANCIAL_MAX_ITERATIONS', 128);
+
+        $uni_unicid = "9ce5287c-c8d1-4a22-878c-1a9d42d7160a";
+        $uni_user = "Wiley68";
+        $uni_password = "Avatest";
+
+        $uni_ch = curl_init ();
+        curl_setopt ( $uni_ch, CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt ( $uni_ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt ( $uni_ch, CURLOPT_MAXREDIRS, 3 );
+        curl_setopt ( $uni_ch, CURLOPT_TIMEOUT, 6 );
+        curl_setopt ( $uni_ch, CURLOPT_URL, UNIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $uni_unicid );
+        $paramsuni = json_decode ( curl_exec ( $uni_ch ), true );
+        curl_close ( $uni_ch );
+
+        $url_key = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_private_key.pem';
+        $curl_key = curl_init();
+		curl_setopt($curl_key, CURLOPT_URL, $url_key);
+		curl_setopt($curl_key, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl_key, CURLOPT_HEADER, false);
+		$keyFileContents = curl_exec($curl_key);
+		curl_close($curl_key);
+		$keyFileHandle = fopen(public_path() . "/keys/avalon_private_key.pem", "w") or die("Unable to open file!");
+		fwrite($keyFileHandle, $keyFileContents);
+		fclose($keyFileHandle);
+
+        $url_cert = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_cert.pem';
+		$curl_cert = curl_init();
+		curl_setopt($curl_cert, CURLOPT_URL, $url_cert);
+		curl_setopt($curl_cert, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl_cert, CURLOPT_HEADER, false);
+		$certFileContents = curl_exec($curl_cert);
+		curl_close($curl_cert);
+		$certFileHandle = fopen(public_path() . "/keys/avalon_cert.pem", "w") or die("Unable to open file!");
+		fwrite($certFileHandle, $certFileContents);
+		fclose($certFileHandle);
+
+        $uni_3 = $this->getUniCalculation(3, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_6 = $this->getUniCalculation(6, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_9 = $this->getUniCalculation(9, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_12 = $this->getUniCalculation(12, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_15 = $this->getUniCalculation(15, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_18 = $this->getUniCalculation(18, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_24 = $this->getUniCalculation(24, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_30 = $this->getUniCalculation(30, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+        $uni_36 = $this->getUniCalculation(36, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+
+        /** UniCredit */
 
         return view('credit.credit')->with([
             'title' => 'Продажба на техника на изплащане, кредитен калкулатор | Авалон',
@@ -438,7 +490,34 @@ class CreditController extends Controller
             'jet_mesecna_30' => $jet_mesecna_30,
             'jet_gpr_36' => $jet_gpr_36,
             'jet_obshtozaplashtane_input_36' => $jet_obshtozaplashtane_input_36,
-            'jet_mesecna_36' => $jet_mesecna_36
+            'jet_mesecna_36' => $jet_mesecna_36,
+            'uni_gpr_3' => $uni_3['gpr'],
+            'uni_obshtozaplashtane_input_3' => $uni_3['obshtozaplashtane_input'],
+            'uni_mesecna_3' => $uni_3['mesecna'],
+            'uni_gpr_6' => $uni_6['gpr'],
+            'uni_obshtozaplashtane_input_6' => $uni_6['obshtozaplashtane_input'],
+            'uni_mesecna_6' => $uni_6['mesecna'],
+            'uni_gpr_9' => $uni_9['gpr'],
+            'uni_obshtozaplashtane_input_9' => $uni_9['obshtozaplashtane_input'],
+            'uni_mesecna_9' => $uni_9['mesecna'],
+            'uni_gpr_12' => $uni_12['gpr'],
+            'uni_obshtozaplashtane_input_12' => $uni_12['obshtozaplashtane_input'],
+            'uni_mesecna_12' => $uni_12['mesecna'],
+            'uni_gpr_15' => $uni_15['gpr'],
+            'uni_obshtozaplashtane_input_15' => $uni_15['obshtozaplashtane_input'],
+            'uni_mesecna_15' => $uni_15['mesecna'],
+            'uni_gpr_18' => $uni_18['gpr'],
+            'uni_obshtozaplashtane_input_18' => $uni_18['obshtozaplashtane_input'],
+            'uni_mesecna_18' => $uni_18['mesecna'],
+            'uni_gpr_24' => $uni_24['gpr'],
+            'uni_obshtozaplashtane_input_24' => $uni_24['obshtozaplashtane_input'],
+            'uni_mesecna_24' => $uni_24['mesecna'],
+            'uni_gpr_30' => $uni_30['gpr'],
+            'uni_obshtozaplashtane_input_30' => $uni_30['obshtozaplashtane_input'],
+            'uni_mesecna_30' => $uni_30['mesecna'],
+            'uni_gpr_36' => $uni_36['gpr'],
+            'uni_obshtozaplashtane_input_36' => $uni_36['obshtozaplashtane_input'],
+            'uni_mesecna_36' => $uni_36['mesecna']
         ]);
     }
 
@@ -625,6 +704,111 @@ class CreditController extends Controller
         curl_close($curl);
         return $CreditPropositions;
         // CalculateLoan//
+    }
+
+    public function getUniCalculation($uni_meseci, $uni_total_price, $uni_service, $uni_parva, $uni_user, $uni_password, $uni_sertificat, $uni_liveurl){
+        $uni_categories_kop = 'POS COT 50';
+        $keyFile = public_path() . "/keys/avalon_private_key.pem";
+        $certFile = public_path() . "/keys/avalon_cert.pem";
+        $uni_kimb = curl_init();
+        curl_setopt_array($uni_kimb, array(
+			CURLOPT_URL => $uni_service . "getCoeff",
+			// името на файл, съдържащ само личен SSL ключ в текстови формат (PEM)
+			CURLOPT_SSLKEY => $keyFile,
+			CURLOPT_SSLKEYPASSWD => "1234",
+			// името на файл, съдържащ само клиентския сартификат в текстови формат (PEM)
+			CURLOPT_SSLCERT => $certFile,
+			CURLOPT_SSLCERTPASSWD => "1234",
+			
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 2,
+			CURLOPT_TIMEOUT => 5,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => 	"user=" . $uni_user . 
+									"&pass=" . $uni_password . 
+									"&onlineProductCode=" . $uni_categories_kop . 
+									"&installmentCount=" . $uni_meseci,
+			CURLOPT_HTTPHEADER => array(
+				"Content-Type: application/x-www-form-urlencoded",
+				"cache-control: no-cache"
+			),
+        ));
+        $responsekimb = curl_exec($uni_kimb);
+		$err = curl_error($uni_kimb);
+		curl_close($uni_kimb);
+		$kimb_obj = json_decode($responsekimb);
+		$kimb = 0;
+        $glp = 0;
+        
+        if (!empty($kimb_obj->coeffList)){
+			if (!empty($kimb_obj->coeffList[0])){
+				$kimb = floatval($kimb_obj->coeffList[0]->coeff);
+				$glp = number_format(floatval($kimb_obj->coeffList[0]->interestPercent), 2, ".", "");
+			}
+		}
+		$uni_obshto = number_format(floatval($uni_total_price) - floatval($uni_parva), 2, ".", "");
+		$uni_mesecna = number_format(floatval($uni_obshto) * $kimb, 2, ".", "");
+		$uni_obshtozaplashtane = number_format(floatval($uni_mesecna) * intval($uni_meseci), 2, ".", "");
+		$uni_gprm = (($this->RATE(intval($uni_meseci), -1 * (floatval($uni_mesecna)), floatval($uni_obshto))* intval($uni_meseci))) / (intval($uni_meseci) / 12);
+        $uni_gpr = number_format((pow((1 + floatval($uni_gprm) / 12), 12) -1) * 100, 2, ".", "");
+        
+        $result = [];
+        $result['gpr'] = $uni_gpr;
+        $result['obshtozaplashtane_input'] = $uni_obshtozaplashtane;
+        $result['mesecna'] = $uni_mesecna;
+
+        return $result;
+    }
+
+    public function RATE($nper, $pmt, $pv, $fv = 0.0, $type = 0, $guess = 0.1) {
+        $rate = $guess;
+        if (abs($rate) < FINANCIAL_PRECISION) {
+            $y = $pv * (1 + $nper * $rate) + $pmt * (1 + $rate * $type) * $nper + $fv;
+        } else {
+            $f = exp($nper * log(1 + $rate));
+            $y = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+        }
+        $y0 = $pv + $pmt * $nper + $fv;
+        $y1 = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+        // find root by secant method
+        $i  = $x0 = 0.0;
+        $x1 = $rate;
+        while ((abs($y0 - $y1) > FINANCIAL_PRECISION) && ($i < FINANCIAL_MAX_ITERATIONS)) {
+            $rate = ($y1 * $x0 - $y0 * $x1) / ($y1 - $y0);
+            $x0 = $x1;
+            $x1 = $rate;
+            if (abs($rate) < FINANCIAL_PRECISION) {
+                $y = $pv * (1 + $nper * $rate) + $pmt * (1 + $rate * $type) * $nper + $fv;
+            } else {
+                $f = exp($nper * log(1 + $rate));
+                $y = $pv * $f + $pmt * (1 / $rate + $type) * ($f - 1) + $fv;
+            }
+            $y0 = $y1;
+            $y1 = $y;
+            ++$i;
+        }
+        return $rate;
+    }
+
+    public function danni(Request $request, $product_id=null, $product_qt=null){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        if ($product_id != null){
+            $product = Product::where(['id' => $product_id])->first();
+        }else{
+            $product = null;
+        }
+
+        return view('credit.danni')->with([
+            'title' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни | Авалон',
+            'description' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, данни',
+            'root_categories' => $root_categories,
+            'product' => $product,
+            'product_qt' => $product_qt
+        ]);
     }
 
 }
