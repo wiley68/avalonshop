@@ -521,6 +521,145 @@ class CreditController extends Controller
                 $uni_mesecna_36 = $uni_36['mesecna'];
                 /** UniCredit */
             }
+            if (($tbipayment_mesecna_12 <= $jet_mesecna_12) && ($tbipayment_mesecna_12 <= $uni_mesecna_12)){
+                $first = 'tbipayment';
+                $first_name = 'ТБИ Банка';
+                $first_logo = 'tbi_bank_logo.png';
+                if ($property->tbibank == 0){
+                    $first_visible = false;
+                }else{
+                    $first_visible = true;
+                }
+                if ($uni_mesecna_12 <= $jet_mesecna_12){
+                    $second = 'uni';
+                    $second_name = 'УНИ Кредит';
+                    $second_logo = 'unicredit_logo.png';
+                    if ($property->unicredit == 0){
+                        $second_visible = false;
+                    }else{
+                        $second_visible = true;
+                    }
+                    $third = 'jet';
+                    $third_name = 'Париба';
+                    $third_logo = 'pariba_logo.png';
+                    if ($property->bnpparibas == 0){
+                        $third_visible = false;
+                    }else{
+                        $third_visible = true;
+                    }
+                }else{
+                    $second = 'jet';
+                    $second_name = 'Париба';
+                    $second_logo = 'pariba_logo.png';
+                    if ($property->bnpparibas == 0){
+                        $second_visible = false;
+                    }else{
+                        $second_visible = true;
+                    }
+                    $third = 'uni';
+                    $third_name = 'УНИ Кредит';
+                    $third_logo = 'unicredit_logo.png';
+                    if ($property->unicredit == 0){
+                        $third_visible = false;
+                    }else{
+                        $third_visible = true;
+                    }
+                }
+            }else{
+                if (($uni_mesecna_12 <= $tbipayment_mesecna_12) && ($uni_mesecna_12 <= $jet_mesecna_12)){
+                    $first = 'uni';
+                    $first_name = 'УНИ Кредит';
+                    $first_logo = 'unicredit_logo.png';
+                    if ($property->unicredit == 0){
+                        $first_visible = false;
+                    }else{
+                        $first_visible = true;
+                    }
+                    if ($tbipayment_mesecna_12 <= $jet_mesecna_12){
+                        $second = 'tbipayment';
+                        $second_name = 'ТБИ Банка';
+                        $second_logo = 'tbi_bank_logo.png';
+                        if ($property->tbibank == 0){
+                            $second_visible = false;
+                        }else{
+                            $second_visible = true;
+                        }
+                        $third = 'jet';
+                        $third_name = 'Париба';
+                        $third_logo = 'pariba_logo.png';
+                        if ($property->bnpparibas == 0){
+                            $third_visible = false;
+                        }else{
+                            $third_visible = true;
+                        }
+                    }else{
+                        $second = 'jet';
+                        $second_name = 'Париба';
+                        $second_logo = 'pariba_logo.png';
+                        if ($property->bnpparibas == 0){
+                            $second_visible = false;
+                        }else{
+                            $second_visible = true;
+                        }
+                        $third = 'tbipayment';
+                        $third_name = 'ТБИ Банка';
+                        $third_logo = 'tbi_bank_logo.png';
+                        if ($property->tbibank == 0){
+                            $third_visible = false;
+                        }else{
+                            $third_visible = true;
+                        }
+                    }
+                }else{
+                    if (($jet_mesecna_12 <= $tbipayment_mesecna_12) && ($jet_mesecna_12 <= $uni_mesecna_12)){
+                        $first = 'jet';
+                        $first_name = 'Париба';
+                        $first_logo = 'pariba_logo.png';
+                        if ($property->bnpparibas == 0){
+                            $first_visible = false;
+                        }else{
+                            $first_visible = true;
+                        }
+                        if ($tbipayment_mesecna_12 <= $uni_mesecna_12){
+                            $second = 'tbipayment';
+                            $second_name = 'ТБИ Банка';
+                            $second_logo = 'tbi_bank_logo.png';
+                            if ($property->tbibank == 0){
+                                $second_visible = false;
+                            }else{
+                                $second_visible = true;
+                            }
+                            $third = 'uni';
+                            $third_name = 'УНИ Кредит';
+                            $third_logo = 'unicredit_logo.png';
+                            if ($property->unicredit == 0){
+                                $third_visible = false;
+                            }else{
+                                $third_visible = true;
+                            }
+                        }else{
+                            $second = 'uni';
+                            $second_name = 'УНИ Кредит';
+                            $second_logo = 'unicredit_logo.png';
+                            if ($property->unicredit == 0){
+                                $second_visible = false;
+                            }else{
+                                $second_visible = true;
+                            }
+                            $third = 'tbipayment';
+                            $third_name = 'ТБИ Банка';
+                            $third_logo = 'tbi_bank_logo.png';
+                            if ($property->tbibank == 0){
+                                $third_visible = false;
+                            }else{
+                                $third_visible = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            return abort(404);
         }
 
         return view('credit.credit')->with([
@@ -610,7 +749,19 @@ class CreditController extends Controller
             'uni_mesecna_30' => $uni_mesecna_30,
             'uni_gpr_36' => $uni_gpr_36,
             'uni_obshtozaplashtane_input_36' => $uni_obshtozaplashtane_input_36,
-            'uni_mesecna_36' => $uni_mesecna_36
+            'uni_mesecna_36' => $uni_mesecna_36,
+            'first' => $first,
+            'first_name' => $first_name,
+            'first_logo' => $first_logo,
+            'first_visible' => $first_visible,
+            'second' => $second,
+            'second_name' => $second_name,
+            'second_logo' => $second_logo,
+            'second_visible' => $second_visible,
+            'third' => $third,
+            'third_name' => $third_name,
+            'third_logo' => $third_logo,
+            'third_visible' => $third_visible
         ]);
     }
 
