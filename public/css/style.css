@@ -247,7 +247,7 @@
 		border-top-width: 0px;
 		border-radius: 0 0 3px 3px;
     }
-    
+
     .theme_box > .overlay,
     .overlay-wrapper > .overlay,
     .theme_box > .loading-img,
@@ -4074,7 +4074,8 @@ transition-duration:0.1s;
 
 		.pricing_table:first-child:last-child{ border-radius: 3px; }
 
-		.pricing_table.free header,
+        .pricing_table.free header,
+        .pricing_table.free ul,
 		.pricing_table.free .pt_price{ color: #269300; }
 
 		.pricing_tables_container > .pricing_table{ float: left; }

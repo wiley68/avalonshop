@@ -397,10 +397,11 @@
                             @endif
                         </div>
                         <div style="padding-bottom:10px;"></div>
+                        <hr />
+                        <div style="padding-bottom:10px;"></div>
                         <div class="section_offset">
                             <div class="row">
-                                <div class="col-sm-8"></div><!--/ [col]-->
-                                <div class="col-sm-4">
+                                <div class="col-sm-12">
                                     <a href="{{ route('credit-danni', ['product_id' => $product->id, 'product_qt' => $product_qt]) }}" class="button_blue middle_btn">Продължи към лични данни</a>
                                 </div>
                             </div><!--/ .row-->

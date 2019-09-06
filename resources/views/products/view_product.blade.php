@@ -189,15 +189,17 @@
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                     <!-- Credit -->
-                                    @if (floatval($product->price) > 150)
+                                    @if ($properties->calculators && (floatval($product->price) > 150))
                                     <div class="clearfix">&nbsp;</div>
                                     <div class="theme_box clearfix">
                                         <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
                                             <div class="col-sm-12" style="padding:0px;text-align:center;">
                                                 <p class="product_price">
+                                                    @if ($tbipayment_mesecna != 0)
                                                     {{ $tbipayment_meseci_new }} x <b class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
+                                                    @endif
                                                     <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
-                                                    <a id="show_credit" href="{{ route('credit', ['product_id' => $product->id, 'product_qt' => 1]) }}" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
+                                                    <a href="#" id="show_credit" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
                                                 </p>
                                             </div>
                                         </div>
@@ -224,7 +226,7 @@
                                         <div id="save_box" class="overlay" style="display:none;">
                                             <i class="fa fa-refresh fa-spin"></i>
                                         </div>
-                                    </div>    
+                                    </div>
                                     @endif
                                     <!-- Credit -->
                                 </div>
@@ -787,7 +789,9 @@
     }
 
     $("#show_credit").click(function(e){
+        e.preventDefault();
         $('#save_box').show();
+        window.location = '/credit/product-{{ $product->id }}/qt-'+$("#quantity").val()+'.html';
     });
 </script>
 @endsection
