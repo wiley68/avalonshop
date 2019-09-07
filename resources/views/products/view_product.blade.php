@@ -196,7 +196,7 @@
                                             <div class="col-sm-12" style="padding:0px;text-align:center;">
                                                 <p class="product_price">
                                                     @if ($tbipayment_mesecna != 0)
-                                                    {{ $tbipayment_meseci_new }} x <b class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
+                                                    <span id="credit_meseci">{{ $tbipayment_meseci_new }}</span> x <b id="credit_vnoska" class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
                                                     @endif
                                                     <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
                                                     <a href="#" id="show_credit" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
@@ -786,6 +786,26 @@
 
     function changeTotalPrice(quantity){
         $("#total_price").html((quantity * parseFloat('{{$product->price}}')).toFixed(2));
+        product_id = '{{$product->id}}';
+        $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader("X-CSRF-TOKEN", $('meta[name="csrf-token"]').attr('content'));
+            },
+            url: '/product/change-credit-vnoska.html',
+            type: 'POST',
+            data: {
+                product_id: product_id,
+                product_quantity: quantity
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                // add to mini cart
+                if (data.status == 'success'){
+                    $("#credit_meseci").html(data.tbipayment_meseci_new);
+                    $("#credit_vnoska").html(data.tbipayment_mesecna);
+                }
+            }
+        });
     }
 
     $("#show_credit").click(function(e){

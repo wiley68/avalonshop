@@ -328,6 +328,7 @@ class CreditController extends Controller
                 $goods = rtrim($goods, ',');
 
                 $price = number_format($product->price, 2, '.', '');
+                $price = floatval($price) * floatval($product_qt);
                 $downpayment = "0.00";
                 $installment = "0.00";
 
@@ -483,15 +484,18 @@ class CreditController extends Controller
                 fwrite($certFileHandle, $certFileContents);
                 fclose($certFileHandle);
 
-                $uni_3 = $this->getUniCalculation(3, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_6 = $this->getUniCalculation(6, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_9 = $this->getUniCalculation(9, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_12 = $this->getUniCalculation(12, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_15 = $this->getUniCalculation(15, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_18 = $this->getUniCalculation(18, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_24 = $this->getUniCalculation(24, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_30 = $this->getUniCalculation(30, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_36 = $this->getUniCalculation(36, $product->price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $price = number_format($product->price, 2, '.', '');
+                $price = floatval($price) * floatval($product_qt);
+
+                $uni_3 = $this->getUniCalculation(3, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_6 = $this->getUniCalculation(6, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_9 = $this->getUniCalculation(9, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_12 = $this->getUniCalculation(12, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_15 = $this->getUniCalculation(15, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_18 = $this->getUniCalculation(18, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_24 = $this->getUniCalculation(24, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
                 $uni_gpr_3 = $uni_3['gpr'];
                 $uni_obshtozaplashtane_input_3 = $uni_3['obshtozaplashtane_input'];
                 $uni_mesecna_3 = $uni_3['mesecna'];

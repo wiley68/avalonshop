@@ -229,15 +229,194 @@ class ProductController extends Controller
         $imgsrc3 = $product->imgurl3;
         $imgsrc4 = $product->imgurl4;
 
-        $tbipayment_meseci_new = 0;
-        $tbipayment_mesecna = 0;
+        $result_tbi['tbipayment_meseci_new'] = 0;
+        $result_tbi['tbipayment_mesecna'] = 0;
         $properties = Property::where('id', '>', 0)->first();
         if ($properties->calculators && $properties->tbibank) {
-            /** Credit */
-            /** TBI Bank */
+            $result_tbi = $this->changeCreditVnoska($product->id, 1);
+        }
+
+        return view('products.view_product')->with([
+            'title' => $product->meta_title . ' | Авалон',
+            'description' => $product->meta_description,
+            'keywords' => $product->meta_keywords,
+            'root_categories' => $root_categories,
+            'product' => $product,
+            'tagsp' => $tagsp,
+            'all_tagsp' => $all_tagsp,
+            'product_category' => $product_category,
+            'manufacturer_name' => $manufacturer_name,
+            'manufacturer_id' => $manufacturer_id,
+            'products_attributes' => $products_attributes,
+            'reviews' => $reviews,
+            'featured_products' => $featured_products,
+            'imgsrc1' => $imgsrc1,
+            'imgsrc2' => $imgsrc2,
+            'imgsrc3' => $imgsrc3,
+            'imgsrc4' => $imgsrc4,
+            'tbipayment_meseci_new' => $result_tbi['tbipayment_meseci_new'],
+            'tbipayment_mesecna' => $result_tbi['tbipayment_mesecna'],
+            'properties' => $properties
+        ]);
+    }
+    /** end view product */
+
+    public function isProductInCategories($categories_id = array(), $products_id = array())
+    {
+        if ($categories_id[0] != "") {
+            if ($products_id[0] != "") {
+                foreach ($products_id as $product_id) {
+                    if (in_array(strval($product_id->term_id), $categories_id)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public function addToCart(Request $request)
+    {
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
+            $product_id = $request->input('product_id');
+            $product_quantity = $request->input('product_quantity');
+            $product = Product::where(['id' => $product_id])->first();
+
+            $cart_session = array();
+
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                $cart_id = $cart_session['cart_id'];
+                //add new item
+                // check if exist
+                if (!empty($cart_session['items'])) {
+                    $current_item = 0;
+                    $iscart = true;
+                    foreach ($cart_session['items'] as $cart_item) {
+                        if ($cart_item['product_id'] == $product_id) {
+                            $cart_session['items'][$current_item]['total_price'] = floatval($cart_item['total_price']) + floatval($product_quantity) * floatval($product->price); //add new item total_price
+                            $cart_session['items'][$current_item]['product_quantity'] = intval($cart_item['product_quantity']) + intval($product_quantity); //add new item product_quantity
+                            $iscart = false;
+                        }
+                        $current_item++;
+                    }
+                    if ($iscart) {
+                        $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                        $item['product_name'] = $product->name; //add new item product_name
+                        $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                        $item['product_description'] = $product->description; //add new item product_description
+                        $item['product_code'] = $product->code; //add new item product_code
+                        $item['product_id'] = $product_id; //add new item product_code
+                        //add new item
+                        $cart_session['items'][] = $item;
+                    }
+                } else {
+                    $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                    $item['product_name'] = $product->name; //add new item product_name
+                    $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                    $item['product_description'] = $product->description; //add new item product_description
+                    $item['product_code'] = $product->code; //add new item product_code
+                    $item['product_id'] = $product_id; //add new item product_code
+                    //add new item
+                    $cart_session['items'][] = $item;
+                }
+            } else { // niama nalicna cart
+                $cart_id = $request->session()->getId(); //set new cart info
+                $cart_session['cart_id'] = $cart_id; //set new cart id
+                //set new item
+                $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                $item['product_name'] = $product->name; //add new item product_name
+                $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                $item['product_description'] = $product->description; //add new item product_description
+                $item['product_code'] = $product->code; //add new item product_code
+                $item['product_id'] = $product_id; //add new item product_code
+                $cart_session['items'][] = $item; //add new item
+            }
+            $request->session()->put('cart_session', $cart_session);
+
+            $response = array(
+                'status' => 'success'
+            );
+        } else {
+            $response = array(
+                'status' => 'unsuccess'
+            );
+        }
+
+        return response()->json($response);
+    }
+
+    public function changeCartQuantity(Request $request)
+    {
+        $response = array(
+            'status' => 'unsuccess'
+        );
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity')) && ($request->input('product_quantity') > 0)) {
+            $product_id = $request->input('product_id');
+            $product_quantity = $request->input('product_quantity');
+            $product = Product::where(['id' => $product_id])->first();
+
+            $cart_session = array();
+
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                $cart_id = $cart_session['cart_id'];
+                // check if exist
+                if (!empty($cart_session['items'])) {
+                    $current_item = 0;
+                    foreach ($cart_session['items'] as $cart_item) {
+                        if ($cart_item['product_id'] == $product_id) {
+                            $cart_session['items'][$current_item]['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
+                            $cart_session['items'][$current_item]['product_name'] = $product->name; //add new item product_name
+                            $cart_session['items'][$current_item]['product_quantity'] = intval($product_quantity); //add new item product_quantity
+                            $cart_session['items'][$current_item]['product_description'] = $product->description;
+                            $cart_session['items'][$current_item]['product_code'] = $product->code;
+                            $cart_session['items'][$current_item]['product_id'] = $product_id;
+                        }
+                        $current_item++;
+                    }
+                    $request->session()->put('cart_session', $cart_session);
+                    $response = array(
+                        'status' => 'success'
+                    );
+                }
+            }
+        }
+
+        return response()->json($response);
+    }
+
+    public function changeCreditVnoskaAjax(Request $request)
+    {
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
+            $result = $this->changeCreditVnoska($request->input('product_id'), $request->input('product_quantity'));
+            $tbipayment_mesecna = number_format($result['tbipayment_mesecna'], 2, ".", "");
+            $tbipayment_meseci_new = $result['tbipayment_meseci_new'];
+
+            $response = array(
+                'status' => 'success',
+                'tbipayment_mesecna' => $tbipayment_mesecna,
+                'tbipayment_meseci_new' => $tbipayment_meseci_new
+            );
+        } else {
+            $response = array(
+                'status' => 'unsuccess',
+                'tbipayment_mesecna' => 0,
+                'tbipayment_meseci_new' => 0
+            );
+        }
+
+        return response()->json($response);
+    }
+
+    public function changeCreditVnoska($product_id=null, $product_quantity=null)
+    {
+        if (($product_id != null) && ($product_quantity != null)) {
             $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
+            $product = Product::where(['id' => $product_id])->first();
             $tbipayment_price = $product->price;
-            $tbipayment_product_quantity = '1';
+            $tbipayment_product_quantity = $product_quantity;
+            $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product_id])->first()->category_id])->first();
             $tbipayment_product_cats = $product_category->id;
             if (!defined('TBIPAYMENT_LIVEURL'))
                 define('TBIPAYMENT_LIVEURL', 'https://api.tbibank.support');
@@ -402,156 +581,20 @@ class ProductController extends Controller
             $tbipayment_mesecna = number_format($paramstbipayment['tbipayment_mesecna'], 2, ".", "");
             $tbipayment_meseci_new = $paramstbipayment['tbipayment_meseci_new'];
 
-            /** Credit */
-        }
-
-        return view('products.view_product')->with([
-            'title' => $product->meta_title . ' | Авалон',
-            'description' => $product->meta_description,
-            'keywords' => $product->meta_keywords,
-            'root_categories' => $root_categories,
-            'product' => $product,
-            'tagsp' => $tagsp,
-            'all_tagsp' => $all_tagsp,
-            'product_category' => $product_category,
-            'manufacturer_name' => $manufacturer_name,
-            'manufacturer_id' => $manufacturer_id,
-            'products_attributes' => $products_attributes,
-            'reviews' => $reviews,
-            'featured_products' => $featured_products,
-            'imgsrc1' => $imgsrc1,
-            'imgsrc2' => $imgsrc2,
-            'imgsrc3' => $imgsrc3,
-            'imgsrc4' => $imgsrc4,
-            'tbipayment_meseci_new' => $tbipayment_meseci_new,
-            'tbipayment_mesecna' => $tbipayment_mesecna,
-            'properties' => $properties
-        ]);
-    }
-    /** end view product */
-
-    public function isProductInCategories($categories_id = array(), $products_id = array())
-    {
-        if ($categories_id[0] != "") {
-            if ($products_id[0] != "") {
-                foreach ($products_id as $product_id) {
-                    if (in_array(strval($product_id->term_id), $categories_id)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public function addToCart(Request $request)
-    {
-        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
-            $product_id = $request->input('product_id');
-            $product_quantity = $request->input('product_quantity');
-            $product = Product::where(['id' => $product_id])->first();
-
-            $cart_session = array();
-
-            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
-                $cart_session = $request->session()->get('cart_session'); //get current cart info
-                $cart_id = $cart_session['cart_id'];
-                //add new item
-                // check if exist
-                if (!empty($cart_session['items'])) {
-                    $current_item = 0;
-                    $iscart = true;
-                    foreach ($cart_session['items'] as $cart_item) {
-                        if ($cart_item['product_id'] == $product_id) {
-                            $cart_session['items'][$current_item]['total_price'] = floatval($cart_item['total_price']) + floatval($product_quantity) * floatval($product->price); //add new item total_price
-                            $cart_session['items'][$current_item]['product_quantity'] = intval($cart_item['product_quantity']) + intval($product_quantity); //add new item product_quantity
-                            $iscart = false;
-                        }
-                        $current_item++;
-                    }
-                    if ($iscart) {
-                        $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
-                        $item['product_name'] = $product->name; //add new item product_name
-                        $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
-                        $item['product_description'] = $product->description; //add new item product_description
-                        $item['product_code'] = $product->code; //add new item product_code
-                        $item['product_id'] = $product_id; //add new item product_code
-                        //add new item
-                        $cart_session['items'][] = $item;
-                    }
-                } else {
-                    $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
-                    $item['product_name'] = $product->name; //add new item product_name
-                    $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
-                    $item['product_description'] = $product->description; //add new item product_description
-                    $item['product_code'] = $product->code; //add new item product_code
-                    $item['product_id'] = $product_id; //add new item product_code
-                    //add new item
-                    $cart_session['items'][] = $item;
-                }
-            } else { // niama nalicna cart
-                $cart_id = $request->session()->getId(); //set new cart info
-                $cart_session['cart_id'] = $cart_id; //set new cart id
-                //set new item
-                $item['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
-                $item['product_name'] = $product->name; //add new item product_name
-                $item['product_quantity'] = intval($product_quantity); //add new item product_quantity
-                $item['product_description'] = $product->description; //add new item product_description
-                $item['product_code'] = $product->code; //add new item product_code
-                $item['product_id'] = $product_id; //add new item product_code
-                $cart_session['items'][] = $item; //add new item
-            }
-            $request->session()->put('cart_session', $cart_session);
-
             $response = array(
-                'status' => 'success'
+                'status' => 'success',
+                'tbipayment_mesecna' => $tbipayment_mesecna,
+                'tbipayment_meseci_new' => $tbipayment_meseci_new
             );
         } else {
             $response = array(
-                'status' => 'unsuccess'
+                'status' => 'unsuccess',
+                'tbipayment_mesecna' => 0,
+                'tbipayment_meseci_new' => 0
             );
         }
 
-        return response()->json($response);
+        return $response;
     }
 
-    public function changeCartQuantity(Request $request)
-    {
-        $response = array(
-            'status' => 'unsuccess'
-        );
-        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity')) && ($request->input('product_quantity') > 0)) {
-            $product_id = $request->input('product_id');
-            $product_quantity = $request->input('product_quantity');
-            $product = Product::where(['id' => $product_id])->first();
-
-            $cart_session = array();
-
-            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
-                $cart_session = $request->session()->get('cart_session'); //get current cart info
-                $cart_id = $cart_session['cart_id'];
-                // check if exist
-                if (!empty($cart_session['items'])) {
-                    $current_item = 0;
-                    foreach ($cart_session['items'] as $cart_item) {
-                        if ($cart_item['product_id'] == $product_id) {
-                            $cart_session['items'][$current_item]['total_price'] = floatval($product_quantity) * floatval($product->price); //add new item total_price
-                            $cart_session['items'][$current_item]['product_name'] = $product->name; //add new item product_name
-                            $cart_session['items'][$current_item]['product_quantity'] = intval($product_quantity); //add new item product_quantity
-                            $cart_session['items'][$current_item]['product_description'] = $product->description;
-                            $cart_session['items'][$current_item]['product_code'] = $product->code;
-                            $cart_session['items'][$current_item]['product_id'] = $product_id;
-                        }
-                        $current_item++;
-                    }
-                    $request->session()->put('cart_session', $cart_session);
-                    $response = array(
-                        'status' => 'success'
-                    );
-                }
-            }
-        }
-
-        return response()->json($response);
-    }
 }
