@@ -419,7 +419,10 @@
                                         @csrf
                                         <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                                         <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
-                                        <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
+                                        <input type="hidden" name="current_sheme" id="current_sheme" value="">
+                                        <input type="hidden" name="mesecna" id="mesecna" value="">
+                                        <input type="hidden" name="gpr" id="gpr" value="">
+                                        <input type="hidden" name="obshtozaplashtane" id="obshtozaplashtane" value="">
                                         <button type="submit" class="button_blue middle_btn">Продължи към лични данни</button>
                                     </form>
                                 </div>
@@ -433,4 +436,19 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+function changeCurrent(){
+    var current = $("input:radio[name='credit_variant']:checked").attr('id');
+    $("#current_sheme").val(current);
+    var meseci = (current.split('_'))[1];
+    console.log(current);
+}
+
+$(document).load(function () {
+    changeCurrent();
+});
+</script>
 @endsection
