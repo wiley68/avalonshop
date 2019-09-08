@@ -97,8 +97,8 @@ Route::post('/user-checkout-login.html', 'UsersController@loginCheckoutUser')->n
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
 /** start credit routes */
-Route::get('/credit/product-{product_id}/qt-{product_qt}.html', 'CreditController@index')->name('credit');
-Route::get('/credit/danni-{product_id}/qt-{product_qt}.html', 'CreditController@danni')->name('credit-danni');
+Route::match(['get', 'post'], '/credit/product.html', 'CreditController@index')->name('credit');
+Route::match(['get', 'post'], '/credit/danni.html', 'CreditController@danni')->name('credit-danni');
 /** end credit routes */
 /** start fronend */
 Route::group(

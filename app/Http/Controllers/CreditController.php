@@ -4,586 +4,538 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use App\ProductsCategories;
 use App\Property;
 
 class CreditController extends Controller
 {
-    public function index(Request $request, $product_id = null, $product_qt = null)
+    public function index(Request $request)
     {
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        if ($product_id != null) {
-            $product = Product::where(['id' => $product_id])->first();
-        } else {
-            $product = null;
-        }
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
+            $root_categories = Category::where(['parent_id' => 0])->get();
+            $product = Product::where(['id' => $request->input('product_id')])->first();
 
-        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product_id])->first()->category_id])->first();
-        $property = Property::where('id', '>', 0)->first();
+            $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $request->input('product_id')])->first()->category_id])->first();
+            $property = Property::where('id', '>', 0)->first();
 
-        $tbipayment_mesecna_3 = 0;
-        $tbipayment_obshtozaplashtane_input_3 = 0;
-        $tbipayment_gpr_3 = 0;
-        $tbipayment_mesecna_6 = 0;
-        $tbipayment_obshtozaplashtane_input_6 = 0;
-        $tbipayment_gpr_6 = 0;
-        $tbipayment_mesecna_9 = 0;
-        $tbipayment_obshtozaplashtane_input_9 = 0;
-        $tbipayment_gpr_9 = 0;
-        $tbipayment_mesecna_12 = 0;
-        $tbipayment_obshtozaplashtane_input_12 = 0;
-        $tbipayment_gpr_12 = 0;
-        $tbipayment_mesecna_15 = 0;
-        $tbipayment_obshtozaplashtane_input_15 = 0;
-        $tbipayment_gpr_15 = 0;
-        $tbipayment_mesecna_18 = 0;
-        $tbipayment_obshtozaplashtane_input_18 = 0;
-        $tbipayment_gpr_18 = 0;
-        $tbipayment_mesecna_24 = 0;
-        $tbipayment_obshtozaplashtane_input_24 = 0;
-        $tbipayment_gpr_24 = 0;
-        $tbipayment_mesecna_30 = 0;
-        $tbipayment_obshtozaplashtane_input_30 = 0;
-        $tbipayment_gpr_30 = 0;
-        $tbipayment_mesecna_36 = 0;
-        $tbipayment_obshtozaplashtane_input_36 = 0;
-        $tbipayment_gpr_36 = 0;
-        $jet_gpr_3 = 0;
-        $jet_obshtozaplashtane_input_3 = 0;
-        $jet_mesecna_3 = 0;
-        $jet_gpr_6 = 0;
-        $jet_obshtozaplashtane_input_6 = 0;
-        $jet_mesecna_6 = 0;
-        $jet_gpr_9 = 0;
-        $jet_obshtozaplashtane_input_9 = 0;
-        $jet_mesecna_9 = 0;
-        $jet_gpr_12 = 0;
-        $jet_obshtozaplashtane_input_12 = 0;
-        $jet_mesecna_12 = 0;
-        $jet_gpr_15 = 0;
-        $jet_obshtozaplashtane_input_15 = 0;
-        $jet_mesecna_15 = 0;
-        $jet_gpr_18 = 0;
-        $jet_obshtozaplashtane_input_18 = 0;
-        $jet_mesecna_18 = 0;
-        $jet_gpr_24 = 0;
-        $jet_obshtozaplashtane_input_24 = 0;
-        $jet_mesecna_24 = 0;
-        $jet_gpr_30 = 0;
-        $jet_obshtozaplashtane_input_30 = 0;
-        $jet_mesecna_30 = 0;
-        $jet_gpr_36 = 0;
-        $jet_obshtozaplashtane_input_36 = 0;
-        $jet_mesecna_36 = 0;
-        $uni_gpr_3 = 0;
-        $uni_obshtozaplashtane_input_3 = 0;
-        $uni_mesecna_3 = 0;
-        $uni_gpr_6 = 0;
-        $uni_obshtozaplashtane_input_6 = 0;
-        $uni_mesecna_6 = 0;
-        $uni_gpr_9 = 0;
-        $uni_obshtozaplashtane_input_9 = 0;
-        $uni_mesecna_9 = 0;
-        $uni_gpr_12 = 0;
-        $uni_obshtozaplashtane_input_12 = 0;
-        $uni_mesecna_12 = 0;
-        $uni_gpr_15 = 0;
-        $uni_obshtozaplashtane_input_15 = 0;
-        $uni_mesecna_15 = 0;
-        $uni_gpr_18 = 0;
-        $uni_obshtozaplashtane_input_18 = 0;
-        $uni_mesecna_18 = 0;
-        $uni_gpr_24 = 0;
-        $uni_obshtozaplashtane_input_24 = 0;
-        $uni_mesecna_24 = 0;
-        $uni_gpr_30 = 0;
-        $uni_obshtozaplashtane_input_30 = 0;
-        $uni_mesecna_30 = 0;
-        $uni_gpr_36 = 0;
-        $uni_obshtozaplashtane_input_36 = 0;
-        $uni_mesecna_36 = 0;
+            $tbipayment_mesecna_3 = 0;
+            $tbipayment_obshtozaplashtane_input_3 = 0;
+            $tbipayment_gpr_3 = 0;
+            $tbipayment_mesecna_6 = 0;
+            $tbipayment_obshtozaplashtane_input_6 = 0;
+            $tbipayment_gpr_6 = 0;
+            $tbipayment_mesecna_9 = 0;
+            $tbipayment_obshtozaplashtane_input_9 = 0;
+            $tbipayment_gpr_9 = 0;
+            $tbipayment_mesecna_12 = 0;
+            $tbipayment_obshtozaplashtane_input_12 = 0;
+            $tbipayment_gpr_12 = 0;
+            $tbipayment_mesecna_15 = 0;
+            $tbipayment_obshtozaplashtane_input_15 = 0;
+            $tbipayment_gpr_15 = 0;
+            $tbipayment_mesecna_18 = 0;
+            $tbipayment_obshtozaplashtane_input_18 = 0;
+            $tbipayment_gpr_18 = 0;
+            $tbipayment_mesecna_24 = 0;
+            $tbipayment_obshtozaplashtane_input_24 = 0;
+            $tbipayment_gpr_24 = 0;
+            $tbipayment_mesecna_30 = 0;
+            $tbipayment_obshtozaplashtane_input_30 = 0;
+            $tbipayment_gpr_30 = 0;
+            $tbipayment_mesecna_36 = 0;
+            $tbipayment_obshtozaplashtane_input_36 = 0;
+            $tbipayment_gpr_36 = 0;
+            $jet_gpr_3 = 0;
+            $jet_obshtozaplashtane_input_3 = 0;
+            $jet_mesecna_3 = 0;
+            $jet_gpr_6 = 0;
+            $jet_obshtozaplashtane_input_6 = 0;
+            $jet_mesecna_6 = 0;
+            $jet_gpr_9 = 0;
+            $jet_obshtozaplashtane_input_9 = 0;
+            $jet_mesecna_9 = 0;
+            $jet_gpr_12 = 0;
+            $jet_obshtozaplashtane_input_12 = 0;
+            $jet_mesecna_12 = 0;
+            $jet_gpr_15 = 0;
+            $jet_obshtozaplashtane_input_15 = 0;
+            $jet_mesecna_15 = 0;
+            $jet_gpr_18 = 0;
+            $jet_obshtozaplashtane_input_18 = 0;
+            $jet_mesecna_18 = 0;
+            $jet_gpr_24 = 0;
+            $jet_obshtozaplashtane_input_24 = 0;
+            $jet_mesecna_24 = 0;
+            $jet_gpr_30 = 0;
+            $jet_obshtozaplashtane_input_30 = 0;
+            $jet_mesecna_30 = 0;
+            $jet_gpr_36 = 0;
+            $jet_obshtozaplashtane_input_36 = 0;
+            $jet_mesecna_36 = 0;
+            $uni_gpr_3 = 0;
+            $uni_obshtozaplashtane_input_3 = 0;
+            $uni_mesecna_3 = 0;
+            $uni_gpr_6 = 0;
+            $uni_obshtozaplashtane_input_6 = 0;
+            $uni_mesecna_6 = 0;
+            $uni_gpr_9 = 0;
+            $uni_obshtozaplashtane_input_9 = 0;
+            $uni_mesecna_9 = 0;
+            $uni_gpr_12 = 0;
+            $uni_obshtozaplashtane_input_12 = 0;
+            $uni_mesecna_12 = 0;
+            $uni_gpr_15 = 0;
+            $uni_obshtozaplashtane_input_15 = 0;
+            $uni_mesecna_15 = 0;
+            $uni_gpr_18 = 0;
+            $uni_obshtozaplashtane_input_18 = 0;
+            $uni_mesecna_18 = 0;
+            $uni_gpr_24 = 0;
+            $uni_obshtozaplashtane_input_24 = 0;
+            $uni_mesecna_24 = 0;
+            $uni_gpr_30 = 0;
+            $uni_obshtozaplashtane_input_30 = 0;
+            $uni_mesecna_30 = 0;
+            $uni_gpr_36 = 0;
+            $uni_obshtozaplashtane_input_36 = 0;
+            $uni_mesecna_36 = 0;
 
-        if ($property->calculators != 0) {
-            if ($property->tbibank != 0) {
-                /** TBI Bank */
-                if ($product != null) {
-                    $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
-                    $tbipayment_price = $product->price;
-                    $tbipayment_product_quantity = $product_qt;
-                    $tbipayment_product_cats = $product_category->id;
-                    if (!defined('TBIPAYMENT_LIVEURL'))
-                        define('TBIPAYMENT_LIVEURL', 'https://api.tbibank.support');
+            if ($property->calculators != 0) {
+                if ($property->tbibank != 0) {
+                    /** TBI Bank */
+                    if ($product != null) {
+                        $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
+                        $tbipayment_price = $product->price;
+                        $tbipayment_product_quantity = $request->input('product_qt');
+                        $tbipayment_product_cats = $product_category->id;
+                        if (!defined('TBIPAYMENT_LIVEURL'))
+                            define('TBIPAYMENT_LIVEURL', 'https://api.tbibank.support');
 
-                    $tbi_ch = curl_init();
-                    curl_setopt($tbi_ch, CURLOPT_SSL_VERIFYPEER, false);
-                    curl_setopt($tbi_ch, CURLOPT_RETURNTRANSFER, true);
-                    curl_setopt($tbi_ch, CURLOPT_URL, TBIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $tbipayment_unicid);
-                    $paramstbi = json_decode(curl_exec($tbi_ch), true);
-                    curl_close($tbi_ch);
+                        $tbi_ch = curl_init();
+                        curl_setopt($tbi_ch, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($tbi_ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($tbi_ch, CURLOPT_URL, TBIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $tbipayment_unicid);
+                        $paramstbi = json_decode(curl_exec($tbi_ch), true);
+                        curl_close($tbi_ch);
 
-                    $tbi_4m = $paramstbi['tbi_4m'];
-                    $tbi_4m_min = $paramstbi['tbi_4m_min'];
-                    $tbi_4m_max = $paramstbi['tbi_4m_max'];
-                    $tbi_4m_pv = $paramstbi['tbi_4m_pv'];
-                    $tbi_5m = $paramstbi['tbi_5m'];
-                    $tbi_5m_min = $paramstbi['tbi_5m_min'];
-                    $tbi_5m_max = $paramstbi['tbi_5m_max'];
-                    $tbi_5m_pv = $paramstbi['tbi_5m_pv'];
-                    $tbi_6m = $paramstbi['tbi_6m'];
-                    $tbi_6m_min = $paramstbi['tbi_6m_min'];
-                    $tbi_6m_max = $paramstbi['tbi_6m_max'];
-                    $tbi_6m_pv = $paramstbi['tbi_6m_pv'];
-                    $tbi_9m = $paramstbi['tbi_9m'];
-                    $tbi_9m_min = $paramstbi['tbi_9m_min'];
-                    $tbi_9m_max = $paramstbi['tbi_9m_max'];
-                    $tbi_9m_pv = $paramstbi['tbi_9m_pv'];
-                    $tbi_purcent_default = $paramstbi['tbi_purcent_default'];
+                        $tbi_4m = $paramstbi['tbi_4m'];
+                        $tbi_4m_min = $paramstbi['tbi_4m_min'];
+                        $tbi_4m_max = $paramstbi['tbi_4m_max'];
+                        $tbi_4m_pv = $paramstbi['tbi_4m_pv'];
+                        $tbi_5m = $paramstbi['tbi_5m'];
+                        $tbi_5m_min = $paramstbi['tbi_5m_min'];
+                        $tbi_5m_max = $paramstbi['tbi_5m_max'];
+                        $tbi_5m_pv = $paramstbi['tbi_5m_pv'];
+                        $tbi_6m = $paramstbi['tbi_6m'];
+                        $tbi_6m_min = $paramstbi['tbi_6m_min'];
+                        $tbi_6m_max = $paramstbi['tbi_6m_max'];
+                        $tbi_6m_pv = $paramstbi['tbi_6m_pv'];
+                        $tbi_9m = $paramstbi['tbi_9m'];
+                        $tbi_9m_min = $paramstbi['tbi_9m_min'];
+                        $tbi_9m_max = $paramstbi['tbi_9m_max'];
+                        $tbi_9m_pv = $paramstbi['tbi_9m_pv'];
+                        $tbi_purcent_default = $paramstbi['tbi_purcent_default'];
 
-                    $tbipayment_price = floatval($tbipayment_price) * floatval($tbipayment_product_quantity);
+                        $tbipayment_price = floatval($tbipayment_price) * floatval($tbipayment_product_quantity);
 
-                    if ($tbi_4m == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is4m = 'Yes';
-                        } else {
-                            if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
+                        if ($tbi_4m == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_4m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is4m = 'Yes';
                             } else {
-                                $is4m = 'No';
+                                if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
+                                    $is4m = 'Yes';
+                                } else {
+                                    $is4m = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is4m = 'No';
-                    }
-                    if ($tbi_4m_pv == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is4m_pv = 'Yes';
                         } else {
-                            if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
+                            $is4m = 'No';
+                        }
+                        if ($tbi_4m_pv == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_4m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is4m_pv = 'Yes';
                             } else {
-                                $is4m_pv = 'No';
+                                if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
+                                    $is4m_pv = 'Yes';
+                                } else {
+                                    $is4m_pv = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is4m_pv = 'No';
-                    }
-                    if ($tbi_5m == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is5m = 'Yes';
                         } else {
-                            if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
+                            $is4m_pv = 'No';
+                        }
+                        if ($tbi_5m == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_5m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is5m = 'Yes';
                             } else {
-                                $is5m = 'No';
+                                if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
+                                    $is5m = 'Yes';
+                                } else {
+                                    $is5m = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is5m = 'No';
-                    }
-                    if ($tbi_5m_pv == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is5m_pv = 'Yes';
                         } else {
-                            if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
+                            $is5m = 'No';
+                        }
+                        if ($tbi_5m_pv == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_5m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is5m_pv = 'Yes';
                             } else {
-                                $is5m_pv = 'No';
+                                if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
+                                    $is5m_pv = 'Yes';
+                                } else {
+                                    $is5m_pv = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is5m_pv = 'No';
-                    }
-                    if ($tbi_6m == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is6m = 'Yes';
                         } else {
-                            if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
+                            $is5m_pv = 'No';
+                        }
+                        if ($tbi_6m == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_6m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is6m = 'Yes';
                             } else {
-                                $is6m = 'No';
+                                if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
+                                    $is6m = 'Yes';
+                                } else {
+                                    $is6m = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is6m = 'No';
-                    }
-                    if ($tbi_6m_pv == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is6m_pv = 'Yes';
                         } else {
-                            if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
+                            $is6m = 'No';
+                        }
+                        if ($tbi_6m_pv == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_6m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is6m_pv = 'Yes';
                             } else {
-                                $is6m_pv = 'No';
+                                if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
+                                    $is6m_pv = 'Yes';
+                                } else {
+                                    $is6m_pv = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is6m_pv = 'No';
-                    }
-                    if ($tbi_9m == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is9m = 'Yes';
                         } else {
-                            if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
+                            $is6m_pv = 'No';
+                        }
+                        if ($tbi_9m == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_9m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is9m = 'Yes';
                             } else {
-                                $is9m = 'No';
+                                if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
+                                    $is9m = 'Yes';
+                                } else {
+                                    $is9m = 'No';
+                                }
                             }
-                        }
-                    } else {
-                        $is9m = 'No';
-                    }
-                    if ($tbi_9m_pv == "Yes") {
-                        $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                        if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
-                            $is9m_pv = 'Yes';
                         } else {
-                            if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
+                            $is9m = 'No';
+                        }
+                        if ($tbi_9m_pv == "Yes") {
+                            $categories = explode('_', $paramstbi['tbi_9m_categories']);
+                            if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
                                 $is9m_pv = 'Yes';
                             } else {
-                                $is9m_pv = 'No';
+                                if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
+                                    $is9m_pv = 'Yes';
+                                } else {
+                                    $is9m_pv = 'No';
+                                }
+                            }
+                        } else {
+                            $is9m_pv = 'No';
+                        }
+
+                        ///////////////////////////////////////////////////////////////////////////
+                        $result3 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 1, 0);
+                        $tbipayment_mesecna_3 = $result3['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_3 = $result3['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_3 = $result3['tbipayment_gpr'];
+
+                        $result6 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 3, 0);
+                        $tbipayment_mesecna_6 = $result6['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_6 = $result6['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_6 = $result6['tbipayment_gpr'];
+
+                        $result9 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 4, 0);
+                        $tbipayment_mesecna_9 = $result9['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_9 = $result9['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_9 = $result9['tbipayment_gpr'];
+
+                        $result12 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 5, 0);
+                        $tbipayment_mesecna_12 = $result12['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_12 = $result12['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_12 = $result12['tbipayment_gpr'];
+
+                        $result15 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 6, 0);
+                        $tbipayment_mesecna_15 = $result15['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_15 = $result15['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_15 = $result15['tbipayment_gpr'];
+
+                        $result18 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 7, 0);
+                        $tbipayment_mesecna_18 = $result18['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_18 = $result18['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_18 = $result18['tbipayment_gpr'];
+
+                        $result24 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 8, 0);
+                        $tbipayment_mesecna_24 = $result24['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_24 = $result24['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_24 = $result24['tbipayment_gpr'];
+
+                        $result30 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 9, 0);
+                        $tbipayment_mesecna_30 = $result30['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_30 = $result30['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_30 = $result30['tbipayment_gpr'];
+
+                        $result36 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 10, 0);
+                        $tbipayment_mesecna_36 = $result36['tbipayment_mesecna'];
+                        $tbipayment_obshtozaplashtane_input_36 = $result36['tbipayment_obshtozaplashtane_input'];
+                        $tbipayment_gpr_36 = $result36['tbipayment_gpr'];
+                    }
+                    /** TBI Bank */
+                }
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                if ($property->bnpparibas != 0) {
+                    /** Pariba */
+                    $PricingSchemes = null;
+                    $PricingVariants = null;
+                    $PricingVariantId = null;
+                    $CreditPropositions = null;
+                    $CurrentCreditProposition = null;
+                    $merchantId = '421370';
+                    $cert = public_path() . '/keys/key.pem';
+                    $key = public_path() . '/keys/privatekey.pem';
+                    $password = '123456';
+                    $downpayment = "0.00";
+                    $installment = "0.00";
+
+                    $goods = '';
+                    $category_id = '40';
+                    $goods_objects = $this->CalculateGoodTypes($category_id);
+
+                    foreach ($goods_objects as $good_object) {
+                        $goods .= (string) $good_object->GoodTypeId . ',';
+                    }
+                    $goods = rtrim($goods, ',');
+
+                    $price = number_format($product->price, 2, '.', '');
+                    $price = floatval($price) * floatval($request->input('product_qt'));
+                    $downpayment = "0.00";
+                    $installment = "0.00";
+
+                    $PricingSchemes = $this->CalculatePricingSchemes($goods, $price, $downpayment);
+
+                    if (sizeof($PricingSchemes) > 0) {
+                        $curr_shemaId = (string) $PricingSchemes[0]->PricingSchemeId;
+                        foreach ($PricingSchemes as $PricingScheme) {
+
+                            if ((string) $PricingScheme->PricingSchemeId == '1967') {
+                                $curr_shemaId = '1967';
                             }
                         }
                     } else {
-                        $is9m_pv = 'No';
+                        $curr_shemaId = '0';
                     }
 
-                    ///////////////////////////////////////////////////////////////////////////
-                    $result3 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 1, 0);
-                    $tbipayment_mesecna_3 = $result3['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_3 = $result3['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_3 = $result3['tbipayment_gpr'];
+                    /** test */
+                    $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+                    /** real */
+                    //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+                    $schemeId = $curr_shemaId;
+                    $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
+                    $curl = curl_init();
+                    $options = array(
+                        CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
+                        CURLOPT_HEADER => FALSE, // Не връщай headers
+                        CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
+                        CURLOPT_ENCODING => '', // Всички кодировки
+                        CURLOPT_USERAGENT => 'MerchantPos', // Представяне
+                        CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
+                        CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
+                        CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
+                        CURLOPT_NOBODY => FALSE,
+                        CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
+                        CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
+                        CURLOPT_SSLCERT => $cert, // Клиентски сертификат
+                        CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
+                        CURLOPT_SSLCERTPASSWD => '',
+                        CURLOPT_SSLKEY => $key, // Клиентски частен ключ
+                        CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
+                        CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
+                        CURLOPT_SSLVERSION => 1,
+                        CURLOPT_URL => $url
+                    );
+                    curl_setopt_array($curl, $options);
+                    $content = curl_exec($curl);
+                    $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                    if ($code == 200) {
+                        $oXML = new \SimpleXMLElement($content);
 
-                    $result6 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 3, 0);
-                    $tbipayment_mesecna_6 = $result6['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_6 = $result6['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_6 = $result6['tbipayment_gpr'];
-
-                    $result9 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 4, 0);
-                    $tbipayment_mesecna_9 = $result9['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_9 = $result9['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_9 = $result9['tbipayment_gpr'];
-
-                    $result12 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 5, 0);
-                    $tbipayment_mesecna_12 = $result12['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_12 = $result12['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_12 = $result12['tbipayment_gpr'];
-
-                    $result15 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 6, 0);
-                    $tbipayment_mesecna_15 = $result15['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_15 = $result15['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_15 = $result15['tbipayment_gpr'];
-
-                    $result18 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 7, 0);
-                    $tbipayment_mesecna_18 = $result18['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_18 = $result18['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_18 = $result18['tbipayment_gpr'];
-
-                    $result24 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 8, 0);
-                    $tbipayment_mesecna_24 = $result24['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_24 = $result24['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_24 = $result24['tbipayment_gpr'];
-
-                    $result30 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 9, 0);
-                    $tbipayment_mesecna_30 = $result30['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_30 = $result30['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_30 = $result30['tbipayment_gpr'];
-
-                    $result36 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 10, 0);
-                    $tbipayment_mesecna_36 = $result36['tbipayment_mesecna'];
-                    $tbipayment_obshtozaplashtane_input_36 = $result36['tbipayment_obshtozaplashtane_input'];
-                    $tbipayment_gpr_36 = $result36['tbipayment_gpr'];
-                }
-                /** TBI Bank */
-            }
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if ($property->bnpparibas != 0) {
-                /** Pariba */
-                $PricingSchemes = null;
-                $PricingVariants = null;
-                $PricingVariantId = null;
-                $CreditPropositions = null;
-                $CurrentCreditProposition = null;
-                $merchantId = '421370';
-                $cert = public_path() . '/keys/key.pem';
-                $key = public_path() . '/keys/privatekey.pem';
-                $password = '123456';
-                $downpayment = "0.00";
-                $installment = "0.00";
-
-                $goods = '';
-                $category_id = '40';
-                $goods_objects = $this->CalculateGoodTypes($category_id);
-
-                foreach ($goods_objects as $good_object) {
-                    $goods .= (string) $good_object->GoodTypeId . ',';
-                }
-                $goods = rtrim($goods, ',');
-
-                $price = number_format($product->price, 2, '.', '');
-                $price = floatval($price) * floatval($product_qt);
-                $downpayment = "0.00";
-                $installment = "0.00";
-
-                $PricingSchemes = $this->CalculatePricingSchemes($goods, $price, $downpayment);
-
-                if (sizeof($PricingSchemes) > 0) {
-                    $curr_shemaId = (string) $PricingSchemes[0]->PricingSchemeId;
-                    foreach ($PricingSchemes as $PricingScheme) {
-
-                        if ((string) $PricingScheme->PricingSchemeId == '1967') {
-                            $curr_shemaId = '1967';
-                        }
-                    }
-                } else {
-                    $curr_shemaId = '0';
-                }
-
-                /** test */
-                $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
-                /** real */
-                //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
-                $schemeId = $curr_shemaId;
-                $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
-                $curl = curl_init();
-                $options = array(
-                    CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
-                    CURLOPT_HEADER => FALSE, // Не връщай headers
-                    CURLOPT_FOLLOWLOCATION => FALSE, // Следвай пренасочвания
-                    CURLOPT_ENCODING => '', // Всички кодировки
-                    CURLOPT_USERAGENT => 'MerchantPos', // Представяне
-                    CURLOPT_AUTOREFERER => FALSE, // Показвай референция при пренасочване
-                    CURLOPT_SSL_VERIFYHOST => FALSE, // SSL верифициране на host
-                    CURLOPT_SSL_VERIFYPEER => FALSE, // SSL верифициране peer
-                    CURLOPT_NOBODY => FALSE,
-                    CURLOPT_CONNECTTIMEOUT => 3, // Време за изчакване при свързване
-                    CURLOPT_TIMEOUT => 5, // Време за изчакване на отговор
-                    CURLOPT_SSLCERT => $cert, // Клиентски сертификат
-                    CURLOPT_SSLCERTTYPE => 'PEM', // Разширение на клиентски сертификат
-                    CURLOPT_SSLCERTPASSWD => '',
-                    CURLOPT_SSLKEY => $key, // Клиентски частен ключ
-                    CURLOPT_SSLKEYTYPE => 'PEM', // Разширение на клиентски ключ
-                    CURLOPT_SSLKEYPASSWD => $password, // Парола на клиентски ключ
-                    CURLOPT_SSLVERSION => 1,
-                    CURLOPT_URL => $url
-                );
-                curl_setopt_array($curl, $options);
-                $content = curl_exec($curl);
-                $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-                if ($code == 200) {
-                    $oXML = new \SimpleXMLElement($content);
-
-                    if ($oXML->ErrorCode == 0) {
-                        $PricingVariants = $oXML->Data->PricingVariant;
-                        foreach ($PricingVariants as $variant) {
-                            $Maturity = $variant->Maturity;
-                            $PricingVariantId = $variant->PricingVariantId;
-                            $CreditPropositions[] = $this->CalculateLoan($goods, $price, "0.00", $PricingVariantId);
-                            // //////////////////////// todo
-                        }
-                        foreach ($CreditPropositions as $CreditProposition) {
-                            if ((string) $CreditProposition->Maturity == '3') {
-                                $jet_gpr_3 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_3 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_3 = (float) $CreditProposition->InstallmentAmount;
+                        if ($oXML->ErrorCode == 0) {
+                            $PricingVariants = $oXML->Data->PricingVariant;
+                            foreach ($PricingVariants as $variant) {
+                                $Maturity = $variant->Maturity;
+                                $PricingVariantId = $variant->PricingVariantId;
+                                $CreditPropositions[] = $this->CalculateLoan($goods, $price, "0.00", $PricingVariantId);
+                                // //////////////////////// todo
                             }
-                            if ((string) $CreditProposition->Maturity == '6') {
-                                $jet_gpr_6 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_6 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_6 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '9') {
-                                $jet_gpr_9 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_9 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_9 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '12') {
-                                $jet_gpr_12 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_12 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_12 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '15') {
-                                $jet_gpr_15 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_15 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_15 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '18') {
-                                $jet_gpr_18 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_18 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_18 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '24') {
-                                $jet_gpr_24 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_24 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_24 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '30') {
-                                $jet_gpr_30 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_30 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_30 = (float) $CreditProposition->InstallmentAmount;
-                            }
-                            if ((string) $CreditProposition->Maturity == '36') {
-                                $jet_gpr_36 = (float) $CreditProposition->APR;
-                                $jet_obshtozaplashtane_input_36 = (float) $CreditProposition->TotalRepaymentAmount;
-                                $jet_mesecna_36 = (float) $CreditProposition->InstallmentAmount;
+                            foreach ($CreditPropositions as $CreditProposition) {
+                                if ((string) $CreditProposition->Maturity == '3') {
+                                    $jet_gpr_3 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_3 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_3 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '6') {
+                                    $jet_gpr_6 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_6 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_6 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '9') {
+                                    $jet_gpr_9 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_9 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_9 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '12') {
+                                    $jet_gpr_12 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_12 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_12 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '15') {
+                                    $jet_gpr_15 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_15 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_15 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '18') {
+                                    $jet_gpr_18 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_18 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_18 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '24') {
+                                    $jet_gpr_24 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_24 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_24 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '30') {
+                                    $jet_gpr_30 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_30 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_30 = (float) $CreditProposition->InstallmentAmount;
+                                }
+                                if ((string) $CreditProposition->Maturity == '36') {
+                                    $jet_gpr_36 = (float) $CreditProposition->APR;
+                                    $jet_obshtozaplashtane_input_36 = (float) $CreditProposition->TotalRepaymentAmount;
+                                    $jet_mesecna_36 = (float) $CreditProposition->InstallmentAmount;
+                                }
                             }
                         }
                     }
+                    curl_close($curl);
+                    // Get AvailablePricingVariants//
+                    /** Pariba */
                 }
-                curl_close($curl);
-                // Get AvailablePricingVariants//
-                /** Pariba */
-            }
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if ($property->unicredit != 0) {
-                /** UniCredit */
-                if (!defined('UNIPAYMENT_LIVEURL'))
-                    define('UNIPAYMENT_LIVEURL', 'https://unicreditconsumerfinancing.info');
-                define('FINANCIAL_PRECISION', 1.0e-08);
-                define('FINANCIAL_MAX_ITERATIONS', 128);
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                if ($property->unicredit != 0) {
+                    /** UniCredit */
+                    if (!defined('UNIPAYMENT_LIVEURL'))
+                        define('UNIPAYMENT_LIVEURL', 'https://unicreditconsumerfinancing.info');
+                    define('FINANCIAL_PRECISION', 1.0e-08);
+                    define('FINANCIAL_MAX_ITERATIONS', 128);
 
-                $uni_unicid = "9ce5287c-c8d1-4a22-878c-1a9d42d7160a";
-                $uni_user = "Wiley68";
-                $uni_password = "Avatest";
+                    $uni_unicid = "9ce5287c-c8d1-4a22-878c-1a9d42d7160a";
+                    $uni_user = "Wiley68";
+                    $uni_password = "Avatest";
 
-                $uni_ch = curl_init();
-                curl_setopt($uni_ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($uni_ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($uni_ch, CURLOPT_MAXREDIRS, 3);
-                curl_setopt($uni_ch, CURLOPT_TIMEOUT, 6);
-                curl_setopt($uni_ch, CURLOPT_URL, UNIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $uni_unicid);
-                $paramsuni = json_decode(curl_exec($uni_ch), true);
-                curl_close($uni_ch);
+                    $uni_ch = curl_init();
+                    curl_setopt($uni_ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($uni_ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($uni_ch, CURLOPT_MAXREDIRS, 3);
+                    curl_setopt($uni_ch, CURLOPT_TIMEOUT, 6);
+                    curl_setopt($uni_ch, CURLOPT_URL, UNIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $uni_unicid);
+                    $paramsuni = json_decode(curl_exec($uni_ch), true);
+                    curl_close($uni_ch);
 
-                $url_key = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_private_key.pem';
-                $curl_key = curl_init();
-                curl_setopt($curl_key, CURLOPT_URL, $url_key);
-                curl_setopt($curl_key, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl_key, CURLOPT_HEADER, false);
-                $keyFileContents = curl_exec($curl_key);
-                curl_close($curl_key);
-                $keyFileHandle = fopen(public_path() . "/keys/avalon_private_key.pem", "w") or die("Unable to open file!");
-                fwrite($keyFileHandle, $keyFileContents);
-                fclose($keyFileHandle);
+                    $url_key = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_private_key.pem';
+                    $curl_key = curl_init();
+                    curl_setopt($curl_key, CURLOPT_URL, $url_key);
+                    curl_setopt($curl_key, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($curl_key, CURLOPT_HEADER, false);
+                    $keyFileContents = curl_exec($curl_key);
+                    curl_close($curl_key);
+                    $keyFileHandle = fopen(public_path() . "/keys/avalon_private_key.pem", "w") or die("Unable to open file!");
+                    fwrite($keyFileHandle, $keyFileContents);
+                    fclose($keyFileHandle);
 
-                $url_cert = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_cert.pem';
-                $curl_cert = curl_init();
-                curl_setopt($curl_cert, CURLOPT_URL, $url_cert);
-                curl_setopt($curl_cert, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl_cert, CURLOPT_HEADER, false);
-                $certFileContents = curl_exec($curl_cert);
-                curl_close($curl_cert);
-                $certFileHandle = fopen(public_path() . "/keys/avalon_cert.pem", "w") or die("Unable to open file!");
-                fwrite($certFileHandle, $certFileContents);
-                fclose($certFileHandle);
+                    $url_cert = UNIPAYMENT_LIVEURL . '/calculators/key/avalon_cert.pem';
+                    $curl_cert = curl_init();
+                    curl_setopt($curl_cert, CURLOPT_URL, $url_cert);
+                    curl_setopt($curl_cert, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($curl_cert, CURLOPT_HEADER, false);
+                    $certFileContents = curl_exec($curl_cert);
+                    curl_close($curl_cert);
+                    $certFileHandle = fopen(public_path() . "/keys/avalon_cert.pem", "w") or die("Unable to open file!");
+                    fwrite($certFileHandle, $certFileContents);
+                    fclose($certFileHandle);
 
-                $price = number_format($product->price, 2, '.', '');
-                $price = floatval($price) * floatval($product_qt);
+                    $price = number_format($product->price, 2, '.', '');
+                    $price = floatval($price) * floatval($request->input('product_qt'));
 
-                $uni_3 = $this->getUniCalculation(3, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_6 = $this->getUniCalculation(6, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_9 = $this->getUniCalculation(9, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_12 = $this->getUniCalculation(12, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_15 = $this->getUniCalculation(15, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_18 = $this->getUniCalculation(18, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_24 = $this->getUniCalculation(24, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                $uni_gpr_3 = $uni_3['gpr'];
-                $uni_obshtozaplashtane_input_3 = $uni_3['obshtozaplashtane_input'];
-                $uni_mesecna_3 = $uni_3['mesecna'];
-                $uni_gpr_6 = $uni_6['gpr'];
-                $uni_obshtozaplashtane_input_6 = $uni_6['obshtozaplashtane_input'];
-                $uni_mesecna_6 = $uni_6['mesecna'];
-                $uni_gpr_9 = $uni_9['gpr'];
-                $uni_obshtozaplashtane_input_9 = $uni_9['obshtozaplashtane_input'];
-                $uni_mesecna_9 = $uni_9['mesecna'];
-                $uni_gpr_12 = $uni_12['gpr'];
-                $uni_obshtozaplashtane_input_12 = $uni_12['obshtozaplashtane_input'];
-                $uni_mesecna_12 = $uni_12['mesecna'];
-                $uni_gpr_15 = $uni_15['gpr'];
-                $uni_obshtozaplashtane_input_15 = $uni_15['obshtozaplashtane_input'];
-                $uni_mesecna_15 = $uni_15['mesecna'];
-                $uni_gpr_18 = $uni_18['gpr'];
-                $uni_obshtozaplashtane_input_18 = $uni_18['obshtozaplashtane_input'];
-                $uni_mesecna_18 = $uni_18['mesecna'];
-                $uni_gpr_24 = $uni_24['gpr'];
-                $uni_obshtozaplashtane_input_24 = $uni_24['obshtozaplashtane_input'];
-                $uni_mesecna_24 = $uni_24['mesecna'];
-                $uni_gpr_30 = $uni_30['gpr'];
-                $uni_obshtozaplashtane_input_30 = $uni_30['obshtozaplashtane_input'];
-                $uni_mesecna_30 = $uni_30['mesecna'];
-                $uni_gpr_36 = $uni_36['gpr'];
-                $uni_obshtozaplashtane_input_36 = $uni_36['obshtozaplashtane_input'];
-                $uni_mesecna_36 = $uni_36['mesecna'];
-                /** UniCredit */
-            }
-            if (($tbipayment_mesecna_12 <= $jet_mesecna_12) && ($tbipayment_mesecna_12 <= $uni_mesecna_12)){
-                $first = 'tbipayment';
-                $first_name = 'ТБИ Банка';
-                $first_logo = 'tbi_bank_logo.png';
-                if ($property->tbibank == 0){
-                    $first_visible = false;
-                }else{
-                    $first_visible = true;
+                    $uni_3 = $this->getUniCalculation(3, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_6 = $this->getUniCalculation(6, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_9 = $this->getUniCalculation(9, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_12 = $this->getUniCalculation(12, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_15 = $this->getUniCalculation(15, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_18 = $this->getUniCalculation(18, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_24 = $this->getUniCalculation(24, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_gpr_3 = $uni_3['gpr'];
+                    $uni_obshtozaplashtane_input_3 = $uni_3['obshtozaplashtane_input'];
+                    $uni_mesecna_3 = $uni_3['mesecna'];
+                    $uni_gpr_6 = $uni_6['gpr'];
+                    $uni_obshtozaplashtane_input_6 = $uni_6['obshtozaplashtane_input'];
+                    $uni_mesecna_6 = $uni_6['mesecna'];
+                    $uni_gpr_9 = $uni_9['gpr'];
+                    $uni_obshtozaplashtane_input_9 = $uni_9['obshtozaplashtane_input'];
+                    $uni_mesecna_9 = $uni_9['mesecna'];
+                    $uni_gpr_12 = $uni_12['gpr'];
+                    $uni_obshtozaplashtane_input_12 = $uni_12['obshtozaplashtane_input'];
+                    $uni_mesecna_12 = $uni_12['mesecna'];
+                    $uni_gpr_15 = $uni_15['gpr'];
+                    $uni_obshtozaplashtane_input_15 = $uni_15['obshtozaplashtane_input'];
+                    $uni_mesecna_15 = $uni_15['mesecna'];
+                    $uni_gpr_18 = $uni_18['gpr'];
+                    $uni_obshtozaplashtane_input_18 = $uni_18['obshtozaplashtane_input'];
+                    $uni_mesecna_18 = $uni_18['mesecna'];
+                    $uni_gpr_24 = $uni_24['gpr'];
+                    $uni_obshtozaplashtane_input_24 = $uni_24['obshtozaplashtane_input'];
+                    $uni_mesecna_24 = $uni_24['mesecna'];
+                    $uni_gpr_30 = $uni_30['gpr'];
+                    $uni_obshtozaplashtane_input_30 = $uni_30['obshtozaplashtane_input'];
+                    $uni_mesecna_30 = $uni_30['mesecna'];
+                    $uni_gpr_36 = $uni_36['gpr'];
+                    $uni_obshtozaplashtane_input_36 = $uni_36['obshtozaplashtane_input'];
+                    $uni_mesecna_36 = $uni_36['mesecna'];
+                    /** UniCredit */
                 }
-                if ($uni_mesecna_12 <= $jet_mesecna_12){
-                    $second = 'uni';
-                    $second_name = 'УНИ Кредит';
-                    $second_logo = 'unicredit_logo.png';
-                    if ($property->unicredit == 0){
-                        $second_visible = false;
-                    }else{
-                        $second_visible = true;
-                    }
-                    $third = 'jet';
-                    $third_name = 'Париба';
-                    $third_logo = 'pariba_logo.png';
-                    if ($property->bnpparibas == 0){
-                        $third_visible = false;
-                    }else{
-                        $third_visible = true;
-                    }
-                }else{
-                    $second = 'jet';
-                    $second_name = 'Париба';
-                    $second_logo = 'pariba_logo.png';
-                    if ($property->bnpparibas == 0){
-                        $second_visible = false;
-                    }else{
-                        $second_visible = true;
-                    }
-                    $third = 'uni';
-                    $third_name = 'УНИ Кредит';
-                    $third_logo = 'unicredit_logo.png';
-                    if ($property->unicredit == 0){
-                        $third_visible = false;
-                    }else{
-                        $third_visible = true;
-                    }
-                }
-            }else{
-                if (($uni_mesecna_12 <= $tbipayment_mesecna_12) && ($uni_mesecna_12 <= $jet_mesecna_12)){
-                    $first = 'uni';
-                    $first_name = 'УНИ Кредит';
-                    $first_logo = 'unicredit_logo.png';
-                    if ($property->unicredit == 0){
+                if (($tbipayment_mesecna_12 <= $jet_mesecna_12) && ($tbipayment_mesecna_12 <= $uni_mesecna_12)){
+                    $first = 'tbipayment';
+                    $first_name = 'ТБИ Банка';
+                    $first_logo = 'tbi_bank_logo.png';
+                    if ($property->tbibank == 0){
                         $first_visible = false;
                     }else{
                         $first_visible = true;
                     }
-                    if ($tbipayment_mesecna_12 <= $jet_mesecna_12){
-                        $second = 'tbipayment';
-                        $second_name = 'ТБИ Банка';
-                        $second_logo = 'tbi_bank_logo.png';
-                        if ($property->tbibank == 0){
+                    if ($uni_mesecna_12 <= $jet_mesecna_12){
+                        $second = 'uni';
+                        $second_name = 'УНИ Кредит';
+                        $second_logo = 'unicredit_logo.png';
+                        if ($property->unicredit == 0){
                             $second_visible = false;
                         }else{
                             $second_visible = true;
@@ -605,26 +557,26 @@ class CreditController extends Controller
                         }else{
                             $second_visible = true;
                         }
-                        $third = 'tbipayment';
-                        $third_name = 'ТБИ Банка';
-                        $third_logo = 'tbi_bank_logo.png';
-                        if ($property->tbibank == 0){
+                        $third = 'uni';
+                        $third_name = 'УНИ Кредит';
+                        $third_logo = 'unicredit_logo.png';
+                        if ($property->unicredit == 0){
                             $third_visible = false;
                         }else{
                             $third_visible = true;
                         }
                     }
                 }else{
-                    if (($jet_mesecna_12 <= $tbipayment_mesecna_12) && ($jet_mesecna_12 <= $uni_mesecna_12)){
-                        $first = 'jet';
-                        $first_name = 'Париба';
-                        $first_logo = 'pariba_logo.png';
-                        if ($property->bnpparibas == 0){
+                    if (($uni_mesecna_12 <= $tbipayment_mesecna_12) && ($uni_mesecna_12 <= $jet_mesecna_12)){
+                        $first = 'uni';
+                        $first_name = 'УНИ Кредит';
+                        $first_logo = 'unicredit_logo.png';
+                        if ($property->unicredit == 0){
                             $first_visible = false;
                         }else{
                             $first_visible = true;
                         }
-                        if ($tbipayment_mesecna_12 <= $uni_mesecna_12){
+                        if ($tbipayment_mesecna_12 <= $jet_mesecna_12){
                             $second = 'tbipayment';
                             $second_name = 'ТБИ Банка';
                             $second_logo = 'tbi_bank_logo.png';
@@ -633,19 +585,19 @@ class CreditController extends Controller
                             }else{
                                 $second_visible = true;
                             }
-                            $third = 'uni';
-                            $third_name = 'УНИ Кредит';
-                            $third_logo = 'unicredit_logo.png';
-                            if ($property->unicredit == 0){
+                            $third = 'jet';
+                            $third_name = 'Париба';
+                            $third_logo = 'pariba_logo.png';
+                            if ($property->bnpparibas == 0){
                                 $third_visible = false;
                             }else{
                                 $third_visible = true;
                             }
                         }else{
-                            $second = 'uni';
-                            $second_name = 'УНИ Кредит';
-                            $second_logo = 'unicredit_logo.png';
-                            if ($property->unicredit == 0){
+                            $second = 'jet';
+                            $second_name = 'Париба';
+                            $second_logo = 'pariba_logo.png';
+                            if ($property->bnpparibas == 0){
                                 $second_visible = false;
                             }else{
                                 $second_visible = true;
@@ -659,8 +611,56 @@ class CreditController extends Controller
                                 $third_visible = true;
                             }
                         }
+                    }else{
+                        if (($jet_mesecna_12 <= $tbipayment_mesecna_12) && ($jet_mesecna_12 <= $uni_mesecna_12)){
+                            $first = 'jet';
+                            $first_name = 'Париба';
+                            $first_logo = 'pariba_logo.png';
+                            if ($property->bnpparibas == 0){
+                                $first_visible = false;
+                            }else{
+                                $first_visible = true;
+                            }
+                            if ($tbipayment_mesecna_12 <= $uni_mesecna_12){
+                                $second = 'tbipayment';
+                                $second_name = 'ТБИ Банка';
+                                $second_logo = 'tbi_bank_logo.png';
+                                if ($property->tbibank == 0){
+                                    $second_visible = false;
+                                }else{
+                                    $second_visible = true;
+                                }
+                                $third = 'uni';
+                                $third_name = 'УНИ Кредит';
+                                $third_logo = 'unicredit_logo.png';
+                                if ($property->unicredit == 0){
+                                    $third_visible = false;
+                                }else{
+                                    $third_visible = true;
+                                }
+                            }else{
+                                $second = 'uni';
+                                $second_name = 'УНИ Кредит';
+                                $second_logo = 'unicredit_logo.png';
+                                if ($property->unicredit == 0){
+                                    $second_visible = false;
+                                }else{
+                                    $second_visible = true;
+                                }
+                                $third = 'tbipayment';
+                                $third_name = 'ТБИ Банка';
+                                $third_logo = 'tbi_bank_logo.png';
+                                if ($property->tbibank == 0){
+                                    $third_visible = false;
+                                }else{
+                                    $third_visible = true;
+                                }
+                            }
+                        }
                     }
                 }
+            }else{
+                return abort(404);
             }
         }else{
             return abort(404);
@@ -672,7 +672,7 @@ class CreditController extends Controller
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор',
             'root_categories' => $root_categories,
             'product' => $product,
-            'product_qt' => $product_qt,
+            'product_qt' => $request->input('product_qt'),
             'tbipayment_mesecna_3' => $tbipayment_mesecna_3,
             'tbipayment_obshtozaplashtane_input_3' => $tbipayment_obshtozaplashtane_input_3,
             'tbipayment_gpr_3' => $tbipayment_gpr_3,
@@ -1044,15 +1044,14 @@ class CreditController extends Controller
         return $rate;
     }
 
-    public function danni(Request $request, $product_id = null, $product_qt = null)
+    public function danni(Request $request)
     {
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
+
+        }
         $root_categories = Category::where(['parent_id' => 0])->get();
 
-        if ($product_id != null) {
-            $product = Product::where(['id' => $product_id])->first();
-        } else {
-            $product = null;
-        }
+        $product = Product::where(['id' => $request->input('product_id')])->first();
 
         return view('credit.danni')->with([
             'title' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни | Авалон',
@@ -1060,7 +1059,7 @@ class CreditController extends Controller
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, данни',
             'root_categories' => $root_categories,
             'product' => $product,
-            'product_qt' => $product_qt
+            'product_qt' => $request->input('product_qt')
         ]);
     }
 }

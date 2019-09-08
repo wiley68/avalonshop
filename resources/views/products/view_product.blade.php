@@ -811,7 +811,26 @@
     $("#show_credit").click(function(e){
         e.preventDefault();
         $('#save_box').show();
-        window.location = '/credit/product-{{ $product->id }}/qt-'+$("#quantity").val()+'.html';
+        product_id = '{{$product->id}}';
+        $.redirectPost(
+            '/credit/product.html',
+            {
+                'product_id': product_id,
+                'product_qt': $("#quantity").val()
+            }
+        );
+    });
+
+    $.extend(
+    {
+        redirectPost: function(location, args)
+        {
+            var form = '';
+            $.each( args, function( key, value ) {
+                form += '<input type="hidden" name="'+key+'" value="'+value+'">';
+            });
+            $('<form action="'+location+'" method="POST">@csrf'+form+'</form>').appendTo('body').submit();
+        }
     });
 </script>
 @endsection

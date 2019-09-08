@@ -76,7 +76,7 @@
                             <div class="pricing_table">
                                 <header style="color:darkgrey;">Кредитна компания</header>
                                 <div class="pt_price">
-                                    <p>Общ размер на кредита: {{ number_format($product->price, 2, ".", "") }} лв.</p>
+                                    <p>Общ размер на кредита: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }} лв.</p>
                                 </div>
                                 <ul class="pt_list">
                                     <li>
@@ -415,8 +415,12 @@
                             <div class="row">
                                 <div class="col-sm-8"></div><!--/ [col]-->
                                 <div class="col-sm-4">
-
-                                    <a href="{{ route('credit-danni', ['product_id' => $product->id, 'product_qt' => $product_qt]) }}" class="button_blue middle_btn">Продължи към лични данни</a>
+                                    <form action="{{ route('credit-danni') }}" form method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
+                                        <button type="submit" class="button_blue middle_btn">Продължи към лични данни</button>
+                                    </form>
                                 </div>
                             </div><!--/ .row-->
                         </div><!--/ .section_offset -->
