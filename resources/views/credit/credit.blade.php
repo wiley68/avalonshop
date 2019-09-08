@@ -419,6 +419,7 @@
                                         @csrf
                                         <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                                         <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
+                                        <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
                                         <button type="submit" class="button_blue middle_btn">Продължи към лични данни</button>
                                     </form>
                                 </div>
