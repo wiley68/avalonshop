@@ -7,6 +7,12 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\ProductsCategories;
 use App\Property;
+use Auth;
+use App\Order;
+use App\Suborder;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderOk;
+use App\Mail\OrderUser;
 
 class CreditController extends Controller
 {
@@ -1164,65 +1170,84 @@ class CreditController extends Controller
             if ($request->has('credit_fname')){
                 $credit_fname = $request->input('credit_fname');
             }else{
-                $credit_fname = null;
+                $credit_fname = "";
             }
             if ($request->has('credit_lname')){
                 $credit_lname = $request->input('credit_lname');
             }else{
-                $credit_lname = null;
+                $credit_lname = "";
             }
             if ($request->has('credit_email')){
                 $credit_email = $request->input('credit_email');
             }else{
-                $credit_email = null;
+                $credit_email = "";
             }
             if ($request->has('credit_phone')){
                 $credit_phone = $request->input('credit_phone');
             }else{
-                $credit_phone = null;
+                $credit_phone = "";
             }
             if ($request->has('billingAddress')){
                 $billingAddress = $request->input('billingAddress');
             }else{
-                $billingAddress = null;
+                $billingAddress = "";
             }
             if ($request->has('billingCity')){
                 $billingCity = $request->input('billingCity');
             }else{
-                $billingCity = null;
+                $billingCity = "";
             }
             if ($request->has('billingCounty')){
                 $billingCounty = $request->input('billingCounty');
             }else{
-                $billingCounty = null;
+                $billingCounty = "";
             }
             if ($request->has('deliveryAddress')){
                 $deliveryAddress = $request->input('deliveryAddress');
             }else{
-                $deliveryAddress = null;
+                $deliveryAddress = "";
             }
             if ($request->has('deliveryCity')){
                 $deliveryCity = $request->input('deliveryCity');
             }else{
-                $deliveryCity = null;
+                $deliveryCity = "";
             }
             if ($request->has('deliveryCounty')){
                 $deliveryCounty = $request->input('deliveryCounty');
             }else{
-                $deliveryCounty = null;
+                $deliveryCounty = "";
             }
 
             /** JET */
             if ($current_sheme == "jet"){
                 //create order
-
+                if ((floatval($product->price) * floatval($request->input('product_qt'))) >= 400) {
+                    $shipping = "free";
+                }else{
+                    $shipping = "spedy";
+                }
+                $order_id = $this->createOrderSingle(
+                    $credit_fname . " " . $credit_lname,
+                    $credit_email,
+                    $billingAddress,
+                    $billingCity,
+                    $credit_phone,
+                    $credit_fname . " " . $credit_lname,
+                    $deliveryAddress,
+                    $deliveryCity,
+                    $shipping,
+                    "jet",
+                    $request->input('product_id'),
+                    $request->input('product_qt'),
+                    $product->price
+                );
             }
             /** UNI */
-            if ($current_sheme == "jet"){
+            if ($current_sheme == "uni"){
                 
             }
-            /** Pariba */
-            if ($current_sheme == "jet"){
+            /** TBI */
+            if ($current_sheme == "tbi"){
                 
             }
 
@@ -1247,11 +1272,96 @@ class CreditController extends Controller
                 'billingCounty' => $billingCounty,
                 'deliveryAddress' => $deliveryAddress,
                 'deliveryCity' => $deliveryCity,
-                'deliveryCounty' => $deliveryCounty
+                'deliveryCounty' => $deliveryCounty,
+                'order_id' => $order_id
             ]);    
         }else{
             return abort(404);
         }
+    }
+
+    public function createOrderSingle(
+        $user_name, 
+        $user_email, 
+        $user_address,
+        $user_city,
+        $user_phone,
+        $user_name2,
+        $user_address2,
+        $user_city2,
+        $shipping,
+        $payment,
+        $product_id,
+        $product_qt,
+        $product_price){
+
+        $order = new Order();
+        if (!empty(Auth::user())){
+            $order->user_id = Auth::user()->id;
+            $order->firm = Auth::user()->firm;
+            $order->eik = Auth::user()->eik;
+            $order->mol = Auth::user()->mol;
+            $order->postcode = Auth::user()->postcode;
+            $order->postcode2 = Auth::user()->postcode2;
+            $order->phone2 = Auth::user()->phone2;
+        }else{
+            $order->user_id = 0;
+            $order->firm = "";
+            $order->eik = "";
+            $order->mol = "";
+            $order->postcode = "";
+            $order->postcode2 = "";
+            $order->phone2 = "";
+        }
+        $order->user_name = $user_name;
+        $order->email = $user_email;               
+        $order->address = $user_address;
+        $order->city = $user_city;      
+        $order->phone = $user_phone;
+        $order->user_name2 = $user_name2;
+        $order->address2 = $user_address2;
+        $order->city2 = $user_city2;             
+        $order->shipping = $shipping;
+        $order->payment = $payment;
+        $order->save();
+
+        $suborder = new Suborder();
+        $suborder->order_id = $order->id;
+        $suborder->product_id = $product_id;
+        $suborder->product_quantity = $product_qt;
+        $suborder->total_price = floatval($product_price) * floatval($product_qt);
+        $suborder->save();
+
+        /** Send mails */
+        //to admin
+        $objMailAdmin = new \stdClass();
+        $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailAdmin->name = $order->user_name;
+        $objMailAdmin->email = $order->email;
+        $objMailAdmin->order = $order->id;
+        $objMailAdmin->shipping = $order->shipping;
+        $objMailAdmin->payment = $order->payment;
+        $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+        $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+        
+        Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
+        
+        //to user
+        $objMailUser = new \stdClass();
+        $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
+        $objMailUser->name = $order->user_name;
+        $objMailUser->email = $order->email;
+        $objMailUser->order = $order->id;
+        $objMailUser->shipping = $order->shipping;
+        $objMailUser->payment = $order->payment;
+        $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+        
+        $suborders = Suborder::where(['order_id' => $order->id])->get();
+        $objMailUser->suborders = $suborders;
+        
+        Mail::to($order->email)->send(new OrderUser($objMailUser)); 
+        
+        return $order->id;
     }
 
 }
