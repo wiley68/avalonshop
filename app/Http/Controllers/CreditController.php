@@ -1047,19 +1047,211 @@ class CreditController extends Controller
     public function danni(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
+            $root_categories = Category::where(['parent_id' => 0])->get();
 
+            $product = Product::where(['id' => $request->input('product_id')])->first();
+    
+            if ($request->has('current_sheme')){
+                $current_sheme = $request->input('current_sheme');
+            }else{
+                $current_sheme = null;
+            }
+            if ($request->has('current_meseci')){
+                $current_meseci = $request->input('current_meseci');
+            }else{
+                $current_meseci = null;
+            }
+            if ($request->has('mesecna')){
+                $mesecna = $request->input('mesecna');
+            }else{
+                $mesecna = null;
+            }
+            if ($request->has('gpr')){
+                $gpr = $request->input('gpr');
+            }else{
+                $gpr = null;
+            }
+            if ($request->has('obshtozaplashtane')){
+                $obshtozaplashtane = $request->input('obshtozaplashtane');
+            }else{
+                $obshtozaplashtane = null;
+            }
+
+            if($user = Auth::user()){
+                $credit_fname = (explode(" ", $user->name))[0];
+                $credit_lname = (explode(" ", $user->name))[1];
+                $credit_email = $user->email;
+                $credit_phone = $user->phone;
+                $billingAddress = $user->address;
+                $billingCity = $user->city;
+                $billingCounty = "";
+                $deliveryAddress = $user->address2;
+                $deliveryCity = $user->city2;
+                $deliveryCounty = "";
+            }else{
+                $credit_fname = "";
+                $credit_lname = "";
+                $credit_email = "";
+                $credit_phone = "";
+                $billingAddress = "";
+                $billingCity = "";
+                $billingCounty = "";
+                $deliveryAddress = "";
+                $deliveryCity = "";
+                $deliveryCounty = "";
+            }
+
+            return view('credit.danni')->with([
+                'title' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни | Авалон',
+                'description' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни.',
+                'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, данни',
+                'root_categories' => $root_categories,
+                'product' => $product,
+                'product_qt' => $request->input('product_qt'),
+                'current_sheme' => $current_sheme,
+                'current_meseci' => $current_meseci,
+                'mesecna' => $mesecna,
+                'gpr' => $gpr,
+                'obshtozaplashtane' => $obshtozaplashtane,
+                'credit_fname' => $credit_fname,
+                'credit_lname' => $credit_lname,
+                'credit_email' => $credit_email,
+                'credit_phone' => $credit_phone,
+                'billingAddress' => $billingAddress,
+                'billingCity' => $billingCity,
+                'billingCounty' => $billingCounty,
+                'deliveryAddress' => $deliveryAddress,
+                'deliveryCity' => $deliveryCity,
+                'deliveryCounty' => $deliveryCounty
+            ]);    
+        }else{
+            return abort(404);
         }
-        $root_categories = Category::where(['parent_id' => 0])->get();
-
-        $product = Product::where(['id' => $request->input('product_id')])->first();
-
-        return view('credit.danni')->with([
-            'title' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни | Авалон',
-            'description' => 'Продажба на техника на изплащане, кредитен калкулатор, лични данни.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, данни',
-            'root_categories' => $root_categories,
-            'product' => $product,
-            'product_qt' => $request->input('product_qt')
-        ]);
     }
+
+    public function ok(Request $request)
+    {
+        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
+            $root_categories = Category::where(['parent_id' => 0])->get();
+
+            $product = Product::where(['id' => $request->input('product_id')])->first();
+    
+            if ($request->has('current_sheme')){
+                $current_sheme = $request->input('current_sheme');
+            }else{
+                $current_sheme = null;
+            }
+            if ($request->has('current_meseci')){
+                $current_meseci = $request->input('current_meseci');
+            }else{
+                $current_meseci = null;
+            }
+            if ($request->has('mesecna')){
+                $mesecna = $request->input('mesecna');
+            }else{
+                $mesecna = null;
+            }
+            if ($request->has('gpr')){
+                $gpr = $request->input('gpr');
+            }else{
+                $gpr = null;
+            }
+            if ($request->has('obshtozaplashtane')){
+                $obshtozaplashtane = $request->input('obshtozaplashtane');
+            }else{
+                $obshtozaplashtane = null;
+            }
+            if ($request->has('credit_fname')){
+                $credit_fname = $request->input('credit_fname');
+            }else{
+                $credit_fname = null;
+            }
+            if ($request->has('credit_lname')){
+                $credit_lname = $request->input('credit_lname');
+            }else{
+                $credit_lname = null;
+            }
+            if ($request->has('credit_email')){
+                $credit_email = $request->input('credit_email');
+            }else{
+                $credit_email = null;
+            }
+            if ($request->has('credit_phone')){
+                $credit_phone = $request->input('credit_phone');
+            }else{
+                $credit_phone = null;
+            }
+            if ($request->has('billingAddress')){
+                $billingAddress = $request->input('billingAddress');
+            }else{
+                $billingAddress = null;
+            }
+            if ($request->has('billingCity')){
+                $billingCity = $request->input('billingCity');
+            }else{
+                $billingCity = null;
+            }
+            if ($request->has('billingCounty')){
+                $billingCounty = $request->input('billingCounty');
+            }else{
+                $billingCounty = null;
+            }
+            if ($request->has('deliveryAddress')){
+                $deliveryAddress = $request->input('deliveryAddress');
+            }else{
+                $deliveryAddress = null;
+            }
+            if ($request->has('deliveryCity')){
+                $deliveryCity = $request->input('deliveryCity');
+            }else{
+                $deliveryCity = null;
+            }
+            if ($request->has('deliveryCounty')){
+                $deliveryCounty = $request->input('deliveryCounty');
+            }else{
+                $deliveryCounty = null;
+            }
+
+            /** JET */
+            if ($current_sheme == "jet"){
+                //create order
+
+            }
+            /** UNI */
+            if ($current_sheme == "jet"){
+                
+            }
+            /** Pariba */
+            if ($current_sheme == "jet"){
+                
+            }
+
+            return view('credit.ok')->with([
+                'title' => 'Продажба на техника на изплащане, кредитен калкулатор, покупка | Авалон',
+                'description' => 'Продажба на техника на изплащане, кредитен калкулатор, покупка.',
+                'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, покупка',
+                'root_categories' => $root_categories,
+                'product' => $product,
+                'product_qt' => $request->input('product_qt'),
+                'current_sheme' => $current_sheme,
+                'current_meseci' => $current_meseci,
+                'mesecna' => $mesecna,
+                'gpr' => $gpr,
+                'obshtozaplashtane' => $obshtozaplashtane,
+                'credit_fname' => $credit_fname,
+                'credit_lname' => $credit_lname,
+                'credit_email' => $credit_email,
+                'credit_phone' => $credit_phone,
+                'billingAddress' => $billingAddress,
+                'billingCity' => $billingCity,
+                'billingCounty' => $billingCounty,
+                'deliveryAddress' => $deliveryAddress,
+                'deliveryCity' => $deliveryCity,
+                'deliveryCounty' => $deliveryCounty
+            ]);    
+        }else{
+            return abort(404);
+        }
+    }
+
 }

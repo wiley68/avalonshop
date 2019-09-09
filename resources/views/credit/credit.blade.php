@@ -143,81 +143,81 @@
                                 <ul class="pt_list">
                                     <li>
                                         @if (${$first.'_mesecna_3'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_3'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_3'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_3'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_3">{{ ${$first.'_mesecna_3'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_3">{{ ${$first.'_obshtozaplashtane_input_3'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_3">{{ ${$first.'_gpr_3'} }}</span> %</p>
                                         <input checked type="radio" name="credit_variant" id="{{ $first }}_3">
                                         <label for="{{ $first }}_3">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_6'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_6'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_6'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_6'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_6">{{ ${$first.'_mesecna_6'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_6">{{ ${$first.'_obshtozaplashtane_input_6'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_6">{{ ${$first.'_gpr_6'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_6">
                                         <label for="{{ $first }}_6">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_9'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_9'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_9'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_9'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_9">{{ ${$first.'_mesecna_9'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_9">{{ ${$first.'_obshtozaplashtane_input_9'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_9">{{ ${$first.'_gpr_9'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_9">
                                         <label for="{{ $first }}_9">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_12'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_12'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_12'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_12'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_12">{{ ${$first.'_mesecna_12'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_12">{{ ${$first.'_obshtozaplashtane_input_12'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_12">{{ ${$first.'_gpr_12'} }}</span> %</p>
                                         <input checked type="radio" name="credit_variant" id="{{ $first }}_12">
                                         <label for="{{ $first }}_12">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_15'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_15'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_15'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_15'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_15">{{ ${$first.'_mesecna_15'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_15">{{ ${$first.'_obshtozaplashtane_input_15'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_15">{{ ${$first.'_gpr_15'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_15">
                                         <label for="{{ $first }}_15">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_18'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_18'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_18'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_18'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_18">{{ ${$first.'_mesecna_18'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_18">{{ ${$first.'_obshtozaplashtane_input_18'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_18">{{ ${$first.'_gpr_18'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_18">
                                         <label for="{{ $first }}_18">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_24'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_24'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_24'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_24'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_24">{{ ${$first.'_mesecna_24'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_24">{{ ${$first.'_obshtozaplashtane_input_24'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_24">{{ ${$first.'_gpr_24'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_24">
                                         <label for="{{ $first }}_24">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_30'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_30'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_30'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_30'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_30">{{ ${$first.'_mesecna_30'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_30">{{ ${$first.'_obshtozaplashtane_input_30'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_30">{{ ${$first.'_gpr_30'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_30">
                                         <label for="{{ $first }}_30">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$first.'_mesecna_36'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$first.'_mesecna_36'} }} лв.</b></p>
-                                        <p>{{ ${$first.'_obshtozaplashtane_input_36'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$first.'_gpr_36'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $first }}_mesecna_36">{{ ${$first.'_mesecna_36'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $first }}_obshtozaplashtane_36">{{ ${$first.'_obshtozaplashtane_input_36'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $first }}_gpr_36">{{ ${$first.'_gpr_36'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $first }}_36">
                                         <label for="{{ $first }}_36">Избери варианта</label>
                                         @endif
@@ -234,81 +234,81 @@
                                 <ul class="pt_list">
                                     <li>
                                         @if (${$second.'_mesecna_3'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_3'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_3'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_3'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_3">{{ ${$second.'_mesecna_3'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_3">{{ ${$second.'_obshtozaplashtane_input_3'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_3">{{ ${$second.'_gpr_3'} }}</span> %</p>
                                         <input @if (!$first_visible) checked @endif type="radio" name="credit_variant" id="{{ $second }}_3">
                                         <label for="{{ $second }}_3">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_6'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_6'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_6'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_6'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_6">{{ ${$second.'_mesecna_6'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_6">{{ ${$second.'_obshtozaplashtane_input_6'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_6">{{ ${$second.'_gpr_6'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_6">
                                         <label for="{{ $second }}_6">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_9'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_9'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_9'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_9'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_9">{{ ${$second.'_mesecna_9'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_9">{{ ${$second.'_obshtozaplashtane_input_9'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_9">{{ ${$second.'_gpr_9'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_9">
                                         <label for="{{ $second }}_9">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_12'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_12'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_12'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_12'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_12">{{ ${$second.'_mesecna_12'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_12">{{ ${$second.'_obshtozaplashtane_input_12'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_12">{{ ${$second.'_gpr_12'} }}</span> %</p>
                                         <input @if (!$first_visible) checked @endif type="radio" name="credit_variant" id="{{ $second }}_12">
                                         <label for="{{ $second }}_12">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_15'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_15'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_15'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_15'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_15">{{ ${$second.'_mesecna_15'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_15">{{ ${$second.'_obshtozaplashtane_input_15'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_15">{{ ${$second.'_gpr_15'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_15">
                                         <label for="{{ $second }}_15">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_18'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_18'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_18'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_18'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_18">{{ ${$second.'_mesecna_18'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_18">{{ ${$second.'_obshtozaplashtane_input_18'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_18">{{ ${$second.'_gpr_18'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_18">
                                         <label for="{{ $second }}_18">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_24'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_24'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_24'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_24'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_24">{{ ${$second.'_mesecna_24'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_24">{{ ${$second.'_obshtozaplashtane_input_24'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_24">{{ ${$second.'_gpr_24'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_24">
                                         <label for="{{ $second }}_24">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_30'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_30'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_30'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_30'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_30">{{ ${$second.'_mesecna_30'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_30">{{ ${$second.'_obshtozaplashtane_input_30'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_30">{{ ${$second.'_gpr_30'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_30">
                                         <label for="{{ $second }}_30">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$second.'_mesecna_36'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$second.'_mesecna_36'} }} лв.</b></p>
-                                        <p>{{ ${$second.'_obshtozaplashtane_input_36'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$second.'_gpr_36'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $second }}_mesecna_36">{{ ${$second.'_mesecna_36'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $second }}_obshtozaplashtane_36">{{ ${$second.'_obshtozaplashtane_input_36'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $second }}_gpr_36">{{ ${$second.'_gpr_36'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $second }}_36">
                                         <label for="{{ $second }}_36">Избери варианта</label>
                                         @endif
@@ -325,81 +325,81 @@
                                 <ul class="pt_list">
                                     <li>
                                         @if (${$third.'_mesecna_3'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_3'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_3'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_3'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_3">{{ ${$third.'_mesecna_3'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_3">{{ ${$third.'_obshtozaplashtane_input_3'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_3">{{ ${$third.'_gpr_3'} }}</span> %</p>
                                         <input @if ((!$first_visible) && (!$second_visible)) checked @endif type="radio" name="credit_variant" id="{{ $third }}_3">
                                         <label for="{{ $third }}_3">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_6'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_6'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_6'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_6'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_6">{{ ${$third.'_mesecna_6'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_6">{{ ${$third.'_obshtozaplashtane_input_6'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_6">{{ ${$third.'_gpr_6'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_6">
                                         <label for="{{ $third }}_6">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_9'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_9'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_9'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_9'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_9">{{ ${$third.'_mesecna_9'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_9">{{ ${$third.'_obshtozaplashtane_input_9'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_9">{{ ${$third.'_gpr_9'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_9">
                                         <label for="{{ $third }}_9">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_12'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_12'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_12'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_12'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_12">{{ ${$third.'_mesecna_12'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_12">{{ ${$third.'_obshtozaplashtane_input_12'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_12">{{ ${$third.'_gpr_12'} }}</span> %</p>
                                         <input @if ((!$first_visible) && (!$second_visible)) checked @endif type="radio" name="credit_variant" id="{{ $third }}_12">
                                         <label for="{{ $third }}_12">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_15'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_15'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_15'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_15'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_15">{{ ${$third.'_mesecna_15'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_15">{{ ${$third.'_obshtozaplashtane_input_15'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_15">{{ ${$third.'_gpr_15'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_15">
                                         <label for="{{ $third }}_15">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_18'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_18'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_18'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_18'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_18">{{ ${$third.'_mesecna_18'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_18">{{ ${$third.'_obshtozaplashtane_input_18'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_18">{{ ${$third.'_gpr_18'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_18">
                                         <label for="{{ $third }}_18">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_24'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_24'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_24'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_24'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_24">{{ ${$third.'_mesecna_24'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_24">{{ ${$third.'_obshtozaplashtane_input_24'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_24">{{ ${$third.'_gpr_24'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_24">
                                         <label for="{{ $third }}_24">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_30'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_30'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_30'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_30'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_30">{{ ${$third.'_mesecna_30'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_30">{{ ${$third.'_obshtozaplashtane_input_30'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_30">{{ ${$third.'_gpr_30'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_30">
                                         <label for="{{ $third }}_30">Избери варианта</label>
                                         @endif
                                     </li>
                                     <li>
                                         @if (${$third.'_mesecna_36'} >= 30)
-                                        <p title="Месечна вноска"><b>{{ ${$third.'_mesecna_36'} }} лв.</b></p>
-                                        <p>{{ ${$third.'_obshtozaplashtane_input_36'} }} лв.</p>
-                                        <p style="padding-bottom:10px;">{{ ${$third.'_gpr_36'} }} %</p>
+                                        <p title="Месечна вноска"><b><span id="{{ $third }}_mesecna_36">{{ ${$third.'_mesecna_36'} }}</span> лв.</b></p>
+                                        <p><span id="{{ $third }}_obshtozaplashtane_36">{{ ${$third.'_obshtozaplashtane_input_36'} }}</span> лв.</p>
+                                        <p style="padding-bottom:10px;"><span id="{{ $third }}_gpr_36">{{ ${$third.'_gpr_36'} }}</span> %</p>
                                         <input type="radio" name="credit_variant" id="{{ $third }}_36">
                                         <label for="{{ $third }}_36">Избери варианта</label>
                                         @endif
@@ -420,6 +420,7 @@
                                         <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                                         <input type="hidden" name="product_qt" id="product_qt" value="{{ $product_qt }}">
                                         <input type="hidden" name="current_sheme" id="current_sheme" value="">
+                                        <input type="hidden" name="current_meseci" id="current_meseci" value="">
                                         <input type="hidden" name="mesecna" id="mesecna" value="">
                                         <input type="hidden" name="gpr" id="gpr" value="">
                                         <input type="hidden" name="obshtozaplashtane" id="obshtozaplashtane" value="">
@@ -442,13 +443,27 @@
 <script>
 function changeCurrent(){
     var current = $("input:radio[name='credit_variant']:checked").attr('id');
-    $("#current_sheme").val(current);
+    var sheme = (current.split('_'))[0];
+    $("#current_sheme").val(sheme);
     var meseci = (current.split('_'))[1];
-    console.log(current);
+    $("#current_meseci").val(meseci);
+    var mesecna = $("#"+sheme+"_mesecna_"+meseci).html();
+    $("#mesecna").val(mesecna);
+    var obshtozaplashtane = $("#"+sheme+"_obshtozaplashtane_"+meseci).html();
+    $("#obshtozaplashtane").val(obshtozaplashtane);
+    var gpr = $("#"+sheme+"_gpr_"+meseci).html();
+    $("#gpr").val(gpr);
 }
 
-$(document).load(function () {
+$(function() {
+
     changeCurrent();
+
+    $('input[type=radio]').change(function(e) {
+        changeCurrent()    
+    });
+
 });
+
 </script>
 @endsection

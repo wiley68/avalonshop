@@ -9,7 +9,7 @@
                     <div class="call_to_action">
                         <div class="title"><a href="{{ route('product', ['id' => $product->id]) }}" target="_blank" title="Можете да прегледате продукта в нова страница.">{{ $product->name }}</a></div>
                         <h3>Единична цена: {{ number_format($product->price, 2, ".", "") }}&nbsp;лв.&nbsp;|&nbsp;Количество: {{ $product_qt }}&nbsp;|&nbsp;Обща цена: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.</h3>
-                        <p>От тук можете да закупите посочения по-горе продукт на изплащане. Моля попънете исканата по-долу информация.</p>
+                        <p>Тук можете да видите резултата от Вашата заявка за покупка на кредит.</p>
                         @php
                             switch ($current_sheme) {
                                 case 'tbipayment':
@@ -48,9 +48,9 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <i class="icon-ok-circle"></i>
-                                    <h6 class="success">Попълване на лични данни</h6>
-                                    <p class="success">
+                                    <i class="icon-ok-3" style="color:#B2B2B2;"></i>
+                                    <h6 style="color:#B2B2B2;">Попълване на лични данни</h6>
+                                    <p style="color:#B2B2B2;">
                                         В тази страница е необходимо да попълните Вашите лични данни.
                                         Ако вече сте се логнали в нашия магазин тези данни ще бъдат предварително попълнени. Ако не са
                                         или ако желаете да ги промените, можете да го направите в тази страница. След коректното попълване
@@ -63,9 +63,9 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <i class="icon-ok-3" style="color:#B2B2B2;"></i>
-                                    <h6 style="color:#B2B2B2;">Приключване на покупката</h6>
-                                    <p style="color:#B2B2B2;">
+                                    <i class="icon-ok-circle"></i>
+                                    <h6 class="success">Приключване на покупката</h6>
+                                    <p class="success">
                                         В тази страница ще бъдете известени за приключване на покупката. От нея ще бъдете автоматично
                                         прехвърлени към страницата на съответната избрана от Вас кредитна институция за приключване на покупката.
                                         След одобрение от съответната Банка ще се свържем с Вас за уточнение на начина за изпращане
@@ -93,94 +93,33 @@
                             <div class="theme_box">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form enctype="multipart/form-data" action="{{ route('credit-ok') }}" method="post" name="credit_ok" id="credit_ok">
-                                        @csrf
-                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" name="product_qt" value="{{ $product_qt }}">
-                                            <input type="hidden" name="current_sheme" value="{{ $current_sheme }}">
-                                            <input type="hidden" name="current_meseci" value="{{ $current_meseci }}">
-                                            <input type="hidden" name="mesecna" value="{{ $mesecna }}">
-                                            <input type="hidden" name="gpr" value="{{ $gpr }}">
-                                            <input type="hidden" name="obshtozaplashtane" value="{{ $obshtozaplashtane }}">
-                                            <h4 class="form_caption">Моля попълнете исканите данни. Те ще бъдат използване за попълване на необходимите документи за извършване на покупката на кредит.</h4>
-                                            <ul>
-                                                <li class="row">
-                                                    <div class="col-sm-6">
-                                                        <label for="credit_fname" class="required">Име</label>
-                                                        <input type="text" required name="credit_fname" id="credit_fname" title="Име" value="{{ $credit_fname }}">
-                                                    </div><!--/ [col]-->
-                                                    <div class="col-sm-6">
-                                                        <label for="credit_lname" class="required">Фамилия</label>
-                                                        <input type="text" required name="credit_lname" id="credit_lname" title="Фамилия" value="{{ $credit_lname }}">
-                                                    </div><!--/ [col]-->
-                                                </li><!--/ .row -->
-                                                <li class="row">
-                                                    <div class="col-sm-6">
-                                                        <label for="credit_email" class="required">E-Mail</label>
-                                                        <input type="mail" required name="credit_email" id="credit_email" title="E-Mail" value="{{ $credit_email }}">
-                                                    </div><!--/ [col]-->
-                                                    <div class="col-sm-6">
-                                                        <label for="credit_phone" class="required">Телефон</label>
-                                                        <input type="text" required name="credit_phone" id="credit_phone" title="Телефон" value="{{ $credit_phone }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <h5>Адресна информация за документи:</h5>
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="billingAddress" class="required">Адрес</label>
-                                                        <input type="text" required name="billingAddress" id="billingAddress" title="Адрес" value="{{ $billingAddress }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="billingCity" class="required">Населено място</label>
-                                                        <input type="text" required name="billingCity" id="billingCity" title="Населено място" value="{{ $billingCity }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="billingCounty" class="required">Област</label>
-                                                        <input type="text" required name="billingCounty" id="billingCounty" title="Област" value="{{ $billingCounty }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <h5>Адресна информация за доставка:</h5>
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="deliveryAddress" class="required">Адрес</label>
-                                                        <input type="text" required name="deliveryAddress" id="deliveryAddress" title="Адрес" value="{{ $deliveryAddress }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="deliveryCity" class="required">Населено място</label>
-                                                        <input type="text" required name="deliveryCity" id="deliveryCity" title="Населено място" value="{{ $deliveryCity }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-sm-12">
-                                                        <label for="deliveryCounty" class="required">Област</label>
-                                                        <input type="text" required name="deliveryCounty" id="deliveryCounty" title="Област" value="{{ $deliveryCounty }}">
-                                                    </div><!--/ [col]-->
-                                                </li>
-                                            </ul>
-                                            <div style="padding-bottom:10px;"></div>
-                                            <hr />
-                                            <div style="padding-bottom:10px;"></div>
-                                            <div class="row">
-                                                <div class="col-sm-8"></div><!--/ [col]-->
-                                                <div class="col-sm-4">
-                                                    <button type="submit" class="button_blue middle_btn">Приключване на покупката</button>
-                                                </div>
-                                            </div><!--/ .row-->                                            
-                                        </form>
+                                        @if ($current_sheme == 'jet')
+                                        <h1>Резултат от заявката.</h1>
+                                        <h4 class="success">Заявката е изпратена успешно.</h4>
+                                        <h4>Заявка за лизинг с Париба лични финанси.</h4>
+                                        <p>Име: {{ $credit_fname }}</p>
+                                        <p>Фамилия: {{ $credit_lname }}</p>
+                                        <p>Телефон: {{ $credit_phone }}</p>
+                                        <p>Втори телефон: </p>
+                                        <p>E-Mail: {{ $credit_email }}</p>
+                                        <p>Продукт ИД: {{ $product->code }}&nbsp;|&nbsp;{{ $product->name }}&nbsp;|&nbsp;{{ $product_qt }}&nbsp;бр.</p>
+                                        <p>Обща цена на стоките: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.</p>
+                                        <p>Схема на изплащане: </p>
+                                        <p>Първоначална вноска: </p>
+                                        <p>Брой погасителни вноски: {{ $current_meseci }}&nbsp;м.</p>
+                                        <p>Месечна вноска: {{ $mesecna }}&nbsp;лв.</p>
+                                        <p>ГПР: {{ $gpr }}&nbsp;%</p>
+                                        <p>ГЛП: </p>
+                                        <p>Обща дължима сума от потребителя: {{ $obshtozaplashtane }}&nbsp;лв.</p>
+                                        <div style="padding-bottom:10px;"></div>
+                                        <hr />
+                                        <div style="padding-bottom:10px;"></div>
+                                        <h4>Очаквайте контакт за потвърждаване на направената от Вас заявка.</h4>
+                                        <h4>Можете да продължите с разглеждането на нашия магазин.</h4>
+                                        <a href="{{ route('index') }}" type="button" class="button_blue middle_btn">Продължи с разглеждането на магазина</a>
+                                        @else
+                                            
+                                        @endif
                                     </div>
                                 </div>
                             </div>
