@@ -105,7 +105,6 @@
                                         <p>Продукт ИД: {{ $product->code }}&nbsp;|&nbsp;{{ $product->name }}&nbsp;|&nbsp;{{ $product_qt }}&nbsp;бр.</p>
                                         <p>Обща цена на стоките: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.</p>
                                         <p>Схема на изплащане: </p>
-                                        <p>Първоначална вноска: </p>
                                         <p>Брой погасителни вноски: {{ $current_meseci }}&nbsp;м.</p>
                                         <p>Месечна вноска: {{ $mesecna }}&nbsp;лв.</p>
                                         <p>ГПР: {{ $gpr }}&nbsp;%</p>
@@ -113,6 +112,9 @@
                                         <p>Обща дължима сума от потребителя: {{ $obshtozaplashtane }}&nbsp;лв.</p>
                                         <div style="padding-bottom:10px;"></div>
                                         <hr />
+                                        <div style="padding-bottom:10px;"></div>
+                                        <p>Вие се съгласихте с: <a target="_blank" href="http://dw-file.eu/%D0%A3%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%20%D0%B7%D0%B0%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D1%81%D1%82%D0%B2%D0%B0%D0%BD%D0%B5%20%D0%BD%D0%B0%20%D0%91%D0%9D%D0%9F%20%D0%9F%D0%B0%D1%80%D0%B8%D0%B1%D0%B0%20%D0%9B%D0%B8%D1%87%D0%BD%D0%B8%20%D0%A4%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%B8.pdf">Условияta за кандидатстване на БНП Париба Лични Финанси</a></p>
+                                        <p>Вие се съгласихте с <a target="_blank" href="http://dw-file.eu/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B7%D0%B0%20%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B8%D1%87%D0%BD%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8.pdf">"GDPR" Регламент (ЕС) 2016/679 от 27 април 2016 г. за защита на физическите лица по отношение на обработката на лични данни и за свободното движение на такива данни и за отмяна на Директива 95/46 / ЕО</a></p>
                                         <div style="padding-bottom:10px;"></div>
                                         <h4>Очаквайте контакт за потвърждаване на направената от Вас заявка.</h4>
                                         <h4>Можете да продължите с разглеждането на нашия магазин.</h4>

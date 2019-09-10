@@ -124,6 +124,18 @@
                                                         <input type="text" required name="credit_phone" id="credit_phone" title="Телефон" value="{{ $credit_phone }}">
                                                     </div><!--/ [col]-->
                                                 </li>
+                                                @if ($current_sheme == 'jet')
+                                                <li class="row">
+                                                    <div class="col-sm-6">
+                                                        <label for="credit_egn" class="required">ЕГН</label>
+                                                        <input type="text" required name="credit_egn" id="credit_egn" title="ЕГН">
+                                                    </div><!--/ [col]-->
+                                                    <div class="col-sm-6">
+                                                        <label for="credit_phone2" class="required">Допълн. телефон</label>
+                                                        <input type="text" required name="credit_phone2" id="credit_phone2" title="Допълнителен телефон за връзка"">
+                                                    </div><!--/ [col]-->
+                                                </li>                                                    
+                                                @endif
                                                 <li class="row">
                                                     <div class="col-sm-12">
                                                         <h5>Адресна информация за документи:</h5>
@@ -170,6 +182,28 @@
                                                         <input type="text" required name="deliveryCounty" id="deliveryCounty" title="Област" value="{{ $deliveryCounty }}">
                                                     </div><!--/ [col]-->
                                                 </li>
+                                                @if ($current_sheme == 'jet')
+                                                <li class="row">
+                                                    <div class="col-sm-12">
+                                                    </div><!--/ [col]-->
+                                                </li> 
+                                                <li class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form_el">
+                                                            <input type="checkbox" name="credit_jet_uslovia" id="credit_jet_uslovia">
+                                                            <label for="credit_jet_uslovia"><a target="_blank" href="http://dw-file.eu/%D0%A3%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%20%D0%B7%D0%B0%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D1%81%D1%82%D0%B2%D0%B0%D0%BD%D0%B5%20%D0%BD%D0%B0%20%D0%91%D0%9D%D0%9F%20%D0%9F%D0%B0%D1%80%D0%B8%D0%B1%D0%B0%20%D0%9B%D0%B8%D1%87%D0%BD%D0%B8%20%D0%A4%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%B8.pdf">Прочетох и съм съгласен с Условия за кандидатстване на БНП Париба Лични Финанси.</a> <a target="_blank" href="http://dw-file.eu/%D0%91%D0%9D%D0%9F%20%D0%9F%D0%B0%D1%80%D0%B8%D0%B1%D0%B0%20%D0%9B%D0%A4-%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F.pdf">Продуктова Информация на БНП Париба Лични Финанси</a></label>
+                                                        </div>
+                                                    </div><!--/ [col]-->
+                                                </li>                                                    
+                                                <li class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form_el">
+                                                            <input type="checkbox" name="credit_jet_gdpr" id="credit_jet_gdpr">
+                                                            <label for="credit_jet_gdpr"><a target="_blank" href="http://dw-file.eu/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B7%D0%B0%20%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B8%D1%87%D0%BD%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8.pdf">"GDPR" Регламент (ЕС) 2016/679 от 27 април 2016 г. за защита на физическите лица по отношение на обработката на лични данни и за свободното движение на такива данни и за отмяна на Директива 95/46 / ЕО</a></label>
+                                                        </div>
+                                                    </div><!--/ [col]-->
+                                                </li>                                                    
+                                                @endif
                                             </ul>
                                             <div style="padding-bottom:10px;"></div>
                                             <hr />
@@ -177,7 +211,7 @@
                                             <div class="row">
                                                 <div class="col-sm-8"></div><!--/ [col]-->
                                                 <div class="col-sm-4">
-                                                    <button type="submit" class="button_blue middle_btn">Приключване на покупката</button>
+                                                    <button id="btn_submit" type="button" onclick="submitCredit();" class="button_blue middle_btn">Приключване на покупката</button>
                                                 </div>
                                             </div><!--/ .row-->                                            
                                         </form>
@@ -193,4 +227,22 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    function submitCredit() {
+        if ("jet" == "{{ $current_sheme }}"){
+            if(!$('#credit_jet_uslovia').prop('checked')) {
+    		    alert("Необходимо е да се съгласите с Условия за кандидатстване на БНП Париба Лични Финанси!");
+                return false;
+	        }
+            if(!$('#credit_jet_gdpr').prop('checked')) {
+		        alert("Необходимо е да се съгласите с 'GDPR' Регламент!");
+                return false;
+	        }
+        }
+        $("#credit_ok").submit();
+    };
+</script>
 @endsection

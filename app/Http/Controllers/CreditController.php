@@ -325,6 +325,10 @@ class CreditController extends Controller
                     $category_id = '40';
                     $goods_objects = $this->CalculateGoodTypes($category_id);
 
+                    if ($goods_objects == null){
+                        return abort(404);
+                    }
+
                     foreach ($goods_objects as $good_object) {
                         $goods .= (string) $good_object->GoodTypeId . ',';
                     }
