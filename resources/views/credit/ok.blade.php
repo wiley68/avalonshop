@@ -99,8 +99,9 @@
                                         <h4>Заявка за лизинг с Париба лични финанси.</h4>
                                         <p>Име: {{ $credit_fname }}</p>
                                         <p>Фамилия: {{ $credit_lname }}</p>
+                                        <p>ЕГН: {{ $credit_egn }}</p>
                                         <p>Телефон: {{ $credit_phone }}</p>
-                                        <p>Втори телефон: </p>
+                                        <p>Втори телефон: {{ $credit_phone2 }}</p>
                                         <p>E-Mail: {{ $credit_email }}</p>
                                         <p>Продукт ИД: {{ $product->code }}&nbsp;|&nbsp;{{ $product->name }}&nbsp;|&nbsp;{{ $product_qt }}&nbsp;бр.</p>
                                         <p>Обща цена на стоките: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.</p>
@@ -108,7 +109,7 @@
                                         <p>Брой погасителни вноски: {{ $current_meseci }}&nbsp;м.</p>
                                         <p>Месечна вноска: {{ $mesecna }}&nbsp;лв.</p>
                                         <p>ГПР: {{ $gpr }}&nbsp;%</p>
-                                        <p>ГЛП: </p>
+                                        <p>ГЛП: {{ $glp }}&nbsp;%</p>
                                         <p>Обща дължима сума от потребителя: {{ $obshtozaplashtane }}&nbsp;лв.</p>
                                         <div style="padding-bottom:10px;"></div>
                                         <hr />

@@ -39,4 +39,11 @@
 @endphp
 <p><b>Доставка:</b>&nbsp;{{ $shipping }}</p>
 <p><b>Плащане:</b>&nbsp;{{ $payment }}</p>
+@if (($orderok->payment == "tbi") || ($orderok->payment == "uni") || ($orderok->payment == "jet"))
+    <p><b>Брой погасителни вноски:</b>&nbsp;{{ $orderok->current_meseci }}</p>
+    <p><b>Месечна вноска:</b>&nbsp;{{ $orderok->mesecna }}</p>
+    <p><b>ГПР:</b>&nbsp;{{ $orderok->gpr }}</p>
+    <p><b>ГЛП:</b>&nbsp;{{ $orderok->glp }}</p>
+    <p><b>Обща дължима сума от потребителя:</b>&nbsp;{{ $orderok->obshtozaplashtane }}</p>
+@endif
 </div>

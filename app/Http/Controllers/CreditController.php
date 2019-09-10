@@ -28,82 +28,109 @@ class CreditController extends Controller
             $tbipayment_mesecna_3 = 0;
             $tbipayment_obshtozaplashtane_input_3 = 0;
             $tbipayment_gpr_3 = 0;
+            $tbipayment_glp_3 = 0;
             $tbipayment_mesecna_6 = 0;
             $tbipayment_obshtozaplashtane_input_6 = 0;
             $tbipayment_gpr_6 = 0;
+            $tbipayment_glp_6 = 0;
             $tbipayment_mesecna_9 = 0;
             $tbipayment_obshtozaplashtane_input_9 = 0;
             $tbipayment_gpr_9 = 0;
+            $tbipayment_glp_9 = 0;
             $tbipayment_mesecna_12 = 0;
             $tbipayment_obshtozaplashtane_input_12 = 0;
             $tbipayment_gpr_12 = 0;
+            $tbipayment_glp_12 = 0;
             $tbipayment_mesecna_15 = 0;
             $tbipayment_obshtozaplashtane_input_15 = 0;
             $tbipayment_gpr_15 = 0;
+            $tbipayment_glp_15 = 0;
             $tbipayment_mesecna_18 = 0;
             $tbipayment_obshtozaplashtane_input_18 = 0;
             $tbipayment_gpr_18 = 0;
+            $tbipayment_glp_18 = 0;
             $tbipayment_mesecna_24 = 0;
             $tbipayment_obshtozaplashtane_input_24 = 0;
             $tbipayment_gpr_24 = 0;
+            $tbipayment_glp_24 = 0;
             $tbipayment_mesecna_30 = 0;
             $tbipayment_obshtozaplashtane_input_30 = 0;
             $tbipayment_gpr_30 = 0;
+            $tbipayment_glp_30 = 0;
             $tbipayment_mesecna_36 = 0;
             $tbipayment_obshtozaplashtane_input_36 = 0;
             $tbipayment_gpr_36 = 0;
+            $tbipayment_glp_36 = 0;
             $jet_gpr_3 = 0;
+            $jet_glp_3 = 0;
             $jet_obshtozaplashtane_input_3 = 0;
             $jet_mesecna_3 = 0;
             $jet_gpr_6 = 0;
+            $jet_glp_6 = 0;
             $jet_obshtozaplashtane_input_6 = 0;
             $jet_mesecna_6 = 0;
             $jet_gpr_9 = 0;
+            $jet_glp_9 = 0;
             $jet_obshtozaplashtane_input_9 = 0;
             $jet_mesecna_9 = 0;
             $jet_gpr_12 = 0;
+            $jet_glp_12 = 0;
             $jet_obshtozaplashtane_input_12 = 0;
             $jet_mesecna_12 = 0;
             $jet_gpr_15 = 0;
+            $jet_glp_15 = 0;
             $jet_obshtozaplashtane_input_15 = 0;
             $jet_mesecna_15 = 0;
             $jet_gpr_18 = 0;
+            $jet_glp_18 = 0;
             $jet_obshtozaplashtane_input_18 = 0;
             $jet_mesecna_18 = 0;
             $jet_gpr_24 = 0;
+            $jet_glp_24 = 0;
             $jet_obshtozaplashtane_input_24 = 0;
             $jet_mesecna_24 = 0;
             $jet_gpr_30 = 0;
+            $jet_glp_30 = 0;
             $jet_obshtozaplashtane_input_30 = 0;
             $jet_mesecna_30 = 0;
             $jet_gpr_36 = 0;
+            $jet_glp_36 = 0;
             $jet_obshtozaplashtane_input_36 = 0;
             $jet_mesecna_36 = 0;
             $uni_gpr_3 = 0;
+            $uni_glp_3 = 0;
             $uni_obshtozaplashtane_input_3 = 0;
             $uni_mesecna_3 = 0;
             $uni_gpr_6 = 0;
+            $uni_glp_6 = 0;
             $uni_obshtozaplashtane_input_6 = 0;
             $uni_mesecna_6 = 0;
             $uni_gpr_9 = 0;
+            $uni_glp_9 = 0;
             $uni_obshtozaplashtane_input_9 = 0;
             $uni_mesecna_9 = 0;
             $uni_gpr_12 = 0;
+            $uni_glp_12 = 0;
             $uni_obshtozaplashtane_input_12 = 0;
             $uni_mesecna_12 = 0;
             $uni_gpr_15 = 0;
+            $uni_glp_15 = 0;
             $uni_obshtozaplashtane_input_15 = 0;
             $uni_mesecna_15 = 0;
             $uni_gpr_18 = 0;
+            $uni_glp_18 = 0;
             $uni_obshtozaplashtane_input_18 = 0;
             $uni_mesecna_18 = 0;
             $uni_gpr_24 = 0;
+            $uni_glp_24 = 0;
             $uni_obshtozaplashtane_input_24 = 0;
             $uni_mesecna_24 = 0;
             $uni_gpr_30 = 0;
+            $uni_glp_30 = 0;
             $uni_obshtozaplashtane_input_30 = 0;
             $uni_mesecna_30 = 0;
             $uni_gpr_36 = 0;
+            $uni_glp_36 = 0;
             $uni_obshtozaplashtane_input_36 = 0;
             $uni_mesecna_36 = 0;
 
@@ -398,46 +425,55 @@ class CreditController extends Controller
                             foreach ($CreditPropositions as $CreditProposition) {
                                 if ((string) $CreditProposition->Maturity == '3') {
                                     $jet_gpr_3 = (float) $CreditProposition->APR;
+                                    $jet_glp_3 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_3 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_3 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '6') {
                                     $jet_gpr_6 = (float) $CreditProposition->APR;
+                                    $jet_glp_6 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_6 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_6 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '9') {
                                     $jet_gpr_9 = (float) $CreditProposition->APR;
+                                    $jet_glp_9 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_9 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_9 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '12') {
                                     $jet_gpr_12 = (float) $CreditProposition->APR;
+                                    $jet_glp_12 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_12 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_12 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '15') {
                                     $jet_gpr_15 = (float) $CreditProposition->APR;
+                                    $jet_glp_15 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_15 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_15 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '18') {
                                     $jet_gpr_18 = (float) $CreditProposition->APR;
+                                    $jet_glp_18 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_18 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_18 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '24') {
                                     $jet_gpr_24 = (float) $CreditProposition->APR;
+                                    $jet_glp_24 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_24 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_24 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '30') {
                                     $jet_gpr_30 = (float) $CreditProposition->APR;
+                                    $jet_glp_30 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_30 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_30 = (float) $CreditProposition->InstallmentAmount;
                                 }
                                 if ((string) $CreditProposition->Maturity == '36') {
                                     $jet_gpr_36 = (float) $CreditProposition->APR;
+                                    $jet_glp_36 = (float) $CreditProposition->NIR;
                                     $jet_obshtozaplashtane_input_36 = (float) $CreditProposition->TotalRepaymentAmount;
                                     $jet_mesecna_36 = (float) $CreditProposition->InstallmentAmount;
                                 }
@@ -686,82 +722,109 @@ class CreditController extends Controller
             'tbipayment_mesecna_3' => $tbipayment_mesecna_3,
             'tbipayment_obshtozaplashtane_input_3' => $tbipayment_obshtozaplashtane_input_3,
             'tbipayment_gpr_3' => $tbipayment_gpr_3,
+            'tbipayment_glp_3' => $tbipayment_glp_3,
             'tbipayment_mesecna_6' => $tbipayment_mesecna_6,
             'tbipayment_obshtozaplashtane_input_6' => $tbipayment_obshtozaplashtane_input_6,
             'tbipayment_gpr_6' => $tbipayment_gpr_6,
+            'tbipayment_glp_6' => $tbipayment_glp_6,
             'tbipayment_mesecna_9' => $tbipayment_mesecna_9,
             'tbipayment_obshtozaplashtane_input_9' => $tbipayment_obshtozaplashtane_input_9,
             'tbipayment_gpr_9' => $tbipayment_gpr_9,
+            'tbipayment_glp_9' => $tbipayment_glp_9,
             'tbipayment_mesecna_12' => $tbipayment_mesecna_12,
             'tbipayment_obshtozaplashtane_input_12' => $tbipayment_obshtozaplashtane_input_12,
             'tbipayment_gpr_12' => $tbipayment_gpr_12,
+            'tbipayment_glp_12' => $tbipayment_glp_12,
             'tbipayment_mesecna_15' => $tbipayment_mesecna_15,
             'tbipayment_obshtozaplashtane_input_15' => $tbipayment_obshtozaplashtane_input_15,
             'tbipayment_gpr_15' => $tbipayment_gpr_15,
+            'tbipayment_glp_15' => $tbipayment_glp_15,
             'tbipayment_mesecna_18' => $tbipayment_mesecna_18,
             'tbipayment_obshtozaplashtane_input_18' => $tbipayment_obshtozaplashtane_input_18,
             'tbipayment_gpr_18' => $tbipayment_gpr_18,
+            'tbipayment_glp_18' => $tbipayment_glp_18,
             'tbipayment_mesecna_24' => $tbipayment_mesecna_24,
             'tbipayment_obshtozaplashtane_input_24' => $tbipayment_obshtozaplashtane_input_24,
             'tbipayment_gpr_24' => $tbipayment_gpr_24,
+            'tbipayment_glp_24' => $tbipayment_glp_24,
             'tbipayment_mesecna_30' => $tbipayment_mesecna_30,
             'tbipayment_obshtozaplashtane_input_30' => $tbipayment_obshtozaplashtane_input_30,
             'tbipayment_gpr_30' => $tbipayment_gpr_30,
+            'tbipayment_glp_30' => $tbipayment_glp_30,
             'tbipayment_mesecna_36' => $tbipayment_mesecna_36,
             'tbipayment_obshtozaplashtane_input_36' => $tbipayment_obshtozaplashtane_input_36,
             'tbipayment_gpr_36' => $tbipayment_gpr_36,
+            'tbipayment_glp_36' => $tbipayment_glp_36,
             'jet_gpr_3' => $jet_gpr_3,
+            'jet_glp_3' => $jet_glp_3,
             'jet_obshtozaplashtane_input_3' => $jet_obshtozaplashtane_input_3,
             'jet_mesecna_3' => $jet_mesecna_3,
             'jet_gpr_6' => $jet_gpr_6,
+            'jet_glp_6' => $jet_glp_6,
             'jet_obshtozaplashtane_input_6' => $jet_obshtozaplashtane_input_6,
             'jet_mesecna_6' => $jet_mesecna_6,
             'jet_gpr_9' => $jet_gpr_9,
+            'jet_glp_9' => $jet_glp_9,
             'jet_obshtozaplashtane_input_9' => $jet_obshtozaplashtane_input_9,
             'jet_mesecna_9' => $jet_mesecna_9,
             'jet_gpr_12' => $jet_gpr_12,
+            'jet_glp_12' => $jet_glp_12,
             'jet_obshtozaplashtane_input_12' => $jet_obshtozaplashtane_input_12,
             'jet_mesecna_12' => $jet_mesecna_12,
             'jet_gpr_15' => $jet_gpr_15,
+            'jet_glp_15' => $jet_glp_15,
             'jet_obshtozaplashtane_input_15' => $jet_obshtozaplashtane_input_15,
             'jet_mesecna_15' => $jet_mesecna_15,
             'jet_gpr_18' => $jet_gpr_18,
+            'jet_glp_18' => $jet_glp_18,
             'jet_obshtozaplashtane_input_18' => $jet_obshtozaplashtane_input_18,
             'jet_mesecna_18' => $jet_mesecna_18,
             'jet_gpr_24' => $jet_gpr_24,
+            'jet_glp_24' => $jet_glp_24,
             'jet_obshtozaplashtane_input_24' => $jet_obshtozaplashtane_input_24,
             'jet_mesecna_24' => $jet_mesecna_24,
             'jet_gpr_30' => $jet_gpr_30,
+            'jet_glp_30' => $jet_glp_30,
             'jet_obshtozaplashtane_input_30' => $jet_obshtozaplashtane_input_30,
             'jet_mesecna_30' => $jet_mesecna_30,
             'jet_gpr_36' => $jet_gpr_36,
+            'jet_glp_36' => $jet_glp_36,
             'jet_obshtozaplashtane_input_36' => $jet_obshtozaplashtane_input_36,
             'jet_mesecna_36' => $jet_mesecna_36,
             'uni_gpr_3' => $uni_gpr_3,
+            'uni_glp_3' => $uni_glp_3,
             'uni_obshtozaplashtane_input_3' => $uni_obshtozaplashtane_input_3,
             'uni_mesecna_3' => $uni_mesecna_3,
             'uni_gpr_6' => $uni_gpr_6,
+            'uni_glp_6' => $uni_glp_6,
             'uni_obshtozaplashtane_input_6' => $uni_obshtozaplashtane_input_6,
             'uni_mesecna_6' => $uni_mesecna_6,
             'uni_gpr_9' => $uni_gpr_9,
+            'uni_glp_9' => $uni_glp_9,
             'uni_obshtozaplashtane_input_9' => $uni_obshtozaplashtane_input_9,
             'uni_mesecna_9' => $uni_mesecna_9,
             'uni_gpr_12' => $uni_gpr_12,
+            'uni_glp_12' => $uni_glp_12,
             'uni_obshtozaplashtane_input_12' => $uni_obshtozaplashtane_input_12,
             'uni_mesecna_12' => $uni_mesecna_12,
             'uni_gpr_15' => $uni_gpr_15,
+            'uni_glp_15' => $uni_glp_15,
             'uni_obshtozaplashtane_input_15' => $uni_obshtozaplashtane_input_15,
             'uni_mesecna_15' => $uni_mesecna_15,
             'uni_gpr_18' => $uni_gpr_18,
+            'uni_glp_18' => $uni_glp_18,
             'uni_obshtozaplashtane_input_18' => $uni_obshtozaplashtane_input_18,
             'uni_mesecna_18' => $uni_mesecna_18,
             'uni_gpr_24' => $uni_gpr_24,
+            'uni_glp_24' => $uni_glp_24,
             'uni_obshtozaplashtane_input_24' => $uni_obshtozaplashtane_input_24,
             'uni_mesecna_24' => $uni_mesecna_24,
             'uni_gpr_30' => $uni_gpr_30,
+            'uni_glp_30' => $uni_glp_30,
             'uni_obshtozaplashtane_input_30' => $uni_obshtozaplashtane_input_30,
             'uni_mesecna_30' => $uni_mesecna_30,
             'uni_gpr_36' => $uni_gpr_36,
+            'uni_glp_36' => $uni_glp_36,
             'uni_obshtozaplashtane_input_36' => $uni_obshtozaplashtane_input_36,
             'uni_mesecna_36' => $uni_mesecna_36,
             'first' => $first,
@@ -953,9 +1016,9 @@ class CreditController extends Controller
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $CreditPropositions = null;
         if ($code == 200) {
             $oXML = new \SimpleXMLElement($content);
-            $CreditPropositions = null;
             if ($oXML->ErrorCode == 0) {
                 $CreditPropositions = $oXML->Data->CreditProposition;
                 return $CreditPropositions;
@@ -1081,6 +1144,11 @@ class CreditController extends Controller
             }else{
                 $gpr = null;
             }
+            if ($request->has('glp')){
+                $glp = $request->input('glp');
+            }else{
+                $glp = null;
+            }
             if ($request->has('obshtozaplashtane')){
                 $obshtozaplashtane = $request->input('obshtozaplashtane');
             }else{
@@ -1122,6 +1190,7 @@ class CreditController extends Controller
                 'current_meseci' => $current_meseci,
                 'mesecna' => $mesecna,
                 'gpr' => $gpr,
+                'glp' => $glp,
                 'obshtozaplashtane' => $obshtozaplashtane,
                 'credit_fname' => $credit_fname,
                 'credit_lname' => $credit_lname,
@@ -1166,6 +1235,11 @@ class CreditController extends Controller
             }else{
                 $gpr = null;
             }
+            if ($request->has('glp')){
+                $glp = $request->input('glp');
+            }else{
+                $glp = null;
+            }
             if ($request->has('obshtozaplashtane')){
                 $obshtozaplashtane = $request->input('obshtozaplashtane');
             }else{
@@ -1190,6 +1264,16 @@ class CreditController extends Controller
                 $credit_phone = $request->input('credit_phone');
             }else{
                 $credit_phone = "";
+            }
+            if ($request->has('credit_phone2')){
+                $credit_phone2 = $request->input('credit_phone2');
+            }else{
+                $credit_phone2 = "";
+            }
+            if ($request->has('credit_egn')){
+                $credit_egn = $request->input('credit_egn');
+            }else{
+                $credit_egn = "";
             }
             if ($request->has('billingAddress')){
                 $billingAddress = $request->input('billingAddress');
@@ -1244,7 +1328,12 @@ class CreditController extends Controller
                     "jet",
                     $request->input('product_id'),
                     $request->input('product_qt'),
-                    $product->price
+                    $product->price,
+                    $current_meseci,
+                    $mesecna,
+                    $gpr,
+                    $glp,
+                    $obshtozaplashtane
                 );
             }
             /** UNI */
@@ -1263,7 +1352,12 @@ class CreditController extends Controller
                     "uni",
                     $request->input('product_id'),
                     $request->input('product_qt'),
-                    $product->price
+                    $product->price,
+                    $current_meseci,
+                    $mesecna,
+                    $gpr,
+                    $glp,
+                    $obshtozaplashtane
                 );
                 /** create Kontroll Panel order */
                 if (!defined('UNIPAYMENT_LIVEURL'))
@@ -1331,7 +1425,12 @@ class CreditController extends Controller
                     "tbi",
                     $request->input('product_id'),
                     $request->input('product_qt'),
-                    $product->price
+                    $product->price,
+                    $current_meseci,
+                    $mesecna,
+                    $gpr,
+                    $glp,
+                    $obshtozaplashtane
                 );
             }
 
@@ -1346,11 +1445,14 @@ class CreditController extends Controller
                 'current_meseci' => $current_meseci,
                 'mesecna' => $mesecna,
                 'gpr' => $gpr,
+                'glp' => $glp,
                 'obshtozaplashtane' => $obshtozaplashtane,
                 'credit_fname' => $credit_fname,
                 'credit_lname' => $credit_lname,
                 'credit_email' => $credit_email,
                 'credit_phone' => $credit_phone,
+                'credit_phone2' => $credit_phone2,
+                'credit_egn' => $credit_egn,
                 'billingAddress' => $billingAddress,
                 'billingCity' => $billingCity,
                 'billingCounty' => $billingCounty,
@@ -1377,7 +1479,12 @@ class CreditController extends Controller
         $payment,
         $product_id,
         $product_qt,
-        $product_price){
+        $product_price,
+        $current_meseci,
+        $mesecna,
+        $gpr,
+        $glp,
+        $obshtozaplashtane){
 
         $order = new Order();
         if (!empty(Auth::user())){
@@ -1425,6 +1532,11 @@ class CreditController extends Controller
         $objMailAdmin->order = $order->id;
         $objMailAdmin->shipping = $order->shipping;
         $objMailAdmin->payment = $order->payment;
+        $objMailAdmin->current_meseci = $current_meseci;
+        $objMailAdmin->mesecna = $mesecna;
+        $objMailAdmin->gpr = $gpr;
+        $objMailAdmin->glp = $glp;
+        $objMailAdmin->obshtozaplashtane = $obshtozaplashtane;
         $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
         
@@ -1438,6 +1550,11 @@ class CreditController extends Controller
         $objMailUser->order = $order->id;
         $objMailUser->shipping = $order->shipping;
         $objMailUser->payment = $order->payment;
+        $objMailUser->current_meseci = $current_meseci;
+        $objMailUser->mesecna = $mesecna;
+        $objMailUser->gpr = $gpr;
+        $objMailUser->glp = $glp;
+        $objMailUser->obshtozaplashtane = $obshtozaplashtane;
         $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         
         $suborders = Suborder::where(['order_id' => $order->id])->get();

@@ -78,6 +78,13 @@
 @endphp
 <p><b>Доставка:</b>&nbsp;{{ $shipping }}</p>
 <p><b>Плащане:</b>&nbsp;{{ $payment }}</p>
+@if (($orderuser->payment == "tbi") || ($orderuser->payment == "uni") || ($orderuser->payment == "jet"))
+    <p><b>Брой погасителни вноски:</b>&nbsp;{{ $orderuser->current_meseci }}</p>
+    <p><b>Месечна вноска:</b>&nbsp;{{ $orderuser->mesecna }}</p>
+    <p><b>ГПР:</b>&nbsp;{{ $orderuser->gpr }}</p>
+    <p><b>ГЛП:</b>&nbsp;{{ $orderuser->glp }}</p>
+    <p><b>Обща дължима сума от потребителя:</b>&nbsp;{{ $orderuser->obshtozaplashtane }}</p>
+@endif
 <br />
 <p>Благодарим Ви за направената поръчка!</p>
 </div>

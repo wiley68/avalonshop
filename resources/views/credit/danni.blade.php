@@ -26,7 +26,7 @@
                                     break;
                             }
                         @endphp
-                        <p>Кредитна компания: <b>{{ $company }}</b>&nbsp;|&nbsp;Брой вноски: <b>{{ $current_meseci }}</b> м.&nbsp;|&nbsp;Месечна вноска: <b>{{ $mesecna }}</b> лв.&nbsp;|&nbsp;ГПР: <b>{{ $gpr }}</b> %&nbsp;|&nbsp;Общо за плащане: <b>{{ $obshtozaplashtane }}</b> лв.</p>
+                        <p>Кредитна компания: <b>{{ $company }}</b>&nbsp;|&nbsp;Брой вноски: <b>{{ $current_meseci }}</b> м.&nbsp;|&nbsp;Месечна вноска: <b>{{ $mesecna }}</b> лв.&nbsp;|&nbsp;ГПР: <b>{{ $gpr }}</b> %&nbsp;|&nbsp;ГЛП: <b>{{ $glp }}</b> %&nbsp;|&nbsp;Общо за плащане: <b>{{ $obshtozaplashtane }}</b> лв.</p>
                     </div>
                 </section>
                 <div class="row">
@@ -101,6 +101,7 @@
                                             <input type="hidden" name="current_meseci" value="{{ $current_meseci }}">
                                             <input type="hidden" name="mesecna" value="{{ $mesecna }}">
                                             <input type="hidden" name="gpr" value="{{ $gpr }}">
+                                            <input type="hidden" name="glp" value="{{ $glp }}">
                                             <input type="hidden" name="obshtozaplashtane" value="{{ $obshtozaplashtane }}">
                                             <h4 class="form_caption">Моля попълнете исканите данни. Те ще бъдат използване за попълване на необходимите документи за извършване на покупката на кредит.</h4>
                                             <ul>
@@ -216,6 +217,9 @@
                                             </div><!--/ .row-->                                            
                                         </form>
                                     </div>
+                                    <div id="save_box" class="overlay" style="display:none;">
+                                        <i class="fa fa-refresh fa-spin"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div><!--/ .section_offset -->
@@ -232,13 +236,16 @@
 @section('scripts')
 <script>
     function submitCredit() {
+        $('#save_box').show();
         if ("jet" == "{{ $current_sheme }}"){
             if(!$('#credit_jet_uslovia').prop('checked')) {
     		    alert("Необходимо е да се съгласите с Условия за кандидатстване на БНП Париба Лични Финанси!");
+                $('#save_box').hide();
                 return false;
 	        }
             if(!$('#credit_jet_gdpr').prop('checked')) {
 		        alert("Необходимо е да се съгласите с 'GDPR' Регламент!");
+                $('#save_box').hide();
                 return false;
 	        }
         }
