@@ -1,6 +1,80 @@
 @extends('layouts.design')
 @section('content')
 
+<style>
+/* loader panel */
+#uniloaderpanel {	
+    display: none;	
+    position: fixed;	
+    top:calc(100% / 2);	
+    left:calc(100% / 2 - 200px);	
+    background: white;	
+    z-index:999;	
+    border: 2px solid #f3f3f3;	
+    width: 400px;	
+    height: 90px;
+}
+#uniloader {	
+    position: absolute; 	
+    top:10px;	
+    left:10px;	
+    border: 16px 
+    solid #f3f3f3;	
+    border-radius: 50%;	
+    border-top: 16px solid #D20210;	
+    width: 70px;	
+    height: 70px;	
+    -webkit-animation: spin 2s linear infinite; 
+    /* Safari */	
+    animation: spin 2s linear infinite;
+}
+#uniloadertext {	
+    position: absolute; 	
+    top: 0px;	
+    left: 90px;	
+    padding:10px;	
+    width: 100% - 90px;	
+    font-size: 12px;	
+    font-weight: bold;	
+    text-align: center;	
+    color: #D20210;
+}
+#uniloaderimg {	
+    position: absolute; 	
+    top:30px;
+    left:140px;	
+    width: 160px;	
+    text-align: center;
+}
+.uni_result{	
+    color: #D20210;	
+    font-weight: bold;	
+    font-size: 18px;
+}
+.uni_subresult{	
+    color: #D20210;	
+    font-weight: bold;	
+    font-size: 15px;
+}
+/* Safari */
+@-webkit-keyframes spin {	
+    0% { 
+        -webkit-transform: rotate(0deg); 
+    }	
+    100% { 
+        -webkit-transform: rotate(360deg); 
+    }
+}
+@keyframes spin {	
+    0% { 
+        transform: rotate(0deg); 
+    }	
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+/* loader panel */
+</style>
 <div class="page_wrapper">
     <div class="container">
             <div class="row">
@@ -90,10 +164,10 @@
                     </aside><!--/ [col]-->
                     <main class="col-md-9 col-sm-8">
                         <div class="section_offset">
+                            @if ($current_sheme == 'jet')
                             <div class="theme_box">
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        @if ($current_sheme == 'jet')
+                                    <div class="col-sm-12">                                 
                                         <h1>Резултат от заявка с номер: {{ $order_id }}</h1>
                                         <h4 class="success">Заявката е изпратена успешно.</h4>
                                         <h4>Заявка за лизинг с Париба лични финанси.</h4>
@@ -120,12 +194,20 @@
                                         <h4>Очаквайте контакт за потвърждаване на направената от Вас заявка.</h4>
                                         <h4>Можете да продължите с разглеждането на нашия магазин.</h4>
                                         <a href="{{ route('index') }}" type="button" class="button_blue middle_btn">Продължи с разглеждането на магазина</a>
-                                        @else
-                                            
-                                        @endif
                                     </div>
                                 </div>
                             </div>
+                            @else
+                                @if ($current_sheme == 'uni')
+                                    <div id="uniloaderpanel">
+                                        <div id="uniloader"></div>
+                                        <div id="uniloadertext">Ще бъдете прехвърлени към UNI Credit</div>
+                                        <div id="uniloaderimg"><img src="/images/credit/unicredit_logo.png" alt="UNI Credit" /></div>
+                                    </div> 
+                                @else
+                                                
+                                @endif
+                            @endif
                         </div><!--/ .section_offset -->
                     </main><!--/ [col]-->
                 </div><!--/ .row-->
@@ -136,3 +218,18 @@
 </div>
 
 @endsection
+@if ($current_sheme == 'uni')
+@section('scripts')
+<script type="text/javascript"><!--
+    $(document).ready(function(e) {
+        var uniloaderpanel = document.getElementById("uniloaderpanel");
+        uniloaderpanel.style.display = "block";
+        if (0 != {{$uni_api}}) {
+            window.location.href = '{{$uni_application}}/{{$uni_api}}';            
+        }
+    });
+//--></script>
+@endsection                                                
+@else
+    
+@endif

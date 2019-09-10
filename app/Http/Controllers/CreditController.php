@@ -540,30 +540,39 @@ class CreditController extends Controller
                     $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
                     $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
                     $uni_gpr_3 = $uni_3['gpr'];
+                    $uni_glp_3 = $uni_3['glp'];
                     $uni_obshtozaplashtane_input_3 = $uni_3['obshtozaplashtane_input'];
                     $uni_mesecna_3 = $uni_3['mesecna'];
                     $uni_gpr_6 = $uni_6['gpr'];
+                    $uni_glp_6 = $uni_6['glp'];
                     $uni_obshtozaplashtane_input_6 = $uni_6['obshtozaplashtane_input'];
                     $uni_mesecna_6 = $uni_6['mesecna'];
                     $uni_gpr_9 = $uni_9['gpr'];
+                    $uni_glp_9 = $uni_9['glp'];
                     $uni_obshtozaplashtane_input_9 = $uni_9['obshtozaplashtane_input'];
                     $uni_mesecna_9 = $uni_9['mesecna'];
                     $uni_gpr_12 = $uni_12['gpr'];
+                    $uni_glp_12 = $uni_12['glp'];
                     $uni_obshtozaplashtane_input_12 = $uni_12['obshtozaplashtane_input'];
                     $uni_mesecna_12 = $uni_12['mesecna'];
                     $uni_gpr_15 = $uni_15['gpr'];
+                    $uni_glp_15 = $uni_15['glp'];
                     $uni_obshtozaplashtane_input_15 = $uni_15['obshtozaplashtane_input'];
                     $uni_mesecna_15 = $uni_15['mesecna'];
                     $uni_gpr_18 = $uni_18['gpr'];
+                    $uni_glp_18 = $uni_18['glp'];
                     $uni_obshtozaplashtane_input_18 = $uni_18['obshtozaplashtane_input'];
                     $uni_mesecna_18 = $uni_18['mesecna'];
                     $uni_gpr_24 = $uni_24['gpr'];
+                    $uni_glp_24 = $uni_24['glp'];
                     $uni_obshtozaplashtane_input_24 = $uni_24['obshtozaplashtane_input'];
                     $uni_mesecna_24 = $uni_24['mesecna'];
                     $uni_gpr_30 = $uni_30['gpr'];
+                    $uni_glp_30 = $uni_30['glp'];
                     $uni_obshtozaplashtane_input_30 = $uni_30['obshtozaplashtane_input'];
                     $uni_mesecna_30 = $uni_30['mesecna'];
                     $uni_gpr_36 = $uni_36['gpr'];
+                    $uni_glp_36 = $uni_36['glp'];
                     $uni_obshtozaplashtane_input_36 = $uni_36['obshtozaplashtane_input'];
                     $uni_mesecna_36 = $uni_36['mesecna'];
                     /** UniCredit */
@@ -1080,6 +1089,7 @@ class CreditController extends Controller
 
         $result = [];
         $result['gpr'] = $uni_gpr;
+        $result['glp'] = $glp;
         $result['obshtozaplashtane_input'] = $uni_obshtozaplashtane;
         $result['mesecna'] = $uni_mesecna;
 
@@ -1312,6 +1322,9 @@ class CreditController extends Controller
                 $shipping = "spedy";
             }
             $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
+            $uni_api = 0;
+            $uni_application = "";
+
         /** JET */
             if ($current_sheme == "jet"){
                 //create order
@@ -1388,7 +1401,7 @@ class CreditController extends Controller
                     'orderTotal' => floatval($product->price) * floatval($request->input('product_qt')),
                     'vnoska' => $mesecna,
                     'gpr' => $gpr,
-                    'glp' => "",
+                    'glp' => $glp,
                     'vnoski' => $current_meseci,
                     'parva' => "",
                     'devices' => $devices,		
@@ -1406,8 +1419,66 @@ class CreditController extends Controller
                     ],
                     'items' => $uni_items
                 ];
-                /** redirect to UNI Credit */
 
+                curl_setopt($uni_add_ch, CURLOPT_POSTFIELDS, http_build_query($uni_post));
+		        $paramsuniadd=json_decode(curl_exec($uni_add_ch), true);
+		        curl_close($uni_add_ch);
+                
+                /** redirect to UNI Credit */
+                $uni_service = "https://online.ucfin.bg/suos/api/otp/";
+                $uni_application = "https://online.ucfin.bg/sucf-online/Request/Start";
+                $uni_user = "Wiley68";
+                $uni_password = "Avatest";
+                $uni_categories_kop = 'POS COT 50';
+                $uni_data = [
+                    'user' => $uni_user,
+                    'pass' => $uni_password,
+                    'orderNo' => $paramsuniadd['newid'],
+                    'clientFirstName' => $credit_fname,
+                    'clientLastName' => $credit_lname,
+                    'clientPhone' => $credit_phone,
+                    'clientEmail' => $credit_email,
+                    'clientDeliveryAddress' => $billingAddress,
+                    'onlineProductCode' => $uni_categories_kop,
+                    'totalPrice' => floatval($product->price) * floatval($request->input('product_qt')),
+                    'initialPayment' => 0,
+                    'installmentCount' => $current_meseci,
+                    'monthlyPayment' => $mesecna,
+                    'items' => $uni_items
+                ];
+                $keyFile = public_path() . "/keys/avalon_private_key.pem";
+                $certFile = public_path() . "/keys/avalon_cert.pem";
+                $uni_api_ch = curl_init();
+                curl_setopt_array($uni_api_ch, array(
+                    CURLOPT_URL => $uni_service . "sucfOnlineSessionStart",
+                    // името на файл, съдържащ само личен SSL ключ в текстови формат (PEM)
+                    CURLOPT_SSLKEY => $keyFile,
+                    CURLOPT_SSLKEYPASSWD => "1234",
+                    // името на файл, съдържащ само клиентския сартификат в текстови формат (PEM)
+                    CURLOPT_SSLCERT => $certFile,
+                    CURLOPT_SSLCERTPASSWD => "1234",
+                
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 2,
+                    CURLOPT_TIMEOUT => 5,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS => 	json_encode($uni_data),
+                    CURLOPT_HTTPHEADER => array(
+                        "Content-Type: application/json",
+                        "cache-control: no-cache"
+                    ),
+                ));
+                //$responseapi = curl_exec($uni_api_ch);
+    			//$err = curl_error($uni_api_ch);
+	    		//curl_close($uni_api_ch);
+
+		    	//$api_obj = json_decode($responseapi);
+			    //if (!empty($api_obj->sucfOnlineSessionID)){
+				//    $uni_api = $api_obj->sucfOnlineSessionID;
+                //}	
+                
             }
             /** TBI */
             if ($current_sheme == "tbi"){
@@ -1459,7 +1530,9 @@ class CreditController extends Controller
                 'deliveryAddress' => $deliveryAddress,
                 'deliveryCity' => $deliveryCity,
                 'deliveryCounty' => $deliveryCounty,
-                'order_id' => $order_id
+                'order_id' => $order_id,
+                'uni_api' => $uni_api,
+                'uni_application' => $uni_application
             ]);    
         }else{
             return abort(404);
