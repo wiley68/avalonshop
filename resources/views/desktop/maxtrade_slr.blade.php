@@ -79,7 +79,7 @@
                     <p>Програма за управление на дейността на Ловно Рибарско Дружество</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 2]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 5]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -103,8 +103,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 2])->first())){
-                        $download_counts = Product::where(['id' => 2])->first()->downloads;
+                    if (!empty(Product::where(['id' => 5])->first())){
+                        $download_counts = Product::where(['id' => 5])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }
@@ -130,7 +130,7 @@
         $.ajax({
             type:'POST',
             url:'/add-download.html',
-            data:{id:2}
+            data:{id:5}
         });
     };
 </script>

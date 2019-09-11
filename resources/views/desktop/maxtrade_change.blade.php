@@ -90,7 +90,7 @@
                     <p>Програма за регистриране на дейността по продажба и обмен на валута</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 6]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 1]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -114,8 +114,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 6])->first())){
-                        $download_counts = Product::where(['id' => 6])->first()->downloads;
+                    if (!empty(Product::where(['id' => 1])->first())){
+                        $download_counts = Product::where(['id' => 1])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }
@@ -141,7 +141,7 @@
         $.ajax({
             type:'POST',
             url:'/add-download.html',
-            data:{id:6}
+            data:{id:1}
         });
     };
 </script>

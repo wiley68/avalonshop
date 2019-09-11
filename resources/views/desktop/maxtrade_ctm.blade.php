@@ -191,7 +191,7 @@
                     <p>Програма за управление на дейността на Служба по трудова медицина</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 7]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 3]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -215,8 +215,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 7])->first())){
-                        $download_counts = Product::where(['id' => 7])->first()->downloads;
+                    if (!empty(Product::where(['id' => 3])->first())){
+                        $download_counts = Product::where(['id' => 3])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }
@@ -242,7 +242,7 @@
         $.ajax({
             type:'POST',
             url:'/add-download.html',
-            data:{id:7}
+            data:{id:3}
         });
     };
 </script>

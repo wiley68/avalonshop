@@ -98,7 +98,7 @@
                     <p>Програма за съхранение и печат на митнически товарителници (ЧМР)</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 1]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 2]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -122,8 +122,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 1])->first())){
-                        $download_counts = Product::where(['id' => 1])->first()->downloads;
+                    if (!empty(Product::where(['id' => 2])->first())){
+                        $download_counts = Product::where(['id' => 2])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }
@@ -149,7 +149,7 @@
         $.ajax({
             type:'POST',
             url:'/add-download.html',
-            data:{id:1}
+            data:{id:2}
         });
     };
 </script>
