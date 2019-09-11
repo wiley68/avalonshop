@@ -5,17 +5,17 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118342723-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118342723-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-118342723-1');
+        gtag('config', 'UA-118342723-3');
     </script>
     <!-- Basic page needs
     ============================================ -->
     @php
-        $property = Property::where('id', '>', 0)->first(); 
+        $property = Property::where('id', '>', 0)->first();
         $show = false;
         if (!empty($property)){
             if ($property->status == 'Yes'){
@@ -24,11 +24,11 @@
                     if (($ip_address == HelpController::getUserIP()) || ('::1' == HelpController::getUserIP())){
                         $show = true;
                     }
-                }              
+                }
             }else{
                 $show = true;
             }
-        }       
+        }
     @endphp
     @if(!$show)
     <meta http-equiv="refresh" content="0; url=/maintanence.html" />
