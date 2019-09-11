@@ -75,7 +75,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-primary" style="width: 100%;" href="/produkt/maxtrade-cmr/" rel="noopener">
+                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 2]) }}" rel="noopener">
                     Maxtrade CMR<br>29.00 лв. с ДДС </a></p>
             <p class="small">* Лицензия за ползване на продукта на едно работно място за една година.</p>
             <p class="small" style="color: red;">Посочената цена е само за закупуване на самия модул. В цената

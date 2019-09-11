@@ -168,7 +168,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-default" style="width: 100%;" href="/produkt/maxtrade-ctm/" rel="noopener">
+                <p><a class="btn btn-default" style="width: 100%;" href="{{ route('product', ['id' => 3]) }}" rel="noopener">
                     Maxtrade CTM<br />432.00 лв. с ДДС </a></p>
             <p class="small">* Лицензия за ползване на продукта на неограничен брой работни места за една
                 година.</p>
