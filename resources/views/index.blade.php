@@ -189,7 +189,7 @@
 								<a href="#" class="banner" title="Покупка на стоки на изплащане">
 									<img src="/images/banner_lizing.jpg" alt="Стоки на изплащане" style="border: 1px solid #A9A9A9;">
 								</a>
-								<a href="{{ route('product', ['id' => 1]) }}" class="banner">
+								<a href="{{ route('product', ['id' => 2]) }}" class="banner">
 									<img src="/images/cmr.png" alt="">
 								</a>
 							</div><!--/ [col]-->
