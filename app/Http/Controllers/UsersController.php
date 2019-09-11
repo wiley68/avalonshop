@@ -68,6 +68,7 @@ class UsersController extends Controller
             // Login new user
             if(Auth::attempt(['email' => $request->input('register_email'), 'password' => $request->input('register_password')])){
                 Session::put('frontUserLogin', $request->input('register_email'));
+                $user->sendEmailVerificationNotification();
                 return redirect('/home.html');
             }
         }
