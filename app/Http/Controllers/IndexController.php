@@ -51,6 +51,23 @@ class IndexController extends Controller
 			$tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim' . $paramstbi['tbi_container_reklama'] . '.png';
         }
         
+        /** TBI Bank */
+        $credituni_unicid = '9ce5287c-c8d1-4a22-878c-1a9d42d7160a';
+
+        $ch = curl_init();
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, 'https://unicreditconsumerfinancing.info/function/getparameters.php?cid='.$credituni_unicid);
+		$paramsuni=json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        $uni_logo = 'https://unicreditconsumerfinancing.info/dist/img/uni_logo.jpg';
+        $uni_backurl = $paramsuni['uni_backurl'];
+        $uni_picture = 'https://unicreditconsumerfinancing.info/calculators/assets/img/unim' . $paramsuni['uni_container_reklama'] . '.png';
+        $uni_container_txt1 = $paramsuni['uni_container_txt1'];
+        $uni_container_txt2 = $paramsuni['uni_container_txt2'];
+        $uni_container_status = $paramsuni['uni_container_status'];
+        
         /** Credit */
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
@@ -67,7 +84,13 @@ class IndexController extends Controller
             'supports_softwares' => $supports_softwares,
             'paramstbi' => $paramstbi,
             'deviceis' => $deviceis,
-            'tbi_picture' => $tbi_picture
+            'tbi_picture' => $tbi_picture,
+            'uni_container_status' => $uni_container_status,
+            'uni_logo' => $uni_logo,
+            'uni_picture' => $uni_picture,
+            'uni_container_txt1' => $uni_container_txt1,
+            'uni_container_txt2' => $uni_container_txt2,
+            'uni_backurl' => $uni_backurl
         ]);
     }
     /** end index menu */

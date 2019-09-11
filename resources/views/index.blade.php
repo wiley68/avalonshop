@@ -63,6 +63,63 @@
     .tbi-my-float{
     margin-top:12px;
     }
+.uni-label-container{
+	z-index:999;
+	position:fixed;
+	top:calc(100% / 3 - 130px);
+	left:122px;
+	display:table;
+	visibility: hidden;
+}
+.uni-label-text{
+	width:410px;
+	height:260px;
+	color:#696969;
+	background:#f5f5f5;
+	display:table-cell;
+	vertical-align:top;
+	padding-left:5px;
+	border:1px solid #D20210;
+	border-radius:3px;
+}
+.uni-label-text-a{
+	text-align:center;
+}
+.uni-label-text-a a{
+	color:#D20210;
+}
+.uni-label-text-a a:hover{
+	color:#D20210;
+	text-decoration:underline;
+}
+.uni-label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#f5f5f5;
+	opacity:1;
+}
+.uni_float{
+	z-index:999;
+	position:fixed;
+	width:120px;
+	height:60px;
+	top:calc(100% / 3 - 30px);
+	left:0px;
+	background-color:#ffffff;
+	border-top:1px solid #D20210;
+	border-right:1px solid #D20210;
+	border-bottom:1px solid #D20210;
+	color:#FFF;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	cursor:pointer;
+}
+.uni-my-float{
+	margin-top:12px;
+}
+
 </style>
 @if (!empty($message))
 <div class="container">
@@ -706,6 +763,28 @@
                     </div>
                 </div>
             @endif
+            <!-- TBI Bank -->
+            @if ($uni_container_status == 'Yes')
+                @if ($deviceis == 'pc')
+                <div class="uni_float" onclick="uniChangeContainer();">
+                    <img src="<?php echo $uni_logo; ?>" class="uni-my-float">
+                </div>
+                @else
+                <div class="uni_float" onclick="uniGoTo();">
+                    <img src="<?php echo $uni_logo; ?>" class="uni-my-float">
+                </div>
+                @endif
+                <div class="uni-label-container">
+                    <i class="fa fa-play fa-rotate-180 uni-label-arrow"></i>
+                    <div class="uni-label-text">
+                        <div style="padding-bottom:5px;"></div>
+                        <img src="<?php echo $uni_picture; ?>">
+                        <div style="font-size:16px;padding-top:3px;"><?php echo $uni_container_txt1; ?></div>
+                        <p><?php echo $uni_container_txt2; ?></p>
+                        <div class="uni-label-text-a"><a href="<?php echo $uni_backurl; ?>" target="_blank" alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
+                    </div>
+                </div>
+            @endif
             <!-- Credit -->
 			<!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
 @endsection
@@ -765,6 +844,22 @@ function tbiChangeContainer(){
 
 function tbipaymentGoTo(url){
 	window.open('{{ $paramstbi['tbi_backurl'] }}','_blank');
+}
+
+function uniChangeContainer(){
+	var uni_label_container = document.getElementsByClassName("uni-label-container")[0];
+	if (uni_label_container.style.visibility == 'visible'){
+		uni_label_container.style.visibility = 'hidden';
+		uni_label_container.style.opacity = 0;
+		uni_label_container.style.transition = 'visibility 0s, opacity 0.5s ease';				
+	}else{
+		uni_label_container.style.visibility = 'visible';
+		uni_label_container.style.opacity = 1;			
+	}
+}
+
+function uniGoTo(url){
+	window.open('{{$uni_backurl}}','_blank');
 }
 </script>
 @endsection
