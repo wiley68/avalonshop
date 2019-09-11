@@ -51,7 +51,7 @@ class IndexController extends Controller
 			$tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim' . $paramstbi['tbi_container_reklama'] . '.png';
         }
         
-        /** TBI Bank */
+        /** UNI Credit */
         $credituni_unicid = '9ce5287c-c8d1-4a22-878c-1a9d42d7160a';
 
         $ch = curl_init();

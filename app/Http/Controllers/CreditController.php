@@ -1324,6 +1324,10 @@ class CreditController extends Controller
             $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
             $uni_api = 0;
             $uni_application = "";
+            $tbipayment_pause_txt = "";
+            $send_redy = "";
+            $tbipayments_portal = "";
+            $tbipayment_guid = "";
 
         /** JET */
             if ($current_sheme == "jet"){
@@ -1481,7 +1485,7 @@ class CreditController extends Controller
                 
             }
             /** TBI */
-            if ($current_sheme == "tbi"){
+            if ($current_sheme == "tbipayment"){
                 //create order
                 $order_id = $this->createOrderSingle(
                     $credit_fname . " " . $credit_lname,
@@ -1503,6 +1507,145 @@ class CreditController extends Controller
                     $glp,
                     $obshtozaplashtane
                 );
+                /** create Kontroll Panel order */
+                $tbiro_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
+                $tbiro_store_id = '3793';
+                $tbiro_url = "https://api.tbibank.support/function/status.php";
+                $tbiro_username = 'avalonbg_sys';
+                $tbiro_password = 'avalon2019';
+                $tbiro_cnp = '';
+
+                $tbiro_ch = curl_init();
+	            curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
+	            curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
+	            curl_setopt($tbiro_ch, CURLOPT_URL, 'https://api.tbibank.support/function/getparameters.php?cid='.$tbiro_unicid);
+	            $paramstbiro = json_decode(curl_exec($tbiro_ch), true);
+	            curl_close($tbiro_ch);
+	            $tbipayments_interest = $paramstbiro['tbi_interest'];
+                $tbipayments_promo = intval($paramstbiro['tbi_promo']);
+    
+                $tbiro_add_ch = curl_init();
+	            curl_setopt($tbiro_add_ch, CURLOPT_SSL_VERIFYPEER, false);
+	            curl_setopt($tbiro_add_ch, CURLOPT_RETURNTRANSFER, true);
+	            curl_setopt($tbiro_add_ch, CURLOPT_URL, 'https://api.tbibank.support/function/addorders.php?cid='.$tbiro_unicid);
+                curl_setopt($tbiro_add_ch, CURLOPT_POST, 1);
+
+                $tbiro_items = array();
+				$tbiro_items[0]['name'] = $product->name;
+				$tbiro_items[0]['quantity'] = intval($request->input('product_qt'));
+				$tbiro_items[0]['price'] = (float)$product->price;
+    			$tbiro_items[0]['category'] = $product_category->id;
+                $tbiro_items[0]['sku'] = $product->code;
+                $tbiro_items[0]['ImageLink'] = $product->imgurl1;
+                
+                $tbiro_post = [
+                    'resellerCode'      => $tbiro_store_id,
+                    'orderId'      =>  '',
+                    'backRef'      =>  $tbiro_url,
+                    'orderTotal'   =>  floatval($product->price) * floatval($request->input('product_qt')),
+                    'username'	=> $tbiro_username,
+                    'password'	=> $tbiro_password,
+                    'vnoska' => $mesecna,
+                    'gpr' => $gpr,
+                    'vnoski' => $current_meseci,
+                    'parva' => "",
+                    'obshtozaplashtane' => $obshtozaplashtane,	
+                    'customer' => [
+                        'firstName' => $credit_fname,
+                        'lastName' => $credit_lname,
+                        'pin' => $tbiro_cnp, 
+                        'email' => $credit_email,
+                        'phone' => $credit_phone,
+                        'billingAddress' => $billingAddress,
+                        'billingCity' => $billingCity,
+                        'billingCounty' => $billingCounty,
+                        'deliveryAddress' => $deliveryAddress,
+                        'deliveryCity' => $deliveryCity,
+                        'deliveryCounty' => $deliveryCounty,
+                        'installments' => $current_meseci,
+                        'interestRate' => $tbipayments_interest,
+                        'promo'    => $tbipayments_promo
+                    ],
+                    'items' => $tbiro_items
+                ];
+                curl_setopt($tbiro_add_ch, CURLOPT_POSTFIELDS, http_build_query($tbiro_post));
+	            $paramstbiroadd=json_decode(curl_exec($tbiro_add_ch), true);
+	            curl_close($tbiro_add_ch);
+                /** redirect to TBI Bank */
+                if (isset($paramstbiroadd['status']) && ($paramstbiroadd['status'] == 'Yes')){
+                    // send to softinteligens
+		    	    $tbiro_post = [
+			            'resellerCode' => $tbiro_store_id,
+			            'orderId' => $paramstbiroadd['newid'],
+			            'backRef' => $tbiro_url,
+			            'orderTotal' => floatval($product->price) * floatval($request->input('product_qt')),
+			            'username' => $tbiro_username,
+			            'password' => $tbiro_password,
+			            'customer' => [
+				            'firstName' => $credit_fname,
+				            'lastName' => $credit_lname,
+				            'pin' => $tbiro_cnp, 
+				            'email' => $credit_email,
+				            'phone' => $credit_phone,
+				            'billingAddress' => $billingAddress,
+				            'billingCity' => $billingCity,
+				            'billingCounty' => $billingCounty,
+				            'deliveryAddress' => $deliveryAddress,
+				            'deliveryCity' => $deliveryCity,
+				            'deliveryCounty' => $deliveryCounty,
+				            'installments' => $current_meseci,
+				            'interestRate' => $tbipayments_interest,
+				            'promo' => $tbipayments_promo
+			            ],
+			            'items' => $tbiro_items
+                    ];
+                    $tbiro_plaintext = json_encode($tbiro_post);
+                    $tbiro_publicKey = openssl_pkey_get_public(file_get_contents(public_path() . '/keys/public.key'));
+                    $tbiro_a_key = openssl_pkey_get_details($tbiro_publicKey);
+                    $tbiro_chunkSize = ceil($tbiro_a_key['bits'] / 8) - 11;
+                    $tbiro_output = '';
+                    while ($tbiro_plaintext) {
+                        $tbiro_chunk = substr($tbiro_plaintext, 0, $tbiro_chunkSize);
+                        $tbiro_plaintext = substr($tbiro_plaintext, $tbiro_chunkSize);
+                        $tbiro_encrypted = '';
+                        if (!openssl_public_encrypt($tbiro_chunk, $tbiro_encrypted, $tbiro_publicKey)) {
+                            die('Failed to encrypt data');
+                        }
+                        $tbiro_output .= $tbiro_encrypted;
+                    }
+                    openssl_free_key($tbiro_publicKey);
+                    $tbiro_output64 = base64_encode($tbiro_output);
+                    $tbipayments_portal = $paramstbiro['tbi_liveportal'];
+                    $tbiro_envurl = $paramstbiro['tbi_liveurl'];
+                    $subscription_key = 'd2304c1fe5de43d8837d081192a9a39b';
+                    $tbipayment_pause_txt = $paramstbiro['tbi_pause_txt'];
+                    //send request
+		            $data_array = array("orderData" => $tbiro_output64, "encryptCode" => 'avalon_bg');
+		            $data_string = json_encode($data_array);
+		            $request_headers = array();
+		            $request_headers[] = 'Content-Type: application/json';
+		            $request_headers[] = 'Ocp-Apim-Trace: true';
+		            $request_headers[] = 'Ocp-Apim-Subscription-Key: ' . $subscription_key;
+		            $chr = curl_init();
+		            //curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
+		            curl_setopt($chr, CURLOPT_RETURNTRANSFER, true);
+		            curl_setopt($chr, CURLOPT_URL, $tbiro_envurl);
+		            curl_setopt($chr, CURLOPT_CUSTOMREQUEST, "POST");
+		            //curl_setopt($chr, CURLOPT_POST, 1);
+		            curl_setopt($chr, CURLOPT_HTTPHEADER, $request_headers);
+		            curl_setopt($chr, CURLOPT_POSTFIELDS, $data_string);
+		            $response_body = curl_exec($chr);
+                    curl_close($chr);
+                    $responce_array = json_decode($response_body);
+                    if (isset($responce_array->creditApplicationId)){
+                        $send_redy = "Yes";
+                        $tbipayment_guid = $responce_array->creditApplicationId;
+                    }else{
+                        $send_redy = "No";
+                        $tbipayment_guid = "";
+                    }
+                }
+
             }
 
             return view('credit.ok')->with([
@@ -1532,7 +1675,11 @@ class CreditController extends Controller
                 'deliveryCounty' => $deliveryCounty,
                 'order_id' => $order_id,
                 'uni_api' => $uni_api,
-                'uni_application' => $uni_application
+                'uni_application' => $uni_application,
+                'tbipayment_pause_txt' => $tbipayment_pause_txt,
+                'send_redy' => $send_redy,
+                'tbipayments_portal' => $tbipayments_portal,
+                'tbipayment_guid' => $tbipayment_guid
             ]);    
         }else{
             return abort(404);

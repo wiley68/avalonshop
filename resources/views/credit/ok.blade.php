@@ -205,7 +205,13 @@
                                         <div id="uniloaderimg"><img src="/images/credit/unicredit_logo.png" alt="UNI Credit" /></div>
                                     </div> 
                                 @else
-                                                
+                                    @if ($current_sheme == 'tbi')
+                                    <div id="tbiloaderpanel">
+                                        <div id="tbiloader"></div>
+                                        <div id="tbiloadertext"><?php echo $tbipayment_pause_txt; ?></div>
+                                        <div id="tbiloaderimg"><img src="/images/credit/tbi_bank_logo.png" alt="TBI" /></div>
+                                    </div>
+                                    @endif               
                                 @endif
                             @endif
                         </div><!--/ .section_offset -->
@@ -218,8 +224,8 @@
 </div>
 
 @endsection
-@if ($current_sheme == 'uni')
 @section('scripts')
+@if ($current_sheme == 'uni')
 <script type="text/javascript"><!--
     $(document).ready(function(e) {
         var uniloaderpanel = document.getElementById("uniloaderpanel");
@@ -229,7 +235,16 @@
         }
     });
 //--></script>
-@endsection                                                
-@else
-    
 @endif
+@if ($current_sheme == 'tbi')
+    @if ($send_redy == 'Yes')
+    <script type="text/javascript"><!--
+        $(document).ready(function(e) {
+            var tbiloaderpanel = document.getElementById("tbiloaderpanel");
+			tbiloaderpanel.style.display = "block";
+			window.location.href = '{{$tbipayments_portal . $tbipayment_guid}}';
+        });
+    //--></script>            
+    @endif
+@endif
+@endsection                                                

@@ -26,7 +26,7 @@
                                     break;
                             }
                         @endphp
-                        <p>Кредитна компания: <b>{{ $company }}</b>&nbsp;|&nbsp;Брой вноски: <b>{{ $current_meseci }}</b> м.&nbsp;|&nbsp;Месечна вноска: <b>{{ $mesecna }}</b> лв.&nbsp;|&nbsp;ГПР: <b>{{ $gpr }}</b> %&nbsp;|&nbsp;ГЛП: <b>{{ $glp }}</b> %&nbsp;|&nbsp;Общо за плащане: <b>{{ $obshtozaplashtane }}</b> лв.</p>
+                        <p>Кредитна компания: <b>{{ $company }}</b>&nbsp;|&nbsp;Брой вноски: <b>{{ $current_meseci }}</b> м.&nbsp;|&nbsp;Месечна вноска: <b>{{ $mesecna }}</b> лв.&nbsp;|&nbsp;ГПР: <b>{{ $gpr }}</b> %@if ($glp > 0) &nbsp;|&nbsp;ГЛП: <b>{{ $glp }}</b> % @endif&nbsp;|&nbsp;Общо за плащане: <b>{{ $obshtozaplashtane }}</b> лв.</p>
                     </div>
                 </section>
                 <div class="row">
