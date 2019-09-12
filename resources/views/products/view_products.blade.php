@@ -144,7 +144,7 @@
                                 <!-- - - - - - - - - - - - - - End of filter - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="#" class="banner" title="Покупка на стоки на изплащане">
+                                    <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
                                         <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" alt="Покупка на стоки на изплащане">
                                     </a>
                                 </div>
