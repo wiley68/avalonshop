@@ -90,7 +90,7 @@
                                     <ul class="list_of_links">
                                         @php
                                             use App\Category; 
-                                            $categories_random = Category::inRandomOrder()->take(6)->get();
+                                            $categories_random = Category::inRandomOrder()->take(7)->get();
                                         @endphp
                                         @foreach ($categories_random as $category_random)
                                         @php
