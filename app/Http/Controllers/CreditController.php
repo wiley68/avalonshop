@@ -1533,7 +1533,7 @@ class CreditController extends Controller
 				$tbiro_items[0]['name'] = $product->name;
 				$tbiro_items[0]['quantity'] = intval($request->input('product_qt'));
 				$tbiro_items[0]['price'] = (float)$product->price;
-    			$tbiro_items[0]['category'] = $product_category->id;
+    			$tbiro_items[0]['category'] = $paramstbiro['tbi_default_category'];
                 $tbiro_items[0]['sku'] = $product->code;
                 $tbiro_items[0]['ImageLink'] = $product->imgurl1;
                 
