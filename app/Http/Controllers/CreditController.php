@@ -1633,7 +1633,7 @@ class CreditController extends Controller
 		            $request_headers = array();
 		            $request_headers[] = 'Content-Type: application/json';
 		            $request_headers[] = 'Ocp-Apim-Trace: true';
-		            $request_headers[] = 'Ocp-Apim-Subscription-Key: ' . $this->subscription_key;
+		            $request_headers[] = 'Ocp-Apim-Subscription-Key: ' . $subscription_key;
 		            $chr = curl_init();
 		            //curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
 		            curl_setopt($chr, CURLOPT_RETURNTRANSFER, true);
