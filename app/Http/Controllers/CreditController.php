@@ -16,6 +16,13 @@ use App\Mail\OrderUser;
 
 class CreditController extends Controller
 {
+    public $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
+    public $tbipayment_liveurl = 'https://api.tbibank.support';
+    public $tbiro_store_id = '3793';
+    public $tbiro_url = "https://api.tbibank.support/function/status.php";
+    public $tbiro_username = 'avalonbg_sys';
+    public $tbiro_password = 'avalon2019';
+
     public function index(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
@@ -138,17 +145,14 @@ class CreditController extends Controller
                 if ($property->tbibank != 0) {
                     /** TBI Bank */
                     if ($product != null) {
-                        $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
                         $tbipayment_price = $product->price;
                         $tbipayment_product_quantity = $request->input('product_qt');
                         $tbipayment_product_cats = $product_category->id;
-                        if (!defined('TBIPAYMENT_LIVEURL'))
-                            define('TBIPAYMENT_LIVEURL', 'https://api.tbibank.support');
 
                         $tbi_ch = curl_init();
                         curl_setopt($tbi_ch, CURLOPT_SSL_VERIFYPEER, false);
                         curl_setopt($tbi_ch, CURLOPT_RETURNTRANSFER, true);
-                        curl_setopt($tbi_ch, CURLOPT_URL, TBIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $tbipayment_unicid);
+                        curl_setopt($tbi_ch, CURLOPT_URL, $this->tbipayment_liveurl . '/function/getparameters.php?cid=' . $this->tbipayment_unicid);
                         $paramstbi = json_decode(curl_exec($tbi_ch), true);
                         curl_close($tbi_ch);
 
@@ -168,7 +172,6 @@ class CreditController extends Controller
                         $tbi_9m_min = $paramstbi['tbi_9m_min'];
                         $tbi_9m_max = $paramstbi['tbi_9m_max'];
                         $tbi_9m_pv = $paramstbi['tbi_9m_pv'];
-                        $tbi_purcent_default = $paramstbi['tbi_purcent_default'];
 
                         $tbipayment_price = floatval($tbipayment_price) * floatval($tbipayment_product_quantity);
 
@@ -286,47 +289,47 @@ class CreditController extends Controller
                         }
 
                         ///////////////////////////////////////////////////////////////////////////
-                        $result3 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 1, 0);
+                        $result3 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 1, 0);
                         $tbipayment_mesecna_3 = $result3['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_3 = $result3['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_3 = $result3['tbipayment_gpr'];
 
-                        $result6 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 3, 0);
+                        $result6 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 3, 0);
                         $tbipayment_mesecna_6 = $result6['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_6 = $result6['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_6 = $result6['tbipayment_gpr'];
 
-                        $result9 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 4, 0);
+                        $result9 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 4, 0);
                         $tbipayment_mesecna_9 = $result9['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_9 = $result9['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_9 = $result9['tbipayment_gpr'];
 
-                        $result12 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 5, 0);
+                        $result12 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 5, 0);
                         $tbipayment_mesecna_12 = $result12['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_12 = $result12['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_12 = $result12['tbipayment_gpr'];
 
-                        $result15 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 6, 0);
+                        $result15 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 6, 0);
                         $tbipayment_mesecna_15 = $result15['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_15 = $result15['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_15 = $result15['tbipayment_gpr'];
 
-                        $result18 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 7, 0);
+                        $result18 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 7, 0);
                         $tbipayment_mesecna_18 = $result18['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_18 = $result18['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_18 = $result18['tbipayment_gpr'];
 
-                        $result24 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 8, 0);
+                        $result24 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 8, 0);
                         $tbipayment_mesecna_24 = $result24['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_24 = $result24['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_24 = $result24['tbipayment_gpr'];
 
-                        $result30 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 9, 0);
+                        $result30 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 9, 0);
                         $tbipayment_mesecna_30 = $result30['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_30 = $result30['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_30 = $result30['tbipayment_gpr'];
 
-                        $result36 = $this->getTbiCalculation(TBIPAYMENT_LIVEURL, $tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 10, 0);
+                        $result36 = $this->getTbiCalculation($this->tbipayment_liveurl, $this->tbipayment_unicid, $tbipayment_price, $is4m, $is4m_pv, $is5m, $is5m_pv, $is6m, $is6m_pv, $is9m, $is9m_pv, 10, 0);
                         $tbipayment_mesecna_36 = $result36['tbipayment_mesecna'];
                         $tbipayment_obshtozaplashtane_input_36 = $result36['tbipayment_obshtozaplashtane_input'];
                         $tbipayment_gpr_36 = $result36['tbipayment_gpr'];
@@ -1508,17 +1511,13 @@ class CreditController extends Controller
                     $obshtozaplashtane
                 );
                 /** create Kontroll Panel order */
-                $tbiro_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
-                $tbiro_store_id = '3793';
-                $tbiro_url = "https://api.tbibank.support/function/status.php";
-                $tbiro_username = 'avalonbg_sys';
-                $tbiro_password = 'avalon2019';
+                $tbiro_unicid = $this->tbipayment_unicid;
                 $tbiro_cnp = '';
 
                 $tbiro_ch = curl_init();
 	            curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
 	            curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
-	            curl_setopt($tbiro_ch, CURLOPT_URL, 'https://api.tbibank.support/function/getparameters.php?cid='.$tbiro_unicid);
+	            curl_setopt($tbiro_ch, CURLOPT_URL, $this->tbipayment_liveurl . '/function/getparameters.php?cid='.$tbiro_unicid);
 	            $paramstbiro = json_decode(curl_exec($tbiro_ch), true);
 	            curl_close($tbiro_ch);
 	            $tbipayments_interest = $paramstbiro['tbi_interest'];
@@ -1527,7 +1526,7 @@ class CreditController extends Controller
                 $tbiro_add_ch = curl_init();
 	            curl_setopt($tbiro_add_ch, CURLOPT_SSL_VERIFYPEER, false);
 	            curl_setopt($tbiro_add_ch, CURLOPT_RETURNTRANSFER, true);
-	            curl_setopt($tbiro_add_ch, CURLOPT_URL, 'https://api.tbibank.support/function/addorders.php?cid='.$tbiro_unicid);
+	            curl_setopt($tbiro_add_ch, CURLOPT_URL, $this->tbipayment_liveurl . '/function/addorders.php?cid='.$tbiro_unicid);
                 curl_setopt($tbiro_add_ch, CURLOPT_POST, 1);
 
                 $tbiro_items = array();
@@ -1539,12 +1538,12 @@ class CreditController extends Controller
                 $tbiro_items[0]['ImageLink'] = $product->imgurl1;
                 
                 $tbiro_post = [
-                    'resellerCode'      => $tbiro_store_id,
+                    'resellerCode'      => $this->tbiro_store_id,
                     'orderId'      =>  '',
-                    'backRef'      =>  $tbiro_url,
+                    'backRef'      =>  $this->tbiro_url,
                     'orderTotal'   =>  floatval($product->price) * floatval($request->input('product_qt')),
-                    'username'	=> $tbiro_username,
-                    'password'	=> $tbiro_password,
+                    'username'	=> $this->tbiro_username,
+                    'password'	=> $this->tbiro_password,
                     'vnoska' => $mesecna,
                     'gpr' => $gpr,
                     'vnoski' => $current_meseci,
@@ -1575,12 +1574,12 @@ class CreditController extends Controller
                 if (isset($paramstbiroadd['status']) && ($paramstbiroadd['status'] == 'Yes')){
                     // send to softinteligens
 		    	    $tbiro_post = [
-			            'resellerCode' => $tbiro_store_id,
+			            'resellerCode' => $this->tbiro_store_id,
 			            'orderId' => $paramstbiroadd['newid'],
-			            'backRef' => $tbiro_url,
+			            'backRef' => $this->tbiro_url,
 			            'orderTotal' => floatval($product->price) * floatval($request->input('product_qt')),
-			            'username' => $tbiro_username,
-			            'password' => $tbiro_password,
+			            'username' => $this->tbiro_username,
+			            'password' => $this->tbiro_password,
 			            'customer' => [
 				            'firstName' => $credit_fname,
 				            'lastName' => $credit_lname,
@@ -1613,11 +1612,20 @@ class CreditController extends Controller
                         }
                         $tbiro_output .= $tbiro_encrypted;
                     }
+                    ////////////////////////////////////////////////////
+                    $tbipayments_testenv = intval($paramstbiro['tbi_testenv']);
+                    if ($tbipayments_testenv ==  1){
+                        $tbipayments_portal = $paramstbiro['tbi_testportal'];
+                        $tbiro_envurl = $paramstbiro['tbi_testurl'];
+                        $subscription_key = '250078af85d54d2bab6af1170f7d648c';
+                    }else{
+                        $tbipayments_portal = $paramstbiro['tbi_liveportal'];
+                        $tbiro_envurl = $paramstbiro['tbi_liveurl'];
+                        $subscription_key = 'd2304c1fe5de43d8837d081192a9a39b';
+                    }
+
                     openssl_free_key($tbiro_publicKey);
                     $tbiro_output64 = base64_encode($tbiro_output);
-                    $tbipayments_portal = $paramstbiro['tbi_testportal'];
-                    $tbiro_envurl = $paramstbiro['tbi_testurl'];
-                    $subscription_key = '250078af85d54d2bab6af1170f7d648c';
                     $tbipayment_pause_txt = $paramstbiro['tbi_pause_txt'];
                     //send request
 		            $data_array = array("orderData" => $tbiro_output64, "encryptCode" => 'avalon_bg');
@@ -1625,7 +1633,7 @@ class CreditController extends Controller
 		            $request_headers = array();
 		            $request_headers[] = 'Content-Type: application/json';
 		            $request_headers[] = 'Ocp-Apim-Trace: true';
-		            $request_headers[] = 'Ocp-Apim-Subscription-Key: ' . $subscription_key;
+		            $request_headers[] = 'Ocp-Apim-Subscription-Key: ' . $this->subscription_key;
 		            $chr = curl_init();
 		            //curl_setopt($chr, CURLOPT_SSL_VERIFYPEER, false);
 		            curl_setopt($chr, CURLOPT_RETURNTRANSFER, true);
