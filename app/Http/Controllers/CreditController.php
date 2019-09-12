@@ -1137,32 +1137,32 @@ class CreditController extends Controller
             if ($request->has('current_sheme')){
                 $current_sheme = $request->input('current_sheme');
             }else{
-                $current_sheme = null;
+                $current_sheme = "";
             }
             if ($request->has('current_meseci')){
                 $current_meseci = $request->input('current_meseci');
             }else{
-                $current_meseci = null;
+                $current_meseci = "";
             }
             if ($request->has('mesecna')){
                 $mesecna = $request->input('mesecna');
             }else{
-                $mesecna = null;
+                $mesecna = "";
             }
             if ($request->has('gpr')){
                 $gpr = $request->input('gpr');
             }else{
-                $gpr = null;
+                $gpr = "";
             }
             if ($request->has('glp')){
                 $glp = $request->input('glp');
             }else{
-                $glp = null;
+                $glp = "";
             }
             if ($request->has('obshtozaplashtane')){
                 $obshtozaplashtane = $request->input('obshtozaplashtane');
             }else{
-                $obshtozaplashtane = null;
+                $obshtozaplashtane = "";
             }
 
             if($user = Auth::user()){
@@ -1228,32 +1228,32 @@ class CreditController extends Controller
             if ($request->has('current_sheme')){
                 $current_sheme = $request->input('current_sheme');
             }else{
-                $current_sheme = null;
+                $current_sheme = "";
             }
             if ($request->has('current_meseci')){
                 $current_meseci = $request->input('current_meseci');
             }else{
-                $current_meseci = null;
+                $current_meseci = "";
             }
             if ($request->has('mesecna')){
                 $mesecna = $request->input('mesecna');
             }else{
-                $mesecna = null;
+                $mesecna = "";
             }
             if ($request->has('gpr')){
                 $gpr = $request->input('gpr');
             }else{
-                $gpr = null;
+                $gpr = "";
             }
             if ($request->has('glp')){
                 $glp = $request->input('glp');
             }else{
-                $glp = null;
+                $glp = "";
             }
             if ($request->has('obshtozaplashtane')){
                 $obshtozaplashtane = $request->input('obshtozaplashtane');
             }else{
-                $obshtozaplashtane = null;
+                $obshtozaplashtane = "";
             }
             if ($request->has('credit_fname')){
                 $credit_fname = $request->input('credit_fname');
@@ -1707,6 +1707,13 @@ class CreditController extends Controller
         $obshtozaplashtane){
 
         $order = new Order();
+        $order->user_id = 0;
+        $order->firm = "";
+        $order->eik = "";
+        $order->mol = "";
+        $order->postcode = "";
+        $order->postcode2 = "";
+        $order->phone2 = "";
         if (!empty(Auth::user())){
             $order->user_id = Auth::user()->id;
             $order->firm = Auth::user()->firm;
@@ -1715,14 +1722,6 @@ class CreditController extends Controller
             $order->postcode = Auth::user()->postcode;
             $order->postcode2 = Auth::user()->postcode2;
             $order->phone2 = Auth::user()->phone2;
-        }else{
-            $order->user_id = 0;
-            $order->firm = "";
-            $order->eik = "";
-            $order->mol = "";
-            $order->postcode = "";
-            $order->postcode2 = "";
-            $order->phone2 = "";
         }
         $order->user_name = $user_name;
         $order->email = $user_email;               
