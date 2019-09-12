@@ -1615,8 +1615,8 @@ class CreditController extends Controller
                     }
                     openssl_free_key($tbiro_publicKey);
                     $tbiro_output64 = base64_encode($tbiro_output);
-                    $tbipayments_portal = $paramstbiro['tbi_liveportal'];
-                    $tbiro_envurl = $paramstbiro['tbi_liveurl'];
+                    $tbipayments_portal = $paramstbiro['tbi_testportal'];
+                    $tbiro_envurl = $paramstbiro['tbi_testurl'];
                     $subscription_key = 'd2304c1fe5de43d8837d081192a9a39b';
                     $tbipayment_pause_txt = $paramstbiro['tbi_pause_txt'];
                     //send request

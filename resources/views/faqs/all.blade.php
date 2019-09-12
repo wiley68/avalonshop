@@ -12,7 +12,7 @@
                         <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
                         <ul class="breadcrumbs">
                             <li><a href="{{ route('index') }}">Начало</a></li>
-                            <li>За контакт</li>
+                            <li>Често задавани въпроси</li>
                         </ul>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4">

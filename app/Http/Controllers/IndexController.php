@@ -116,6 +116,17 @@ class IndexController extends Controller
         ]);
     }
     /** end contact menu */
+    /** start credit menu */
+    public function creditInfo(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('credit')->with([
+            'title' => 'Информация покупка на стока на кредит | Авалон',
+            'description' => 'Информация покупка на стока на кредит.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане',
+            'root_categories' => $root_categories
+        ]);
+    }
+    /** end credit menu */
     /** start magazin menu */
     public function shop(){
         $root_categories = Category::where(['parent_id' => 0])->get();

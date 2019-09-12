@@ -186,7 +186,7 @@
 							<!-- - - - - - - - - - - - - - End of main slider - - - - - - - - - - - - - - - - -->
 							<!-- - - - - - - - - - - - - - Banners - - - - - - - - - - - - - - - - -->
 							<div class="col-sm-3">
-								<a href="#" class="banner" title="Покупка на стоки на изплащане">
+								<a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
 									<img src="/images/banner_lizing.jpg" alt="Стоки на изплащане" style="border: 1px solid #A9A9A9;">
 								</a>
 								<a href="{{ route('product', ['id' => 2]) }}" class="banner">
