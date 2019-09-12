@@ -38,7 +38,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на OpenCart</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 21]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 10]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на OpenCart</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 22]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 9]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>
