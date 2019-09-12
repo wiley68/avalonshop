@@ -33,7 +33,7 @@
                                 <p>Изграждане на онлайн магазин по поръчка на клиента с информация предоставена ни от него</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 15]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 1200.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 17]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 1200.00 лв.</a>
                             </div>
                         </div>
                     </div>
