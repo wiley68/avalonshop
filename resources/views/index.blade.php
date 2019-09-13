@@ -738,7 +738,17 @@
 							<!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
 						</div>
 					</section>
-					<!-- - - - - - - - - - - - - - End of Beauty - - - - - - - - - - - - - - - - -->
+                    <!-- - - - - - - - - - - - - - End of Beauty - - - - - - - - - - - - - - - - -->
+                    <section class="section_offset animated transparent" data-animation="fadeInDown">
+                        <h3 class="offset_title">Производители</h3>
+                        <div class="owl_carousel brands">
+                            @foreach ($manufacturers as $manufacturer)
+                                <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}" title="{{ $manufacturer->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'" alt="{{ $manufacturer->name }}">
+                                </a>                                    
+                            @endforeach
+                        </div><!--/ .owl_carousel-->
+                    </section><!--/ .section_offset.animated.transparent-->
 				</div><!--/ .container-->
 			</div><!--/ .page_wrapper-->
             <!-- Credit -->

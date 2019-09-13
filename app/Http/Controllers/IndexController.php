@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Support;
 use App\Category;
+use App\Manufacturer;
 use Illuminate\Support\Facades\Request;
 
 class IndexController extends Controller
@@ -24,6 +25,7 @@ class IndexController extends Controller
         $supports_networks = Support::where(['category_id' => 'networks'])->get();
         $supports_cameras = Support::where(['category_id' => 'cameras'])->get();
         $supports_softwares = Support::where(['category_id' => 'softwares'])->get();
+        $manufacturers = Manufacturer::all();
 
         /** Credit */
         /** TBI Bank */
@@ -90,7 +92,8 @@ class IndexController extends Controller
             'uni_picture' => $uni_picture,
             'uni_container_txt1' => $uni_container_txt1,
             'uni_container_txt2' => $uni_container_txt2,
-            'uni_backurl' => $uni_backurl
+            'uni_backurl' => $uni_backurl,
+            'manufacturers' => $manufacturers
         ]);
     }
     /** end index menu */
