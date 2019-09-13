@@ -1,6 +1,7 @@
 <?php use App\ProductsCategories; ?>
 <?php use App\Product; ?>
 <?php use App\Review; ?>
+<?php use App\Category; ?>
 @extends('layouts.design')
 @section('content')
 <style>
@@ -236,7 +237,49 @@
 						</li>
 					</ul><!--/ .infoblocks_wrap.section_offset.clearfix-->
 
-					<!-- - - - - - - - - - - - - - End of infoblocks - - - - - - - - - - - - - - - - -->
+                    <!-- - - - - - - - - - - - - - End of infoblocks - - - - - - - - - - - - - - - - -->
+                    <section class="section_offset animated transparent" data-animation="fadeInDown">
+						<h3 class="offset_title">Категории продукти</h3>
+						<div class="table_layout">
+                                @php
+                                    $count = 0;
+                                @endphp
+                                @foreach ($root_categories as $cat)
+                                @if (($count % 4) == 0)
+                                <div class="table_row">
+                                @endif
+                                <div class="table_cell">  
+                                    @php
+                                        $category_ids = [];
+                                        $category_ids[] = $cat->id;
+                                    @endphp                                  
+                                    <div class="author_info" style="height:50px;"><a href="{{ route('products', ['category_id' => $category_ids]) }}"><h4><b>{{ $cat->name }}</b></h4></a></div>
+                                    <hr />
+                                    <br />
+									<p>
+                                        @foreach (Category::where(['parent_id' => $cat->id])->get() as $item)
+                                            @php
+                                                $item_ids = [];
+                                                $item_ids[] = $item->id;
+                                            @endphp 
+                                            <a href="{{ route('products', ['category_id' => $item_ids]) }}">{{ $item->name }}</a><br />                                            
+                                        @endforeach
+                                    </p>
+                                </div>                                    
+                                @php
+                                    $count++;
+                                @endphp
+                                @if (($count % 4) == 0)
+                                </div>
+                                @endif
+                            @endforeach
+						</div>
+						<!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
+						<footer class="bottom_box">
+							<a href="{{ route('products') }}" class="button_grey middle_btn">Виж всички продукти</a>
+						</footer>
+						<!-- - - - - - - - - - - - - - End of view all testimonials - - - - - - - - - - - - - - - - -->
+					</section><!--/ .section_offset.animated.transparent-->
 					<!-- - - - - - - - - - - - - - Today's deals - - - - - - - - - - - - - - - - -->
 					<section class="section_offset animated transparent" data-animation="fadeInDown">
 						<h3 class="offset_title section_title">Избрани продукти</h3>
