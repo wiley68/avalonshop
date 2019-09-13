@@ -744,7 +744,7 @@
                         <div class="owl_carousel brands">
                             @foreach ($manufacturers as $manufacturer)
                                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}" title="{{ $manufacturer->name }}">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'" alt="{{ $manufacturer->name }}">
+                                    <img style="height:30px;width:auto;" src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'" alt="{{ $manufacturer->name }}">
                                 </a>                                    
                             @endforeach
                         </div><!--/ .owl_carousel-->
