@@ -248,12 +248,13 @@
                                 @if (($count % 4) == 0)
                                 <div class="table_row">
                                 @endif
-                                <div class="table_cell">  
+                                <div class="table_cell">
                                     @php
                                         $category_ids = [];
                                         $category_ids[] = $cat->id;
-                                    @endphp                                  
-                                    <div class="author_info" style="height:50px;"><a href="{{ route('products', ['category_id' => $category_ids]) }}"><h4><b>{{ $cat->name }}</b></h4></a></div>
+                                        $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
+                                    @endphp
+                                    <div class="author_info" style="height:50px;"><a href="{{ route('products', ['category_id' => $category_ids]) }}"><h4><b>{{ $cat->name }}&nbsp;({{ $products_categories }})</b></h4></a></div>
                                     <hr />
                                     <br />
 									<p>
@@ -261,11 +262,12 @@
                                             @php
                                                 $item_ids = [];
                                                 $item_ids[] = $item->id;
-                                            @endphp 
-                                            <a href="{{ route('products', ['category_id' => $item_ids]) }}">{{ $item->name }}</a><br />                                            
+                                                $products_categories_items = ProductsCategories::where(['category_id' => $item->id])->count();
+                                            @endphp
+                                            <a href="{{ route('products', ['category_id' => $item_ids]) }}">{{ $item->name }}&nbsp;({{ $products_categories_items }})</a><br />
                                         @endforeach
                                     </p>
-                                </div>                                    
+                                </div>
                                 @php
                                     $count++;
                                 @endphp
@@ -276,7 +278,7 @@
 						</div>
 						<!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
 						<footer class="bottom_box">
-							<a href="{{ route('products') }}" class="button_grey middle_btn">Виж всички продукти</a>
+							<a href="{{ route('products') }}" class="button_grey middle_btn">Виж всички продукти&nbsp;({{ Product::where('id', '>', 0)->count() }})</a>
 						</footer>
 						<!-- - - - - - - - - - - - - - End of view all testimonials - - - - - - - - - - - - - - - - -->
 					</section><!--/ .section_offset.animated.transparent-->
@@ -788,7 +790,7 @@
                             @foreach ($manufacturers as $manufacturer)
                                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}" title="{{ $manufacturer->name }}">
                                     <img style="height:30px;width:auto;" src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'" alt="{{ $manufacturer->name }}">
-                                </a>                                    
+                                </a>
                             @endforeach
                         </div><!--/ .owl_carousel-->
                     </section><!--/ .section_offset.animated.transparent-->
@@ -904,10 +906,10 @@ function uniChangeContainer(){
 	if (uni_label_container.style.visibility == 'visible'){
 		uni_label_container.style.visibility = 'hidden';
 		uni_label_container.style.opacity = 0;
-		uni_label_container.style.transition = 'visibility 0s, opacity 0.5s ease';				
+		uni_label_container.style.transition = 'visibility 0s, opacity 0.5s ease';
 	}else{
 		uni_label_container.style.visibility = 'visible';
-		uni_label_container.style.opacity = 1;			
+		uni_label_container.style.opacity = 1;
 	}
 }
 
