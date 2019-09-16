@@ -130,6 +130,19 @@ class IndexController extends Controller
         ]);
     }
     /** end credit menu */
+    /** start credit menu */
+    public function proizvoditeli(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        $manufacturers = Manufacturer::all();
+        return view('proizvoditeli')->with([
+            'title' => 'Всички производители | Авалон',
+            'description' => 'Всички производители.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, производители, продукти',
+            'root_categories' => $root_categories,
+            'manufacturers' => $manufacturers
+        ]);
+    }
+    /** end credit menu */
     /** start magazin menu */
     public function shop(){
         $root_categories = Category::where(['parent_id' => 0])->get();

@@ -222,6 +222,9 @@
                                         </ul>
                                         <!--/ .tags_cloud-->
                                     </div>
+                                    <footer class="bottom_box">
+                                        <a href="{{ route('proizvoditeli') }}" class="button_grey middle_btn">Виж всички Производители</a>
+                                    </footer>
                                     <!--/ .tags_container-->
                                 </section>
                                 <!-- - - - - - - - - - - - - - End of Manufacturers - - - - - - - - - - - - - - - - -->

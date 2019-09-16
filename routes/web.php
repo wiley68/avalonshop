@@ -17,6 +17,7 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/za-nas.html', 'IndexController@forUs')->name('for_us');
 Route::get('/kontakt.html', 'IndexController@contact')->name('contact');
 Route::get('/credit-info.html', 'IndexController@creditInfo')->name('credit-info');
+Route::get('/proizvoditeli.html', 'IndexController@proizvoditeli')->name('proizvoditeli');
 /** end top menus */
 /** start menu Avalon */
 Route::get('/avalon/magazin.html', 'IndexController@shop')->name('avalon.shop');
