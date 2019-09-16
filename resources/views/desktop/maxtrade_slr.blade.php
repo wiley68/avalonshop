@@ -66,7 +66,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 5]) }}" rel="noopener"> Maxtrade SLR<br />240.00 лв. с ДДС </a></p>
+                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 'max-slr']) }}" rel="noopener"> Maxtrade SLR<br />240.00 лв. с ДДС </a></p>
                     <p class="small">* Лицензия за ползване на продукта на неограничен брой работни места за една година.</p>
                     <p class="small" style="color: red;">Посочената цена е само за закупуване на самия модул. В цената не се включват инсталиране, настройване и промени в модула. тези допълнителни функции са въпрос на допълнителни разговори за определяне на цената спрямо конкретните изисквания на клиента.</p>
                     <p class="small">Възможни са варианти за безплатно инсталиране и настройване на продукта.<br />Начин на закупуване и доставка:<br />След като направите заявка от нашия онлайн магазин</a><br />или директно на E-Mail: <span style="color: red;">home@avalonbg.com</span>, указвайки Вашите фирмени данни, ще Ви бъде изпратена проформа фактура за извършване на необходимото плащане за покупката. След удостоверяване на плащането, ще Ви бъде изпратена оригиналната фактура заедно с необходимите файлове за инсталацията на <span style="color: red;">Maxtrade SLR</span>.<br />При Ваше желание плащането може да се извърши и с наложен платеж чрез куриер.</p>
@@ -79,7 +79,7 @@
                     <p>Програма за управление на дейността на Ловно Рибарско Дружество</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 5]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 'max-slr']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -103,8 +103,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 5])->first())){
-                        $download_counts = Product::where(['id' => 5])->first()->downloads;
+                    if (!empty(Product::where(['code' => 'max-slr'])->first())){
+                        $download_counts = Product::where(['code' => 'max-slr'])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }

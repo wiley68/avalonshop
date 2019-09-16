@@ -244,7 +244,7 @@
                                 <!-- - - - - - - - - - - - - - End of tags - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="{{ route('product', ['id' => 2]) }}" class="banner">
+                                    <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
                                         <img src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
@@ -318,7 +318,7 @@
                                                                 <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                                 <div class="actions_wrap">
                                                                     <div class="centered_buttons">
-                                                                        <a href="{{ route('product', ['id' => $products_collection[$i+$j]['id']]) }}"
+                                                                        <a href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}"
                                                                             class="button_dark_grey middle_btn quick_view"
                                                                         >Подробно</a><br />
                                                                         <button onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');" class="button_blue middle_btn add_to_cart">Купи</a>
@@ -337,7 +337,7 @@
                                                             <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
                                                             <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                                             <div class="description">
-                                                                <a href="{{ route('product', ['id' => $products_collection[$i+$j]['id']]) }}">{{ $products_collection[$i+$j]['name'] }}</a>
+                                                                <a href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}">{{ $products_collection[$i+$j]['name'] }}</a>
                                                                 <div class="clearfix product_info">
                                                                     <p class="product_price alignleft"><b>{{ number_format($products_collection[$i+$j]['price'], 2, ".", "") }}</b> лв.</p>
                                                                     <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->

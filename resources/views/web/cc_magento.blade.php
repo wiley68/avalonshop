@@ -33,7 +33,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на Magento</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 11]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'cc-mag-par']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на Magento</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 12]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'cc-mag-uni']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>

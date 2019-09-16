@@ -75,7 +75,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 2]) }}" rel="noopener">
+                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 'max-cmr']) }}" rel="noopener">
                     Maxtrade CMR<br>29.00 лв. с ДДС </a></p>
             <p class="small">* Лицензия за ползване на продукта на едно работно място за една година.</p>
             <p class="small" style="color: red;">Посочената цена е само за закупуване на самия модул. В цената
@@ -98,7 +98,7 @@
                     <p>Програма за съхранение и печат на митнически товарителници (ЧМР)</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 2]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -122,8 +122,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 2])->first())){
-                        $download_counts = Product::where(['id' => 2])->first()->downloads;
+                    if (!empty(Product::where(['code' => 'max-cmr'])->first())){
+                        $download_counts = Product::where(['code' => 'max-cmr'])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }

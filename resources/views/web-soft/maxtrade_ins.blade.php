@@ -16,7 +16,7 @@
                                 <p>Програма за регистриране на дейността на Застрахователна агенция</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 15]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 499.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'max-ins']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 499.00 лв.</a>
                             </div>
                         </div>
                     </div>

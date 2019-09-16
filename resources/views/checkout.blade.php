@@ -395,7 +395,7 @@ $all_price += floatval($item['total_price']);
                                             @foreach ((Session::get('cart_session'))['items'] as $item)
                                             <tr>
                                                 <td data-title="Product Name">
-                                                    <a href="{{ route('product', ['id' => $item['product_id']]) }}"
+                                                    <a href="{{ route('product', ['id' => $item['product_code']]) }}"
                                                         class="product_title">{{ $item['product_name'] }}</a>
                                                 </td>
                                                 <td data-title="SKU">{{ $item['product_code'] }}</td>

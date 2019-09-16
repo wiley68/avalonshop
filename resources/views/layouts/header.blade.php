@@ -397,14 +397,14 @@ if (!empty((Session::get('cart_session'))['items'])){
                                     @endphp
                                     <div class="animated_item">
                                         <div class="clearfix sc_product">
-                                            <a href="{{ route('product', ['id' => $cart_item['product_id']]) }}" class="product_thumb">
+                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}" class="product_thumb">
                                                 @if (!empty($imgsrc1))
                                                     <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 @else
                                                     <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}">
                                                 @endif
                                             </a>
-                                            <a href="{{ route('product', ['id' => $cart_item['product_id']]) }}" class="product_name">{{ $cart_item['product_name'] }}</a>
+                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}" class="product_name">{{ $cart_item['product_name'] }}</a>
                                             <p>{{ $cart_item['product_quantity'] }} x {{ number_format(floatval($cart_item['total_price']) / floatval($cart_item['product_quantity']), 2, ".", "") }}&nbsp;лв.</p>
                                             <a href="{{ route('cart-remove-product', ['id' => $cart_item['product_id']]) }}" class="close"></a>
                                         </div>

@@ -69,7 +69,7 @@
                                             @endphp
                                             <tr>
                                                 <td data-title="Снимка">
-                                                    <a title="{{ $product->name }}" href="{{ route('product', ['id' => $product->id]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                                    <a title="{{ $product->name }}" href="{{ route('product', ['id' => $product->code]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
                                                 </td>
                                                 @php
                                                     $newDate = date("d.m.Y H:i:s", strtotime($review->created_at));

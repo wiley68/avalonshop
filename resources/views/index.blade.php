@@ -190,7 +190,7 @@
 								<a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
 									<img src="/images/banner_lizing.jpg" alt="Стоки на изплащане" style="border: 1px solid #A9A9A9;">
 								</a>
-								<a href="{{ route('product', ['id' => 2]) }}" class="banner">
+								<a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
 									<img src="/images/cmr.png" alt="">
 								</a>
 							</div><!--/ [col]-->
@@ -339,7 +339,7 @@
                                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                                         <div class="actions_wrap">
                                                             <div class="centered_buttons">
-                                                                <a href="{{ route('product', ['id' => $product_item->id]) }}" class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                                                                <a href="{{ route('product', ['id' => $product_item->code]) }}" class="button_dark_grey middle_btn quick_view pb">Подробно</a>
                                                             </div><!--/ .centered_buttons -->
                                                         </div><!--/ .actions_wrap-->
 
@@ -351,7 +351,7 @@
                                                     <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
                                                     <!-- - - - - - - - - - - - - - Product description - - - - - - - - - - - - - - - - -->
                                                     <div class="description align_center">
-                                                        <p class="crop2"><a href="{{ route('product', ['id' => $product_item->id]) }}">{{ $product_item->name }}</a></p>
+                                                        <p class="crop2"><a href="{{ route('product', ['id' => $product_item->code]) }}">{{ $product_item->name }}</a></p>
                                                         <div class="clearfix product_info">
                                                             <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                             <ul class="rating alignright">

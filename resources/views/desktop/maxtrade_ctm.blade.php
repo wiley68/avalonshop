@@ -168,7 +168,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-default" style="width: 100%;" href="{{ route('product', ['id' => 3]) }}" rel="noopener">
+                <p><a class="btn btn-default" style="width: 100%;" href="{{ route('product', ['id' => 'max-ctm']) }}" rel="noopener">
                     Maxtrade CTM<br />432.00 лв. с ДДС </a></p>
             <p class="small">* Лицензия за ползване на продукта на неограничен брой работни места за една
                 година.</p>
@@ -191,7 +191,7 @@
                     <p>Програма за управление на дейността на Служба по трудова медицина</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 3]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 'max-ctm']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -215,8 +215,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 3])->first())){
-                        $download_counts = Product::where(['id' => 3])->first()->downloads;
+                    if (!empty(Product::where(['code' => 'max-ctm'])->first())){
+                        $download_counts = Product::where(['code' => 'max-ctm'])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }

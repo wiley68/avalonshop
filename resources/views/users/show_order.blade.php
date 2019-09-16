@@ -229,7 +229,7 @@
                                             @endphp
 											<tr>
                                                 <td data-title="Product Name">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}" class="product_title">{{ $product->name }}</a>
+                                                    <a href="{{ route('product', ['id' => $product->code]) }}" class="product_title">{{ $product->name }}</a>
                                                 </td>
                                                 <td data-title="SKU">{{ $product->code }}</td>
                                                 <td data-title="Price" class="subtotal">{{ $product->price }}</td>

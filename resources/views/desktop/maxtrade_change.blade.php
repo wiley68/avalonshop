@@ -67,7 +67,7 @@
         <div class="section_offset clearfix">
             <h3>Право на ползване, варианти, цени:</h3>
             <div class="theme_box clearfix">
-                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 1]) }}" rel="noopener">
+                <p><a class="btn btn-primary" style="width: 100%;" href="{{ route('product', ['id' => 'max-change']) }}" rel="noopener">
                     Maxtrade Change<br />44.00 лв. с ДДС </a></p>
                 <p class="small">* Лицензия за ползване на продукта на едно работно място за една година.</p>
                 <p class="small" style="color: red;">Посочената цена е само за закупуване на самия модул. В цената
@@ -90,7 +90,7 @@
                     <p>Програма за регистриране на дейността по продажба и обмен на валута</p>
                 </div>
                 <div class="right_side">
-                    <a href="{{ route('product', ['id' => 1]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
+                    <a href="{{ route('product', ['id' => 'max-change']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега!</a>
                 </div>
             </div>
         </div>
@@ -114,8 +114,8 @@
             </div>
             <div class="right_side">
                 @php
-                    if (!empty(Product::where(['id' => 1])->first())){
-                        $download_counts = Product::where(['id' => 1])->first()->downloads;
+                    if (!empty(Product::where(['code' => 'max-change'])->first())){
+                        $download_counts = Product::where(['code' => 'max-change'])->first()->downloads;
                     }else{
                         $download_counts = 0;
                     }

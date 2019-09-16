@@ -79,12 +79,12 @@
                                             <tr>
                                                 <!-- - - - - - - - - - - - - - Product image - - - - - - - - - - - - - - - - -->
                                                 <td data-title="Product Image">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
+                                                    <a href="{{ route('product', ['id' => $product->code]) }}"><img src="{{ Config::get('settings.backend') }}/dist/img/products/product_{{ $product->id }}_1.png" alt="{{ $product->name }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"></a>
                                                 </td>
                                                 <!-- - - - - - - - - - - - - - End of product image - - - - - - - - - - - - - - - - -->
                                                 <!-- - - - - - - - - - - - - - Product name & category - - - - - - - - - - - - - - - - -->
                                                 <td data-title="Product Name and Category">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}" class="product_title">{{ $product->name }}</a><br />
+                                                    <a href="{{ route('product', ['id' => $product->code]) }}" class="product_title">{{ $product->name }}</a><br />
                                                     <span>{{ $product->code }}</span>
                                                 </td>
                                                 <!-- - - - - - - - - - - - - - End of product name & category - - - - - - - - - - - - - - - - -->

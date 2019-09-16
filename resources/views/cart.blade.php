@@ -41,7 +41,7 @@
                                         @endphp
                                         <tr>
                                             <td class="product_image_col" data-title="Product Image">
-                                                <a href="{{ route('product', ['id' => $item['product_id']]) }}">
+                                                <a href="{{ route('product', ['id' => $item['product_code']]) }}">
                                                 @if (!empty($imgsrc1))
                                                     <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 @else
@@ -51,7 +51,7 @@
                                             <!-- - - - - - - - - - - - - - End of product Image - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Product name - - - - - - - - - - - - - - - - -->
                                             <td data-title="Product Name">
-                                                <a href="{{ route('product', ['id' => $item['product_id']]) }}" class="product_title">{{ $item['product_name'] }}</a>
+                                                <a href="{{ route('product', ['id' => $item['product_code']]) }}" class="product_title">{{ $item['product_name'] }}</a>
                                                 <ul class="sc_product_info">
                                                     <li>{{ $item['product_code'] }}</li>
                                                 </ul>

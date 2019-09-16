@@ -63,7 +63,7 @@ Route::get('/support/software/{id}.html', 'SupportController@supportsoftware')->
 /** end support section */
 /** start products section */
 Route::match(['get', 'post'], '/products.html', 'ProductController@viewProducts')->name('products');
-Route::get('/products/product{id}.html', 'ProductController@viewProduct')->name('product');
+Route::get('/products/{id}.html', 'ProductController@viewProduct')->name('product');
 Route::post('/product/add-to-cart.html', 'ProductController@addToCart')->name('product.add-to-cart');
 Route::post('/product/change-credit-vnoska.html', 'ProductController@changeCreditVnoskaAjax')->name('product.change-credit-vnoska');
 Route::post('/product/change-cart-quantity.html', 'ProductController@changeCartQuantity')->name('product.change-cart-quantity');

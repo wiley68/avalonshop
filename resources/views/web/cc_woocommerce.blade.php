@@ -29,7 +29,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на WooCommerce</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 7]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'cc-woo-par']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                 <p>Модул предназначен за вграждане в платформи за онлайн магазини основаващи се на WooCommerce</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 8]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'cc-woo-uni']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 144.00 лв.</a>
                             </div>
                         </div>
                     </div>

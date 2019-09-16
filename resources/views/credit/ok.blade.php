@@ -81,7 +81,7 @@
                 @if ($product != null)
                 <section class="section_offset">
                     <div class="call_to_action">
-                        <div class="title"><a href="{{ route('product', ['id' => $product->id]) }}" target="_blank" title="Можете да прегледате продукта в нова страница.">{{ $product->name }}</a></div>
+                        <div class="title"><a href="{{ route('product', ['id' => $product->code]) }}" target="_blank" title="Можете да прегледате продукта в нова страница.">{{ $product->name }}</a></div>
                         <h3>Единична цена: {{ number_format($product->price, 2, ".", "") }}&nbsp;лв.&nbsp;|&nbsp;Количество: {{ $product_qt }}&nbsp;|&nbsp;Обща цена: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.</h3>
                         <p>Тук можете да видите резултата от Вашата заявка за покупка на кредит.</p>
                         @php

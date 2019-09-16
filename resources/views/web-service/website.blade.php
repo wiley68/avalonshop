@@ -30,7 +30,7 @@
                                 <p>Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него</p>
                             </div>
                             <div class="right_side">
-                                <a href="{{ route('product', ['id' => 16]) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 600.00 лв.</a>
+                                <a href="{{ route('product', ['id' => 'web-site']) }}" class="button_blue huge_btn"><i class="icon-basket-1"></i>Купи сега! 600.00 лв.</a>
                             </div>
                         </div>
                     </div>

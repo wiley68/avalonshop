@@ -181,17 +181,17 @@ class ProductController extends Controller
     public function viewProduct(Request $request, $id = null)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $product = Product::where(['id' => $id])->first();
+        $product = Product::where(['code' => $id])->first();
         if (empty($product)) {
             return abort(404);
         }
         $product->visits += 1;
         $product->save();
 
-        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $id])->first()->category_id])->first();
+        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
 
         $tagsp_ids = [];
-        $products_tagsp = ProductsTagsp::where(['product_id' => $id])->get();
+        $products_tagsp = ProductsTagsp::where(['product_id' => $product->id])->get();
         foreach ($products_tagsp as $product_tagp) {
             $tagsp_ids[] = $product_tagp->tagsp_id;
         }
