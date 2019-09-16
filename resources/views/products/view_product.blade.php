@@ -89,7 +89,7 @@
                                 <!-- - - - - - - - - - - - - - Product description column - - - - - - - - - - - - - - - - -->
                                 <div class="single_product_description">
                                     <h3 class="offset_title"><a
-                                            href="{{ route('product', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                                            href="{{ route('product', ['id' => $product->code]) }}">{{ $product->name }}</a>
                                     </h3>
                                     <!-- - - - - - - - - - - - - - Page navigation - - - - - - - - - - - - - - - - -->
                                     <div class="page-nav">
@@ -423,7 +423,7 @@
                                             <div class="row">
                                                 <div class="col-lg-5 col-md-6">
                                                     <p>Вие оценявате: <a
-                                                            href="{{ route('product', ['id' => $product->id]) }}">{{ $product->name }}</a><br>Каква
+                                                            href="{{ route('product', ['id' => $product->code]) }}">{{ $product->name }}</a><br>Каква
                                                         оценка ще дадете за този продукт? *</p>
                                                     <!-- - - - - - - - - - - - - - Rate the - - - - - - - - - - - - - - - - -->
                                                     <div class="table_wrap rate_table">
@@ -610,7 +610,7 @@
                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                         <div class="actions_wrap">
                                             <div class="centered_buttons">
-                                                <a href="{{ route('product', ['id' => $featured_product->id]) }}"
+                                                <a href="{{ route('product', ['id' => $featured_product->code]) }}"
                                                     class="button_dark_grey middle_btn quick_view">Подробно</a>
                                                 <button onclick="buyProduct('{{ $featured_product->id }}');" class="button_blue middle_btn add_to_cart">Купи</button>
                                             </div>
@@ -630,7 +630,7 @@
                                     <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                     <div class="description">
                                         <p class="crop2">
-                                            <a href="{{ route('product', ['id' => $featured_product->id]) }}">{{ $featured_product->name }}</a>
+                                            <a href="{{ route('product', ['id' => $featured_product->code]) }}">{{ $featured_product->name }}</a>
                                         </p>
                                         <div class="clearfix product_info">
                                             <p class="product_price alignleft">
