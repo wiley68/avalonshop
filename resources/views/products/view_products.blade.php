@@ -230,7 +230,7 @@
                                 <!-- - - - - - - - - - - - - - End of Manufacturers - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Tags - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
-                                    <h3>Етикети</h3>
+                                    <h3>Често срещани</h3>
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
                                             @foreach ($tags_working as $working_tag_id)
