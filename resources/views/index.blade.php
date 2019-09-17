@@ -785,6 +785,50 @@
 					</section>
                     <!-- - - - - - - - - - - - - - End of Beauty - - - - - - - - - - - - - - - - -->
                     <section class="section_offset animated transparent" data-animation="fadeInDown">
+						<h3 class="offset_title">Добра търговска практика</h3>
+						<div class="table_layout">
+							<div class="table_row">
+								<!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+								<div class="table_cell">
+									<blockquote>
+										<div class="author_info"><b>Аркус АД</b></div>
+										<p>АРКУС АД изразява своето удовлетворение от услугите предлагани от Авалон ООД и особено от възможността за директен контакт с екипа на дружеството.</p>
+									</blockquote>
+								</div>
+								<!-- - - - - - - - - - - - - - End testimonial - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+								<div class="table_cell">
+									<blockquote>
+										<div class="author_info"><b>Захарни Заводи АД</b></div>
+										<p>Преките ни впечатления от тяхната работа са в професионално отношение, коректно, точно и навременно изпълнение на доставките, което улеснява работата на целия екип.</p>
+									</blockquote>
+								</div>
+								<!-- - - - - - - - - - - - - - End testimonial - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+								<div class="table_cell">
+									<blockquote>
+										<div class="author_info"><b>Прити 95 ООД</b></div>
+										<p>Доволни сме от техниката предлагана ни от Авалон ООД и особено от гаранционния и извънгаранционен сервиз осъществяван от техния екип.</p>
+									</blockquote>
+								</div>
+								<!-- - - - - - - - - - - - - - End testimonial - - - - - - - - - - - - - - - - -->
+								<!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+								<div class="table_cell">
+									<blockquote>
+										<div class="author_info"><b>Складова Техника АД</b></div>
+										<p>Фирма Авалон ООД осигурява отличен сервиз и поддръжка на техниката, отстранява в много кратки срокове с голяма вещина каквито и да са възникнали проблеми.</p>
+									</blockquote>
+								</div>
+								<!-- - - - - - - - - - - - - - End testimonial - - - - - - - - - - - - - - - - -->
+							</div>
+						</div>
+						<!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
+						<footer class="bottom_box">
+							<a href="{{ route('klienti') }}" class="button_grey middle_btn">Виж всички референции</a>
+						</footer>
+						<!-- - - - - - - - - - - - - - End of view all testimonials - - - - - - - - - - - - - - - - -->
+					</section><!--/ .section_offset.animated.transparent-->
+                    <section class="section_offset animated transparent" data-animation="fadeInDown">
                         <h3 class="offset_title">Производители</h3>
                         <div class="owl_carousel brands">
                             @foreach ($manufacturers as $manufacturer)
