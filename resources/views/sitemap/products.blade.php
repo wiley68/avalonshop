@@ -3,7 +3,7 @@
     @foreach ($products as $product)
         <url>
             <loc>{{ route('product', ['id' => $product->code]) }}</loc>
-            <lastmod>{{ $product->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+            <lastmod>{{ $product->created_at->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>

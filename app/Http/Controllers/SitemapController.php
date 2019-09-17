@@ -13,12 +13,12 @@ use Illuminate\Http\Request;
 class SitemapController extends Controller
 {
     public function index(){
-        $product = Product::orderBy('updated_at', 'desc')->first();
-        $manufacturer = Manufacturer::orderBy('updated_at', 'desc')->first();
-        $tag = Tag::orderBy('updated_at', 'desc')->first();
-        $category = Category::orderBy('updated_at', 'desc')->first();
-        $support = Support::orderBy('updated_at', 'desc')->first();
-        $news = News::orderBy('updated_at', 'desc')->first();
+        $product = Product::orderBy('created_at', 'desc')->first();
+        $manufacturer = Manufacturer::orderBy('created_at', 'desc')->first();
+        $tag = Tag::orderBy('created_at', 'desc')->first();
+        $category = Category::orderBy('created_at', 'desc')->first();
+        $support = Support::orderBy('created_at', 'desc')->first();
+        $news = News::orderBy('created_at', 'desc')->first();
 
         return response()->view('sitemap.index', [
             'product' => $product,
@@ -56,7 +56,7 @@ class SitemapController extends Controller
 
     public function categories(){
         $categories = Category::all();
-        $last_update = Product::orderBy('updated_at', 'desc')->first()->updated_at;
+        $last_update = Product::orderBy('created_at', 'desc')->first()->created_at;
         
         return response()->view('sitemap.categories', [
             'categories' => $categories,
@@ -66,7 +66,7 @@ class SitemapController extends Controller
 
     public function supports(){
         $supports = Support::all();
-        $last_update = Support::orderBy('updated_at', 'desc')->first()->updated_at;
+        $last_update = Support::orderBy('created_at', 'desc')->first()->created_at;
         
         return response()->view('sitemap.supports', [
             'supports' => $supports,
@@ -75,7 +75,7 @@ class SitemapController extends Controller
     }
 
     public function main(){
-        $last_update = Product::orderBy('updated_at', 'desc')->first()->updated_at;
+        $last_update = Product::orderBy('created_at', 'desc')->first()->created_at;
         
         return response()->view('sitemap.main', [
             'last_update' => $last_update
