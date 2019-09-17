@@ -6,7 +6,7 @@ use App\Project;
 use App\Support;
 use App\Category;
 use App\Manufacturer;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -565,8 +565,42 @@ class IndexController extends Controller
     }
     /** end klienti menu */
     /** start vrashtane menu */
-    public function vrashtane(){
+    public function vrashtane(Request $request){
+        if ($request->isMethod('post')){
+            $this->validate($request, [
+                'f_name' => 'required',
+                'f_last_name' => 'required',
+                'f_email' => 'required',
+                'f_phone' => 'required',
+                'f_order' => 'required',
+                'f_product_name' => 'required',
+                'f_product_code' => 'required',
+                'f_product_qt' => 'required'
+            ],
+            [
+                'f_name.required' => 'Задължително е въвеждането на Вашето име!',
+                'f_last_name.required' => 'Задължително е въвеждането на Вашата фамилия!',
+                'f_email.required' => 'Задължително е въвеждането на Вашия E-Mail адрес!',
+                'f_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
+                'f_order.required' => 'Задължително е въвеждането на Поръчката!',
+                'f_product_name.required' => 'Задължително е въвеждането на името на продукта!',
+                'f_product_code.required' => 'Задължително е въвеждането на кода на продукта!',
+                'f_product_qt.required' => 'Задължително е въвеждането на количеството на продукта!'
+            ]);
+    
+            $name = $request->input('f_name');
+            $last_name = $request->input('f_last_name');
+            $email = $request->input('f_email');
+            $phone = $request->input('f_phone');
+            $order = $request->input('f_order');
+            $product_name = $request->input('f_product_name');
+            $product_code = $request->input('f_product_code');
+            $product_qt = $request->input('f_product_qt');
+        }
+
+
         $root_categories = Category::where(['parent_id' => 0])->get();
+
         return view('vrashtane')->with([
             'title' => 'Връщане на стоки | Авалон',
             'description' => 'Връщане на стоки.',

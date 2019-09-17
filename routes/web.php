@@ -33,7 +33,7 @@ Route::get('/politika.html', 'IndexController@politika')->name('politika');
 Route::get('/dostavka.html', 'IndexController@dostavka')->name('dostavka');
 Route::get('/klienti.html', 'IndexController@klienti')->name('klienti');
 Route::get('/klient-{id}.html', 'IndexController@klient')->name('klient');
-Route::get('/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
+Route::match(['get', 'post'], '/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
 /** end footer menu */
 /** start index web section */
 Route::get('/desktop/maxtrade_change.html', 'IndexController@maxtrade_change')->name('desktop.maxtrade_change');
