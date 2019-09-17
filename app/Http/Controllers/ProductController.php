@@ -65,7 +65,10 @@ class ProductController extends Controller
             $queries['search_text'] = request('search_text');
 
             // filter products
-            $products = $products->where('name', 'LIKE', '%' . request('search_text') . '%')->orWhere('description', 'LIKE', '%' . request('search_text') . '%');
+            $products = $products->where('name', 'LIKE', '%' . request('search_text') . '%')
+                ->orWhere('description', 'LIKE', '%' . request('search_text') . '%')
+                ->orWhere('code', 'LIKE', '%' . request('search_text') . '%')
+                ->orWhere('short_description', 'LIKE', '%' . request('search_text') . '%');
             $search_text = request('search_text');
         } else {
             $search_text = '';
