@@ -56,9 +56,11 @@ class SitemapController extends Controller
 
     public function categories(){
         $categories = Category::all();
+        $last_update = Product::orderBy('updated_at', 'desc')->first()->updated_at;
         
         return response()->view('sitemap.categories', [
             'categories' => $categories,
+            'last_update' => $last_update
         ])->header('Content-Type', 'text/xml');
     }
 

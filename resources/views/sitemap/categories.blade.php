@@ -7,7 +7,7 @@
         @endphp
         <url>
             <loc>{{ route('products', ['category_id' => $category_ids]) }}</loc>
-            <lastmod>{{ $category->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+            <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>
