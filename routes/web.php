@@ -78,11 +78,6 @@ Route::get('/checkout-result-{id}.html', 'HelpController@checkoutResult')->name(
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');
 Route::post('/send-contact-form.html', 'HelpController@submit_contactform')->name('send-contact-form');
 /** end help section */
-/** start sitemap */
-Route::get('/sitemap.xml', function(){
-   return Response::view('sitemap')->header('Content-Type', 'application/xml');
-});
-/** end sitemap */
 /** start news */
 Route::get('/news/all.html', 'NewsController@all')->name('news.all');
 Route::get('/news/post{id}.html', 'NewsController@post')->name('news.post');
@@ -127,3 +122,12 @@ Route::group(
 /** stop frontend */
 
 Auth::routes(['verify' => true]);
+
+Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap');
+Route::get('/sitemap/products', 'SitemapController@products')->name('sitemap-products');
+Route::get('/sitemap/manufacturers', 'SitemapController@manufacturers')->name('sitemap-manufacturers');
+Route::get('/sitemap/tags', 'SitemapController@tags')->name('sitemap-tags');
+Route::get('/sitemap/categories', 'SitemapController@categories')->name('sitemap-categories');
+Route::get('/sitemap/supports', 'SitemapController@supports')->name('sitemap-supports');
+Route::get('/sitemap/news', 'SitemapController@news')->name('sitemap-news');
+Route::get('/sitemap/main', 'SitemapController@main')->name('sitemap-main');
