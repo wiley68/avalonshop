@@ -238,7 +238,7 @@ class ProductController extends Controller
         $result_tbi['tbipayment_mesecna'] = 0;
         $properties = Property::where('id', '>', 0)->first();
         if ($properties->calculators && $properties->tbibank) {
-            $result_tbi = $this->changeCreditVnoska($product->id, 1);
+            $result_tbi = $this->changeCreditVnoskaStatic($product->id, 1);
         }
 
         $support = Support::all()->random();
@@ -399,7 +399,7 @@ class ProductController extends Controller
     public function changeCreditVnoskaAjax(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
-            $result = $this->changeCreditVnoska($request->input('product_id'), $request->input('product_quantity'));
+            $result = $this->changeCreditVnoskaStatic($request->input('product_id'), $request->input('product_quantity'));
             $tbipayment_mesecna = number_format($result['tbipayment_mesecna'], 2, ".", "");
             $tbipayment_meseci_new = $result['tbipayment_meseci_new'];
 
@@ -595,6 +595,28 @@ class ProductController extends Controller
                 'status' => 'success',
                 'tbipayment_mesecna' => $tbipayment_mesecna,
                 'tbipayment_meseci_new' => $tbipayment_meseci_new
+            );
+        } else {
+            $response = array(
+                'status' => 'unsuccess',
+                'tbipayment_mesecna' => 0,
+                'tbipayment_meseci_new' => 0
+            );
+        }
+
+        return $response;
+    }
+
+    public function changeCreditVnoskaStatic($product_id=null, $product_quantity=null)
+    {
+        if (($product_id != null) && ($product_quantity != null)) {
+            $product = Product::where(['id' => $product_id])->first();
+            $oskapiavane_12 = 0.015;    
+            $vnoska = (floatval($product->price) * floatval($product_quantity) * (1 + $oskapiavane_12 * 12)) / 12;
+            $response = array(
+                'status' => 'success',
+                'tbipayment_mesecna' => number_format($vnoska, 2, ".", ""),
+                'tbipayment_meseci_new' => 12
             );
         } else {
             $response = array(
