@@ -649,6 +649,42 @@
                         </section>
                         <!--/ .section_offset-->
                         <!-- - - - - - - - - - - - - - End of related products - - - - - - - - - - - - - - - - -->
+                        <div class="section_offset">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown">
+                                        <i class="icon-download"></i>
+                                        <h4 class="caption"><b>Maxtrade CMR</b></h4>
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeCMR.zip" onclick="clickBtnDownload(event, 2)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section><!--/ .infoblock.type_2-->
+                                </div><!--/ [col]-->
+                                <div class="col-md-3 col-sm-6">        
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="150">
+                                        <i class="icon-download"></i>
+                                        <h4 class="caption"><b>Maxtrade CTM</b></h4>
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeCTM.zip" onclick="clickBtnDownload(event, 3)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section><!--/ .infoblock.type_2-->
+                                </div><!--/ [col]-->
+                                <div class="col-md-3 col-sm-6"> 
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="300">
+                                        <i class="icon-download"></i>
+                                        <h4 class="caption"><b>Maxtrade SLR</b></h4>
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeSLR.zip" onclick="clickBtnDownload(event, 5)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section><!--/ .infoblock.type_2-->
+                                </div><!--/ [col]-->
+                                <div class="col-md-3 col-sm-6">
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="450">
+                                        <i class="icon-download"></i>
+                                        <h4 class="caption"><b>Maxtrade SMDC</b></h4>
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeSMDC.zip" onclick="clickBtnDownload(event, 6)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section><!--/ .infoblock.type_2-->
+                                </div><!--/ [col]-->
+                            </div><!--/ .row-->
+                        </div><!--/ .section_offset-->
                     </div>
                     <!--/ .container-->
                 </div>
@@ -832,5 +868,19 @@
             $('<form action="'+location+'" method="POST">@csrf'+form+'</form>').appendTo('body').submit();
         }
     });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function clickBtnDownload(e, id){
+        $.ajax({
+            type:'POST',
+            url:'/add-download.html',
+            data:{id:id}
+        });
+    };
 </script>
 @endsection
