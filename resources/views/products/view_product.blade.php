@@ -1,5 +1,6 @@
 <?php use App\Attribute; ?>
 <?php use App\AttributeValues; ?>
+<?php use App\Http\Controllers\HelpController; ?>
 @extends('layouts.design')
 @section('content')
 
@@ -685,6 +686,78 @@
                                 </div><!--/ [col]-->
                             </div><!--/ .row-->
                         </div><!--/ .section_offset-->
+                        <div class="section_offset">
+                            <div class="row">
+                                <section class="col-sm-12">                                 
+                                    <h3>Събития, новини, информация</h3>
+                                    <div class="tabs">
+                                        <ul class="tabs_nav clearfix">
+                                            <li><a href="#support">Поддръжка</a></li>
+                                            <li><a href="#news">Новини</a></li>
+                                        </ul>   
+                                        <div class="tab_containers_wrap">
+                                            <div id="support" class="tab_container">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png" alt="{{ $support->name }}" class="alignleft" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                <h3><a href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a></h3>
+                                                <div class="entry_meta">
+                                                    @php
+                                                    $date = new DateTime($support->created_at);
+                                                    @endphp
+                                                    <span><i class="icon-calendar"></i>
+                                                        {{ $date->format('d.m.Y') }}
+                                                    </span>
+                                                    <span>посещения:&nbsp;{{ $support->visits }}</span>
+                                                    <span><i class="icon-user-8"></i> от {{ $support->username }}</span>
+                                                    @php
+                                                    switch ($support->category_id) {
+                                                    case 'gamings':
+                                                    $category_txt = "Игрални компютри";
+                                                    break;
+                                                    case 'offices':
+                                                    $category_txt = "Офис компютри";
+                                                    break;
+                                                    case 'printers':
+                                                    $category_txt = "Принтери и Копири";
+                                                    break;
+                                                    case 'instalations':
+                                                    $category_txt = "Инсталация и настройка";
+                                                    break;
+                                                    case 'networks':
+                                                    $category_txt = "Локални Мрежи";
+                                                    break;
+                                                    case 'cameras':
+                                                    $category_txt = "Камери и Охрана";
+                                                    break;
+                                                    case 'softwares':
+                                                    $category_txt = "Софтуер";
+                                                    break;
+                                                    default:
+                                                    $category_txt = "Игрални компютри";
+                                                    break;
+                                                    }
+                                                    @endphp
+                                                    <span><i class="icon-folder-open-empty-1"></i> <a href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
+                                                </div>
+                                                <p>{!! html_entity_decode(HelpController::getExcerpt($support->description, 0, 1000)) !!}</p>
+                                                <a href="{{ route('support.software', ['id'=>$support->id]) }}" class="button_grey middle_btn">Виж подробно</a>
+                                            </div><!--/ #tab-1-->
+                                            <div id="news" class="tab_container">
+                                                <h3><a href="{{ route('news.post', ['id'=>$news->id]) }}">{{ $news->name }}</a></h3>
+                                                @php
+                                                    $date = new DateTime($news->created_at);
+                                                @endphp
+                                                <span><i class="icon-calendar"></i>
+                                                    {{ $date->format('d.m.Y') }}
+                                                </span>
+                                                <span>посещения:&nbsp;{{ $news->visits }}</span>
+                                                <span><i class="icon-user-8"></i> от {{ $news->username }}</span>
+                                                <p>{!! html_entity_decode($news->description) !!}</p>
+                                            </div><!--/ #tab-2-->
+                                        </div><!--/ .tab_containers_wrap -->
+                                    </div><!--/ .tabs-->
+                                </section><!--/ [col]-->
+                            </div><!--/ .row -->
+                        </div><!--/ .section_offset -->
                     </div>
                     <!--/ .container-->
                 </div>

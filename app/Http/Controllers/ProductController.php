@@ -10,9 +10,11 @@ use App\Tagsp;
 use Illuminate\Support\Facades\DB;
 use App\ProductsTagsp;
 use App\Manufacturer;
+use App\News;
 use App\ProductsAttributes;
 use App\Property;
 use App\Review;
+use App\Support;
 
 class ProductController extends Controller
 {
@@ -239,6 +241,9 @@ class ProductController extends Controller
             $result_tbi = $this->changeCreditVnoska($product->id, 1);
         }
 
+        $support = Support::all()->random();
+        $news = News::all()->random();
+
         return view('products.view_product')->with([
             'title' => $product->meta_title . ' | Авалон',
             'description' => $product->meta_description,
@@ -259,7 +264,9 @@ class ProductController extends Controller
             'imgsrc4' => $imgsrc4,
             'tbipayment_meseci_new' => $result_tbi['tbipayment_meseci_new'],
             'tbipayment_mesecna' => $result_tbi['tbipayment_mesecna'],
-            'properties' => $properties
+            'properties' => $properties,
+            'support' => $support,
+            'news' => $news
         ]);
     }
     /** end view product */
