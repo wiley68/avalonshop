@@ -97,6 +97,8 @@ Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-
 Route::match(['get', 'post'], '/credit/product.html', 'CreditController@index')->name('credit');
 Route::match(['get', 'post'], '/credit/danni.html', 'CreditController@danni')->name('credit-danni');
 Route::match(['get', 'post'], '/credit/ok.html', 'CreditController@ok')->name('credit-ok');
+Route::get('/credit/yes.html', 'CreditController@yes')->name('credit-yes');
+Route::get('/credit/no.html', 'CreditController@no')->name('credit-no');
 /** end credit routes */
 /** start fronend */
 Route::group(

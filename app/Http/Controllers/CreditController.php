@@ -1221,6 +1221,26 @@ class CreditController extends Controller
         }
     }
 
+    public function yes(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('credit.yes')->with([
+            'title' => 'Продажба на техника на изплащане, кредитен калкулатор, успешен резултат | Авалон',
+            'description' => 'Продажба на техника на изплащане, кредитен калкулатор, успешен резултат.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, успешен резултат',
+            'root_categories' => $root_categories
+        ]);   
+    }
+
+    public function no(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('credit.no')->with([
+            'title' => 'Продажба на техника на изплащане, кредитен калкулатор, неуспешен резултат | Авалон',
+            'description' => 'Продажба на техника на изплащане, кредитен калкулатор, неуспешен резултат.',
+            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, кредит, изплащане, калкулатор, неуспешен резултат',
+            'root_categories' => $root_categories
+        ]);   
+    }
+
     public function ok(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
