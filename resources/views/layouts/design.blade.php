@@ -51,41 +51,56 @@
         "@context": "http://schema.org/",
         "@type": "Product",
         "name": "{{ $product->name }}",
-        "image": "{{ $product->imgurl1 }}",
-        "author": {
-            "@type": "Person",
-            "name": "Ilko Ivanov"
+        "image": [
+            @if ($product->imgurl1 != "")
+            "{{ $product->imgurl1 }}",
+            @endif
+            @if ($product->imgurl2 != "")
+            "{{ $product->imgurl2 }}",
+            @endif
+            @if ($product->imgurl3 != "")
+            "{{ $product->imgurl3 }}",
+            @endif
+            @if ($product->imgurl4 != "")
+            "{{ $product->imgurl4 }}",
+            @endif
+        ],
+        "description": "{{ $product->description }}",
+        "sku": "{{ $product->ean }}",
+        "brand": {
+            "@type": "Thing",
+            "name": "{{ $manufacturer_name }}"
         },
-        "lowPrice": {{ floatval($product->price) }},
-        "priceCurrency": "BGN",
-        "availability": "{{ $availability }}",
-        "price": {{ floatval($product->price) }},
-        "url": "{{ route('product', ['id' => $product->code]) }}",
+        @if ($all_rev > 0)
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "{{ $all_rev }}",
             "reviewCount": "{{ $reviews->count() }}"
         },
-        "brand": "{{ $manufacturer_name }}",
-        "description": "{{ $product->description }}",
-        @if ($all_rev > 0)
-        "review": [
-            {
-                "@type": "Review",
-                "author": "{{ $review_author }}",
-                "datePublished": "{{ $review_datePublished }}",
-                "description": "{{ $review_description }}",
-                "name": "{{ $review_name }}",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "bestRating": "{{ $all_rev }}",
-                    "ratingValue": "{{ $all_rev }}",
-                    "worstRating": "{{ $all_rev }}"
-                }
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{{ $all_rev }}",
+                "bestRating": "{{ $all_rev }}"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "{{ $review_author }}"
             }
-        ],            
+        },
         @endif
-        "sku": "{{ $product->ean }}"
+        "offers": {
+            "@type": "Offer",
+            "url": "{{ route('product', ['id' => $product->code]) }}",
+            "priceCurrency": "BGN",
+            "price": "{{ floatval($product->price) }}",
+            "availability": "https://schema.org/{{ $availability }}",
+            "seller": {
+                "@type": "Organization",
+                "name": "Авалон ООД"
+            }
+        }
     }
     </script>
     @endif
