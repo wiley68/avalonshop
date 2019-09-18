@@ -89,6 +89,22 @@
     }
     </script>
     @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_change')
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Maxtrade Change",
+          "operatingSystem": "Windows 7, Windows 10",
+          "applicationCategory": "https://schema.org/BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "144.00",
+            "priceCurrency": "BGN"
+          }
+        }
+    </script>
+    @endif
     @php
         $property = Property::where('id', '>', 0)->first();
         $show = false;
