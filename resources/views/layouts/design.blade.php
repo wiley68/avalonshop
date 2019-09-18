@@ -14,6 +14,81 @@
     </script>
     <!-- Basic page needs
     ============================================ -->
+    @if(Route::current()->getName() == 'product')
+    @php
+        switch ($product->instock) {
+            case 'в наличност':
+                $availability = "InStock";
+                break;
+            case 'минимално количество':
+                $availability = "LimitedAvailability";
+                break;
+            case 'очаква се':
+                $availability = "PreOrder";
+                break;
+            default:
+                $availability = "OutOfStock";
+                break;
+        }
+        $all_rev = 0;
+        $review_author = "";
+        $review_datePublished = "";
+        $review_description = "";
+        $review_name = "";
+        foreach ($reviews as $review){
+            $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+            $review_author = User::where(['id' => $review->user_id])->first()->name;
+            $review_datePublished = $review->created_at;
+            $review_description = $review->review;
+            $review_name = $review->name;
+        }
+        if ($reviews->count() > 0){
+            $all_rev = floor($all_rev / ($reviews->count() * 3));
+        }
+    @endphp
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "{{ $product->name }}",
+        "image": "{{ $product->imgurl1 }}",
+        "author": {
+            "@type": "Person",
+            "name": "Ilko Ivanov"
+        },
+        "lowPrice": {{ floatval($product->price) }},
+        "priceCurrency": "BGN",
+        "availability": "{{ $availability }}",
+        "price": {{ floatval($product->price) }},
+        "url": "{{ route('product', ['id' => $product->code]) }}",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ $all_rev }}",
+            "reviewCount": "{{ $reviews->count() }}"
+        },
+        "brand": "{{ $manufacturer_name }}",
+        "description": "{{ $product->description }}",
+        @if ($all_rev > 0)
+        "review": [
+            {
+                "@type": "Review",
+                "author": "{{ $review_author }}",
+                "datePublished": "{{ $review_datePublished }}",
+                "description": "{{ $review_description }}",
+                "name": "{{ $review_name }}",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "bestRating": "{{ $all_rev }}",
+                    "ratingValue": "{{ $all_rev }}",
+                    "worstRating": "{{ $all_rev }}"
+                }
+            }
+        ],            
+        @endif
+        "sku": "{{ $product->ean }}"
+    }
+    </script>
+    @endif
     @php
         $property = Property::where('id', '>', 0)->first();
         $show = false;
