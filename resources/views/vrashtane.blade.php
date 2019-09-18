@@ -6,8 +6,20 @@
         <div class="section_offset">
             <div class="row">
                 <section class="section_offset">
+                    @if (!empty($message))
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="alert_box success">
+                                    {!! $message !!}
+                                    <button class="close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                     <h3>Връщане на продукти</h3>
-                    <p>Моля, попълнете формуляра по-долу, за издаване на входящ номер: RMA</p>
+                    <p>Моля, попълнете формуляра по-долу, за издаване на входящ номер: RMA. След получаване на съобщението Заявка за връщане на продукт, ние ще се свържем с Вас за да уточним начина на връщане на продукта и възстановяване на средствата Ви.</p>
                     <div class="theme_box">
                         <div class="row">
                             <div class="col-sm-12">
@@ -92,11 +104,11 @@
                                             <div class="col-xs-12">
                                                 <label>Причина за връщане</label>
                                                 <div class="form_el">
-                                                    <input checked type="radio" name="f_pricina" id="f_pricina_povreden">
+                                                    <input checked type="radio" name="f_pricina" id="f_pricina_povreden" value="povreden">
                                                     <label for="f_pricina_povreden">Повреден</label>
-                                                    <input type="radio" name="f_pricina" id="f_pricina_greshka">
+                                                    <input type="radio" name="f_pricina" id="f_pricina_greshka" value="greshka">
                                                     <label for="f_pricina_greshka">Грешна поръчка</label>
-                                                    <input type="radio" name="f_pricina" id="f_pricina_other">
+                                                    <input type="radio" name="f_pricina" id="f_pricina_other" value="other">
                                                     <label for="f_pricina_other">Друга, моля дайте подробности</label>
                                                 </div>
                                             </div>
@@ -105,9 +117,9 @@
                                             <div class="col-xs-12">
                                                 <label>Продукта е отварян</label>
                                                 <div class="form_el">
-                                                    <input checked type="radio" name="f_otvaran" id="f_otvaran_da">
+                                                    <input checked type="radio" name="f_otvaran" id="f_otvaran_da" value="da">
                                                     <label for="f_otvaran_da">Да</label>
-                                                    <input type="radio" name="f_otvaran" id="f_otvaran_ne">
+                                                    <input type="radio" name="f_otvaran" id="f_otvaran_ne" value="ne">
                                                     <label for="f_otvaran_ne">Не</label>
                                                 </div>
                                             </div>

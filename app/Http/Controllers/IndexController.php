@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Support;
 use App\Category;
+use App\Mail\ReturnProduct;
 use App\Manufacturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -566,6 +568,9 @@ class IndexController extends Controller
     /** end klienti menu */
     /** start vrashtane menu */
     public function vrashtane(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        $message = '';
+
         if ($request->isMethod('post')){
             $this->validate($request, [
                 'f_name' => 'required',
@@ -596,16 +601,37 @@ class IndexController extends Controller
             $product_name = $request->input('f_product_name');
             $product_code = $request->input('f_product_code');
             $product_qt = $request->input('f_product_qt');
+            $pricina = $request->input('f_pricina');
+            $otvaran = $request->input('f_otvaran');
+            $description = $request->input('f_description');
+
+            //to admin
+            $objMailAdmin = new \stdClass();
+            $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
+            $objMailAdmin->name = $name;
+            $objMailAdmin->last_name = $last_name;
+            $objMailAdmin->email = $email;
+            $objMailAdmin->phone = $phone;
+            $objMailAdmin->order = $order;
+            $objMailAdmin->product_name = $product_name;
+            $objMailAdmin->product_code = $product_code;
+            $objMailAdmin->product_qt = $product_qt;
+            $objMailAdmin->pricina = $pricina;
+            $objMailAdmin->otvaran = $otvaran;
+            $objMailAdmin->description = $description;
+            $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+            $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+
+            Mail::to('home@avalonbg.com')->send(new ReturnProduct($objMailAdmin));
+            $message = '<b>Благодарим Ви!</b> Вашето съобщение е получено от екипа на Авалон ООД. Очаквайте свързване за уточняване на връщането.';
         }
-
-
-        $root_categories = Category::where(['parent_id' => 0])->get();
 
         return view('vrashtane')->with([
             'title' => 'Връщане на стоки | Авалон',
             'description' => 'Връщане на стоки.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, връщане на стока',
-            'root_categories' => $root_categories
+            'root_categories' => $root_categories,
+            'message' => $message
         ]);
     }
     /** end vrashtane menu */
