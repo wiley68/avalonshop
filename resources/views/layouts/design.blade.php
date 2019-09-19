@@ -1,5 +1,6 @@
 <?php use App\Property; ?>
 <?php use App\Http\Controllers\HelpController; ?>
+<?php use App\ProductsCategories; ?>
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -95,6 +96,11 @@
             "url": "{{ route('product', ['id' => $product->code]) }}",
             "priceCurrency": "BGN",
             "price": "{{ floatval($product->price) }}",
+            @if (ProductsCategories::where(['product_id' => $product->id, 'category_id' => '34'])->count() > 0)
+            "itemCondition": "https://schema.org/UsedCondition",                
+            @else
+            "itemCondition": "https://schema.org/NewCondition",                
+            @endif
             "availability": "https://schema.org/{{ $availability }}",
             "seller": {
                 "@type": "Organization",
