@@ -48,8 +48,11 @@ class ProductController extends Controller
             ->get();
 
         // get products
-        $products = Product::where('id', '>', 0)->where(['instock' => 'в наличност']);
-        $products = $products->where(['instock' => 'в наличност']);
+        $products = Product::where('id', '>', 0);
+        $products = $products->where(function($q) {
+            $q->where('instock', 'в наличност')
+              ->orWhere('instock', 'минимално количество');
+        });
 
         // get paginate
         if (!empty(request('paginate_by'))) {

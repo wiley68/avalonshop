@@ -47,23 +47,15 @@
                                                 @endphp
                                                 <div class="table_cell">
                                                     <fieldset>
-                                                        <legend>Категории&nbsp;&raquo;&nbsp;<a href="#" id="viewall">виж всички</a></legend>
+                                                        <legend>Категории&nbsp;&raquo;&nbsp;<a href="#" id="removeall">премахни всички</a></legend>
                                                         <ul class="checkboxes_list">
                                                             @foreach ($root_categories as $root_category)
                                                             <li>
                                                                 <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif 
-                                                                    name="category_id[]" value="{{ $root_category->id }}" id="category_{{ $root_category->id }}">
+                                                                    name="category_id[]" value="{{ $root_category->id }}" id="category_{{ $root_category->id }}" myid="category_id">
                                                                 <label
                                                                     for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
                                                             </li>
-                                                            @foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)
-                                                            <li name="subcategories" style="display:none;">
-                                                                <input type="checkbox" @if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif 
-                                                                    name="category_id[]" value="{{ $item->id }}" id="category_{{ $item->id }}">
-                                                                <label
-                                                                    for="category_{{ $item->id }}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{ $item->name }}</span></label>
-                                                            </li>
-                                                            @endforeach
                                                             @endforeach
                                                         </ul>
                                                     </fieldset>
@@ -135,8 +127,7 @@
                                         <footer class="bottom_box">
                                             <div class="buttons_row">
                                                 <button type="submit" class="button_blue middle_btn">Търси</button>
-                                                <button type="reset"
-                                                    class="button_grey middle_btn filter_reset">Откажи</button>
+                                                <a href="{{ route('products') }}" class="button_grey middle_btn filter_reset">Откажи</a>
                                             </div>
                                         </footer>
                                     </form>
@@ -420,9 +411,11 @@
         });
     };
 
-    $("#viewall").click(function(e){
+    $("#removeall").click(function(e){
         e.preventDefault();
-        $("li[name='subcategories']").toggle();
+        $('input[myid="category_id"]').each(function() {
+	        this.checked = false;
+		});
     });
 </script>
 @endsection
