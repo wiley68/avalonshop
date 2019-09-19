@@ -18,8 +18,7 @@ use App\Support;
 
 class ProductController extends Controller
 {
-    public function viewProducts()
-    {
+    public function viewProducts(){
         // get root categories
         $root_categories = Category::where(['parent_id' => 0])->get();
 

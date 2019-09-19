@@ -31,13 +31,12 @@
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
                                 <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
-                                <!--
                                 <section class="section_offset">
                                     <h3>Филтър продукти</h3>
-                                    <form class="type_2">
+                                    <form class="type_2" enctype="multipart/form-data" action="{{ route('products') }}" method="post" name="filter_products" id="filter_products" novalidate="novalidate">
+                                        @csrf
                                         <div class="table_layout list_view">
                                             <div class="table_row">
-                                                {{--
                                                 @php
                                                     $categories_in = [];
                                                     if (!empty($queries['category_id'])){
@@ -46,31 +45,30 @@
                                                         }
                                                     }
                                                 @endphp
-                                                --}}
-
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Категории&nbsp;&raquo;&nbsp;<a href="#" id="viewall">виж всички</a></legend>
                                                         <ul class="checkboxes_list">
-                                                            {{--@foreach ($root_categories as $root_category)--}}
+                                                            @foreach ($root_categories as $root_category)
                                                             <li>
-                                                                <input type="checkbox" {{--@if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif--}} name="category_id"
-                                                                    id="category_{{--{{ $root_category->id }}--}}">
+                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif 
+                                                                    name="category_id[]" value="{{ $root_category->id }}" id="category_{{ $root_category->id }}">
                                                                 <label
-                                                                    for="category_{{--{{ $root_category->id }}--}}">{{--{{ $root_category->name }}--}}</label>
+                                                                    for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
                                                             </li>
-                                                            {{--@foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)--}}
+                                                            @foreach (Category::where(['parent_id' => $root_category->id])->get() as $item)
                                                             <li name="subcategories" style="display:none;">
-                                                                <input type="checkbox" {{--@if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif--}} name="category_id"
-                                                                    id="category_{{-- {{ $item->id }}--}}">
+                                                                <input type="checkbox" @if ((in_array($item->id, $categories_in)) || (empty($categories_in))) checked @endif 
+                                                                    name="category_id[]" value="{{ $item->id }}" id="category_{{ $item->id }}">
                                                                 <label
-                                                                    for="category_{{--{{ $item->id }}--}}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{--{{ $item->name }}--}}</span></label>
+                                                                    for="category_{{ $item->id }}">&nbsp;&nbsp;&nbsp;<span style="font-size:12px;color:gray;">{{ $item->name }}</span></label>
                                                             </li>
-                                                            {{--@endforeach--}}
-                                                            {{--@endforeach--}}
+                                                            @endforeach
+                                                            @endforeach
                                                         </ul>
                                                     </fieldset>
                                                 </div>
+                                                <!--
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Price</legend>
@@ -84,6 +82,8 @@
                                                         <div id="slider"></div>
                                                     </fieldset>
                                                 </div>
+                                                -->
+                                                <!--
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Color</legend>
@@ -129,88 +129,19 @@
                                                         </div>
                                                     </fieldset>
                                                 </div>
+                                                -->
                                             </div>
                                         </div>
                                         <footer class="bottom_box">
                                             <div class="buttons_row">
-                                                <button type="submit" class="button_blue middle_btn">Search</button>
+                                                <button type="submit" class="button_blue middle_btn">Търси</button>
                                                 <button type="reset"
-                                                    class="button_grey middle_btn filter_reset">Reset</button>
+                                                    class="button_grey middle_btn filter_reset">Откажи</button>
                                             </div>
                                         </footer>
                                     </form>
                                 </section>
-                                -->
                                 <!-- - - - - - - - - - - - - - End of filter - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
-                                <div class="section_offset">
-                                    <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
-                                        <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" alt="Покупка на стоки на изплащане">
-                                    </a>
-                                </div>
-                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Already viewed products - - - - - - - - - - - - - - - - -->
-                                <!--
-                                <section class="section_offset">
-                                    <h3>Already Viewed Products</h3>
-                                    <ul class="products_list_widget">
-                                        <li>
-                                            <a href="#" class="product_thumb">
-                                                <img src="images/product_thumb_4.jpg" alt="">
-                                            </a>
-                                            <div class="wrapper">
-                                                <a href="#" class="product_title">Aenean auctor wisi et urna...</a>
-                                                <div class="clearfix product_info">
-                                                    <p class="product_price alignleft"><b>$5.99</b></p>
-                                                    <ul class="rating alignright">
-                                                        <li class="active"></li>
-                                                        <li class="active"></li>
-                                                        <li class="active"></li>
-                                                        <li class="active"></li>
-                                                        <li></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </section>
-                                -->
-                                <!-- - - - - - - - - - - - - - End of already viewed products - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Compare products - - - - - - - - - - - - - - - - -->
-                                <!--
-                                <section class="section_offset">
-                                    <h3>Compare Products</h3>
-                                    <ul class="products_list_widget">
-                                        <li>
-                                            <a href="#" class="product_thumb">
-                                                <img src="images/product_thumb_10.jpg" alt="">
-                                            </a>
-                                            <div class="wrapper">
-                                                <a href="#" class="product_title">Integer rutrum ante eu lacus...</a>
-                                                <div class="clearfix product_info">
-                                                    <p class="product_price alignleft"><s>$29.99</s> <b>$21.99</b></p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="product_thumb">
-                                                <img src="images/product_thumb_11.jpg" alt="">
-                                            </a>
-                                            <div class="wrapper">
-                                                <a href="#" class="product_title">Vestibulum ante ipsum primis in...</a>
-                                                <div class="clearfix product_info">
-                                                    <p class="product_price alignleft"><b>$13.99</b></p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <footer class="bottom_box">
-                                        <a href="shop_product_comparison.html" class="button_grey middle_btn">Go to
-                                            Compare</a>
-                                    </footer>
-                                </section>
-                                -->
-                                <!-- - - - - - - - - - - - - - End of compare products - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Manufacturers - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
                                     <h3>Производители</h3>
@@ -242,6 +173,13 @@
                                     <!--/ .tags_container-->
                                 </section>
                                 <!-- - - - - - - - - - - - - - End of tags - - - - - - - - - - - - - - - - -->
+                                <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
+                                <div class="section_offset">
+                                    <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
+                                        <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" alt="Покупка на стоки на изплащане">
+                                    </a>
+                                </div>
+                                <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
@@ -481,5 +419,10 @@
             }
         });
     };
+
+    $("#viewall").click(function(e){
+        e.preventDefault();
+        $("li[name='subcategories']").toggle();
+    });
 </script>
 @endsection
