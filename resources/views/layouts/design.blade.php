@@ -68,7 +68,11 @@
         ],
         "description": "{{ $product->description }}",
         "sku": "{{ $product->code }}",
+        @if ($product->ean != "")
         "gtin8": "{{ $product->ean }}",
+        @else
+        "gtin8": "{{ $product->code }}",
+        @endif
         "brand": {
             "@type": "Thing",
             "name": "{{ $manufacturer_name }}"
@@ -99,9 +103,9 @@
             "price": "{{ floatval($product->price) }}",
             "priceValidUntil": "2030-11-05",
             @if (ProductsCategories::where(['product_id' => $product->id, 'category_id' => '34'])->count() > 0)
-            "itemCondition": "https://schema.org/UsedCondition",                
+            "itemCondition": "https://schema.org/UsedCondition",
             @else
-            "itemCondition": "https://schema.org/NewCondition",                
+            "itemCondition": "https://schema.org/NewCondition",
             @endif
             "availability": "https://schema.org/{{ $availability }}",
             "seller": {
@@ -209,9 +213,9 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web.cc_woocommerce' || 
-        Route::current()->getName() == 'web.cc_opencart' || 
-        Route::current()->getName() == 'web.cc_magento' || 
+        Route::current()->getName() == 'web.cc_woocommerce' ||
+        Route::current()->getName() == 'web.cc_opencart' ||
+        Route::current()->getName() == 'web.cc_magento' ||
         Route::current()->getName() == 'web.cc_prestashop'
         )
     <script type="application/ld+json">
@@ -230,12 +234,12 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-soft.maxtrade_store' || 
-        Route::current()->getName() == 'web-soft.maxtrade_storeerp' || 
-        Route::current()->getName() == 'web-soft.avamb' || 
-        Route::current()->getName() == 'web-service.webservice' || 
-        Route::current()->getName() == 'mobile.avambmobile' || 
-        Route::current()->getName() == 'industry.ikunk' || 
+        Route::current()->getName() == 'web-soft.maxtrade_store' ||
+        Route::current()->getName() == 'web-soft.maxtrade_storeerp' ||
+        Route::current()->getName() == 'web-soft.avamb' ||
+        Route::current()->getName() == 'web-service.webservice' ||
+        Route::current()->getName() == 'mobile.avambmobile' ||
+        Route::current()->getName() == 'industry.ikunk' ||
         Route::current()->getName() == 'industry.kantar'
         )
     <script type="application/ld+json">
@@ -249,7 +253,7 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-soft.maxtrade_ins' 
+        Route::current()->getName() == 'web-soft.maxtrade_ins'
         )
     <script type="application/ld+json">
         {
@@ -267,7 +271,7 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-service.website' 
+        Route::current()->getName() == 'web-service.website'
         )
     <script type="application/ld+json">
         {
@@ -285,7 +289,7 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-service.onlineshop' 
+        Route::current()->getName() == 'web-service.onlineshop'
         )
     <script type="application/ld+json">
         {
@@ -303,25 +307,25 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'for_us' || 
-        Route::current()->getName() == 'contact' || 
-        Route::current()->getName() == 'credit-info' || 
-        Route::current()->getName() == 'proizvoditeli' || 
-        Route::current()->getName() == 'avalon.shop' || 
-        Route::current()->getName() == 'avalon.service' || 
-        Route::current()->getName() == 'avalon.service-printeri' || 
-        Route::current()->getName() == 'avalon.mrezi' || 
-        Route::current()->getName() == 'terms' || 
-        Route::current()->getName() == 'gdpr' || 
-        Route::current()->getName() == 'politika' || 
-        Route::current()->getName() == 'dostavka' || 
-        Route::current()->getName() == 'klienti' || 
-        Route::current()->getName() == 'klient' || 
-        Route::current()->getName() == 'vrashtane' || 
-        Route::current()->getName() == 'support.posts' || 
-        Route::current()->getName() == 'support.software' || 
-        Route::current()->getName() == 'news.all' || 
-        Route::current()->getName() == 'news.post' || 
+        Route::current()->getName() == 'for_us' ||
+        Route::current()->getName() == 'contact' ||
+        Route::current()->getName() == 'credit-info' ||
+        Route::current()->getName() == 'proizvoditeli' ||
+        Route::current()->getName() == 'avalon.shop' ||
+        Route::current()->getName() == 'avalon.service' ||
+        Route::current()->getName() == 'avalon.service-printeri' ||
+        Route::current()->getName() == 'avalon.mrezi' ||
+        Route::current()->getName() == 'terms' ||
+        Route::current()->getName() == 'gdpr' ||
+        Route::current()->getName() == 'politika' ||
+        Route::current()->getName() == 'dostavka' ||
+        Route::current()->getName() == 'klienti' ||
+        Route::current()->getName() == 'klient' ||
+        Route::current()->getName() == 'vrashtane' ||
+        Route::current()->getName() == 'support.posts' ||
+        Route::current()->getName() == 'support.software' ||
+        Route::current()->getName() == 'news.all' ||
+        Route::current()->getName() == 'news.post' ||
         Route::current()->getName() == 'faqs.all'
         )
     <script type="application/ld+json">
