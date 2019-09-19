@@ -54,20 +54,21 @@
         "name": "{{ $product->name }}",
         "image": [
             @if ($product->imgurl1 != "")
-            "{{ $product->imgurl1 }}",
+            "{{ $product->imgurl1 }}"
             @endif
             @if ($product->imgurl2 != "")
-            "{{ $product->imgurl2 }}",
+            ,"{{ $product->imgurl2 }}"
             @endif
             @if ($product->imgurl3 != "")
-            "{{ $product->imgurl3 }}",
+            ,"{{ $product->imgurl3 }}"
             @endif
             @if ($product->imgurl4 != "")
-            "{{ $product->imgurl4 }}",
+            ,"{{ $product->imgurl4 }}"
             @endif
         ],
         "description": "{{ $product->description }}",
-        "sku": "{{ $product->ean }}",
+        "sku": "{{ $product->code }}",
+        "gtin8": "{{ $product->ean }}",
         "brand": {
             "@type": "Thing",
             "name": "{{ $manufacturer_name }}"
@@ -96,6 +97,7 @@
             "url": "{{ route('product', ['id' => $product->code]) }}",
             "priceCurrency": "BGN",
             "price": "{{ floatval($product->price) }}",
+            "priceValidUntil": "2030-11-05",
             @if (ProductsCategories::where(['product_id' => $product->id, 'category_id' => '34'])->count() > 0)
             "itemCondition": "https://schema.org/UsedCondition",                
             @else
@@ -113,16 +115,242 @@
     @if(Route::current()->getName() == 'desktop.maxtrade_change')
     <script type="application/ld+json">
         {
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "Maxtrade Change",
-          "operatingSystem": "Windows 7, Windows 10",
-          "applicationCategory": "https://schema.org/BusinessApplication",
-          "offers": {
-            "@type": "Offer",
-            "price": "144.00",
-            "priceCurrency": "BGN"
-          }
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade Change",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "44.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_cmr')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade CMR",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "29.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_ctm')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade CTM",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "432.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_lab')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade LAB",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "93.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_slr')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade SLR",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "240.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'desktop.maxtrade_smdc')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Maxtrade SLR",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "99.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'web.cc_woocommerce' || 
+        Route::current()->getName() == 'web.cc_opencart' || 
+        Route::current()->getName() == 'web.cc_magento' || 
+        Route::current()->getName() == 'web.cc_prestashop'
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "{{ $title }}",
+            "operatingSystem": "WEB",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "144.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'web-soft.maxtrade_store' || 
+        Route::current()->getName() == 'web-soft.maxtrade_storeerp' || 
+        Route::current()->getName() == 'web-soft.avamb' || 
+        Route::current()->getName() == 'web-service.webservice' || 
+        Route::current()->getName() == 'mobile.avambmobile' || 
+        Route::current()->getName() == 'industry.ikunk' || 
+        Route::current()->getName() == 'industry.kantar'
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "{{ $title }}",
+            "operatingSystem": "WEB",
+            "applicationCategory": "https://schema.org/BusinessApplication"
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'web-soft.maxtrade_ins' 
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "{{ $title }}",
+            "operatingSystem": "WEB",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "499.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'web-service.website' 
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Изграждане на Стандартен уеб сайт",
+            "operatingSystem": "WEB",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "600.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'web-service.onlineshop' 
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Изграждане на стандартен онлайн магазин",
+            "operatingSystem": "WEB",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "1200.00",
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
+    @if(
+        Route::current()->getName() == 'for_us' || 
+        Route::current()->getName() == 'contact' || 
+        Route::current()->getName() == 'credit-info' || 
+        Route::current()->getName() == 'proizvoditeli' || 
+        Route::current()->getName() == 'avalon.shop' || 
+        Route::current()->getName() == 'avalon.service' || 
+        Route::current()->getName() == 'avalon.service-printeri' || 
+        Route::current()->getName() == 'avalon.mrezi' || 
+        Route::current()->getName() == 'terms' || 
+        Route::current()->getName() == 'gdpr' || 
+        Route::current()->getName() == 'politika' || 
+        Route::current()->getName() == 'dostavka' || 
+        Route::current()->getName() == 'klienti' || 
+        Route::current()->getName() == 'klient' || 
+        Route::current()->getName() == 'vrashtane' || 
+        Route::current()->getName() == 'support.posts' || 
+        Route::current()->getName() == 'support.software' || 
+        Route::current()->getName() == 'news.all' || 
+        Route::current()->getName() == 'news.post' || 
+        Route::current()->getName() == 'faqs.all'
+        )
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://google.com/article"
+            },
+            "headline": "{{ $title }}",
+            "image": [
+                "https://avalonbg.com/images/logo.png"
+            ],
+            "datePublished": "2019-09-10T08:00:00+08:00",
+            "dateModified": "2019-09-10T08:00:00+08:00",
+            "author": {
+                "@type": "Person",
+                "name": "Илко Иванов"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Авалон ООД",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://avalonbg.com/images/logo.png"
+                }
+            },
+            "description": "{{ $description }}"
         }
     </script>
     @endif
