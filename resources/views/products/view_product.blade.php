@@ -187,6 +187,9 @@
                                             class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span
                                                 class="tooltip top">Добави към любими</span></button>
+                                        <div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button" data-size="large">
+                                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Споделяне</a>
+                                        </div>        
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                     <!-- Credit -->

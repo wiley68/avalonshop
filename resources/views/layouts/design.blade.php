@@ -423,6 +423,10 @@
 </head>
 
 <body class="front_page">
+    @if (Route::current()->getName() == 'product')
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v4.0&appId=102732653253201&autoLogAppEvents=1"></script>
+    @endif
 
     @include('layouts.header')
 
