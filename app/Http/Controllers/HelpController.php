@@ -33,19 +33,22 @@ class HelpController extends Controller
 
     public function submit_contactus(Request $request)
     {
-        $this->validate($request, [
-            'cf_name' => 'required',
-            'cf_email' => 'required',
-            'cf_message' => 'required',
-            'g-recaptcha-response' => 'required|recaptcha'
-        ],
-        [
-            'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
-            'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
-            'cf_message.required' => 'Задължително е въвеждането на съобщение!',
-            'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
-            'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'cf_name' => 'required',
+                'cf_email' => 'required',
+                'cf_message' => 'required',
+                'g-recaptcha-response' => 'required|recaptcha'
+            ],
+            [
+                'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
+                'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
+                'cf_message.required' => 'Задължително е въвеждането на съобщение!',
+                'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
+                'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
+            ]
+        );
 
         $name = $request->input('cf_name');
         $email = $request->input('cf_email');
@@ -90,19 +93,22 @@ class HelpController extends Controller
 
     public function submit_contactform(Request $request)
     {
-        $this->validate($request, [
-            'cf_name' => 'required',
-            'cf_email' => 'required',
-            'cf_message' => 'required',
-            'g-recaptcha-response' => 'required|recaptcha'
-        ],
-        [
-            'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
-            'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
-            'cf_message.required' => 'Задължително е въвеждането на съобщение!',
-            'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
-            'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'cf_name' => 'required',
+                'cf_email' => 'required',
+                'cf_message' => 'required',
+                'g-recaptcha-response' => 'required|recaptcha'
+            ],
+            [
+                'cf_name.required' => 'Задължително е въвеждането на Вашето име!',
+                'cf_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!',
+                'cf_message.required' => 'Задължително е въвеждането на съобщение!',
+                'g-recaptcha-response.required' => 'Задължително е да преминете проверката за бот!',
+                'g-recaptcha-response.recaptcha' => 'Неуспешна проверка за бот!'
+            ]
+        );
 
         $name = $request->input('cf_name');
         $email = $request->input('cf_email');
@@ -152,14 +158,14 @@ class HelpController extends Controller
         ]);
     }
 
-    public function cartRemoveProduct(Request $request, $id=null)
+    public function cartRemoveProduct(Request $request, $id = null)
     {
-        if ($id != null){
+        if ($id != null) {
             $cart_session = $request->session()->get('cart_session'); //get current cart info
-            if (!empty($cart_session['items'])){
-                foreach($cart_session['items'] as $elementKey => $element) {
-                    foreach($element as $valueKey => $value) {
-                        if($valueKey == 'product_id' && $value == $id){
+            if (!empty($cart_session['items'])) {
+                foreach ($cart_session['items'] as $elementKey => $element) {
+                    foreach ($element as $valueKey => $value) {
+                        if ($valueKey == 'product_id' && $value == $id) {
                             //delete this particular object from the $array
                             unset($cart_session['items'][$elementKey]);
                             $request->session()->put('cart_session', $cart_session);
@@ -176,48 +182,51 @@ class HelpController extends Controller
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         // Add order
-        if($request->isMethod('POST')){
-            $this->validate($request, [
-                'user_name' => 'required',
-                'user_email' => 'required',
-                'user_address' => 'required',
-                'user_city' => 'required',
-                'user_postcode' => 'required',
-                'user_phone' => 'required',
-                'user_name2' => 'required',
-                'user_address2' => 'required',
-                'user_city2' => 'required',
-                'user_postcode2' => 'required',
-                'user_phone2' => 'required'
-            ],
-            [
-                'user_name.required' => 'Задължително е въвеждането на Вашите имена!',
-                'user_email.required' => 'Задължително е въвеждането на Вашия e-mail адрес!',
-                'user_address.required' => 'Задължително е въвеждането на Вашия адрес!',
-                'user_city.required' => 'Задължително е въвеждането на Вашето населено място!',
-                'user_postcode.required' => 'Задължително е въвеждането на Вашия пощенски код!',
-                'user_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
-                'user_name2.required' => 'Задължително е въвеждането на Вашите имена за доставка!',
-                'user_address2.required' => 'Задължително е въвеждането на Вашия адрес!',
-                'user_city2.required' => 'Задължително е въвеждането на Вашето населено място!',
-                'user_postcode2.required' => 'Задължително е въвеждането на Вашия пощенски код!',
-                'user_phone2.required' => 'Задължително е въвеждането на Вашия телефон!'
-            ]);
+        if ($request->isMethod('POST')) {
+            $this->validate(
+                $request,
+                [
+                    'user_name' => 'required',
+                    'user_email' => 'required',
+                    'user_address' => 'required',
+                    'user_city' => 'required',
+                    'user_postcode' => 'required',
+                    'user_phone' => 'required',
+                    'user_name2' => 'required',
+                    'user_address2' => 'required',
+                    'user_city2' => 'required',
+                    'user_postcode2' => 'required',
+                    'user_phone2' => 'required'
+                ],
+                [
+                    'user_name.required' => 'Задължително е въвеждането на Вашите имена!',
+                    'user_email.required' => 'Задължително е въвеждането на Вашия e-mail адрес!',
+                    'user_address.required' => 'Задължително е въвеждането на Вашия адрес!',
+                    'user_city.required' => 'Задължително е въвеждането на Вашето населено място!',
+                    'user_postcode.required' => 'Задължително е въвеждането на Вашия пощенски код!',
+                    'user_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
+                    'user_name2.required' => 'Задължително е въвеждането на Вашите имена за доставка!',
+                    'user_address2.required' => 'Задължително е въвеждането на Вашия адрес!',
+                    'user_city2.required' => 'Задължително е въвеждането на Вашето населено място!',
+                    'user_postcode2.required' => 'Задължително е въвеждането на Вашия пощенски код!',
+                    'user_phone2.required' => 'Задължително е въвеждането на Вашия телефон!'
+                ]
+            );
 
             $order = new Order();
 
-            if (!empty(Auth::user())){
+            if (!empty(Auth::user())) {
                 $order->user_id = Auth::user()->id;
             }
             $order->user_name = $request->input('user_name');
-            if (!empty($request->input('user_firm'))){
+            if (!empty($request->input('user_firm'))) {
                 $order->firm = $request->input('user_firm');
             }
             $order->email = $request->input('user_email');
-            if (!empty($request->input('user_eik'))){
+            if (!empty($request->input('user_eik'))) {
                 $order->eik = $request->input('user_eik');
             }
-            if (!empty($request->input('user_mol'))){
+            if (!empty($request->input('user_mol'))) {
                 $order->mol = $request->input('user_mol');
             }
             $order->address = $request->input('user_address');
@@ -229,9 +238,9 @@ class HelpController extends Controller
             $order->city2 = $request->input('user_city2');
             $order->postcode2 = $request->input('user_postcode2');
             $order->phone2 = $request->input('user_phone2');
-            if ($request->input('type_shipping') == 'shipping_free'){
+            if ($request->input('type_shipping') == 'shipping_free') {
                 $order->shipping = 'free';
-            }else{
+            } else {
                 $order->shipping = 'spedy';
             }
             switch ($request->input('type_payment')) {
@@ -249,10 +258,10 @@ class HelpController extends Controller
             $order->save();
 
             //save suborders
-            if (null != $request->session()->get('cart_session')){ //ima nalicna cart
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 $cart_session = $request->session()->get('cart_session'); //get current cart info
                 // check if exist
-                if (!empty($cart_session['items'])){
+                if (!empty($cart_session['items'])) {
                     foreach ($cart_session['items'] as $cart_item) {
                         $suborder = new Suborder();
                         $suborder->order_id = $order->id;
@@ -278,7 +287,7 @@ class HelpController extends Controller
         ]);
     }
 
-    public function checkoutResult(Request $request, $id=0)
+    public function checkoutResult(Request $request, $id = 0)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $order = Order::where(['id' => $id])->first();
@@ -323,10 +332,12 @@ class HelpController extends Controller
 
     public function addDownload(Request $request)
     {
-        if ($request->method('post')){
-            if (!empty($request->input('id'))){
+        if ($request->method('post')) {
+            if (!empty($request->input('id'))) {
                 $product = Product::where(['id' => $request->input('id')])->first();
-                if (!empty($product)){
+                // test for me
+                $ips = explode(",", env('APP_ENV'));
+                if ((!empty($product)) && (in_array($this->getUserIP(), $ips))) {
                     $product->downloads += 1;
                     $product->save();
                     return response()->json(['result' => 'success']);
@@ -344,19 +355,13 @@ class HelpController extends Controller
         $client  = @$_SERVER['HTTP_CLIENT_IP'];
         $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
         $remote  = $_SERVER['REMOTE_ADDR'];
-        if(filter_var($client, FILTER_VALIDATE_IP))
-        {
+        if (filter_var($client, FILTER_VALIDATE_IP)) {
             $ip = $client;
-        }
-        elseif(filter_var($forward, FILTER_VALIDATE_IP))
-        {
+        } elseif (filter_var($forward, FILTER_VALIDATE_IP)) {
             $ip = $forward;
-        }
-        else
-        {
+        } else {
             $ip = $remote;
         }
         return $ip;
     }
-
 }

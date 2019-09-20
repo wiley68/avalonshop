@@ -192,8 +192,12 @@ class ProductController extends Controller
         if (empty($product)) {
             return abort(404);
         }
-        $product->visits += 1;
-        $product->save();
+        // test for me
+        $ips = explode(",", env('APP_ENV'));
+        if (in_array(HelpController::getUserIP(), $ips)) {
+            $product->visits += 1;
+            $product->save();
+        }
 
         $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
 
