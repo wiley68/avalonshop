@@ -2,6 +2,7 @@
 <?php use App\Http\Controllers\HelpController; ?>
 <?php use App\ProductsCategories; ?>
 <?php use App\User; ?>
+<?php use App\Category; ?>
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -47,6 +48,9 @@
         if ($reviews->count() > 0){
             $all_rev = floor($all_rev / ($reviews->count() * 3));
         }
+        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
+        $category_id = [];
+        $category_id[] = $product_category->id;
     @endphp
     <script type="application/ld+json">
     {
@@ -133,6 +137,32 @@
             }
         }
     }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Начало",
+                    "item": "{{ route('index') }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "{{ $product_category->name }}",
+                    "item": "{{ route('products', ['category_id' => $category_id]) }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "{{ $product->name }}",
+                    "item": "{{ route('product', ['id' => $product->code]) }}"
+                }
+            ]
+        }
     </script>
     @endif
     @if(Route::current()->getName() == 'desktop.maxtrade_change')
