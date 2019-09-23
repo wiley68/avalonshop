@@ -193,8 +193,8 @@ class ProductController extends Controller
             return abort(404);
         }
         // test for me
-        $ips = explode(",", env('APP_ENV'));
-        if (in_array(HelpController::getUserIP(), $ips)) {
+        $ips = explode(",", env('MYIP'));
+        if (!in_array(HelpController::getUserIP(), $ips)) {
             $product->visits += 1;
             $product->save();
         }
@@ -617,7 +617,7 @@ class ProductController extends Controller
     {
         if (($product_id != null) && ($product_quantity != null)) {
             $product = Product::where(['id' => $product_id])->first();
-            $oskapiavane_12 = 0.015;    
+            $oskapiavane_12 = 0.015;
             $vnoska = (floatval($product->price) * floatval($product_quantity) * (1 + $oskapiavane_12 * 12)) / 12;
             $response = array(
                 'status' => 'success',

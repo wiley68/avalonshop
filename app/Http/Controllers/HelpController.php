@@ -336,8 +336,8 @@ class HelpController extends Controller
             if (!empty($request->input('id'))) {
                 $product = Product::where(['id' => $request->input('id')])->first();
                 // test for me
-                $ips = explode(",", env('APP_ENV'));
-                if ((!empty($product)) && (in_array($this->getUserIP(), $ips))) {
+                $ips = explode(",", env('MYIP'));
+                if ((!empty($product)) && (!in_array($this->getUserIP(), $ips))) {
                     $product->downloads += 1;
                     $product->save();
                     return response()->json(['result' => 'success']);

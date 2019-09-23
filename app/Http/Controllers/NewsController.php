@@ -37,8 +37,11 @@ class NewsController extends Controller
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $news = News::where(['id' => $id])->first();
-        $news->visits += 1;
-        $news->save();
+        $ips = explode(",", env('MYIP'));
+        if (!in_array(HelpController::getUserIP(), $ips)) {
+            $news->visits += 1;
+            $news->save();
+        }
 
         return view('news.post')->with([
             'title' => $news->meta_title . ' | Авалон',
