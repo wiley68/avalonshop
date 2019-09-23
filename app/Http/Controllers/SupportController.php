@@ -72,8 +72,12 @@ class SupportController extends Controller
     public function supportsoftware(Request $request, $id=null){
         $root_categories = Category::where(['parent_id' => 0])->get();
         $support = Support::where(['id'=>$id])->first();
-        $support->visits += 1;
-        $support->save();
+        $ips = explode(",", env('MYIP'));
+        if (!in_array(HelpController::getUserIP(), $ips)) {
+            $support->visits += 1;
+            $support->save();
+        }
+
         $tags_ids = [];
         $supports_tags = SupportsTags::where(['support_id' => $id])->get();
         foreach ($supports_tags as $support_tag) {
