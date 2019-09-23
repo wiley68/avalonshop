@@ -1098,7 +1098,7 @@
         </section>
         <!--/ .section_offset -->
         <section class="section_offset animated transparent" data-animation="fadeInDown">
-            <h3 class="offset_title">Производители</h3>
+            <h3 class="offset_title">Производители - <a href="{{ route('proizvoditeli') }}" class="button_dark_grey">виж всички производители</a></h3>
             <div class="owl_carousel brands">
                 @foreach ($manufacturers as $manufacturer)
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
