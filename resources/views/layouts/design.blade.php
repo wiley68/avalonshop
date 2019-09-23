@@ -526,6 +526,33 @@
     @if(!$show)
     <meta http-equiv="refresh" content="0; url=/maintanence.html" />
     @endif
+    @if(
+        Route::current()->getName() == 'maintanence' ||
+        Route::current()->getName() == 'avalon.sitemap' ||
+        Route::current()->getName() == 'product.add-to-cart' ||
+        Route::current()->getName() == 'product.change-credit-vnoska' ||
+        Route::current()->getName() == 'product.change-cart-quantity' ||
+        Route::current()->getName() == 'add-download' ||
+        Route::current()->getName() == 'cart' ||
+        Route::current()->getName() == 'cart-remove-product' ||
+        Route::current()->getName() == 'cart-clear' ||
+        Route::current()->getName() == 'checkout' ||
+        Route::current()->getName() == 'checkout-result' ||
+        Route::current()->getName() == 'send-contact-us' ||
+        Route::current()->getName() == 'send-contact-form' ||
+        Route::current()->getName() == 'login-register' ||
+        Route::current()->getName() == 'user-register' ||
+        Route::current()->getName() == 'user-login' ||
+        Route::current()->getName() == 'user-checkout-login' ||
+        Route::current()->getName() == 'news-subscribe' ||
+        Route::current()->getName() == 'credit' ||
+        Route::current()->getName() == 'credit-danni' ||
+        Route::current()->getName() == 'credit-ok' ||
+        Route::current()->getName() == 'credit-yes' ||
+        Route::current()->getName() == 'credit-no'
+    )
+    <meta name="robots" content="noindex" />
+    @endif
     <meta charset="utf-8">
     <meta name="author" content="Илко Иванов">
 
