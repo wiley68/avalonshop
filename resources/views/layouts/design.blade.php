@@ -95,6 +95,24 @@
                 "name": "{{ $review_author }}"
             }
         },
+        @else
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1"
+        },
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Илко Иванов"
+            }
+        },
         @endif
         "offers": {
             "@type": "Offer",
