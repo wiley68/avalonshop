@@ -357,7 +357,6 @@
     @endif
     @if(
         Route::current()->getName() == 'for_us' ||
-        Route::current()->getName() == 'contact' ||
         Route::current()->getName() == 'credit-info' ||
         Route::current()->getName() == 'proizvoditeli' ||
         Route::current()->getName() == 'avalon.shop' ||
@@ -404,6 +403,51 @@
                 }
             },
             "description": "{{ $description }}"
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'contact')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://google.com/article"
+            },
+            "headline": "{{ $title }}",
+            "image": [
+                "https://avalonbg.com/images/logo.png"
+            ],
+            "datePublished": "2019-09-10T08:00:00+08:00",
+            "dateModified": "2019-09-10T08:00:00+08:00",
+            "author": {
+                "@type": "Person",
+                "name": "Илко Иванов"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Авалон ООД",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://avalonbg.com/images/logo.png"
+                }
+            },
+            "description": "{{ $description }}"
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "http://avalonbg.com",
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "+359 619 22218",
+                    "contactType": "sales"
+                }
+            ]
         }
     </script>
     @endif
