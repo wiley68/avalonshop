@@ -1,6 +1,7 @@
 <?php use App\Property; ?>
 <?php use App\Http\Controllers\HelpController; ?>
 <?php use App\ProductsCategories; ?>
+<?php use App\User; ?>
 <!DOCTYPE html>
 <html lang="bg">
 

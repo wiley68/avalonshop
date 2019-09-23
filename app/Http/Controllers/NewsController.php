@@ -12,7 +12,7 @@ class NewsController extends Controller
     public function all()
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $news = News::where('id', '>', 0);
+        $news = News::where('id', '>', 0)->orderBy('visits', 'DESC')->orderBy('created_at', 'DESC');
 
         $paginate = 4;
 
