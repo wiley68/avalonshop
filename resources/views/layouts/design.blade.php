@@ -3,6 +3,7 @@
 <?php use App\ProductsCategories; ?>
 <?php use App\User; ?>
 <?php use App\Category; ?>
+<?php use App\Faq; ?>
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -373,8 +374,7 @@
         Route::current()->getName() == 'support.posts' ||
         Route::current()->getName() == 'support.software' ||
         Route::current()->getName() == 'news.all' ||
-        Route::current()->getName() == 'news.post' ||
-        Route::current()->getName() == 'faqs.all'
+        Route::current()->getName() == 'news.post'
         )
     <script type="application/ld+json">
         {
@@ -447,6 +447,62 @@
                     "telephone": "+359 619 22218",
                     "contactType": "sales"
                 }
+            ]
+        }
+    </script>
+    @endif
+    @if(Route::current()->getName() == 'faqs.all')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://google.com/article"
+            },
+            "headline": "{{ $title }}",
+            "image": [
+                "https://avalonbg.com/images/logo.png"
+            ],
+            "datePublished": "2019-09-10T08:00:00+08:00",
+            "dateModified": "2019-09-10T08:00:00+08:00",
+            "author": {
+                "@type": "Person",
+                "name": "Илко Иванов"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Авалон ООД",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://avalonbg.com/images/logo.png"
+                }
+            },
+            "description": "{{ $description }}"
+        }
+    </script>
+    @php
+        $faqs = Faq::all();
+        $faqs_count = 0;
+    @endphp
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                @foreach ($faqs as $faq)
+                {
+                    "@type": "Question",
+                    "name": "{{ $faq->name }}",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "{!! html_entity_decode($faq->description) !!}"
+                    }
+                }
+                @if ($faqs_count++ < $faqs->count() - 1)
+                ,
+                @endif
+                @endforeach
             ]
         }
     </script>
