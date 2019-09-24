@@ -950,7 +950,6 @@ var Core = (function(Core){
 			**	Reset filter
 			**/
 			resetFilter : function(){
-
 				if(!window.startRangeValues) return;
 
 				var startValues = window.startRangeValues,

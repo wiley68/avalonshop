@@ -274,57 +274,6 @@
 				End Elevate Zoom
 		------------------------------------------------ */
 
-		/* ------------------------------------------------
-				Range slider
-		------------------------------------------------ */
-
-
-		if($('#slider').length){
-
-			window.startRangeValues = [28.00, 562.00];
-
-			$('#slider').slider({
-
-				range : true,
-				min : 10.00,
-				max : 580.00,
-				values : window.startRangeValues,
-				step : 0.01,
-
-				slide : function(event, ui){
-
-					var min = ui.values[0].toFixed(2),
-						max = ui.values[1].toFixed(2),
-						range = $(this).siblings('.range');
-
-
-					range.children('.min_value').val(min).next().val(max);
-
-					range.children('.min_val').text('$' + min).next().text('$' + max);
-
-				},
-
-				create : function(event, ui){
-
-					var $this = $(this),
-						min = $this.slider("values", 0).toFixed(2),
-						max = $this.slider("values", 1).toFixed(2),
-						range = $this.siblings('.range');
-
-					range.children('.min_value').val(min).next().val(max);
-
-					range.children('.min_val').text('$' + min).next().text('$' + max);
-					
-				}
-
-			});
-
-		}
-
-		/* ------------------------------------------------
-				End range slider
-		------------------------------------------------ */
-
 	});
 
 	$(window).load(function(){

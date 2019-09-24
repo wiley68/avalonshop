@@ -60,21 +60,38 @@
                                                         </ul>
                                                     </fieldset>
                                                 </div>
-                                                <!--
                                                 <div class="table_cell">
                                                     <fieldset>
-                                                        <legend>Price</legend>
+                                                        <legend>Наличност</legend>
+                                                        <ul class="checkboxes_list">
+                                                            <li>
+                                                                <input type="checkbox" @if (in_array('в наличност', $instock)) checked @endif name="instock[]" id="nalicno" value="в наличност">
+                                                                <label for="nalicno">в наличност</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" @if (in_array('минимално количество', $instock)) checked @endif name="instock[]" id="minqt" value="минимално количество">
+                                                                <label for="minqt">минимално количество</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" @if (in_array('очаква се', $instock)) checked @endif name="instock[]" id="ocakvase" value="очаква се">
+                                                                <label for="ocakvase">очаква се</label>
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+                                                </div><!--/ .table_cell -->
+                                                <div class="table_cell">
+                                                    <fieldset>
+                                                        <legend>Цена</legend>
                                                         <div class="range">
-                                                            Range :
+                                                            Обхват :
                                                             <span class="min_val"></span> -
                                                             <span class="max_val"></span>
-                                                            <input type="hidden" name="" class="min_value">
-                                                            <input type="hidden" name="" class="max_value">
+                                                            <input type="hidden" name="price_min" class="min_value">
+                                                            <input type="hidden" name="price_max" class="max_value">
                                                         </div>
                                                         <div id="slider"></div>
                                                     </fieldset>
                                                 </div>
-                                                -->
                                                 <!--
                                                 <div class="table_cell">
                                                     <fieldset>
@@ -190,6 +207,8 @@
                                     <input name="tag_id" type="hidden" value="{{ $tag_id }}">
                                     <input name="manufacturer_id" type="hidden" value="{{ $manufacturer_id }}">
                                     <input name="featured" type="hidden" value="{{ $featured }}">
+                                    <input name="price_min" type="hidden" value="{{ $price_min }}">
+                                    <input name="price_max" type="hidden" value="{{ $price_max }}">
                                     <header class="top_box on_the_sides">
                                         <div class="left_side clearfix v_centered">
                                             <!-- - - - - - - - - - - - - - Sort by - - - - - - - - - - - - - - - - -->
@@ -361,6 +380,40 @@
 
 @section('scripts')
 <script>
+    /* ------------------------------------------------
+		Range slider
+	------------------------------------------------ */
+	if($('#slider').length){
+        window.startRangeValues = [{{ $price_min }}, {{ $price_max }}];
+        $('#slider').slider({
+            range : true,
+            min : {{ $products_min }},
+            max : {{ $products_max }},
+            values : window.startRangeValues,
+            step : 1,
+        
+            slide : function(event, ui){
+                var min = ui.values[0].toFixed(2),
+                max = ui.values[1].toFixed(2),
+                range = $(this).siblings('.range');
+                range.children('.min_value').val(min).next().val(max);
+                range.children('.min_val').text(min + ' лв.').next().text(max + ' лв.');
+            },
+
+            create : function(event, ui){
+                var $this = $(this),
+                min = $this.slider("values", 0).toFixed(2),
+                max = $this.slider("values", 1).toFixed(2),
+                range = $this.siblings('.range');
+                range.children('.min_value').val(min).next().val(max);
+                range.children('.min_val').text(min + ' лв.').next().text(max + ' лв.');
+            }
+        });
+    }
+    /* ------------------------------------------------
+        End range slider
+    ------------------------------------------------ */
+
     // Submit order form on change
     $('#order_by').on('change', function(e) {
         document.forms['order_products'].submit();

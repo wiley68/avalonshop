@@ -49,10 +49,6 @@ class ProductController extends Controller
 
         // get products
         $products = Product::where('id', '>', 0);
-        $products = $products->where(function($q) {
-            $q->where('instock', 'в наличност')
-              ->orWhere('instock', 'минимално количество');
-        });
 
         // get paginate
         if (!empty(request('paginate_by'))) {
@@ -139,6 +135,27 @@ class ProductController extends Controller
             $featured = 0;
         }
 
+        // Get instock request
+        $instock = ['в наличност', 'минимално количество'];
+        if (!empty(request('instock'))) {
+            // Get products by instock
+            $instock = request('instock');
+        }
+        $products = $products->whereIn('instock' , $instock);
+
+        // Get price
+        $products_min = $products->min('price');
+        $products_max = $products->max('price');
+        if (!empty(request('price_min')) && !empty(request('price_max'))) {
+            // Get products by price_min
+            $price_min = request('price_min');
+            $price_max = request('price_max');
+            $products = $products->where('price' , '>=' , $price_min)->where('price' , '<=' , $price_max);
+        } else {
+            $price_min = $products->min('price');
+            $price_max = $products->max('price');
+        }
+
         // sorting
         // Sorting products
         if (request()->has('order_by')) {
@@ -180,7 +197,12 @@ class ProductController extends Controller
             'products_manufacturers' => $products_manufacturers,
             'manufacturer_id' => $manufacturer_id,
             'featured' => $featured,
-            'search_text' => $search_text
+            'search_text' => $search_text,
+            'instock' => $instock,
+            'products_min' => $products_min,
+            'products_max' => $products_max,
+            'price_min' => $price_min,
+            'price_max' => $price_max
         ]);
     }
 
