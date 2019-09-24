@@ -18,43 +18,44 @@
     </script>
     <!-- Basic page needs
     ============================================ -->
-    @if(Route::current()->getName() == 'product')
+    @if(Route::current() != null && Route::current()->getName() == 'product')
     @php
-        switch ($product->instock) {
-            case 'в наличност':
-                $availability = "InStock";
-                break;
-            case 'минимално количество':
-                $availability = "LimitedAvailability";
-                break;
-            case 'очаква се':
-                $availability = "PreOrder";
-                break;
-            default:
-                $availability = "OutOfStock";
-                break;
-        }
-        $all_rev = 0;
-        $review_author = "";
-        $review_datePublished = "";
-        $review_description = "";
-        $review_name = "";
-        foreach ($reviews as $review){
-            $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
-            $review_author = User::where(['id' => $review->user_id])->first()->name;
-            $review_datePublished = $review->created_at;
-            $review_description = $review->review;
-            $review_name = $review->name;
-        }
-        if ($reviews->count() > 0){
-            $all_rev = floor($all_rev / ($reviews->count() * 3));
-        }
-        $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
-        $category_id = [];
-        $category_id[] = $product_category->id;
+    switch ($product->instock) {
+    case 'в наличност':
+    $availability = "InStock";
+    break;
+    case 'минимално количество':
+    $availability = "LimitedAvailability";
+    break;
+    case 'очаква се':
+    $availability = "PreOrder";
+    break;
+    default:
+    $availability = "OutOfStock";
+    break;
+    }
+    $all_rev = 0;
+    $review_author = "";
+    $review_datePublished = "";
+    $review_description = "";
+    $review_name = "";
+    foreach ($reviews as $review){
+    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+    $review_author = User::where(['id' => $review->user_id])->first()->name;
+    $review_datePublished = $review->created_at;
+    $review_description = $review->review;
+    $review_name = $review->name;
+    }
+    if ($reviews->count() > 0){
+    $all_rev = floor($all_rev / ($reviews->count() * 3));
+    }
+    $product_category = Category::where(['id' => ProductsCategories::where(['product_id' =>
+    $product->id])->first()->category_id])->first();
+    $category_id = [];
+    $category_id[] = $product_category->id;
     @endphp
     <script type="application/ld+json">
-    {
+        {
         "@context": "http://schema.org/",
         "@type": "Product",
         "name": "{{ $product->name }}",
@@ -166,7 +167,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_change')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_change')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -182,7 +183,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_cmr')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_cmr')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -198,7 +199,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_ctm')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_ctm')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -214,7 +215,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_lab')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_lab')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -230,7 +231,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_slr')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_slr')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -246,7 +247,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'desktop.maxtrade_smdc')
+    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_smdc')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -263,11 +264,14 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web.cc_woocommerce' ||
-        Route::current()->getName() == 'web.cc_opencart' ||
-        Route::current()->getName() == 'web.cc_magento' ||
-        Route::current()->getName() == 'web.cc_prestashop'
-        )
+    Route::current() != null && 
+    (
+    Route::current()->getName() == 'web.cc_woocommerce' ||
+    Route::current()->getName() == 'web.cc_opencart' ||
+    Route::current()->getName() == 'web.cc_magento' ||
+    Route::current()->getName() == 'web.cc_prestashop'
+    )
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -284,14 +288,17 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-soft.maxtrade_store' ||
-        Route::current()->getName() == 'web-soft.maxtrade_storeerp' ||
-        Route::current()->getName() == 'web-soft.avamb' ||
-        Route::current()->getName() == 'web-service.webservice' ||
-        Route::current()->getName() == 'mobile.avambmobile' ||
-        Route::current()->getName() == 'industry.ikunk' ||
-        Route::current()->getName() == 'industry.kantar'
-        )
+    Route::current() != null && 
+    (
+    Route::current()->getName() == 'web-soft.maxtrade_store' ||
+    Route::current()->getName() == 'web-soft.maxtrade_storeerp' ||
+    Route::current()->getName() == 'web-soft.avamb' ||
+    Route::current()->getName() == 'web-service.webservice' ||
+    Route::current()->getName() == 'mobile.avambmobile' ||
+    Route::current()->getName() == 'industry.ikunk' ||
+    Route::current()->getName() == 'industry.kantar'
+    )
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -303,8 +310,8 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-soft.maxtrade_ins'
-        )
+    Route::current() != null && Route::current()->getName() == 'web-soft.maxtrade_ins'
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -321,8 +328,8 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-service.website'
-        )
+    Route::current() != null && Route::current()->getName() == 'web-service.website'
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -339,8 +346,8 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'web-service.onlineshop'
-        )
+    Route::current() != null && Route::current()->getName() == 'web-service.onlineshop'
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -357,25 +364,28 @@
     </script>
     @endif
     @if(
-        Route::current()->getName() == 'for_us' ||
-        Route::current()->getName() == 'credit-info' ||
-        Route::current()->getName() == 'proizvoditeli' ||
-        Route::current()->getName() == 'avalon.shop' ||
-        Route::current()->getName() == 'avalon.service' ||
-        Route::current()->getName() == 'avalon.service-printeri' ||
-        Route::current()->getName() == 'avalon.mrezi' ||
-        Route::current()->getName() == 'terms' ||
-        Route::current()->getName() == 'gdpr' ||
-        Route::current()->getName() == 'politika' ||
-        Route::current()->getName() == 'dostavka' ||
-        Route::current()->getName() == 'klienti' ||
-        Route::current()->getName() == 'klient' ||
-        Route::current()->getName() == 'vrashtane' ||
-        Route::current()->getName() == 'support.posts' ||
-        Route::current()->getName() == 'support.software' ||
-        Route::current()->getName() == 'news.all' ||
-        Route::current()->getName() == 'news.post'
-        )
+    Route::current() != null && 
+    (
+    Route::current()->getName() == 'for_us' ||
+    Route::current()->getName() == 'credit-info' ||
+    Route::current()->getName() == 'proizvoditeli' ||
+    Route::current()->getName() == 'avalon.shop' ||
+    Route::current()->getName() == 'avalon.service' ||
+    Route::current()->getName() == 'avalon.service-printeri' ||
+    Route::current()->getName() == 'avalon.mrezi' ||
+    Route::current()->getName() == 'terms' ||
+    Route::current()->getName() == 'gdpr' ||
+    Route::current()->getName() == 'politika' ||
+    Route::current()->getName() == 'dostavka' ||
+    Route::current()->getName() == 'klienti' ||
+    Route::current()->getName() == 'klient' ||
+    Route::current()->getName() == 'vrashtane' ||
+    Route::current()->getName() == 'support.posts' ||
+    Route::current()->getName() == 'support.software' ||
+    Route::current()->getName() == 'news.all' ||
+    Route::current()->getName() == 'news.post'
+    )
+    )
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -406,7 +416,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'contact')
+    @if(Route::current() != null && Route::current()->getName() == 'contact')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -451,7 +461,7 @@
         }
     </script>
     @endif
-    @if(Route::current()->getName() == 'faqs.all')
+    @if(Route::current() != null && Route::current()->getName() == 'faqs.all')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -482,8 +492,8 @@
         }
     </script>
     @php
-        $faqs = Faq::all();
-        $faqs_count = 0;
+    $faqs = Faq::all();
+    $faqs_count = 0;
     @endphp
     <script type="application/ld+json">
         {
@@ -508,56 +518,61 @@
     </script>
     @endif
     @php
-        $property = Property::where('id', '>', 0)->first();
-        $show = false;
-        if (!empty($property)){
-            if ($property->status == 'Yes'){
-                $ip = explode(",", $property->ip);
-                foreach ($ip as $ip_address) {
-                    if (($ip_address == HelpController::getUserIP()) || ('::1' == HelpController::getUserIP())){
-                        $show = true;
-                    }
-                }
-            }else{
-                $show = true;
-            }
-        }
+    $property = Property::where('id', '>', 0)->first();
+    $show = false;
+    if (!empty($property)){
+    if ($property->status == 'Yes'){
+    $ip = explode(",", $property->ip);
+    foreach ($ip as $ip_address) {
+    if (($ip_address == HelpController::getUserIP()) || ('::1' == HelpController::getUserIP())){
+    $show = true;
+    }
+    }
+    }else{
+    $show = true;
+    }
+    }
     @endphp
     @if(!$show)
     <meta http-equiv="refresh" content="0; url=/maintanence.html" />
     @endif
     @if(
-        Route::current()->getName() == 'maintanence' ||
-        Route::current()->getName() == 'avalon.sitemap' ||
-        Route::current()->getName() == 'product.add-to-cart' ||
-        Route::current()->getName() == 'product.change-credit-vnoska' ||
-        Route::current()->getName() == 'product.change-cart-quantity' ||
-        Route::current()->getName() == 'add-download' ||
-        Route::current()->getName() == 'cart' ||
-        Route::current()->getName() == 'cart-remove-product' ||
-        Route::current()->getName() == 'cart-clear' ||
-        Route::current()->getName() == 'checkout' ||
-        Route::current()->getName() == 'checkout-result' ||
-        Route::current()->getName() == 'send-contact-us' ||
-        Route::current()->getName() == 'send-contact-form' ||
-        Route::current()->getName() == 'login-register' ||
-        Route::current()->getName() == 'user-register' ||
-        Route::current()->getName() == 'user-login' ||
-        Route::current()->getName() == 'user-checkout-login' ||
-        Route::current()->getName() == 'news-subscribe' ||
-        Route::current()->getName() == 'credit' ||
-        Route::current()->getName() == 'credit-danni' ||
-        Route::current()->getName() == 'credit-ok' ||
-        Route::current()->getName() == 'credit-yes' ||
-        Route::current()->getName() == 'credit-no'
+    Route::current() != null && 
+    (
+    Route::current()->getName() == 'maintanence' ||
+    Route::current()->getName() == 'avalon.sitemap' ||
+    Route::current()->getName() == 'product.add-to-cart' ||
+    Route::current()->getName() == 'product.change-credit-vnoska' ||
+    Route::current()->getName() == 'product.change-cart-quantity' ||
+    Route::current()->getName() == 'add-download' ||
+    Route::current()->getName() == 'cart' ||
+    Route::current()->getName() == 'cart-remove-product' ||
+    Route::current()->getName() == 'cart-clear' ||
+    Route::current()->getName() == 'checkout' ||
+    Route::current()->getName() == 'checkout-result' ||
+    Route::current()->getName() == 'send-contact-us' ||
+    Route::current()->getName() == 'send-contact-form' ||
+    Route::current()->getName() == 'login-register' ||
+    Route::current()->getName() == 'user-register' ||
+    Route::current()->getName() == 'user-login' ||
+    Route::current()->getName() == 'user-checkout-login' ||
+    Route::current()->getName() == 'news-subscribe' ||
+    Route::current()->getName() == 'credit' ||
+    Route::current()->getName() == 'credit-danni' ||
+    Route::current()->getName() == 'credit-ok' ||
+    Route::current()->getName() == 'credit-yes' ||
+    Route::current()->getName() == 'credit-no'
+    )
     )
     <meta name="robots" content="noindex" />
     @endif
+
     <meta charset="utf-8">
     <meta name="author" content="Илко Иванов">
 
     <title>{{ $title ?? "Софтуер - продажба на компютърна техника | Авалон" }}</title>
-    <meta name="description" content="{{ $description ?? "Проектиране и инсталиране на софтуер. Продажба на компютърна техника." }}">
+    <meta name="description"
+        content="{{ $description ?? "Проектиране и инсталиране на софтуер. Продажба на компютърна техника." }}">
     <meta name="keywords" content="{{ $keywords ?? "софтуер, програми, компютри, продажба, сержиз, консумативи" }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -571,7 +586,8 @@
 
     <!-- Google web fonts
 		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,700,700i,900,900i&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Libs CSS
@@ -588,7 +604,8 @@
     <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- JS Libs
@@ -603,9 +620,11 @@
 </head>
 
 <body class="front_page">
-    @if (Route::current()->getName() == 'product')
+    @if (Route::current() != null && Route::current()->getName() == 'product')
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v4.0&appId=102732653253201&autoLogAppEvents=1"></script>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v4.0&appId=102732653253201&autoLogAppEvents=1">
+    </script>
     @endif
 
     @include('layouts.header')
@@ -615,30 +634,30 @@
     @include('layouts.footer')
 
     <!-- index controller -->
-	<!-- Include Libs & Plugins
+    <!-- Include Libs & Plugins
 	============================================ -->
     <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
     <script src="{{ asset('js/queryloader2.min.js') }}"></script>
     <script src="{{ asset('js/jquery.elevateZoom-3.0.8.min.js') }}"></script>
     <script src="{{ asset('js/fancybox/source/jquery.fancybox.pack.js') }}"></script>
     <script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
-	<script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
+    <script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
-	<script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.appear.js') }}"></script>
-	<script src="{{ asset('js/owlcarousel/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.countdown.plugin.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
-	<script src="{{ asset('js/arcticmodal/jquery.arcticmodal.js') }}"></script>
-	<script src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
-	<script src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
-	<script src="{{ asset('js/retina.min.js') }}"></script>
-	<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
-	<!-- Theme files
+    <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.appear.js') }}"></script>
+    <script src="{{ asset('js/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.countdown.plugin.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('js/arcticmodal/jquery.arcticmodal.js') }}"></script>
+    <script src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
+    <script src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
+    <script src="{{ asset('js/retina.min.js') }}"></script>
+    <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
+    <!-- Theme files
 	============================================ -->
-	<script src="{{ asset('js/theme.plugins.js') }}"></script>
-	<script src="{{ asset('js/theme.core.js') }}"></script>
+    <script src="{{ asset('js/theme.plugins.js') }}"></script>
+    <script src="{{ asset('js/theme.core.js') }}"></script>
     <!-- index controller -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
