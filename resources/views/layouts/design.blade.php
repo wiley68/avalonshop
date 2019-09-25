@@ -59,6 +59,11 @@
         "@context": "http://schema.org/",
         "@type": "Product",
         "name": "{{ $product->name }}",
+        @if (($product->imgurl1 == "") && ($product->imgurl2 == "") && ($product->imgurl3 == "") && ($product->imgurl4 == ""))
+        "image": [
+            "{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+        ],            
+        @else
         "image": [
             @if ($product->imgurl1 != "")
             "{{ $product->imgurl1 }}"
@@ -73,6 +78,7 @@
             ,"{{ $product->imgurl4 }}"
             @endif
         ],
+        @endif
         "description": "{{ $product->description }}",
         "sku": "{{ $product->code }}",
         @if ($product->ean != "")
