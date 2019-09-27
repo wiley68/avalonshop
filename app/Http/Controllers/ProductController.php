@@ -202,7 +202,8 @@ class ProductController extends Controller
             'products_min' => $products_min,
             'products_max' => $products_max,
             'price_min' => $price_min,
-            'price_max' => $price_max
+            'price_max' => $price_max,
+            'warranty_arr' => $warranty_arr
         ]);
     }
 

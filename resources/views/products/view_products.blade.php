@@ -92,53 +92,6 @@
                                                         <div id="slider"></div>
                                                     </fieldset>
                                                 </div>
-                                                <!--
-                                                <div class="table_cell">
-                                                    <fieldset>
-                                                        <legend>Color</legend>
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <ul class="simple_vertical_list">
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_1">
-                                                                        <label for="color_btn_1"
-                                                                            class="color_btn green">Green</label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_2">
-                                                                        <label for="color_btn_2"
-                                                                            class="color_btn yellow">Yellow</label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_3">
-                                                                        <label for="color_btn_3"
-                                                                            class="color_btn red">Red</label>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <ul class="simple_vertical_list">
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_4">
-                                                                        <label for="color_btn_4"
-                                                                            class="color_btn blue">Blue</label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_5">
-                                                                        <label for="color_btn_5"
-                                                                            class="color_btn grey">Grey</label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <input type="checkbox" name="" id="color_btn_6">
-                                                                        <label for="color_btn_6"
-                                                                            class="color_btn orange">Orange</label>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                -->
                                             </div>
                                         </div>
                                         <footer class="bottom_box">
