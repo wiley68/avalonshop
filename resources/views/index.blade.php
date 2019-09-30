@@ -1101,13 +1101,15 @@
             <h3 class="offset_title">Производители - <a href="{{ route('proizvoditeli') }}" class="button_dark_grey">виж всички производители</a></h3>
             <div class="owl_carousel brands">
                 @foreach ($manufacturers as $manufacturer)
+                @if (file_exists("/home/avalonbg/admin.avalonbg.com/dist/img/manufacturers/manufacturer_" . $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
                     <img style="height:30px;width:auto;"
                         src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png"
                         onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"
                         alt="{{ $manufacturer->name }}">
-                </a>
+                </a>                    
+                @endif
                 @endforeach
             </div>
             <!--/ .owl_carousel-->

@@ -20,7 +20,9 @@
                                 <figure class="manufacturer">
                                     <div style="height:70px;">
                                         <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}" class="thumbnail">
+                                            @if (file_exists("/home/avalonbg/admin.avalonbg.com/dist/img/manufacturers/manufacturer_" . $manufacturer->id . ".png"))
                                             <img style="max-height:60px;" src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'" alt="{{ $manufacturer->name }}">
+                                            @endif
                                         </a>            
                                     </div>
                                     <figcaption style="text-align:center;">
