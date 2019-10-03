@@ -24,6 +24,8 @@ class CreditController extends Controller
     public $tbiro_password = 'avalon2019';
 
     public $jet_merchantId = '459024';
+    //public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+    public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
 
     public function index(Request $request)
     {
@@ -354,7 +356,7 @@ class CreditController extends Controller
 
                     $goods = '';
                     $category_id = '40';
-                    $goods_objects = $this->CalculateGoodTypes($category_id);
+                    $goods_objects = $this->CalculateGoodTypes($category_id);            
 
                     if ($goods_objects == null){
                         return abort(404);
@@ -384,7 +386,7 @@ class CreditController extends Controller
                         $curr_shemaId = '0';
                     }
 
-                    $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+                    $creditjetapi_env = $this->creditjetapi_env_server . 'GetAvailablePricingVariants/';
                     $schemeId = $curr_shemaId;
                     $url = $creditjetapi_env . $this->jet_merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
                     $curl = curl_init();
@@ -884,7 +886,7 @@ class CreditController extends Controller
 
     public function CalculateGoodTypes($category)
     {
-        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+        $creditjetapi_env = $this->creditjetapi_env_server . 'GetGoodTypes/';
 
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
@@ -916,6 +918,8 @@ class CreditController extends Controller
         );
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
+        dd($content);
+        die;
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $AvailableGoodTypes = null;
         if ($code == 200) {
@@ -931,7 +935,7 @@ class CreditController extends Controller
 
     public function CalculatePricingSchemes($goods, $price, $downpayment)
     {
-        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
+        $creditjetapi_env = $this->creditjetapi_env_server . 'GetAvailablePricingSchemes/';
 
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
@@ -981,7 +985,7 @@ class CreditController extends Controller
 
     public function CalculateLoan($goods, $price, $downpayment, $variantId)
     {
-        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
+        $creditjetapi_env = $this->creditjetapi_env_server . 'CalculateLoan/';
 
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
