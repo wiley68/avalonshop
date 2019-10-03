@@ -292,45 +292,54 @@
         <section class="section_offset animated transparent" data-animation="fadeInDown">
             <h3 class="offset_title">Категории продукти</h3>
             <div class="table_layout">
-                @php
-                $count = 0;
-                @endphp
-                @foreach ($root_categories as $cat)
-                @if (($count % 4) == 0)
                 <div class="table_row">
-                    @endif
-                    <div class="table_cell">
+                        @php
+                            $curent_parent_category = "";
+                            $count_category = 0;
+                            $all_categories = Category::where('parent_id', '<>', 0)->count();
+                            $cat_counter = floor($all_categories / 3);
+                        @endphp
+                    @foreach (Category::where('parent_id', '<>', 0)->orderBy('parent_id', 'asc')->get() as $cat)
+                        @if ($count_category == 0)
+                        <div class="table_cell">                            
+                        @endif
                         @php
                         $category_ids = [];
                         $category_ids[] = $cat->id;
                         $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
+                        $parrent_category = Category::where(['id' => $cat->parent_id])->first();
+                        $parrent_category_ids = [];
+                        $parrent_category_ids[] = $parrent_category->id;
+                        $parrent_products_categories = ProductsCategories::where(['category_id' => $parrent_category->id])->count();
                         @endphp
+                        @if (($curent_parent_category != $parrent_category->name) && ($parrent_category->parent_id == 0))
                         <div class="author_info" style="height:50px;"><a
-                                href="{{ route('products', ['category_id' => $category_ids]) }}">
-                                <h4><b>{{ $cat->name }}&nbsp;({{ $products_categories }})</b></h4>
-                            </a></div>
-                        <hr />
-                        <br />
+                            href="{{ route('products', ['category_id' => $category_ids]) }}">
+                            <h4><b>{{ $parrent_category->name }}&nbsp;({{ $parrent_products_categories }})</b></h4>
+                        </a></div>
+                        @php
+                            $curent_parent_category = $parrent_category->name;
+                        @endphp
+                        @endif
                         <p>
-                            @foreach (Category::where(['parent_id' => $cat->id])->get() as $item)
-                            @php
-                            $item_ids = [];
-                            $item_ids[] = $item->id;
-                            $products_categories_items = ProductsCategories::where(['category_id' =>
-                            $item->id])->count();
-                            @endphp
                             <a
-                                href="{{ route('products', ['category_id' => $item_ids]) }}">{{ $item->name }}&nbsp;({{ $products_categories_items }})</a><br />
-                            @endforeach
+                                href="{{ route('products', ['category_id' => $category_ids]) }}">{{ $cat->name }}&nbsp;({{ $products_categories }})</a><br />
                         </p>
-                    </div>
-                    @php
-                    $count++;
-                    @endphp
-                    @if (($count % 4) == 0)
+                        @if ($count_category == $cat_counter)
+                        </div>                        
+                        @endif
+                        @php
+                            if ($count_category < $cat_counter){
+                                $count_category++;
+                            }else{
+                                $count_category = 0;
+                            }
+                        @endphp
+                    @endforeach
+                    @if (($all_categories % ($cat_counter + 1)) != 0)
+                        </div>
+                    @endif
                 </div>
-                @endif
-                @endforeach
             </div>
             <!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
             <footer class="bottom_box">
