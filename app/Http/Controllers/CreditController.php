@@ -918,8 +918,6 @@ class CreditController extends Controller
         );
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
-        dd($content);
-        die;
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $AvailableGoodTypes = null;
         if ($code == 200) {

@@ -18,7 +18,7 @@
     </script>
     <!-- Basic page needs
     ============================================ -->
-    @if(Route::current() != null && Route::current()->getName() == 'product')
+    @if(Route::current() != null && Route::current()->getName() == 'product' && isset($product))
     @php
     switch ($product->instock) {
     case 'в наличност':
