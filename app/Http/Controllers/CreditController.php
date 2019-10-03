@@ -23,6 +23,8 @@ class CreditController extends Controller
     public $tbiro_username = 'avalonbg_sys';
     public $tbiro_password = 'avalon2019';
 
+    public $jet_merchantId = '459024';
+
     public function index(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
@@ -344,7 +346,6 @@ class CreditController extends Controller
                     $PricingVariantId = null;
                     $CreditPropositions = null;
                     $CurrentCreditProposition = null;
-                    $merchantId = '421370';
                     $cert = public_path() . '/keys/key.pem';
                     $key = public_path() . '/keys/privatekey.pem';
                     $password = '123456';
@@ -383,12 +384,9 @@ class CreditController extends Controller
                         $curr_shemaId = '0';
                     }
 
-                    /** test */
-                    $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
-                    /** real */
-                    //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
+                    $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingVariants/';
                     $schemeId = $curr_shemaId;
-                    $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
+                    $url = $creditjetapi_env . $this->jet_merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $installment . '/' . $schemeId;
                     $curl = curl_init();
                     $options = array(
                         CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
@@ -886,12 +884,8 @@ class CreditController extends Controller
 
     public function CalculateGoodTypes($category)
     {
-        /** test */
-        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
-        /** real */
-        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
 
-        $merchantId = '421370';
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
         $password = '123456';
@@ -937,18 +931,14 @@ class CreditController extends Controller
 
     public function CalculatePricingSchemes($goods, $price, $downpayment)
     {
-        /** test */
-        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
-        /** real */
-        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
+        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetAvailablePricingSchemes/';
 
-        $merchantId = '421370';
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
         $password = '123456';
 
         // AvailablePricingSchemes//
-        $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment;
+        $url = $creditjetapi_env . $this->jet_merchantId . '/' . $goods . '/' . $price . '/' . $downpayment;
         $curl = curl_init();
         $options = array(
             CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
@@ -991,18 +981,14 @@ class CreditController extends Controller
 
     public function CalculateLoan($goods, $price, $downpayment, $variantId)
     {
-        /** test */
-        $creditjetapi_env = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
-        /** real */
-        //$creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
+        $creditjetapi_env = 'https://ws.bnpparibas-pf.bg/ServicesPricing/CalculateLoan/';
 
-        $merchantId = '421370';
         $cert = public_path() . '/keys/key.pem';
         $key = public_path() . '/keys/privatekey.pem';
         $password = '123456';
 
         // CalculateLoan//
-        $url = $creditjetapi_env . $merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $variantId;
+        $url = $creditjetapi_env . $this->jet_merchantId . '/' . $goods . '/' . $price . '/' . $downpayment . '/' . $variantId;
         $curl = curl_init();
         $options = array(
             CURLOPT_RETURNTRANSFER => TRUE, // Връщане на орговор
