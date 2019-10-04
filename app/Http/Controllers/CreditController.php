@@ -24,8 +24,8 @@ class CreditController extends Controller
     public $tbiro_password = 'avalon2019';
 
     public $jet_merchantId = '459024';
-    //public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
-    public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
+    public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+    //public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
 
     public function index(Request $request)
     {
@@ -356,7 +356,7 @@ class CreditController extends Controller
 
                     $goods = '';
                     $category_id = '40';
-                    $goods_objects = $this->CalculateGoodTypes($category_id);            
+                    $goods_objects = $this->CalculateGoodTypes($category_id);
 
                     if ($goods_objects == null){
                         return abort(404);
@@ -917,6 +917,7 @@ class CreditController extends Controller
         );
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
+
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $AvailableGoodTypes = null;
         if ($code == 200) {
@@ -964,9 +965,6 @@ class CreditController extends Controller
         );
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
-        dd($content);
-        die;
-
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $AvailablePricingSchemes = [];
         if ($code == 200) {
