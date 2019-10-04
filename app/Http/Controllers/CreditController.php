@@ -373,7 +373,6 @@ class CreditController extends Controller
                     $installment = "0.00";
 
                     $PricingSchemes = $this->CalculatePricingSchemes($goods, $price, $downpayment);
-
                     if (sizeof($PricingSchemes) > 0) {
                         $curr_shemaId = (string) $PricingSchemes[0]->PricingSchemeId;
                         foreach ($PricingSchemes as $PricingScheme) {
@@ -965,6 +964,9 @@ class CreditController extends Controller
         );
         curl_setopt_array($curl, $options);
         $content = curl_exec($curl);
+        dd($content);
+        die;
+
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $AvailablePricingSchemes = [];
         if ($code == 200) {
