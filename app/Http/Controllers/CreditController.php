@@ -27,6 +27,10 @@ class CreditController extends Controller
     public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
     //public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
 
+    public $uni_user = "avalonbg";
+    public $uni_password = "AVA78782";
+    public $uni_unicid = "9ce5287c-c8d1-4a22-878c-1a9d42d7160a";
+
     public function index(Request $request)
     {
         if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_qt'))){
@@ -494,16 +498,12 @@ class CreditController extends Controller
                     define('FINANCIAL_PRECISION', 1.0e-08);
                     define('FINANCIAL_MAX_ITERATIONS', 128);
 
-                    $uni_unicid = "9ce5287c-c8d1-4a22-878c-1a9d42d7160a";
-                    $uni_user = "Wiley68";
-                    $uni_password = "Avatest";
-
                     $uni_ch = curl_init();
                     curl_setopt($uni_ch, CURLOPT_SSL_VERIFYPEER, false);
                     curl_setopt($uni_ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($uni_ch, CURLOPT_MAXREDIRS, 3);
                     curl_setopt($uni_ch, CURLOPT_TIMEOUT, 6);
-                    curl_setopt($uni_ch, CURLOPT_URL, UNIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $uni_unicid);
+                    curl_setopt($uni_ch, CURLOPT_URL, UNIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $this->uni_unicid);
                     $paramsuni = json_decode(curl_exec($uni_ch), true);
                     curl_close($uni_ch);
 
@@ -532,15 +532,15 @@ class CreditController extends Controller
                     $price = number_format($product->price, 2, '.', '');
                     $price = floatval($price) * floatval($request->input('product_qt'));
 
-                    $uni_3 = $this->getUniCalculation(3, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_6 = $this->getUniCalculation(6, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_9 = $this->getUniCalculation(9, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_12 = $this->getUniCalculation(12, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_15 = $this->getUniCalculation(15, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_18 = $this->getUniCalculation(18, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_24 = $this->getUniCalculation(24, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
-                    $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $uni_user, $uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_3 = $this->getUniCalculation(3, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_6 = $this->getUniCalculation(6, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_9 = $this->getUniCalculation(9, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_12 = $this->getUniCalculation(12, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_15 = $this->getUniCalculation(15, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_18 = $this->getUniCalculation(18, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_24 = $this->getUniCalculation(24, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_30 = $this->getUniCalculation(30, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
+                    $uni_36 = $this->getUniCalculation(36, $price, $paramsuni['uni_production_service'], 0, $this->uni_user, $this->uni_password, $paramsuni['uni_sertificat'], UNIPAYMENT_LIVEURL);
                     $uni_gpr_3 = $uni_3['gpr'];
                     $uni_glp_3 = $uni_3['glp'];
                     $uni_obshtozaplashtane_input_3 = $uni_3['obshtozaplashtane_input'];
