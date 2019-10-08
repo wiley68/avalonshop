@@ -24,8 +24,8 @@ class CreditController extends Controller
     public $tbiro_password = 'avalon2019';
 
     public $jet_merchantId = '459024';
-    public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
-    //public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
+    //public $creditjetapi_env_server = 'https://ws.bnpparibas-pf.bg/ServicesPricing/GetGoodTypes/';
+    public $creditjetapi_env_server = 'https://ws-test.bnpparibas-pf.bg/ServicesPricing/';
 
     public $uni_user = "avalonbg";
     public $uni_password = "AVA78782";
