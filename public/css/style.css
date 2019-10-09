@@ -4056,7 +4056,7 @@ transition-duration:0.1s;
 
 		.pricing_table .pt_list > li{
             padding: 16px 19px 12px;
-            height: 160px;
+            height: 200px;
         }
 
 		.pricing_table .pt_list > li:not(:last-child){ border-bottom: 1px solid #eaeaea; }
