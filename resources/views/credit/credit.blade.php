@@ -495,7 +495,9 @@ function changeCurrent(){
 }
 
 $(function() {
-    
+    if (!$("input[name='credit_variant']:checked").val()) {
+        $("input[name='credit_variant']:first").attr('checked', true);
+    }
 
     changeCurrent();
 
