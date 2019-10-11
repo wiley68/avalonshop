@@ -230,7 +230,7 @@
     $(document).ready(function(e) {
         var uniloaderpanel = document.getElementById("uniloaderpanel");
         uniloaderpanel.style.display = "block";
-        if (0 != {{$uni_api}}) {
+        if ('0' != '{{$uni_api}}') {
             window.location.href = '{{$uni_application}}/{{$uni_api}}';            
         }
     });
