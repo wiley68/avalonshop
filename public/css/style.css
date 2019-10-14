@@ -3353,11 +3353,14 @@ transition-duration:0.1s;
 				position: relative;
                 -webkit-backface-visibility: hidden;
                 text-align: center;
+                height: 330px;
+                line-height: 330px;
             }
 
             .image_preview_container img{
-				height:330px;
-                width: auto;
+				height: auto;
+                width: 330px;
+                vertical-align: middle;
 			}
 
 			.image_preview_container *{ -webkit-backface-visibility: hidden; }
@@ -4053,7 +4056,7 @@ transition-duration:0.1s;
 
 		.pricing_table .pt_list > li{
             padding: 16px 19px 12px;
-            height: 160px;
+            height: 200px;
         }
 
 		.pricing_table .pt_list > li:not(:last-child){ border-bottom: 1px solid #eaeaea; }
@@ -4278,8 +4281,6 @@ transition-duration:0.1s;
     .owl_carousel .entry{ border-radius: 0px; }
 
     .product_preview .owl_carousel{
-        background-color: white;
-        border: 1px solid #DCDCDC;
         padding: 5px;
         max-height: 120px;
     }
