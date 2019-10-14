@@ -125,17 +125,28 @@
             </div>
         </div>            
 
-        @if ($software->category_id == 'desktop')
         <div class="section_offset clearfix">
         </div>
 
+        @if ($software->title7)
         <div class="section_offset clearfix">
             <h4>{{ $software->title7 }}</h4>
             <div class="theme_box clearfix">
                 {!! html_entity_decode($software->description7) !!}
             </div>
         </div>
+        @endif
         
+        @if ($software->title8)
+        <div class="section_offset clearfix">
+            <h4>{{ $software->title8 }}</h4>
+            <div class="theme_box clearfix">
+                {!! html_entity_decode($software->description8) !!}
+            </div>
+        </div>
+        @endif
+
+        @if ($software->category_id == 'desktop')        
         <div class="call_to_action type_2 on_the_sides">
             <div class="left_side">
                 <div class="title">{{ $software->name }}</div>
