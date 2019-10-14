@@ -937,9 +937,11 @@
                             <h4 class="caption"><b>{{ $softwareBottom->name }}</b></h4>
                         </a>
                         <p>{!! html_entity_decode($softwareBottom->shortDescription) !!}</p>
+                        @if (!empty(Product::where(['code' => $softwareBottom->code])->first()))
                         <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}"
                             onclick="clickBtnDownload(event, '{{Product::where(['code' => $softwareBottom->code])->first()->id}}')" class="button_dark_grey middle_btn">Изтегли ДЕМО
-                            версия</a>
+                            версия</a>                            
+                        @endif
                     </section>
                 </div>
                 @php $counter++; @endphp
