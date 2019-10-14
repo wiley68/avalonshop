@@ -6,10 +6,10 @@
 $cart_item_quantity = 0;
 $cart_total_price = 0.00;
 if (!empty((Session::get('cart_session'))['items'])){
-    foreach ((Session::get('cart_session'))['items'] as $cart_item) {
-        $cart_item_quantity += intval($cart_item['product_quantity']);
-        $cart_total_price += floatval($cart_item['total_price']);
-    }
+foreach ((Session::get('cart_session'))['items'] as $cart_item) {
+$cart_item_quantity += intval($cart_item['product_quantity']);
+$cart_total_price += floatval($cart_item['total_price']);
+}
 }
 @endphp
 <div class="wide_layout">
@@ -176,15 +176,15 @@ if (!empty((Session::get('cart_session'))['items'])){
                                         <li><a href="{{ route('index') }}">Начало</a></li>
                                         @auth
                                         @if ($cart_item_quantity > 0)
-                                            <li><a href="{{ route('cart') }}">Кошница</a></li>
+                                        <li><a href="{{ route('cart') }}">Кошница</a></li>
                                         @else
-                                            <li><a href="{{ route('home') }}">Профил</a></li>
+                                        <li><a href="{{ route('home') }}">Профил</a></li>
                                         @endif
                                         @else
                                         @if ($cart_item_quantity > 0)
-                                            <li><a href="{{ route('cart') }}">Кошница</a></li>
+                                        <li><a href="{{ route('cart') }}">Кошница</a></li>
                                         @else
-                                            <li><a href="{{ route('login-register') }}">Профил</a></li>
+                                        <li><a href="{{ route('login-register') }}">Профил</a></li>
                                         @endif
                                         @endauth
                                         <li class="has_submenu">
@@ -195,9 +195,11 @@ if (!empty((Session::get('cart_session'))['items'])){
                                                     <a>Десктоп софтуер</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
-                                                        @foreach (Software::all() as $soft)
+                                                        @foreach (Software::where(['category_id' => 'desktop'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('desktop.software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
                                                         @endforeach
                                                     </ul>
@@ -206,82 +208,69 @@ if (!empty((Session::get('cart_session'))['items'])){
                                                     <a>WEB Модули</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::where(['category_id' => 'modules'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('web.cc_woocommerce') }}">Кредитен
-                                                                Калкулатор WooCommerce</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор
-                                                                OpenCart</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор
-                                                                Magento</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('web.cc_prestashop') }}">Кредитен
-                                                                Калкулатор PrestaShop</a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="has_submenu">
                                                     <a>WEB Софтуер</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::where(['category_id' =>
+                                                        'websoftware'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade
-                                                                Store</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade
-                                                                StoreERP</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade
-                                                                INS</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('web-soft.avamb') }}">AVAMB</a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="has_submenu">
                                                     <a>WEB Услуги</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::where(['category_id' =>
+                                                        'webservice'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('web-service.website') }}">Стандартен WEB
-                                                                Сайт</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('web-service.onlineshop') }}">Онлайн
-                                                                Магазин</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('web-service.webservice') }}">WEB
-                                                                Услуги</a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="has_submenu">
                                                     <a>Мобилен Софтуер</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::where(['category_id' =>
+                                                        'mobile'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('mobile.avambmobile') }}">AVAMB Mobile</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="has_submenu">
                                                     <a>Софтуер за Индустрията</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::where(['category_id' =>
+                                                        'industry'])->get()
+                                                        as $soft)
                                                         <li>
-                                                            <a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a>
+                                                            <a
+                                                                href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -374,21 +363,30 @@ if (!empty((Session::get('cart_session'))['items'])){
                                     </div>
                                     @foreach ((Session::get('cart_session'))['items'] as $cart_item)
                                     @php
-                                        $product_cart = Product::where(['id' => $cart_item['product_id']])->first();
-                                        $imgsrc1 = $product_cart->imgurl1;
+                                    $product_cart = Product::where(['id' => $cart_item['product_id']])->first();
+                                    $imgsrc1 = $product_cart->imgurl1;
                                     @endphp
                                     <div class="animated_item">
                                         <div class="clearfix sc_product">
-                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}" class="product_thumb">
+                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}"
+                                                class="product_thumb">
                                                 @if (!empty($imgsrc1))
-                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                <img style="max-width:80px;" src="{{ $imgsrc1 }}"
+                                                    style="max-width:200px;" alt="{{ $cart_item['product_name'] }}"
+                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
                                                 @else
-                                                    <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $cart_item['product_name'] }}">
+                                                <img style="max-width:80px;"
+                                                    src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    style="max-width:200px;" alt="{{ $cart_item['product_name'] }}">
                                                 @endif
                                             </a>
-                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}" class="product_name">{{ $cart_item['product_name'] }}</a>
-                                            <p>{{ $cart_item['product_quantity'] }} x {{ number_format(floatval($cart_item['total_price']) / floatval($cart_item['product_quantity']), 2, ".", "") }}&nbsp;лв.</p>
-                                            <a href="{{ route('cart-remove-product', ['id' => $cart_item['product_id']]) }}" class="close"></a>
+                                            <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}"
+                                                class="product_name">{{ $cart_item['product_name'] }}</a>
+                                            <p>{{ $cart_item['product_quantity'] }} x
+                                                {{ number_format(floatval($cart_item['total_price']) / floatval($cart_item['product_quantity']), 2, ".", "") }}&nbsp;лв.
+                                            </p>
+                                            <a href="{{ route('cart-remove-product', ['id' => $cart_item['product_id']]) }}"
+                                                class="close"></a>
                                         </div>
                                     </div>
                                     @endforeach
@@ -396,7 +394,8 @@ if (!empty((Session::get('cart_session'))['items'])){
                                     <div class="animated_item">
                                         <!-- - - - - - - - - - - - - - Total info - - - - - - - - - - - - - - - - -->
                                         <ul class="total_info">
-                                            <li class="total"><b><span class="price">Общо:</span> {{ number_format($cart_total_price, 2, ".", "") }}&nbsp;лв.</b></li>
+                                            <li class="total"><b><span class="price">Общо:</span>
+                                                    {{ number_format($cart_total_price, 2, ".", "") }}&nbsp;лв.</b></li>
                                         </ul>
                                         <!-- - - - - - - - - - - - - - End of total info - - - - - - - - - - - - - - - - -->
                                     </div>

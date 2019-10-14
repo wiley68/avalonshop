@@ -293,60 +293,53 @@
             <h3 class="offset_title">Категории продукти</h3>
             <div class="table_layout">
                 <div class="table_row">
-                        @php
-                            $curent_parent_category = "";
-                            $count_category = 0;
-                            $all_categories = Category::where('parent_id', '<>', 0)->count();
-                            $cat_counter = floor($all_categories / 3);
+                    @php
+                    $curent_parent_category = "";
+                    $count_category = 0;
+                    $all_categories = Category::where('parent_id', '<>', 0)->count();
+                        $cat_counter = floor($all_categories / 3);
                         @endphp
-                    @foreach (Category::where('parent_id', '<>', 0)->orderBy('parent_id', 'asc')->get() as $cat)
-                        @if ($count_category == 0)
-                        <div class="table_cell">                            
-                        @endif
-                        @php
-                        $category_ids = [];
-                        $category_ids[] = $cat->id;
-                        $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
-                        $parrent_category = Category::where(['id' => $cat->parent_id])->first();
-                        $parrent_category_ids = [];
-                        $parrent_category_ids[] = $parrent_category->id;
-                        $parrent_products_categories = ProductsCategories::where(['category_id' => $parrent_category->id])->count();
-                        @endphp
-                        @if (($curent_parent_category != $parrent_category->name) && ($parrent_category->parent_id == 0))
-                        <div class="author_info" style="height:50px;"><a
-                            href="{{ route('products', ['category_id' => $category_ids]) }}">
-                            <h4><b>{{ $parrent_category->name }}&nbsp;({{ $parrent_products_categories }})</b></h4>
-                        </a></div>
-                        @php
-                            $curent_parent_category = $parrent_category->name;
-                        @endphp
-                        @endif
-                        <p>
-                            <a
-                                href="{{ route('products', ['category_id' => $category_ids]) }}">{{ $cat->name }}&nbsp;({{ $products_categories }})</a><br />
-                        </p>
-                        @if ($count_category == $cat_counter)
-                        </div>                        
-                        @endif
-                        @php
-                            if ($count_category < $cat_counter){
-                                $count_category++;
-                            }else{
-                                $count_category = 0;
-                            }
-                        @endphp
-                    @endforeach
-                    @if (($all_categories % ($cat_counter + 1)) != 0)
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
-            <footer class="bottom_box">
-                <a href="{{ route('products') }}" class="button_grey middle_btn">Виж всички
-                    продукти&nbsp;({{ Product::where('id', '>', 0)->count() }})</a>
-            </footer>
-            <!-- - - - - - - - - - - - - - End of view all testimonials - - - - - - - - - - - - - - - - -->
+                        @foreach (Category::where('parent_id', '<>', 0)->orderBy('parent_id', 'asc')->get() as $cat)
+                            @if ($count_category == 0)
+                            <div class="table_cell">
+                                @endif
+                                @php
+                                $category_ids = [];
+                                $category_ids[] = $cat->id;
+                                $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
+                                $parrent_category = Category::where(['id' => $cat->parent_id])->first();
+                                $parrent_category_ids = [];
+                                $parrent_category_ids[] = $parrent_category->id;
+                                $parrent_products_categories = ProductsCategories::where(['category_id' =>
+                                $parrent_category->id])->count();
+                                @endphp
+                                @if (($curent_parent_category != $parrent_category->name) &&
+                                ($parrent_category->parent_id == 0))
+                                <div class="author_info" style="height:50px;"><a
+                                        href="{{ route('products', ['category_id' => $category_ids]) }}">
+                                        <h4><b>{{ $parrent_category->name }}&nbsp;({{ $parrent_products_categories }})</b>
+                                        </h4>
+                                    </a></div>
+                                @php
+                                $curent_parent_category = $parrent_category->name;
+                                @endphp
+                                @endif
+                                <p>
+                                    <a
+                                        href="{{ route('products', ['category_id' => $category_ids]) }}">{{ $cat->name }}&nbsp;({{ $products_categories }})</a><br />
+                                </p>
+                                @if ($count_category == $cat_counter)
+                            </div>
+                            @endif
+                            @php
+                            if ($count_category < $cat_counter){ $count_category++; }else{ $count_category=0; } @endphp
+                                @endforeach @if (($all_categories % ($cat_counter + 1)) !=0) </div> @endif </div> </div>
+                                <!-- - - - - - - - - - - - - - View all testimonials - - - - - - - - - - - - - - - - -->
+                                <footer class="bottom_box">
+                                    <a href="{{ route('products') }}" class="button_grey middle_btn">Виж всички
+                                        продукти&nbsp;({{ Product::where('id', '>', 0)->count() }})</a>
+                                </footer>
+                                <!-- - - - - - - - - - - - - - End of view all testimonials - - - - - - - - - - - - - - - - -->
         </section>
         <!--/ .section_offset.animated.transparent-->
         <!-- - - - - - - - - - - - - - Today's deals - - - - - - - - - - - - - - - - -->
@@ -717,16 +710,23 @@
 
                     <div id="desktop" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
-                            @foreach ($software as $soft)
+                            @foreach ($software_desktop as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_change') }}">{{ $soft->name }}</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_change') }}">{!! html_entity_decode($soft->shortDescription) !!}</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                    </p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
                             @endforeach
@@ -737,59 +737,26 @@
 
                     <div id="web" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software_modules as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/web/woocommerce.png"
-                                        alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('web.cc_woocommerce') }}">Кредитен Калкулатор Woocommerce</a>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                     </p>
-                                    <p><a href="{{ route('web.cc_woocommerce') }}">Модул за продаване на стоки от онлайн
-                                            магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web/opencart.png"
-                                        alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор OpenCart</a></p>
-                                    <p><a href="{{ route('web.cc_opencart') }}">Модул за продаване на стоки от онлайн
-                                            магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web/magento.png"
-                                        alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор Magento</a></p>
-                                    <p><a href="{{ route('web.cc_magento') }}">Модул за продаване на стоки от онлайн
-                                            магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web/prestashop.png"
-                                        alt="Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web.cc_prestashop') }}">Кредитен Калкулатор PrestaShop</a></p>
-                                    <p><a href="{{ route('web.cc_prestashop') }}">Модул за продаване на стоки от онлайн
-                                            магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -797,58 +764,26 @@
 
                     <div id="web-soft" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software_websoftware as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/web-soft/if_General_Office_62_3592835-300x300.png"
-                                        alt="Maxtrade Store – Програма за подпомагане дейността на хладилен склад">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade Store</a></p>
-                                    <p><a href="{{ route('web-soft.maxtrade_store') }}">Програма за подпомагане
-                                            дейността на хладилен склад</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                    </p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web-soft/if_32_3319612-300x300.png"
-                                        alt="Maxtrade StoreERP Складово Стопанство – програма за следене на виртуалните движения на стоки в склад">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade StoreERP</a></p>
-                                    <p><a href="{{ route('web-soft.maxtrade_storeerp') }}">Складово Стопанство –
-                                            програма за следене на виртуалните движения на стоки в склад</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web-soft/if_6_3319634-300x300.png"
-                                        alt="Maxtrade INS, програма за регистриране на дейността на Застрахователна агенция">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade INS</a></p>
-                                    <p><a href="{{ route('web-soft.maxtrade_ins') }}">Програма за регистриране на
-                                            дейността на Застрахователна агенция</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web-soft/AVAMB-logiciel-300x226.png"
-                                        alt="Програма организатор за малък, среден, а защо не и голям бизнес">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web-soft.avamb') }}">AVAMB</a></p>
-                                    <p><a href="{{ route('web-soft.avamb') }}">Програма организатор за малък, среден, а
-                                            защо не и голям бизнес</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -856,44 +791,26 @@
 
                     <div id="web-service" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software_webservice as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/web-service/support.jpg"
-                                        alt="Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('web-service.website') }}">Стандартен уеб сайт</a></p>
-                                    <p><a href="{{ route('web-service.website') }}">Изграждане на Стандартен уеб сайт по
-                                            поръчка на клиента с информация предоставена ни от него</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                    </p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web-service/support.jpg"
-                                        alt="Изграждане на стандартен онлайн магазин по поръчка на клиента с информация предоставена ни от него">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web-service.onlineshop') }}">Онлайн магазин</a></p>
-                                    <p><a href="{{ route('web-service.onlineshop') }}">Изграждане на стандартен онлайн
-                                            магазин по поръчка на клиента с информация предоставена ни от него</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/web-service/support.jpg" alt="WEB услуги, инсталации, поддръжка">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('web-service.webservice') }}">WEB услуги</a></p>
-                                    <p><a href="{{ route('web-service.webservice') }}">WEB услуги, инсталации,
-                                            поддръжка</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -901,17 +818,26 @@
 
                     <div id="mobile" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software_mobile as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/mobile/AVAMB-logiciel-300x226.png" alt="AVAMB mobile">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></p>
-                                    <p><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                    </p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -919,32 +845,26 @@
 
                     <div id="industry" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software_industry as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/industry/if_Blog-pencil-website-web-browser-gear-setup_2992650-300x300.png"
-                                        alt="Maxtrade IKUNK – SCADA софтуер за мониторинг и управление на ИКУНК">
+                                    @if (!empty(Product::where(['code' => $soft->code])->first()))
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
+                                    @else
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        alt="{{ $soft->name }}">
+                                    @endif
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a></p>
-                                    <p><a href="{{ route('industry.ikunk') }}">SCADA софтуер за мониторинг и управление
-                                            на ИКУНК</a></p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
+                                    </p>
+                                    <p><a href="{{ route('software', ['code' => $soft->code]) }}">{!!
+                                            html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/industry/if_resolutions-01_897222-300x300.png"
-                                        alt="Maxtrade KNTR. Изработване на софтуер за отчитане, съхранение и обработване на данните от електронен авто кантар">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a></p>
-                                    <p><a href="{{ route('industry.kantar') }}">Изработване на софтуер за отчитане,
-                                            съхранение и обработване на данните от електронен авто кантар</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -1009,28 +929,34 @@
                 @php
                 $counter = 0;
                 @endphp
-                @foreach ($software as $softwareBottom)
+                @foreach ($software_desktop as $softwareBottom)
                 <div class="col-md-3 col-sm-6">
                     <section class="infoblock type_2">
                         <i class="icon-download"></i>
-                        <a href="{{ route('product', ['id' => 'max-cmr']) }}"><h4 class="caption"><b>{{ $softwareBottom->name }}</b></h4></a>
+                        <a href="{{ route('software', ['code' => $softwareBottom->code]) }}">
+                            <h4 class="caption"><b>{{ $softwareBottom->name }}</b></h4>
+                        </a>
                         <p>{!! html_entity_decode($softwareBottom->shortDescription) !!}</p>
-                        <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}" onclick="clickBtnDownloadCmr(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
+                        <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}"
+                            onclick="clickBtnDownload(event, '{{Product::where(['code' => $softwareBottom->code])->first()->id}}')" class="button_dark_grey middle_btn">Изтегли ДЕМО
+                            версия</a>
                     </section>
                 </div>
                 @php $counter++; @endphp
                 @if($counter == 4)
-                  @php break; @endphp
+                @php break; @endphp
                 @endif
                 @endforeach
             </div>
         </section>
         <!--/ .section_offset -->
         <section class="section_offset animated transparent" data-animation="fadeInDown">
-            <h3 class="offset_title">Производители - <a href="{{ route('proizvoditeli') }}" class="button_dark_grey">виж всички производители</a></h3>
+            <h3 class="offset_title">Производители - <a href="{{ route('proizvoditeli') }}" class="button_dark_grey">виж
+                    всички производители</a></h3>
             <div class="owl_carousel brands">
                 @foreach ($manufacturers as $manufacturer)
-                @if (file_exists("/home/avalonbg/admin.avalonbg.com/dist/img/manufacturers/manufacturer_" . $manufacturer->id . ".png"))
+                @if (file_exists("/home/avalonbg/admin.avalonbg.com/dist/img/manufacturers/manufacturer_" .
+                $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
                     <img style="height:30px;width:auto;"
@@ -1171,37 +1097,12 @@ function uniGoTo(url){
 	window.open('{{$uni_backurl}}','_blank');
 }
 
-function clickBtnDownloadCmr(e){
+function clickBtnDownload(e, id){
     $.ajax({
         type:'POST',
         url:'/add-download.html',
-        data:{id:2}
+        data:{id:id}
     });
 };
-
-function clickBtnDownloadSlr(e){
-    $.ajax({
-        type:'POST',
-        url:'/add-download.html',
-        data:{id:5}
-    });
-};
-
-function clickBtnDownloadCtm(e){
-    $.ajax({
-        type:'POST',
-        url:'/add-download.html',
-        data:{id:3}
-    });
-};
-
-function clickBtnDownloadSmdc(e){
-    $.ajax({
-        type:'POST',
-        url:'/add-download.html',
-        data:{id:6}
-    });
-};
-
 </script>
 @endsection

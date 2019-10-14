@@ -74,7 +74,12 @@ class IndexController extends Controller
         $uni_container_txt2 = $paramsuni['uni_container_txt2'];
         $uni_container_status = $paramsuni['uni_container_status'];
 
-        $software = Software::all();
+        $software_desktop = Software::where(['category_id' => 'desktop'])->get();
+        $software_modules = Software::where(['category_id' => 'modules'])->get();
+        $software_websoftware = Software::where(['category_id' => 'websoftware'])->get();
+        $software_webservice = Software::where(['category_id' => 'webservice'])->get();
+        $software_mobile = Software::where(['category_id' => 'mobile'])->get();
+        $software_industry = Software::where(['category_id' => 'industry'])->get();
         /** Credit */
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
@@ -99,7 +104,12 @@ class IndexController extends Controller
             'uni_container_txt2' => $uni_container_txt2,
             'uni_backurl' => $uni_backurl,
             'manufacturers' => $manufacturers,
-            'software' => $software
+            'software_desktop' => $software_desktop,
+            'software_modules' => $software_modules,
+            'software_websoftware' => $software_websoftware,
+            'software_webservice' => $software_webservice,
+            'software_mobile' => $software_mobile,
+            'software_industry' => $software_industry
         ]);
     }
     /** end index menu */
@@ -639,20 +649,6 @@ class IndexController extends Controller
         ]);
     }
     /** end vrashtane menu */
-    /** start maxtrade change */
-    public function maxtrade_change(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-
-        $software = Software::where(['id' => 3])->first();
-        return view('desktop.maxtrade_change')->with([
-            'title' => 'Програма за регистриране на дейността по продажба и обмен на валута | Авалон',
-            'description' => 'Програма за регистриране на дейността по продажба и обмен на валута.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, валутно бюро',
-            'root_categories' => $root_categories,
-            'software' => $software
-        ]);
-    }
-    /** end maxtrade change */
     /** start desktop software */
     public function software($code=null){
         $root_categories = Category::where(['parent_id' => 0])->get();
@@ -662,7 +658,7 @@ class IndexController extends Controller
           if (empty($software)){
             return abort(404);
           }else{
-            return view('desktop.software')->with([
+            return view('software')->with([
                 'title' => $software->shortDescription . ' | Авалон',
                 'description' => $software->shortDescription,
                 'keywords' => $software->shortDescription,
@@ -675,61 +671,6 @@ class IndexController extends Controller
         }
     }
     /** end desktop software */
-    /** start maxtrade cmr */
-    public function maxtrade_cmr(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('desktop.maxtrade_cmr')->with([
-            'title' => 'Програма за съхранение и печат на митнически товарителници (ЧМР) | Авалон',
-            'description' => 'Програма за съхранение и печат на митнически товарителници (ЧМР).',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, чмр',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end maxtrade cmr */
-    /** start maxtrade ctm */
-    public function maxtrade_ctm(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('desktop.maxtrade_ctm')->with([
-            'title' => 'Програма за управление на дейността на Служба по трудова медицина | Авалон',
-            'description' => 'Програма за управление на дейността на Служба по трудова медицина.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, медицина',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end maxtrade ctm */
-    /** start maxtrade lab */
-    public function maxtrade_lab(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('desktop.maxtrade_lab')->with([
-            'title' => 'Програма за управление на дейността на Лаборатория | Авалон',
-            'description' => 'Програма за управление на дейността на Лаборатория.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, лаборатория',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end maxtrade lab */
-    /** start maxtrade slr */
-    public function maxtrade_slr(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('desktop.maxtrade_slr')->with([
-            'title' => 'Програма за управление на дейността на Ловно Рибарско Дружество | Авалон',
-            'description' => 'Програма за управление на дейността на Ловно Рибарско Дружество.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, ловно рибарско дружество',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end maxtrade slr */
-    /** start maxtrade */
-    public function maxtrade_smdc(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-        return view('desktop.maxtrade_smdc')->with([
-            'title' => 'Програма за управление на документите от Система по качеството | Авалон',
-            'description' => 'Програма за управление на документите от Система по качеството.',
-            'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, документи',
-            'root_categories' => $root_categories
-        ]);
-    }
-    /** end maxtrade */
     /** start cc_woocommerce */
     public function cc_woocommerce(){
         $root_categories = Category::where(['parent_id' => 0])->get();

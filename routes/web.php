@@ -36,27 +36,7 @@ Route::get('/klient-{id}.html', 'IndexController@klient')->name('klient');
 Route::match(['get', 'post'], '/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
 /** end footer menu */
 /** start index web section */
-Route::get('/desktop/{code}.html', 'IndexController@software')->name('desktop.software');
-Route::get('/desktop/maxtrade_change.html', 'IndexController@maxtrade_change')->name('desktop.maxtrade_change');
-Route::get('/desktop/maxtrade_cmr.html', 'IndexController@maxtrade_cmr')->name('desktop.maxtrade_cmr');
-Route::get('/desktop/maxtrade_ctm.html', 'IndexController@maxtrade_ctm')->name('desktop.maxtrade_ctm');
-Route::get('/desktop/maxtrade_lab.html', 'IndexController@maxtrade_lab')->name('desktop.maxtrade_lab');
-Route::get('/desktop/maxtrade_slr.html', 'IndexController@maxtrade_slr')->name('desktop.maxtrade_slr');
-Route::get('/desktop/maxtrade_smdc.html', 'IndexController@maxtrade_smdc')->name('desktop.maxtrade_smdc');
-Route::get('/web/cc_woocommerce.html', 'IndexController@cc_woocommerce')->name('web.cc_woocommerce');
-Route::get('/web/cc_opencart.html', 'IndexController@cc_opencart')->name('web.cc_opencart');
-Route::get('/web/cc_magento.html', 'IndexController@cc_magento')->name('web.cc_magento');
-Route::get('/web/cc_prestashop.html', 'IndexController@cc_prestashop')->name('web.cc_prestashop');
-Route::get('/web-soft/maxtrade_store.html', 'IndexController@maxtrade_store')->name('web-soft.maxtrade_store');
-Route::get('/web-soft/maxtrade_storeerp.html', 'IndexController@maxtrade_storeerp')->name('web-soft.maxtrade_storeerp');
-Route::get('/web-soft/maxtrade_ins.html', 'IndexController@maxtrade_ins')->name('web-soft.maxtrade_ins');
-Route::get('/web-soft/avamb.html', 'IndexController@avamb')->name('web-soft.avamb');
-Route::get('/web-service/website.html', 'IndexController@website')->name('web-service.website');
-Route::get('/web-service/onlineshop.html', 'IndexController@onlineshop')->name('web-service.onlineshop');
-Route::get('/web-service/webservice.html', 'IndexController@webservice')->name('web-service.webservice');
-Route::get('/mobile/avambmobile.html', 'IndexController@avambmobile')->name('mobile.avambmobile');
-Route::get('/industry/ikunk.html', 'IndexController@ikunk')->name('industry.ikunk');
-Route::get('/industry/kantar.html', 'IndexController@kantar')->name('industry.kantar');
+Route::get('/software/{code}.html', 'IndexController@software')->name('software');
 /** end index web section */
 /** start support section */
 Route::match(['get', 'post'], '/support/posts/{id}.html', 'SupportController@supportall')->name('support.posts');
