@@ -4,6 +4,7 @@
 <?php use App\User; ?>
 <?php use App\Category; ?>
 <?php use App\Faq; ?>
+<?php use App\Product; ?>
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -173,17 +174,17 @@
         }
     </script>
     @endif
-    @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_change')
+    @if(Route::current() != null && Route::current()->getName() == 'software' && isset($software))
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Maxtrade Change",
+            "name": "{{$software->name}}",
             "operatingSystem": "Windows 7, Windows 10",
             "applicationCategory": "https://schema.org/BusinessApplication",
             "offers": {
                 "@type": "Offer",
-                "price": "44.00",
+                "price": "{{Product::where(['code' => $software->code])->first()->price}}",
                 "priceCurrency": "BGN"
             }
         }
