@@ -708,84 +708,19 @@
 
                     <div id="desktop" class="tab_container">
                         <div class="owl_carousel carousel_in_tabs type_3">
+                            @foreach ($software as $soft)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="/images/desktop/if_28_3319616-300x300.png"
-                                        alt="ПРОГРАМА ЗА РЕГИСТРИРАНЕ НА ДЕЙНОСТТА ПО ПРОДАЖБА И ОБМЕН НА ВАЛУТА">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_change') }}">Програма за регистриране на
-                                            дейността по продажба и обмен на валута</a></p>
+                                    <p><a href="{{ route('desktop.maxtrade_change') }}">{{ $soft->name }}</a></p>
+                                    <p><a href="{{ route('desktop.maxtrade_change') }}">{!! html_entity_decode($soft->shortDescription) !!}</a></p>
                                 </div>
                             </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/desktop/if_Delivery_3387313-300x300.png"
-                                        alt="Програма за съхранение и печат на митнически товарителници (ЧМР)">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_cmr') }}">Програма за съхранение и печат на
-                                            митнически товарителници (ЧМР)</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/desktop/if_Umbrella_2974391-300x300.png"
-                                        alt="Програма за управление на дейността на Служба по трудова медицина">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_ctm') }}">Програма за управление на дейността
-                                            на Служба по трудова медицина</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/desktop/if_tube-lab-science-school_2824437-300x300.png"
-                                        alt="Програма за управление на дейността на Лаборатория">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_lab') }}">Програма за управление на дейността
-                                            на Лаборатория</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/desktop/if_icon_animal_cachorro_3316536-300x300.png"
-                                        alt="Програма за управление на дейността на Ловно Рибарско Дружество">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_slr') }}">Програма за управление на дейността
-                                            на Ловно Рибарско Дружество</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
-                            <div class="product_item">
-                                <div class="image_wrap">
-                                    <img src="/images/desktop/if_Asset_93_3298612-300x272.png"
-                                        alt="Програма за управление на документите от Система по качеството">
-                                </div>
-                                <!--/. image_wrap-->
-                                <div class="description align_center">
-                                    <p><a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a></p>
-                                    <p><a href="{{ route('desktop.maxtrade_smdc') }}">Програма за управление на
-                                            документите от Система по качеството</a></p>
-                                </div>
-                            </div>
-                            <!--/ .product_item-->
+                            @endforeach
                         </div>
                         <!--/ .owl_carousel-->
                     </div>
@@ -1062,38 +997,23 @@
         <section class="section_offset">
             <h3>Изтегляне на временни версии на софтуерен продукт за тестване.</h3>
             <div class="row">
+                @php
+                $counter = 0;
+                @endphp
+                @foreach ($software as $softwareBottom)
                 <div class="col-md-3 col-sm-6">
                     <section class="infoblock type_2">
                         <i class="icon-download"></i>
-                        <a href="{{ route('product', ['id' => 'max-cmr']) }}"><h4 class="caption"><b>Maxtrade CMR</b></h4></a>
-                        <p>Програма за съхранение, обработване и печат на митнически товарителници (ЧМР)</p>
-                        <a href="https://avalonbg.com/download/MaxtradeCMR.zip" onclick="clickBtnDownloadCmr(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
+                        <a href="{{ route('product', ['id' => 'max-cmr']) }}"><h4 class="caption"><b>{{ $softwareBottom->name }}</b></h4></a>
+                        <p>{!! html_entity_decode($softwareBottom->shortDescription) !!}</p>
+                        <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}" onclick="clickBtnDownloadCmr(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
                     </section>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <section class="infoblock type_2">
-                        <i class="icon-download"></i>
-                        <a href="{{ route('product', ['id' => 'max-slr']) }}"><h4 class="caption"><b>Maxtrade SLR</b></h4></a>
-                        <p>Програма за управление на дейността на Ловно Рибарско Дружество</p>
-                        <a href="https://avalonbg.com/download/MaxtradeSLR.zip" onclick="clickBtnDownloadSlr(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
-                    </section>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <section class="infoblock type_2">
-                        <i class="icon-download"></i>
-                        <a href="{{ route('product', ['id' => 'max-ctm']) }}"><h4 class="caption"><b>Maxtrade CTM</b></h4></a>
-                        <p>Програма за управление на дейността на Служба по трудова медицина</p>
-                        <a href="https://avalonbg.com/download/MaxtradeCTM.zip" onclick="clickBtnDownloadCtm(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
-                    </section>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <section class="infoblock type_2">
-                        <i class="icon-download"></i>
-                        <a href="{{ route('product', ['id' => 'max-smdc']) }}"><h4 class="caption"><b>Maxtrade SMDC</b></h4></a>
-                        <p>Програма за управление на документите от Система по качеството</p>
-                        <a href="https://avalonbg.com/download/MaxtradeSMDC.zip" onclick="clickBtnDownloadSmdc(event)" class="button_dark_grey middle_btn">Изтегли ДЕМО версия</a>
-                    </section>
-                </div>
+                @php $counter++; @endphp
+                @if($counter == 4)
+                  @php break; @endphp
+                @endif
+                @endforeach
             </div>
         </section>
         <!--/ .section_offset -->
@@ -1108,7 +1028,7 @@
                         src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png"
                         onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'"
                         alt="{{ $manufacturer->name }}">
-                </a>                    
+                </a>
                 @endif
                 @endforeach
             </div>

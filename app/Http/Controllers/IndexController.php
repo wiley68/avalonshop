@@ -9,6 +9,8 @@ use App\Mail\ReturnProduct;
 use App\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Software;
+use App\Product;
 
 class IndexController extends Controller
 {
@@ -54,7 +56,7 @@ class IndexController extends Controller
 		}else{
 			$tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim' . $paramstbi['tbi_container_reklama'] . '.png';
         }
-        
+
         /** UNI Credit */
         $credituni_unicid = '9ce5287c-c8d1-4a22-878c-1a9d42d7160a';
 
@@ -71,7 +73,8 @@ class IndexController extends Controller
         $uni_container_txt1 = $paramsuni['uni_container_txt1'];
         $uni_container_txt2 = $paramsuni['uni_container_txt2'];
         $uni_container_status = $paramsuni['uni_container_status'];
-        
+
+        $software = Software::all();
         /** Credit */
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
@@ -95,7 +98,8 @@ class IndexController extends Controller
             'uni_container_txt1' => $uni_container_txt1,
             'uni_container_txt2' => $uni_container_txt2,
             'uni_backurl' => $uni_backurl,
-            'manufacturers' => $manufacturers
+            'manufacturers' => $manufacturers,
+            'software' => $software
         ]);
     }
     /** end index menu */
@@ -592,7 +596,7 @@ class IndexController extends Controller
                 'f_product_code.required' => 'Задължително е въвеждането на кода на продукта!',
                 'f_product_qt.required' => 'Задължително е въвеждането на количеството на продукта!'
             ]);
-    
+
             $name = $request->input('f_name');
             $last_name = $request->input('f_last_name');
             $email = $request->input('f_email');
@@ -638,14 +642,39 @@ class IndexController extends Controller
     /** start maxtrade change */
     public function maxtrade_change(){
         $root_categories = Category::where(['parent_id' => 0])->get();
+
+        $software = Software::where(['id' => 3])->first();
         return view('desktop.maxtrade_change')->with([
             'title' => 'Програма за регистриране на дейността по продажба и обмен на валута | Авалон',
             'description' => 'Програма за регистриране на дейността по продажба и обмен на валута.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, валутно бюро',
-            'root_categories' => $root_categories
+            'root_categories' => $root_categories,
+            'software' => $software
         ]);
     }
     /** end maxtrade change */
+    /** start desktop software */
+    public function software($code=null){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        if ($code != null){
+          $software = Software::where(['code' => $code])->first();
+          if (empty($software)){
+            return abort(404);
+          }else{
+            return view('desktop.software')->with([
+                'title' => $software->shortDescription . ' | Авалон',
+                'description' => $software->shortDescription,
+                'keywords' => $software->shortDescription,
+                'root_categories' => $root_categories,
+                'software' => $software
+            ]);
+          }
+        }else{
+          return abort(404);
+        }
+    }
+    /** end desktop software */
     /** start maxtrade cmr */
     public function maxtrade_cmr(){
         $root_categories = Category::where(['parent_id' => 0])->get();

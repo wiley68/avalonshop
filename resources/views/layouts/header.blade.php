@@ -1,5 +1,6 @@
 <?php use App\Category; ?>
 <?php use App\Product; ?>
+<?php use App\Software; ?>
 <!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
 @php
 $cart_item_quantity = 0;
@@ -194,30 +195,11 @@ if (!empty((Session::get('cart_session'))['items'])){
                                                     <a>Десктоп софтуер</a>
                                                     <ul class="theme_menu submenu">
                                                         <!--<li class="current" >-->
+                                                        @foreach (Software::all() as $soft)
                                                         <li>
-                                                            <a href="{{ route('desktop.maxtrade_change') }}">Maxtrade
-                                                                Change</a>
+                                                            <a href="{{ route('desktop.software', ['code' => $soft->code]) }}">{{ $soft->name }}</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade
-                                                                CMR</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade
-                                                                CTM</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade
-                                                                LAB</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade
-                                                                SLR</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade
-                                                                SMDC</a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="has_submenu">

@@ -36,6 +36,7 @@ Route::get('/klient-{id}.html', 'IndexController@klient')->name('klient');
 Route::match(['get', 'post'], '/vrashtane.html', 'IndexController@vrashtane')->name('vrashtane');
 /** end footer menu */
 /** start index web section */
+Route::get('/desktop/{code}.html', 'IndexController@software')->name('desktop.software');
 Route::get('/desktop/maxtrade_change.html', 'IndexController@maxtrade_change')->name('desktop.maxtrade_change');
 Route::get('/desktop/maxtrade_cmr.html', 'IndexController@maxtrade_cmr')->name('desktop.maxtrade_cmr');
 Route::get('/desktop/maxtrade_ctm.html', 'IndexController@maxtrade_ctm')->name('desktop.maxtrade_ctm');
