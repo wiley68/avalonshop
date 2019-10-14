@@ -76,9 +76,11 @@ class SitemapController extends Controller
 
     public function main(){
         $last_update = Product::orderBy('created_at', 'desc')->first()->created_at;
+        $software = Software::all();
         
         return response()->view('sitemap.main', [
-            'last_update' => $last_update
+            'last_update' => $last_update,
+            'software' => $software
         ])->header('Content-Type', 'text/xml');
     }
 

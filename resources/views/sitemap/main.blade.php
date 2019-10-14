@@ -6,126 +6,14 @@
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
+    @foreach ($software as $soft)
     <url>
-        <loc>{{ route('desktop.maxtrade_change') }}</loc>
+        <loc>{{ route('software', ['code' => $soft->code]) }}</loc>
         <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('desktop.maxtrade_cmr') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('desktop.maxtrade_ctm') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('desktop.maxtrade_lab') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('desktop.maxtrade_slr') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('desktop.maxtrade_smdc') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web.cc_woocommerce') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web.cc_opencart') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web.cc_magento') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web.cc_prestashop') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-soft.maxtrade_store') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-soft.maxtrade_storeerp') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-soft.maxtrade_ins') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-soft.avamb') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-service.website') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-service.onlineshop') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('web-service.webservice') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('mobile.avambmobile') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('industry.ikunk') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ route('industry.kantar') }}</loc>
-        <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    </url>        
+    @endforeach
     <url>
         <loc>{{ route('terms') }}</loc>
         <lastmod>{{ $last_update->tz('UTC')->toAtomString() }}</lastmod>
