@@ -63,7 +63,7 @@
         @if (($product->imgurl1 == "") && ($product->imgurl2 == "") && ($product->imgurl3 == "") && ($product->imgurl4 == ""))
         "image": [
             "{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-        ],            
+        ],
         @else
         "image": [
             @if ($product->imgurl1 != "")
@@ -175,6 +175,7 @@
     </script>
     @endif
     @if(Route::current() != null && Route::current()->getName() == 'software' && isset($software))
+    @if (!empty(Product::where(['code' => $software->code])->first()))
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -189,6 +190,22 @@
             }
         }
     </script>
+    @else
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "{{$software->name}}",
+            "operatingSystem": "Windows 7, Windows 10",
+            "applicationCategory": "https://schema.org/BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": 0,
+                "priceCurrency": "BGN"
+            }
+        }
+    </script>
+    @endif
     @endif
     @if(Route::current() != null && Route::current()->getName() == 'desktop.maxtrade_cmr')
     <script type="application/ld+json">
@@ -271,7 +288,7 @@
     </script>
     @endif
     @if(
-    Route::current() != null && 
+    Route::current() != null &&
     (
     Route::current()->getName() == 'web.cc_woocommerce' ||
     Route::current()->getName() == 'web.cc_opencart' ||
@@ -295,7 +312,7 @@
     </script>
     @endif
     @if(
-    Route::current() != null && 
+    Route::current() != null &&
     (
     Route::current()->getName() == 'web-soft.maxtrade_store' ||
     Route::current()->getName() == 'web-soft.maxtrade_storeerp' ||
@@ -371,7 +388,7 @@
     </script>
     @endif
     @if(
-    Route::current() != null && 
+    Route::current() != null &&
     (
     Route::current()->getName() == 'for_us' ||
     Route::current()->getName() == 'credit-info' ||
@@ -544,7 +561,7 @@
     <meta http-equiv="refresh" content="0; url=/maintanence.html" />
     @endif
     @if(
-    Route::current() != null && 
+    Route::current() != null &&
     (
     Route::current()->getName() == 'maintanence' ||
     Route::current()->getName() == 'avalon.sitemap' ||

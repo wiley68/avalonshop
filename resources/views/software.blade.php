@@ -119,11 +119,13 @@
                     <p>{{ $software->shortDescription }}</p>
                 </div>
                 <div class="right_side">
+                    @if (!empty(Product::where(['code' => $software->code])->first()))
                     <a href="{{ route('product', ['id' => $software->code]) }}" class="button_blue huge_btn"><i
                             class="icon-basket-1"></i>Купи сега!</a>
+                    @endif
                 </div>
             </div>
-        </div>            
+        </div>
 
         <div class="section_offset clearfix">
         </div>
@@ -136,7 +138,7 @@
             </div>
         </div>
         @endif
-        
+
         @if ($software->title8)
         <div class="section_offset clearfix">
             <h4>{{ $software->title8 }}</h4>
@@ -146,7 +148,7 @@
         </div>
         @endif
 
-        @if ($software->category_id == 'desktop')        
+        @if ($software->category_id == 'desktop')
         <div class="call_to_action type_2 on_the_sides">
             <div class="left_side">
                 <div class="title">{{ $software->name }}</div>
