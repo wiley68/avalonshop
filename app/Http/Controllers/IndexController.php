@@ -661,7 +661,7 @@ class IndexController extends Controller
             return view('software')->with([
                 'title' => $software->shortDescription . ' | Авалон',
                 'description' => $software->shortDescription,
-                'keywords' => $software->shortDescription,
+                'keywords' => $software->keywords,
                 'root_categories' => $root_categories,
                 'software' => $software
             ]);
