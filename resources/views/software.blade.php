@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="section_offset clearfix">
-            <h2>{{ $software->shortDescription }}</h2>
+            <h2>{{ $software->name }}</h2>
             <div class="tour_section type_2">
                 <ul class="ts_nav clearfix">
                     @if ((intval($software->isMenu) & 1) && ($software->title1))
