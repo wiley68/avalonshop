@@ -155,6 +155,7 @@
 <div class="page_wrapper">
     <div class="container">
         <div class="section_offset">
+            {{--
             <div class="row">
                 <!-- - - - - - - - - - - - - - Main slider - - - - - - - - - - - - - - - - -->
                 <div class="col-sm-9">
@@ -223,6 +224,7 @@
 
                     <!-- - - - - - - - - - - - - - End of Revolution slider - - - - - - - - - - - - - - - - -->
                 </div>
+
                 <!--/ [col]-->
                 <!-- - - - - - - - - - - - - - End of main slider - - - - - - - - - - - - - - - - -->
                 <!-- - - - - - - - - - - - - - Banners - - - - - - - - - - - - - - - - -->
@@ -238,6 +240,7 @@
                 <!--/ [col]-->
                 <!-- - - - - - - - - - - - - - End of banners - - - - - - - - - - - - - - - - -->
             </div>
+            --}}
             <!--/ .row-->
         </div>
         <!--/ .section_offset -->
@@ -978,6 +981,7 @@
 <!--/ .page_wrapper-->
 <!-- Credit -->
 <!-- TBI Bank -->
+@if ($tbiyes)
 @if ($paramstbi['tbi_container_status'] == 'Yes')
 @if ($deviceis == 'pc')
 <div class="tbi_float" onclick="tbiChangeContainer();">
@@ -998,8 +1002,10 @@
                 alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
     </div>
 </div>
+@endif    
 @endif
 <!-- TBI Bank -->
+@if ($uniyes)
 @if ($uni_container_status == 'Yes')
 @if ($deviceis == 'pc')
 <div class="uni_float" onclick="uniChangeContainer();">
@@ -1021,6 +1027,7 @@
                 alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
     </div>
 </div>
+@endif    
 @endif
 <!-- Credit -->
 <!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
@@ -1080,7 +1087,9 @@ function tbiChangeContainer(){
 }
 
 function tbipaymentGoTo(url){
-	window.open('{{ $paramstbi['tbi_backurl'] }}','_blank');
+    @if ($tbiyes)
+    window.open('{{ $paramstbi['tbi_backurl'] }}','_blank');
+    @endif
 }
 
 function uniChangeContainer(){

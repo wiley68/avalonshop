@@ -661,27 +661,26 @@
     <!-- Include Libs & Plugins
 	============================================ -->
     <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
-    <script src="{{ asset('js/queryloader2.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.elevateZoom-3.0.8.min.js') }}"></script>
-    <script src="{{ asset('js/fancybox/source/jquery.fancybox.pack.js') }}"></script>
-    <script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
-    <script src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.appear.js') }}"></script>
-    <script src="{{ asset('js/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.countdown.plugin.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('js/arcticmodal/jquery.arcticmodal.js') }}"></script>
-    <script src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
-    <script src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
-    <script src="{{ asset('js/retina.min.js') }}"></script>
-    <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js"></script>
+    <script defer src="{{ asset('js/queryloader2.min.js') }}"></script>
+    <script defer src="{{ asset('js/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+    <script defer src="{{ asset('js/fancybox/source/jquery.fancybox.pack.js') }}"></script>
+    <script defer src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
+    <script defer src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
+    <script defer src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script defer src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script defer src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script defer src="{{ asset('js/jquery.appear.js') }}"></script>
+    <script defer src="{{ asset('js/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script defer src="{{ asset('js/jquery.countdown.plugin.min.js') }}"></script>
+    <script defer src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+    <script defer src="{{ asset('js/arcticmodal/jquery.arcticmodal.js') }}"></script>
+    <script defer src="{{ asset('twitter/jquery.tweet.min.js') }}"></script>
+    <script defer src="{{ asset('js/colorpicker/colorpicker.js') }}"></script>
+    <script defer src="{{ asset('js/retina.min.js') }}"></script>
     <!-- Theme files
 	============================================ -->
-    <script src="{{ asset('js/theme.plugins.js') }}"></script>
-    <script src="{{ asset('js/theme.core.js') }}"></script>
+    <script defer src="{{ asset('js/theme.plugins.js') }}"></script>
+    <script defer src="{{ asset('js/theme.core.js') }}"></script>
     <!-- index controller -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
