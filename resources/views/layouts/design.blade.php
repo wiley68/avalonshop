@@ -666,7 +666,7 @@
     <script defer src="{{ asset('js/fancybox/source/jquery.fancybox.pack.js') }}"></script>
     <script defer src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-media.js') }}"></script>
     <script defer src="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js') }}"></script>
-    <script defer src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script defer src="{{ asset('js/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
     <script defer src="{{ asset('js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
     <script defer src="{{ asset('js/jquery.appear.js') }}"></script>

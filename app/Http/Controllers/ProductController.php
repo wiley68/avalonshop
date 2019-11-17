@@ -54,7 +54,7 @@ class ProductController extends Controller
         if (!empty(request('paginate_by'))) {
             $paginate_by = request('paginate_by');
         } else {
-            $paginate_by = 9;
+            $paginate_by = 30;
         }
         $paginate = $paginate_by;
         $queries = [];
@@ -177,7 +177,9 @@ class ProductController extends Controller
             }
             $order_by = request('order_by');
         } else {
-            $order_by = 'Въвеждане';
+            $products = $products->orderBy('price', 'asc');
+            $queries['order_by'] = 'order_by_price_asc';
+            $order_by = 'order_by_price_asc';
         }
 
         $products = $products->paginate($paginate)->appends($queries);

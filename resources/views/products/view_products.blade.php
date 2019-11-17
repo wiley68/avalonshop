@@ -51,7 +51,7 @@
                                                         <ul class="checkboxes_list">
                                                             @foreach ($root_categories as $root_category)
                                                             <li>
-                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif 
+                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif
                                                                     name="category_id[]" value="{{ $root_category->id }}" id="category_{{ $root_category->id }}" myid="category_id">
                                                                 <label
                                                                     for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
@@ -184,10 +184,8 @@
                                                 <div>
                                                     <select name="paginate_by" id="paginate_by">
                                                         <option value="15" @if ($paginate == '15') selected @endif>15</option>
-                                                        <option value="12" @if ($paginate == '12') selected @endif>12</option>
-                                                        <option value="9" @if ($paginate == '9') selected @endif>9</option>
-                                                        <option value="6" @if ($paginate == '6') selected @endif>6</option>
-                                                        <option value="3" @if ($paginate == '3') selected @endif>3</option>
+                                                        <option value="30" @if ($paginate == '30') selected @endif>30</option>
+                                                        <option value="60" @if ($paginate == '60') selected @endif>60</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -200,7 +198,7 @@
                                         $rows = ceil($products->count() / 3);
                                         $products_collection = (new Collection($products))['data'];
                                         @endphp
-                                        @for ($i = 0; $i <= $rows*2; $i=$i+3) <div class="table_row">
+                                        @for ($i = 0; $i <= $rows*3; $i=$i+3) <div class="table_row">
                                             @for ($j = 0; $j < 3; $j++) <!-- - - - - - - - - - - - - - Product - - - -
                                                 - - - - - - - - - - - - -->
                                                 @if (!empty($products_collection[$i+$j]))
@@ -344,7 +342,7 @@
             max : {{ $products_max }},
             values : window.startRangeValues,
             step : 1,
-        
+
             slide : function(event, ui){
                 var min = ui.values[0].toFixed(2),
                 max = ui.values[1].toFixed(2),
