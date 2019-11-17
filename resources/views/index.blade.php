@@ -154,8 +154,8 @@
 <!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
 <div class="page_wrapper">
     <div class="container">
+        {{--
         <div class="section_offset">
-            {{--
             <div class="row">
                 <!-- - - - - - - - - - - - - - Main slider - - - - - - - - - - - - - - - - -->
                 <div class="col-sm-9">
@@ -240,10 +240,199 @@
                 <!--/ [col]-->
                 <!-- - - - - - - - - - - - - - End of banners - - - - - - - - - - - - - - - - -->
             </div>
-            --}}
             <!--/ .row-->
         </div>
         <!--/ .section_offset -->
+        --}}
+        <div class="section_offset">
+            <div class="row">
+                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                @php
+                $reviews = Review::where(['product_id' => $product1->id])->get();
+                $all_rev = 0;
+                foreach ($reviews as $review){
+                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                }
+                if ($reviews->count() > 0){
+                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                }
+                @endphp
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="50" style="text-align: center;">
+                    <div class="image_wrap" style="margin: auto;">
+                    @php
+                    $imgsrc1 = $product1->imgurl1;
+                    @endphp
+                    @if (!empty($imgsrc1))
+                    <img src="{{ $imgsrc1 }}" alt="{{ $product1->name }}"
+                        onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                    @else
+                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                        alt="{{ $product1->name }}">
+                    @endif
+                    <div class="actions_wrap">
+                        <div class="centered_buttons">
+                            <a href="{{ route('product', ['id' => $product1->code]) }}"
+                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="label_hot">Hot</div>
+                    <div class="description align_center">
+                        <p class="crop2"><a
+                            href="{{ route('product', ['id' => $product1->code]) }}">{{ $product1->name }}</a>
+                        </p>
+                        <div class="clearfix product_info">
+                        <ul class="rating alignright">
+                            <li @if ($all_rev> 0) class="active" @endif></li>
+                            <li @if ($all_rev> 1) class="active" @endif></li>
+                            <li @if ($all_rev> 2) class="active" @endif></li>
+                            <li @if ($all_rev> 3) class="active" @endif></li>
+                            <li @if ($all_rev> 4) class="active" @endif></li>
+                        </ul>
+                        <p class="product_price alignleft"><b>{{ $product1->price }}</b>&nbsp;лв.
+                        </p>
+                        </div>
+                       <button onclick="buyProduct('{{ $product1->id }}');"
+                        class="button_blue middle_btn">Купи</button>
+                        @auth
+                        <ul class="bottombar">
+                            <li><a href="#"
+                            onclick="clickBtnAddFavorite(event, {{ $product1->id }})">Добави към
+                            любими</a></li>
+                        </ul>
+                        @endauth
+                    </div>
+                </div>
+                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                @php
+                $reviews = Review::where(['product_id' => $product2->id])->get();
+                $all_rev = 0;
+                foreach ($reviews as $review){
+                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                }
+                if ($reviews->count() > 0){
+                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                }
+                @endphp
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="150" style="text-align: center;">
+                    <div class="image_wrap" style="margin: auto;">
+                    @php
+                    $imgsrc1 = $product2->imgurl1;
+                    @endphp
+                    @if (!empty($imgsrc1))
+                    <img src="{{ $imgsrc1 }}" alt="{{ $product2->name }}"
+                        onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                    @else
+                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                        alt="{{ $product2->name }}">
+                    @endif
+                    <div class="actions_wrap">
+                        <div class="centered_buttons">
+                            <a href="{{ route('product', ['id' => $product2->code]) }}"
+                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="label_hot">Hot</div>
+                    <div class="description align_center">
+                        <p class="crop2"><a
+                            href="{{ route('product', ['id' => $product2->code]) }}">{{ $product2->name }}</a>
+                        </p>
+                        <div class="clearfix product_info">
+                        <ul class="rating alignright">
+                            <li @if ($all_rev> 0) class="active" @endif></li>
+                            <li @if ($all_rev> 1) class="active" @endif></li>
+                            <li @if ($all_rev> 2) class="active" @endif></li>
+                            <li @if ($all_rev> 3) class="active" @endif></li>
+                            <li @if ($all_rev> 4) class="active" @endif></li>
+                        </ul>
+                        <p class="product_price alignleft"><b>{{ $product2->price }}</b>&nbsp;лв.
+                        </p>
+                        </div>
+                       <button onclick="buyProduct('{{ $product2->id }}');"
+                        class="button_blue middle_btn">Купи</button>
+                        @auth
+                        <ul class="bottombar">
+                            <li><a href="#"
+                            onclick="clickBtnAddFavorite(event, {{ $product2->id }})">Добави към
+                            любими</a></li>
+                        </ul>
+                        @endauth
+                    </div>
+                </div>
+                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                @php
+                $reviews = Review::where(['product_id' => $product3->id])->get();
+                $all_rev = 0;
+                foreach ($reviews as $review){
+                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                }
+                if ($reviews->count() > 0){
+                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                }
+                @endphp
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="250" style="text-align: center;">
+                    <div class="image_wrap" style="margin: auto;">
+                    @php
+                    $imgsrc1 = $product3->imgurl1;
+                    @endphp
+                    @if (!empty($imgsrc1))
+                    <img src="{{ $imgsrc1 }}" alt="{{ $product3->name }}"
+                        onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                    @else
+                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                        alt="{{ $product3->name }}">
+                    @endif
+                    <div class="actions_wrap">
+                        <div class="centered_buttons">
+                            <a href="{{ route('product', ['id' => $product3->code]) }}"
+                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="label_hot">Hot</div>
+                    <div class="description align_center">
+                        <p class="crop2"><a
+                            href="{{ route('product', ['id' => $product3->code]) }}">{{ $product3->name }}</a>
+                        </p>
+                        <div class="clearfix product_info">
+                        <ul class="rating alignright">
+                            <li @if ($all_rev> 0) class="active" @endif></li>
+                            <li @if ($all_rev> 1) class="active" @endif></li>
+                            <li @if ($all_rev> 2) class="active" @endif></li>
+                            <li @if ($all_rev> 3) class="active" @endif></li>
+                            <li @if ($all_rev> 4) class="active" @endif></li>
+                        </ul>
+                        <p class="product_price alignleft"><b>{{ $product3->price }}</b>&nbsp;лв.
+                        </p>
+                        </div>
+                       <button onclick="buyProduct('{{ $product3->id }}');"
+                        class="button_blue middle_btn">Купи</button>
+                        @auth
+                        <ul class="bottombar">
+                            <li><a href="#"
+                            onclick="clickBtnAddFavorite(event, {{ $product3->id }})">Добави към
+                            любими</a></li>
+                        </ul>
+                        @endauth
+                    </div>
+                </div>
+                <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+                <div class="col-md-3 col-sm-6">
+                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="350">
+                        <i class="icon-money"></i>
+                        <h4 class="caption"><b>Купи стока на изплащане</b></h4>
+                        <p>Покупка на стоки на изплащане</p>
+                        <p>Можете да закупите всяка една от предлаганите в магазина ни стоки на изплащане. Можете
+                            да избирате една от трите Кредитни Компании с които работим:
+                            <b>ТБИ Банк, УНИ Кредит, Париба Лични Финанси</b></p>
+                        <a href="{{ route('credit-info') }}" class="button_dark_grey middle_btn">Прочети още ...</a>
+                    </section><!--/ .infoblock.type_2-->
+                </div><!--/ [col]-->
+            </div><!--/ .row-->
+        </div><!--/ .section_offset-->
         <!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
         <ul class="infoblocks_wrap section_offset six_items">
             <li class="animated transparent" data-animation="fadeInDown">
@@ -253,35 +442,35 @@
                 </a>
                 <!--/ .infoblock-->
             </li>
-            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="100">
+            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="450">
                 <a href="{{ route('dostavka') }}" class="infoblock type_1">
                     <i class="icon-paper-plane"></i>
                     <span class="caption"><b>Бърза доставка в страната</b></span>
                 </a>
                 <!--/ .infoblock-->
             </li>
-            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="200">
+            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="550">
                 <a href="{{ route('politika') }}" class="infoblock type_1">
                     <i class="icon-lock"></i>
                     <span class="caption"><b>Политика на поверителност</b></span>
                 </a>
                 <!--/ .infoblock-->
             </li>
-            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="300">
+            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="650">
                 <a href="{{ route('products', ['featured'=>1]) }}" class="infoblock type_1">
                     <i class="icon-diamond"></i>
                     <span class="caption"><b>Големи отстъпки</b></span>
                 </a>
                 <!--/ .infoblock-->
             </li>
-            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="400">
+            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="750">
                 <a href="{{ route('vrashtane') }}" class="infoblock type_1">
                     <i class="icon-money"></i>
                     <span class="caption"><b>Гаранции за стоката</b></span>
                 </a>
                 <!--/ .infoblock-->
             </li>
-            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="500">
+            <li class="animated transparent" data-animation="fadeInDown" data-animation-delay="850">
                 <a href="{{ route('contact') }}" class="infoblock type_1">
                     <i class="icon-lifebuoy-1"></i>
                     <span class="caption"><b>24/7 Поддръжка за клиенти</b></span>
@@ -943,7 +1132,7 @@
                         @if (!empty(Product::where(['code' => $softwareBottom->code])->first()))
                         <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}"
                             onclick="clickBtnDownload(event, '{{Product::where(['code' => $softwareBottom->code])->first()->id}}')" class="button_dark_grey middle_btn">Изтегли ДЕМО
-                            версия</a>                            
+                            версия</a>
                         @endif
                     </section>
                 </div>
@@ -1002,7 +1191,7 @@
                 alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
     </div>
 </div>
-@endif    
+@endif
 @endif
 <!-- TBI Bank -->
 @if ($uniyes)
@@ -1027,7 +1216,7 @@
                 alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
     </div>
 </div>
-@endif    
+@endif
 @endif
 <!-- Credit -->
 <!-- - - - - - - - - - - - - - End Page Wrapper - - - - - - - - - - - - - - - - -->
