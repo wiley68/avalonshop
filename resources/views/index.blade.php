@@ -498,6 +498,8 @@
                                 @php
                                 $category_ids = [];
                                 $category_ids[] = $cat->id;
+                                $parent_category_ids = [];
+                                $parent_category_ids[] = $cat->parent_id;
                                 $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
                                 $parrent_category = Category::where(['id' => $cat->parent_id])->first();
                                 $parrent_category_ids = [];
@@ -508,7 +510,7 @@
                                 @if (($curent_parent_category != $parrent_category->name) &&
                                 ($parrent_category->parent_id == 0))
                                 <div class="author_info" style="height:50px;"><a
-                                        href="{{ route('products', ['category_id' => $category_ids]) }}">
+                                        href="{{ route('products', ['category_id' => $parent_category_ids]) }}">
                                         <h4><b>{{ $parrent_category->name }}&nbsp;({{ $parrent_products_categories }})</b>
                                         </h4>
                                     </a></div>
