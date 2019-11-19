@@ -347,7 +347,7 @@
     });
 
     // Post filter request
-    function postFilter(){
+    function postFilter(search){
         // instock
         var instock = [];
         $("input[name='instock[]']:checked").each(function (index, obj) {
@@ -370,24 +370,24 @@
                 manufacturer_id: '{{$manufacturer_id}}',
                 price_min: $("#price_min").val(),
                 price_max: $("#price_max").val(),
-                search_text: '{{$search_text}}',
+                search_text: search,
                 instock: instock_json
             }
         );
     }
 
     // Submit order form on change
-    $('#order_by').on('change', function(e) {
-        postFilter();
+    $('#order_by').on('change', function() {
+        postFilter('{{$search_text}}');
     });
 
     // Submit paginate form on change
-    $('#paginate_by').on('change', function(e) {
-        postFilter();
+    $('#paginate_by').on('change', function() {
+        postFilter('{{$search_text}}');
     });
 
-    $("#btn_filter").click(function(){
-        postFilter();
+    $("#btn_filter").click(function(){       
+        postFilter('');
     });
 
     function clickBtnAddFavorite(e, id){
