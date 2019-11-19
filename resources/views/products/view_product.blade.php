@@ -14,12 +14,8 @@
                         <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
                         <ul class="breadcrumbs">
                             <li><a href="{{ route('index') }}">Начало</a></li>
-                            @php
-                            $category_id = [];
-                            $category_id[] = $product_category->id;
-                            @endphp
                             <li><a
-                                    href="{{ route('products', ['category_id' => $category_id]) }}">{{ $product_category->name }}</a>
+                                    href="{{ route('products', ['category_id' => $product_category->id]) }}">{{ $product_category->name }}</a>
                             </li>
                             <li>{{ $product->name }}</li>
                         </ul>

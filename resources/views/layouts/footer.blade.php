@@ -93,11 +93,7 @@
                                             $categories_random = Category::inRandomOrder()->take(7)->get();
                                         @endphp
                                         @foreach ($categories_random as $category_random)
-                                        @php
-                                            $category_ids = [];
-                                            $category_ids[] = $category_random->id;
-                                        @endphp
-                                        <li><a href="{{ route('products', ['category_id'=>$category_ids]) }}">{{ $category_random->name }}</a></li>
+                                        <li><a href="{{ route('products', ['category_id'=>$category_random->id]) }}">{{ $category_random->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </section><!--/ .widget-->

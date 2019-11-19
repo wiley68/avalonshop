@@ -16,50 +16,22 @@
                         <ul class="breadcrumbs">
                             <li><a href="{{ route('index') }}">Начало</a></li>
                             @php
-                                $categories_names = '';
+                                $category_name = '';
                                 if (!empty($category_id)){
-                                    $categories_names = '&nbsp;:&nbsp;<strong>';
-                                    foreach ($category_id as $catid) {
-                                        $categories_names .= Category::where(['id' => $catid])->first()->name . ', ';
-                                    }
-                                    $categories_names = rtrim($categories_names, ', ');
-                                    $categories_names .= '</strong>';
+                                    $category_name = '&nbsp;:&nbsp;<strong>';
+                                    $category_name .= Category::where(['id' => $category_id])->first()->name;
+                                    $category_name .= '</strong>';
                                 }
                             @endphp
-                            <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ: <strong>{{ $search_text }}</strong>)@endif{!! $categories_names !!}</li>
+                            <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ: <strong>{{ $search_text }}</strong>)@endif{!! $category_name !!}</li>
                         </ul>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
                                 <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
                                 <section class="section_offset">
                                     <h3>Филтър продукти</h3>
-                                    <form class="type_2" enctype="multipart/form-data" action="{{ route('products') }}" method="post" name="filter_products" id="filter_products" novalidate="novalidate">
-                                        @csrf
                                         <div class="table_layout list_view">
                                             <div class="table_row">
-                                                @php
-                                                    $categories_in = [];
-                                                    if (!empty($queries['category_id'])){
-                                                        foreach ($queries['category_id'] as $categoryid) {
-                                                            $categories_in[] = $categoryid;
-                                                        }
-                                                    }
-                                                @endphp
-                                                <div class="table_cell">
-                                                    <fieldset>
-                                                        <legend>Категории&nbsp;&raquo;&nbsp;<a href="#" id="removeall">премахни всички</a></legend>
-                                                        <ul class="checkboxes_list">
-                                                            @foreach ($root_categories as $root_category)
-                                                            <li>
-                                                                <input type="checkbox" @if ((in_array($root_category->id, $categories_in)) || (empty($categories_in))) checked @endif
-                                                                    name="category_id[]" value="{{ $root_category->id }}" id="category_{{ $root_category->id }}" myid="category_id">
-                                                                <label
-                                                                    for="category_{{ $root_category->id }}">{{ $root_category->name }}</label>
-                                                            </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </fieldset>
-                                                </div>
                                                 <div class="table_cell">
                                                     <fieldset>
                                                         <legend>Наличност</legend>
@@ -86,8 +58,8 @@
                                                             Обхват :
                                                             <span class="min_val"></span> -
                                                             <span class="max_val"></span>
-                                                            <input type="hidden" name="price_min" class="min_value">
-                                                            <input type="hidden" name="price_max" class="max_value">
+                                                            <input type="hidden" name="price_min" id="price_min" class="min_value">
+                                                            <input type="hidden" name="price_max" id="price_max" class="max_value">
                                                         </div>
                                                         <div id="slider"></div>
                                                     </fieldset>
@@ -96,11 +68,10 @@
                                         </div>
                                         <footer class="bottom_box">
                                             <div class="buttons_row">
-                                                <button type="submit" class="button_blue middle_btn">Търси</button>
+                                                <button class="button_blue middle_btn" id="btn_filter">Търси</button>
                                                 <a href="{{ route('products') }}" class="button_grey middle_btn filter_reset">Откажи</a>
                                             </div>
                                         </footer>
-                                    </form>
                                 </section>
                                 <!-- - - - - - - - - - - - - - End of filter - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Manufacturers - - - - - - - - - - - - - - - - -->
@@ -152,16 +123,6 @@
 
                             <main class="col-md-9 col-sm-8">
                                 <div class="section_offset">
-                                    <form enctype="multipart/form-data" action="{{ route('products') }}" method="post" name="order_products" id="order_products" novalidate="novalidate">
-                                    @csrf
-                                    @foreach (Category::all() as $category)
-                                        <input style="display:none;" type="checkbox" @if(in_array($category->id, $category_id)) checked @endif name="category_id[]" value="{{ $category->id }}">
-                                    @endforeach
-                                    <input name="tag_id" type="hidden" value="{{ $tag_id }}">
-                                    <input name="manufacturer_id" type="hidden" value="{{ $manufacturer_id }}">
-                                    <input name="featured" type="hidden" value="{{ $featured }}">
-                                    <input name="price_min" type="hidden" value="{{ $price_min }}">
-                                    <input name="price_max" type="hidden" value="{{ $price_max }}">
                                     <header class="top_box on_the_sides">
                                         <div class="left_side clearfix v_centered">
                                             <!-- - - - - - - - - - - - - - Sort by - - - - - - - - - - - - - - - - -->
@@ -192,7 +153,6 @@
                                             <!-- - - - - - - - - - - - - - End of number of products shown - - - - - - - - - - - - - - - - -->
                                         </div>
                                     </header>
-                                    </form>
                                     <div class="table_layout" id="products_container">
                                         @php
                                         $rows = ceil($products->count() / 3);
@@ -364,21 +324,70 @@
     /* ------------------------------------------------
         End range slider
     ------------------------------------------------ */
-
-    // Submit order form on change
-    $('#order_by').on('change', function(e) {
-        document.forms['order_products'].submit();
-    });
-
-    // Submit paginate form on change
-    $('#paginate_by').on('change', function(e) {
-        document.forms['order_products'].submit();
-    });
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+    });
+
+    $.extend({
+        redirectPost: function(location, args){
+            var form = $('<form></form>');
+            form.attr("method", "post");
+            form.attr("action", location);
+            $.each( args, function( key, value ) {
+                var field = $('<input></input>');
+                field.attr("type", "hidden");
+                field.attr("name", key);
+                field.attr("value", value);
+                form.append(field);
+            });
+            $(form).appendTo('body').submit();
+        }
+    });
+
+    // Post filter request
+    function postFilter(){
+        // instock
+        var instock = [];
+        $("input[name='instock[]']:checked").each(function (index, obj) {
+            instock.push($(this).val());
+        });
+        if (Array.isArray(instock) && instock.length){
+            instock_json = JSON.stringify(instock);
+        }else{
+            instock_json = "";
+        }
+
+        $.redirectPost(
+            '{{route("products")}}', 
+            {
+                _token: '{{ csrf_token() }}',
+                order_by: $('#order_by option:selected').val(),
+                paginate_by: $('#paginate_by option:selected').val(),
+                category_id: '{{$category_id}}',
+                tag_id: '{{$tag_id}}',
+                manufacturer_id: '{{$manufacturer_id}}',
+                price_min: $("#price_min").val(),
+                price_max: $("#price_max").val(),
+                search_text: '{{$search_text}}',
+                instock: instock_json
+            }
+        );
+    }
+
+    // Submit order form on change
+    $('#order_by').on('change', function(e) {
+        postFilter();
+    });
+
+    // Submit paginate form on change
+    $('#paginate_by').on('change', function(e) {
+        postFilter();
+    });
+
+    $("#btn_filter").click(function(){
+        postFilter();
     });
 
     function clickBtnAddFavorite(e, id){
@@ -414,12 +423,5 @@
             }
         });
     };
-
-    $("#removeall").click(function(e){
-        e.preventDefault();
-        $('input[myid="category_id"]').each(function() {
-	        this.checked = false;
-		});
-    });
 </script>
 @endsection

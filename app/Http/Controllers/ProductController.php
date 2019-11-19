@@ -54,7 +54,7 @@ class ProductController extends Controller
         if (!empty(request('paginate_by'))) {
             $paginate_by = request('paginate_by');
         } else {
-            $paginate_by = 30;
+            $paginate_by = 15;
         }
         $paginate = $paginate_by;
         $queries = [];
@@ -77,12 +77,11 @@ class ProductController extends Controller
         // Get category requests
         if (!empty(request('category_id'))) {
             // Get root category and parent categories
-            foreach (request('category_id') as $item) {
-                $categories_parent = Category::where(['parent_id' => $item])->get();
-                $categories_in[] = $item;
-                foreach ($categories_parent as $category_parent) {
-                    $categories_in[] = $category_parent->id;
-                }
+            $item = request('category_id');
+            $categories_parent = Category::where(['parent_id' => $item])->get();
+            $categories_in[] = $item;
+            foreach ($categories_parent as $category_parent) {
+                $categories_in[] = $category_parent->id;
             }
             // get products array by categories
             $products_in = [];
@@ -97,7 +96,7 @@ class ProductController extends Controller
             $products = $products->whereIn('id', $products_in);
             $category_id = request('category_id');
         } else {
-            $category_id = [];
+            $category_id = "";
         }
 
         // Get tag requests
@@ -139,7 +138,7 @@ class ProductController extends Controller
         $instock = ['в наличност', 'минимално количество'];
         if (!empty(request('instock'))) {
             // Get products by instock
-            $instock = request('instock');
+            $instock = json_decode(request('instock'));
         }
         $products = $products->whereIn('instock' , $instock);
 

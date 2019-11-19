@@ -39,8 +39,14 @@ $cart_total_price += floatval($cart_item['total_price']);
                             <!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
                             <form class="clearfix search" enctype="multipart/form-data" name="search_form"
                                 id="search_form" method="POST" action="{{ route('products') }}">
+                                @php
+                                    $search_text_send = "";
+                                    if (!empty($search_text)){
+                                        $search_text_send = $search_text;
+                                    }
+                                @endphp
                                 <input type="text" name="search_text" tabindex="1" placeholder="Търси..."
-                                    class="alignleft">
+                                    class="alignleft" value="{{$search_text_send}}">
                                 @csrf
                                 <button class="button_blue def_icon_btn alignleft" type="submit"></button>
                             </form>
@@ -132,12 +138,8 @@ $cart_total_price += floatval($cart_item['total_price']);
                                 <ul class="theme_menu cats dropdown">
                                     @foreach ($root_categories as $category)
                                     <li class="has_megamenu animated_item">
-                                        @php
-                                        $category_ids = [];
-                                        $category_ids[] = $category->id;
-                                        @endphp
                                         <a
-                                            href="{{ route('products', ['category_id'=>$category_ids]) }}">{{ $category->name }}</a>
+                                            href="{{ route('products', ['category_id'=>$category->id]) }}">{{ $category->name }}</a>
                                         <div class="mega_menu clearfix">
                                             <div class="mega_menu_item">
                                                 <ul class="list_of_links">
@@ -146,12 +148,8 @@ $cart_total_price += floatval($cart_item['total_price']);
                                                     $category->id])->get();
                                                     @endphp
                                                     @foreach ($categories as $item)
-                                                    @php
-                                                    $item_ids = [];
-                                                    $item_ids[] = $item->id;
-                                                    @endphp
                                                     <li><a
-                                                            href="{{ route('products', ['category_id'=>$item_ids]) }}">{{ $item->name }}</a>
+                                                        href="{{ route('products', ['category_id'=>$item->id]) }}">{{ $item->name }}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
