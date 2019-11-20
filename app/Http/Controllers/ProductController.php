@@ -110,7 +110,7 @@ class ProductController extends Controller
             // filter products
             $products = $products->whereIn('id', $tags_in);
             // save queries
-            $queries['tag'] = request('tag_id');
+            $queries['tag_id'] = request('tag_id');
             $tag_id = request('tag_id');
         } else {
             $tag_id = '';
@@ -121,6 +121,8 @@ class ProductController extends Controller
             // Get products by manufacturer
             $manufacturer_id = request('manufacturer_id');
             $products = $products->where('manufacturer_id', $manufacturer_id);
+            // save queries
+            $queries['manufacturer_id'] = request('manufacturer_id');
         } else {
             $manufacturer_id = '';
         }
@@ -141,6 +143,8 @@ class ProductController extends Controller
             $instock = json_decode(request('instock'));
         }
         $products = $products->whereIn('instock' , $instock);
+        // save queries
+        $queries['instock'] = request('instock');
 
         // Get price
         $products_min = $products->min('price');
@@ -150,6 +154,9 @@ class ProductController extends Controller
             $price_min = request('price_min');
             $price_max = request('price_max');
             $products = $products->where('price' , '>=' , $price_min)->where('price' , '<=' , $price_max);
+            // save queries
+            $queries['price_min'] = request('price_min');
+            $queries['price_max'] = request('price_max');
         } else {
             $price_min = $products->min('price');
             $price_max = $products->max('price');
