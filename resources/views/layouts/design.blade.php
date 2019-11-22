@@ -599,6 +599,7 @@
         content="{{ $description ?? "Проектиране и инсталиране на софтуер. Продажба на компютърна техника." }}">
     <meta name="keywords" content="{{ $keywords ?? "софтуер, програми, компютри, продажба, сержиз, консумативи" }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta http-equiv="cache-control" content="max-age=31536000" />
 
     <!-- Mobile specific metas
 	============================================ -->
