@@ -616,25 +616,25 @@
 
     <!-- Libs CSS
 		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontello.css') }}">
+    <link name="first_style" rel="stylesheet" href="{{ asset('css/animate.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('css/fontello.css') }}" disabled>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- Theme CSS
         ============================================ -->
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
+    <link name="first_style" rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}" disabled>
+    <link name="first_style" rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}" disabled>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- JS Libs
 		============================================ -->
-    <script src="{{ asset('js/modernizr.js') }}"></script>
+    <script defer src="{{ asset('js/modernizr.js') }}"></script>
 
     <!-- Old IE stylesheet
 		============================================ -->
@@ -691,6 +691,7 @@
                     imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
                 } 
             } 
+            document.getElementsByName('first_style').forEach(element => element.removeAttribute('disabled'));
         }
         window.onload = init;
         
