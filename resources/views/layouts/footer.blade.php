@@ -191,117 +191,18 @@
 		<ul class="social_feeds">
 			<!-- - - - - - - - - - - - - - Facebook - - - - - - - - - - - - - - - - -->
 			<li>
-				<button class="icon_btn middle_btn social_facebook open_"><i class="icon-facebook-1"></i></button>
-				
-				<section class="dropdown">
-					<div class="animated_item">
-						<h3 class="title">Присъединете се към нас във Facebook</h3>
-					</div><!--/ .animated_item-->
-					<div class="animated_item">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAvalonLtd&tabs=timeline&width=235&height=345&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=102732653253201" width="235" height="345" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-					</div><!--/ .animated_item-->
-				</section><!--/ .dropdown-->
+				<a href="https://www.facebook.com/AvalonLtd" class="icon_btn middle_btn social_facebook open_"><i class="icon-facebook-1"></i></a>
 			</li>
 			<!-- - - - - - - - - - - - - - End of Facebook - - - - - - - - - - - - - - - - -->
-            <!-- - - - - - - - - - - - - - Twitter - - - - - - - - - - - - - - - - -->
-            <!--
-			<li>
-				<button class="icon_btn middle_btn social_twitter open_"><i class="icon-twitter"></i></button>
-				<section class="dropdown">
-					<div class="animated_item">
-						<h3 class="title">Последни Tweets</h3>
-					</div>
-					<div class="tweet_list_wrap"></div>
-					 
-					<footer class="animated_item bottom_box">
-						<a href="#" class="button_grey middle_btn twitter_follow">Follow Us</a>	
-					</footer>
-				</section>
-            </li>
-            -->
-			<!-- - - - - - - - - - - - - - End of Twitter - - - - - - - - - - - - - - - - -->
 			<!-- - - - - - - - - - - - - - Contact us - - - - - - - - - - - - - - - - -->
 			<li>
-				<button class="icon_btn middle_btn social_contact open_"><i class="icon-mail-8"></i></button>
-				<section class="dropdown">
-					<div class="animated_item">
-						<h3 class="title">За контакт</h3>
-					</div><!--/ .animated_item-->
-					 
-					<div class="animated_item">
-						<p class="form_caption">Можете да ни изпратите съобщение от формата по-долу.</p>
-                        <form enctype="multipart/form-data" action="{{ route('send-contact-us') }}" method="post" name="send_contact_us" id="send_contact_us" novalidate>
-                            @csrf
-                            <ul>
-								<li class="row">
-									<div class="col-xs-12">
-										<input type="text" required title="Name" name="cf_name" placeholder="Име">
-									</div>
-								</li>
-								<li class="row">
-									<div class="col-xs-12">
-										<input type="email" required title="Email" name="cf_email" placeholder="e-mail">
-									</div>
-								</li>
-								<li class="row">
-									<div class="col-xs-12">
-										<textarea placeholder="Съобщение" required title="Message" name="cf_message" rows="6"></textarea>
-									</div>
-								</li>
-								
-                                <li class="row">
-                                    <div class="col-xs-12">
-                                        @if(env('GOOGLE_RECAPTCHA_KEY'))
-                                        <div class="g-recaptcha"
-                                             data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
-                                        </div>
-                                        @endif                                                    
-                                    </div><!--/ [col]-->
-                                </li><!--/ .row -->
-
-                                <li class="row">
-									<div class="col-xs-12">
-										<button class="button_grey middle_btn">Изпрати</button>
-									</div>
-                                </li>
-                                
-							</ul>
-						</form>
-					</div><!--/ .animated_item-->
-				</section><!--/ .dropdown-->
+				<a href="{{ route('contact') }}" class="icon_btn middle_btn social_contact open_"><i class="icon-mail-8"></i></a>
 			</li>
 			<!-- - - - - - - - - - - - - - End contact us - - - - - - - - - - - - - - - - -->
 			<!-- - - - - - - - - - - - - - Google map - - - - - - - - - - - - - - - - -->
 			<li>
-				<button class="icon_btn middle_btn social_gmap open_"><i class="icon-location-4"></i></button>
-				<!--Location-->
-				<section class="dropdown">
-					<div class="animated_item">
-						<h3 class="title">Адрес на Магазина</h3>
-					</div><!--/ .animated_item-->
-					 
-					<div class="animated_item">
-						
-						<p class="c_info_location">гр. Горна Оряховица<br>ул. Патриарх Евтимий 27</p>
-						<div class="proportional_frame">
-                            <iframe src="https://maps.google.com/maps?q=Горна%20Оряховица%20Патриарх%20Евтимий%2027&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-						</div>
-						<ul class="c_info_list">
-							<li class="c_info_phone">0619 22218</li>
-							<li class="c_info_mail"><a href="mailto:home@avalonbg.com">home@avalonbg.com</a></li>
-							<li class="c_info_schedule">
-								<ul>
-									<li>Понеделник-Петък: 8.00-18.00</li>
-									<li>Събота: 9.00-15.00</li>
-									<li>Неделя: затворено</li>
-								</ul>
-							</li>
-						</ul>
-					</div><!--/ .animated_item-->
-				</section><!--/ .dropdown-->
-			
+				<a href="{{ route('contact') }}" class="icon_btn middle_btn social_gmap open_"><i class="icon-location-4"></i></a>
 			</li>
 			<!-- - - - - - - - - - - - - - End google map - - - - - - - - - - - - - - - - -->
 		</ul>
 		<!-- - - - - - - - - - - - - - End Social feeds - - - - - - - - - - - - - - - - -->
-        <script src='https://www.google.com/recaptcha/api.js'></script>
