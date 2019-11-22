@@ -616,21 +616,21 @@
 
     <!-- Libs CSS
 		============================================ -->
-    <link name="first_style" rel="stylesheet" href="{{ asset('css/animate.css') }}" disabled>
-    <link rel="stylesheet" href="{{ asset('css/fontello.css') }}">
+    <link name="first_style" rel="stylesheet" href="{{ asset('css/animate.min.css') }}" disabled>
+    <link rel="stylesheet" href="{{ asset('css/fontello.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- Theme CSS
         ============================================ -->
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.css') }}" >
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.min.css') }}" >
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.css') }}" >
+    <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}" >
     <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}" >
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
 
     <!-- JS Libs
 		============================================ -->
