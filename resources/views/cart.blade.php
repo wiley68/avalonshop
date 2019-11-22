@@ -43,9 +43,12 @@
                                             <td class="product_image_col" data-title="Product Image">
                                                 <a href="{{ route('product', ['id' => $item['product_code']]) }}">
                                                 @if (!empty($imgsrc1))
-                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}" style="max-width:200px;" alt="{{ $item['product_name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                    <img style="max-width:80px;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                                    data-src="{{ $imgsrc1 }}" alt="{{ $item['product_name'] }}">
                                                 @else
-                                                    <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" style="max-width:200px;" alt="{{ $item['product_name'] }}">
+                                                    <img style="max-width:80px;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                                    data-src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" 
+                                                    alt="{{ $item['product_name'] }}">
                                                 @endif                                                </a>
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of product Image - - - - - - - - - - - - - - - - -->

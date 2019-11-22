@@ -108,14 +108,17 @@
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
-                                        <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" alt="Покупка на стоки на изплащане">
+                                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                        data-src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" 
+                                        alt="Покупка на стоки на изплащане">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
-                                        <img src="/images/cmr.png" alt="">
+                                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                        data-src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -170,7 +173,8 @@
                                                             @endphp
                                                             <div class="image_wrap">
                                                                 @if (!empty($imgsrc1))
-                                                                    <img src="{{ $imgsrc1 }}" alt="{{ $products_collection[$i+$j]['name'] }}" onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.png'">
+                                                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                                                    data-src="{{ $imgsrc1 }}" alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @else
                                                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @endif

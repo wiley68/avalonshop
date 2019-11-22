@@ -40,7 +40,8 @@
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
-                                        <img src="/images/cmr.png" alt="">
+                                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                        data-src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -305,7 +306,8 @@
                             <main class="col-md-9 col-sm-8">
                                 <h1>Магазин гр. Горна Оряховица</h1>
                                 <div class="theme_box clearfix">
-                                    <img src="/images/shop.jpg" class="alignleft" width="310" alt="">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/shop.jpg" class="alignleft" width="310" alt="">
                                     <p>Магазин гр. Горна Оряховица работи вече повече от 10 години. Ние предлагаме на своите клиенти висок клас техника и професионална помощ при избора й.</p>
                                     <p>При нас можете да намерите всичко, от което имате нужда за вашият компютър:</p>
                                     <p>Нови компютри, Употребявани компютри, Асемблирани компютри, Принтери, Скенери, Мултифункц. устройства, Консумативи, Мишки, Клавиатури, Слушалки, Колони, Уеб камери, Дънни платки, Процесори, Вентилатори, Видео карти, Памет, Вентилатори, Десктоп програми, WEB софтуер, Поръчкови сайтове и програми, Антивирусни програми, Lenovo, Asus, Acer, HP, Samsung, Brother, Epson, Iiyama, LG, MSI, Logitech, A4Tech, Genius, Gigabyte, Asrock, Intel, Kaspersky, Microsoft, CAD, Maxtrade Software</p>

@@ -202,14 +202,16 @@
                                     <div id="uniloaderpanel">
                                         <div id="uniloader"></div>
                                         <div id="uniloadertext">Ще бъдете прехвърлени към UNI Credit</div>
-                                        <div id="uniloaderimg"><img src="/images/credit/unicredit_logo.png" alt="UNI Credit" /></div>
+                                        <div id="uniloaderimg"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                            data-src="/images/credit/unicredit_logo.png" alt="UNI Credit" /></div>
                                     </div> 
                                 @else
                                     @if ($current_sheme == 'tbipayment')
                                     <div id="tbiloaderpanel">
                                         <div id="tbiloader"></div>
                                         <div id="tbiloadertext"><?php echo $tbipayment_pause_txt; ?></div>
-                                        <div id="tbiloaderimg"><img src="/images/credit/tbi_bank_logo.png" alt="TBI" /></div>
+                                        <div id="tbiloaderimg"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                            data-src="/images/credit/tbi_bank_logo.png" alt="TBI" /></div>
                                     </div>
                                     @endif               
                                 @endif

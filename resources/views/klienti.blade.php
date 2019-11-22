@@ -22,7 +22,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 1]) }}" class="thumbnail">
-                                    <img src="/images/klienti/arcus.jpg" alt="Аркус АД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/arcus.jpg" alt="Аркус АД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 1]) }}">Аркус АД</a>
@@ -34,7 +35,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 2]) }}" class="thumbnail">
-                                    <img src="/images/klienti/bulgarkontrola.jpg" alt="Булгарконтрола ЕАД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/bulgarkontrola.jpg" alt="Булгарконтрола ЕАД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 2]) }}">Булгарконтрола ЕАД</a>
@@ -46,7 +48,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 3]) }}" class="thumbnail">
-                                    <img src="/images/klienti/bulmex.jpg" alt="Булмекс ООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/bulmex.jpg" alt="Булмекс ООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 3]) }}">Булмекс ООД</a>
@@ -58,7 +61,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 4]) }}" class="thumbnail">
-                                    <img src="/images/klienti/darzaven_rezerv.jpg" alt="Държавен Резерв и Военновременни Запаси">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/darzaven_rezerv.jpg" alt="Държавен Резерв и Военновременни Запаси">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 4]) }}">Държавна Агенция "Държавен Резерв и Военновременни Запаси"</a>
@@ -72,7 +76,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 5]) }}" class="thumbnail">
-                                    <img src="/images/klienti/eurox.jpg" alt="Еурокс ПроМарк Консултинг ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/eurox.jpg" alt="Еурокс ПроМарк Консултинг ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 5]) }}">Еурокс ПроМарк Консултинг ЕООД</a>
@@ -84,7 +89,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 6]) }}" class="thumbnail">
-                                    <img src="/images/klienti/georgiev_2000.jpg" alt="Георгиев-2000 ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/georgiev_2000.jpg" alt="Георгиев-2000 ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 6]) }}">Георгиев-2000 ЕООД</a>
@@ -96,7 +102,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 7]) }}" class="thumbnail">
-                                    <img src="/images/klienti/grid_eood.jpg" alt="ГРИД ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/grid_eood.jpg" alt="ГРИД ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 7]) }}">ГРИД ЕООД</a>
@@ -108,7 +115,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 8]) }}" class="thumbnail">
-                                    <img src="/images/klienti/kanak.jpg" alt="Канак ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/kanak.jpg" alt="Канак ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 8]) }}">Канак ЕООД</a>
@@ -122,7 +130,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 9]) }}" class="thumbnail">
-                                    <img src="/images/klienti/kasi.jpg" alt="Каси Темпра Пак ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/kasi.jpg" alt="Каси Темпра Пак ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 9]) }}">Каси Темпра Пак ЕООД</a>
@@ -134,7 +143,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 10]) }}" class="thumbnail">
-                                    <img src="/images/klienti/media_5100.jpg" alt="Медия 5100 ООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/media_5100.jpg" alt="Медия 5100 ООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 10]) }}">Медия 5100 ООД</a>
@@ -146,7 +156,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 11]) }}" class="thumbnail">
-                                    <img src="/images/klienti/monolit_99.jpg" alt="Монолит 99 ООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/monolit_99.jpg" alt="Монолит 99 ООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 11]) }}">Монолит 99 ООД</a>
@@ -158,7 +169,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 12]) }}" class="thumbnail">
-                                    <img src="/images/klienti/msm_gas.jpg" alt="МСМ ГАЗ ООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/msm_gas.jpg" alt="МСМ ГАЗ ООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 12]) }}">МСМ ГАЗ ООД</a>
@@ -172,7 +184,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 13]) }}" class="thumbnail">
-                                    <img src="/images/klienti/polet_90.jpg" alt="ЕТ Полет 90">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/polet_90.jpg" alt="ЕТ Полет 90">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 13]) }}">ЕТ Полет 90</a>
@@ -184,7 +197,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 14]) }}" class="thumbnail">
-                                    <img src="/images/klienti/priti.jpg" alt="Прити 95 ООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/priti.jpg" alt="Прити 95 ООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 14]) }}">Прити 95 ООД</a>
@@ -196,7 +210,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 15]) }}" class="thumbnail">
-                                    <img src="/images/klienti/skladova_tehnika.jpg" alt="Складова Техника АД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/skladova_tehnika.jpg" alt="Складова Техника АД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 15]) }}">Складова Техника АД</a>
@@ -208,7 +223,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 16]) }}" class="thumbnail">
-                                    <img src="/images/klienti/sot.jpg" alt="СОТ Велико Търново ЕООД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/sot.jpg" alt="СОТ Велико Търново ЕООД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 16]) }}">СОТ Велико Търново ЕООД</a>
@@ -222,7 +238,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 17]) }}" class="thumbnail">
-                                    <img src="/images/klienti/vinprom.jpg" alt="Винпром АД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/vinprom.jpg" alt="Винпром АД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 17]) }}">Винпром АД</a>
@@ -234,7 +251,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 18]) }}" class="thumbnail">
-                                    <img src="/images/klienti/vt_services.jpg" alt="VT Servicess Ltd">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/vt_services.jpg" alt="VT Servicess Ltd">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 18]) }}">VT Servicess Ltd</a>
@@ -246,7 +264,8 @@
                             <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                             <figure class="manufacturer">
                                 <a href="{{ route('klient', ['id' => 19]) }}" class="thumbnail">
-                                    <img src="/images/klienti/zaharni_zavodi.jpg" alt="Захарни Заводи АД">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                    data-src="/images/klienti/zaharni_zavodi.jpg" alt="Захарни Заводи АД">
                                 </a>
                                 <figcaption>
                                     <a href="{{ route('klient', ['id' => 19]) }}">Захарни Заводи АД</a>

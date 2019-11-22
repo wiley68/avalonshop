@@ -14,7 +14,8 @@
                     <ul class="lightbox_list">
                         <li>
                             <a class="fancybox_item" data-rel="group_1" href="/images/credit/tbi_bank_logo.png" title="ТБИ Банка">
-                                <img src="/images/credit/tbi_bank_logo.png" style="max-width:240px;" alt="ТБИ Банка">
+                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                data-src="/images/credit/tbi_bank_logo.png" style="max-width:240px;" alt="ТБИ Банка">
                                 <span class="helper_icon">
                                     <span class="helper_left"></span>
                                     <span class="helper_right"></span>
@@ -23,7 +24,8 @@
                         </li>
                         <li>
                             <a class="fancybox_item" data-rel="group_1" href="/images/credit/unicredit_logo.png" title="УНИ Кредит">
-                                <img src="/images/credit/unicredit_logo.png" style="max-width:240px;" alt="УНИ Кредит">
+                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                data-src="/images/credit/unicredit_logo.png" style="max-width:240px;" alt="УНИ Кредит">
                                 <span class="helper_icon">
                                     <span class="helper_left"></span>
                                     <span class="helper_right"></span>
@@ -32,7 +34,8 @@
                         </li>
                         <li>
                             <a class="fancybox_item" data-rel="group_1" href="/images/credit/pariba_logo.png" title="Париба Лични Финанси">
-                                <img src="/images/credit/pariba_logo.png" style="max-width:240px;" alt="Париба Лични Финанси">
+                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                data-src="/images/credit/pariba_logo.png" style="max-width:240px;" alt="Париба Лични Финанси">
                                 <span class="helper_icon">
                                     <span class="helper_left"></span>
                                     <span class="helper_right"></span>

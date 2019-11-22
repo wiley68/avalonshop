@@ -89,9 +89,9 @@
                                         <li>
                                                 <article class="entry">
                                                     <a href="{{ route('support.software', ['id'=>$best_support->id]) }}" class="entry_thumb">
-                                                        <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
-                                                        alt="{{ $best_support->name }}"
-                                                        onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                                        data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
+                                                        alt="{{ $best_support->name }}">
                                                     </a>
                                                     <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
                                                     <div class="wrapper">
@@ -157,9 +157,9 @@
                                             <!-- - - - - - - - - - - - - - Entry image - - - - - - - - - - - - - - - - -->
                                             <a href="{{ route('support.software', ['id'=>$support->id]) }}"
                                                 class="thumbnail entry_image">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png"
-                                                    alt="{{ $support->name }}"
-                                                    onerror="this.src='{{ Config::get('settings.backend') }}/dist/img/noimage.jpg'">
+                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                                                data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png"
+                                                alt="{{ $support->name }}">
                                             </a>
                                             <!-- - - - - - - - - - - - - - End of entry image - - - - - - - - - - - - - - - - -->
                                             <h4 class="entry_title"><a href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a></h4>
