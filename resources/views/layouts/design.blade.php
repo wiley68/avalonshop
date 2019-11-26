@@ -685,16 +685,15 @@
     <!-- index controller -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
-        function init() {
-            var imgDefer = document.getElementsByTagName('img');
-            for (var i=0; i<imgDefer.length; i++) {
-                if(imgDefer[i].getAttribute('data-src')) {
-                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-                } 
-            } 
-            document.getElementsByName('first_style').forEach(element => element.removeAttribute('disabled'));
-        }
-        window.onload = init;
+        // $(document).ready(function(){ 
+        //     var imgDefer = document.getElementsByTagName('img');
+        //     for (var i=0; i<imgDefer.length; i++) {
+        //         if(imgDefer[i].getAttribute('data-src')) {
+        //             imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+        //         } 
+        //     } 
+        //     document.getElementsByName('first_style').forEach(element => element.removeAttribute('disabled'));
+        // });
         
         window.cookieconsent.initialise({
             "palette": {

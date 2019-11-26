@@ -173,7 +173,7 @@
                     $imgsrc1 = $product1->imgurl1;
                     @endphp
                     @if (!empty($imgsrc1))
-                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $imgsrc1 }}" 
+                    <img src="{{ $imgsrc1 }}" 
                     alt="{{ $product1->name }}">
                     @else
                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
@@ -231,7 +231,7 @@
                     $imgsrc1 = $product2->imgurl1;
                     @endphp
                     @if (!empty($imgsrc1))
-                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $imgsrc1 }}" 
+                    <img src="{{ $imgsrc1 }}" 
                     alt="{{ $product2->name }}">
                     @else
                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
@@ -289,7 +289,7 @@
                     $imgsrc1 = $product3->imgurl1;
                     @endphp
                     @if (!empty($imgsrc1))
-                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $imgsrc1 }}" 
+                    <img src="{{ $imgsrc1 }}" 
                     alt="{{ $product3->name }}">
                     @else
                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
@@ -493,7 +493,7 @@
                                     $imgsrc1 = $product_item->imgurl1;
                                     @endphp
                                     @if (!empty($imgsrc1))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $imgsrc1 }}" 
+                                    <img src="{{ $imgsrc1 }}" 
                                     alt="{{ $product_item->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
@@ -593,8 +593,7 @@
                             @foreach ($supports_gamings as $support_gaming)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" 
                                     alt="{{ $support_gaming->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -617,8 +616,7 @@
                             @foreach ($supports_offices as $support_office)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" 
                                     alt="{{ $support_office->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -642,8 +640,7 @@
                             @foreach ($supports_printers as $support_printer)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" 
                                     alt="{{ $support_printer->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -667,8 +664,7 @@
                             @foreach ($supports_instalations as $support_instalation)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" 
                                     alt="{{ $support_instalation->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -692,8 +688,7 @@
                             @foreach ($supports_networks as $support_network)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" 
                                     alt="{{ $support_network->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -717,8 +712,7 @@
                             @foreach ($supports_cameras as $support_camera)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" 
                                     alt="{{ $support_camera->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -742,8 +736,7 @@
                             @foreach ($supports_softwares as $support_software)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" 
                                     alt="{{ $support_software->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -790,8 +783,7 @@
                             @foreach ($webprojects as $webproject)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png" 
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png" 
                                     alt="{{ $webproject->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -814,8 +806,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -841,8 +832,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -868,8 +858,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -895,8 +884,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -922,8 +910,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -949,8 +936,7 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -1061,8 +1047,7 @@
                 $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
-                    <img style="height:30px;width:auto;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                    data-src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" 
+                    <img style="height:30px;width:auto;" src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" 
                     alt="{{ $manufacturer->name }}">
                 </a>
                 @endif
@@ -1081,19 +1066,17 @@
 @if ($paramstbi['tbi_container_status'] == 'Yes')
 @if ($deviceis == 'pc')
 <div class="tbi_float" onclick="tbiChangeContainer();">
-    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-    data-src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
+    <img src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
 </div>
 @else
 <div class="tbi_float" onclick="tbipaymentGoTo();">
-    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-    data-src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
+    <img src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
 </div>
 @endif
 <div class="tbi-label-container">
     <div class="tbi-label-text">
         <div style="padding-bottom:5px;"></div>
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ $tbi_picture }}">
+        <img src="{{ $tbi_picture }}">
         <div style="font-size:16px;padding-top:3px;">{{ $paramstbi['tbi_container_txt1'] }}</div>
         <p style="font-size:14px;">{{ $paramstbi['tbi_container_txt2'] }}</p>
         <div class="tbi-label-text-a"><a href="{{ $paramstbi['tbi_backurl'] }}" target="_blank"
@@ -1107,18 +1090,18 @@
 @if ($uni_container_status == 'Yes')
 @if ($deviceis == 'pc')
 <div class="uni_float" onclick="uniChangeContainer();">
-    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo $uni_logo; ?>" class="uni-my-float">
+    <img src="<?php echo $uni_logo; ?>" class="uni-my-float">
 </div>
 @else
 <div class="uni_float" onclick="uniGoTo();">
-    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo $uni_logo; ?>" class="uni-my-float">
+    <img src="<?php echo $uni_logo; ?>" class="uni-my-float">
 </div>
 @endif
 <div class="uni-label-container">
     <i class="fa fa-play fa-rotate-180 uni-label-arrow"></i>
     <div class="uni-label-text">
         <div style="padding-bottom:5px;"></div>
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo $uni_picture; ?>">
+        <img src="<?php echo $uni_picture; ?>">
         <div style="font-size:16px;padding-top:3px;"><?php echo $uni_container_txt1; ?></div>
         <p><?php echo $uni_container_txt2; ?></p>
         <div class="uni-label-text-a"><a href="<?php echo $uni_backurl; ?>" target="_blank"

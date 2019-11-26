@@ -145,22 +145,14 @@
 						<p class="footer_message">Авалон ООД работи в IT сферата повече от 15 години. Създава софтуер по поръчка на своите клиенти. Продажба и сервиз на компютърна техника. Продажба и възстановяване на консумативи.</p>
 						<!-- - - - - - - - - - - - - - Payments - - - - - - - - - - - - - - - - -->
 						<ul class="payments">
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_1.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_2.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_3.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_4.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_5.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_6.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_7.png" alt=""></li>
-                            <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/payment_8.png" alt=""></li>
+                            <li><img src="/images/payment_1.png" alt=""></li>
+                            <li><img src="/images/payment_2.png" alt=""></li>
+                            <li><img src="/images/payment_3.png" alt=""></li>
+                            <li><img src="/images/payment_4.png" alt=""></li>
+                            <li><img src="/images/payment_5.png" alt=""></li>
+                            <li><img src="/images/payment_6.png" alt=""></li>
+                            <li><img src="/images/payment_7.png" alt=""></li>
+                            <li><img src="/images/payment_8.png" alt=""></li>
 						</ul>
 						
 						<!-- - - - - - - - - - - - - - End of payments - - - - - - - - - - - - - - - - -->

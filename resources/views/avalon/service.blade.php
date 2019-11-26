@@ -41,8 +41,7 @@
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('product', ['id' => 'max-cmr']) }}" class="banner">
-                                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                        data-src="/images/cmr.png" alt="">
+                                        <img src="/images/cmr.png" alt="">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->

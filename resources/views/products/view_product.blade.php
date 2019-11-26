@@ -28,8 +28,7 @@
                                     <!-- - - - - - - - - - - - - - Image preview container - - - - - - - - - - - - - - - - -->
                                     <div class="image_preview_container">
                                         @if (!empty($imgsrc1))
-                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                            data-src="{{ $imgsrc1 }}" alt="{{ $product->name }}">
+                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}">
                                         @else
                                             <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">
                                         @endif
@@ -43,8 +42,7 @@
                                         <div class="owl_carousel" id="thumbnails">
                                             @if (!empty($imgsrc1))
                                             <a href="#" data-image="{{ $imgsrc1 }}" data-zoom-image="{{ $imgsrc1 }}">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" 
+                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" 
                                                 alt="{{ $product->name }}-1">
                                             </a>
                                             @else
@@ -54,8 +52,7 @@
                                             @endif
                                             @if (!empty($imgsrc2))
                                             <a href="#" data-image="{{ $imgsrc2 }}" data-zoom-image="{{ $imgsrc2 }}">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" 
+                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" 
                                                 alt="{{ $product->name }}-2">
                                             </a>
                                             @else
@@ -65,8 +62,7 @@
                                             @endif
                                             @if (!empty($imgsrc3))
                                             <a href="#" data-image="{{ $imgsrc3 }}" data-zoom-image="{{ $imgsrc3 }}">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" 
+                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" 
                                                 alt="{{ $product->name }}-3">
                                             </a>
                                             @else
@@ -76,8 +72,7 @@
                                             @endif
                                             @if (!empty($imgsrc4))
                                             <a href="#" data-image="{{ $imgsrc4 }}" data-zoom-image="{{ $imgsrc4 }}">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" 
+                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" 
                                                 alt="{{ $product->name }}-4">
                                             </a>
                                             @else
@@ -219,21 +214,18 @@
                                         </div>
                                         <div class="row" style="border-top:1px solid whitesmoke;padding-top:15px;">
                                             <div class="col-sm-2">&nbsp;</div>
-                                            <div class="col-sm-2">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="/images/credit/tbi_bank_logo.png" alt="TBI Bank кредитен калкулатор" 
+                                            <div class="col-sm-2 col-xs-3">
+                                                <img src="/images/credit/tbi_bank_logo.png" alt="TBI Bank кредитен калкулатор" 
                                                 title="TBI Bank кредитен калкулатор">
                                             </div>
-                                            <div class="col-sm-1">&nbsp;</div>
-                                            <div class="col-sm-2">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="/images/credit/unicredit_logo.png" alt="UNI Credit кредитен калкулатор" 
+                                            <div class="col-xs-1">&nbsp;</div>
+                                            <div class="col-sm-2 col-xs-3">
+                                                <img src="/images/credit/unicredit_logo.png" alt="UNI Credit кредитен калкулатор" 
                                                 title="UNI Credit кредитен калкулатор">
                                             </div>
-                                            <div class="col-sm-1">&nbsp;</div>
-                                            <div class="col-sm-2">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="/images/credit/pariba_logo.png" 
+                                            <div class="col-xs-1">&nbsp;</div>
+                                            <div class="col-sm-2 col-xs-3">
+                                                <img src="/images/credit/pariba_logo.png" 
                                                 alt="Париба Лични Финанси кредитен калкулатор" 
                                                 title="Париба Лични Финанси кредитен калкулатор">
                                             </div>
@@ -619,8 +611,7 @@
                                             $imgsrc1 = $featured_product->imgurl1;
                                         @endphp
                                         @if (!empty($imgsrc1))
-                                            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                            data-src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
+                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
                                         @else
                                             <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $featured_product->name }}">
                                         @endif
@@ -713,8 +704,7 @@
                                         </ul>   
                                         <div class="tab_containers_wrap">
                                             <div id="support" class="tab_container">
-                                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png" 
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png" 
                                                 alt="{{ $support->name }}" class="alignleft">
                                                 <h3><a href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a></h3>
                                                 <div class="entry_meta">

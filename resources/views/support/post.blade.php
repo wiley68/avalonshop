@@ -48,8 +48,7 @@
                                             <article class="entry">
                                                 <a href="{{ route('support.software', ['id'=>$best_support->id]) }}"
                                                     class="entry_thumb">
-                                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                    data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
+                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
                                                     alt="{{ $best_support->name }}">
                                                 </a>
                                                 <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
@@ -243,8 +242,7 @@
                                             <div class="table_cell">
                                                     <article class="entry">
                                                         <a href="{{ route('support.software', ['id'=>$same_support->id]) }}" class="entry_thumb">
-                                                            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                            data-src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $same_support->id }}.png"
+                                                            <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $same_support->id }}.png"
                                                             alt="{{ $same_support->name }}">
                                                         </a>
                                                         <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->

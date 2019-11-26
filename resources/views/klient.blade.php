@@ -18,8 +18,7 @@
             <main class="col-md-12 col-sm-12">
                 <h1>{{ $name }}</h1>
                 <div class="theme_box">
-                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                    data-src="{{ $img }}" class="alignleft" style="max-width:100px;" alt="{{ $name }}">
+                    <img src="{{ $img }}" class="alignleft" style="max-width:100px;" alt="{{ $name }}">
                     <p>{{ $text }}</p>
                     <ul class="bottombar manufacturer_nav">
                         <li><a>{{ $sign }}</a></li>

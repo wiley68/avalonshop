@@ -23,8 +23,7 @@ $cart_total_price += floatval($cart_item['total_price']);
                         <div class="col-sm-3">
                             <!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
                             <a href="{{ route('index') }}" class="logo">
-                                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                data-src="/images/logo.png" alt="avalon logo" 
+                                <img src="/images/logo.png" alt="avalon logo" 
                                 title="Проектиране и инсталиране на софтуер. Продажба на компютърна техника.">
                             </a>
                             <!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
@@ -60,8 +59,7 @@ $cart_total_price += floatval($cart_item['total_price']);
                             <div class="clearfix">
                                 <!-- - - - - - - - - - - - - - Language change - - - - - - - - - - - - - - - - -->
                                 <div class="alignright site_settings">
-                                    <span><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                        data-src="/images/flag_bg.png" alt="Български език">Български</span>
+                                    <span><img src="/images/flag_bg.png" alt="Български език">Български</span>
                                     <!--
 											<ul class="dropdown site_setting_list language">
 												<li class="animated_item"><a href="#"><img src="/images/flag_en.jpg" alt=""> English</a></li>
@@ -371,11 +369,9 @@ $cart_total_price += floatval($cart_item['total_price']);
                                             <a href="{{ route('product', ['id' => $cart_item['product_code']]) }}"
                                                 class="product_thumb">
                                                 @if (!empty($imgsrc1))
-                                                <img style="max-width:80px;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ $imgsrc1 }}" alt="{{ $cart_item['product_name'] }}">
+                                                <img style="max-width:80px;" src="{{ $imgsrc1 }}" alt="{{ $cart_item['product_name'] }}">
                                                 @else
-                                                <img style="max-width:80px;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                                data-src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" 
+                                                <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" 
                                                 alt="{{ $cart_item['product_name'] }}">
                                                 @endif
                                             </a>

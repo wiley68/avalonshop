@@ -147,8 +147,7 @@
                             <div class="pricing_table free">
                                 <header>{{ $first_name }}</header>
                                 <div class="pt_price">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="/images/credit/{{ $first_logo }}">
+                                    <img src="/images/credit/{{ $first_logo }}">
                                 </div>
                                 <ul class="pt_list">
                                     <li>
@@ -248,8 +247,7 @@
                             <div class="pricing_table @if (!$first_visible) free @endif">
                                 <header>{{ $second_name }}</header>
                                 <div class="pt_price">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="/images/credit/{{ $second_logo }}">
+                                    <img src="/images/credit/{{ $second_logo }}">
                                 </div>
                                 <ul class="pt_list">
                                     <li>
@@ -349,8 +347,7 @@
                             <div class="pricing_table @if ((!$first_visible) && (!$second_visible)) free @endif">
                                 <header>{{ $third_name }}</header>
                                 <div class="pt_price">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="/images/credit/{{ $third_logo }}">
+                                    <img src="/images/credit/{{ $third_logo }}">
                                 </div>
                                 <ul class="pt_list">
                                     <li>
