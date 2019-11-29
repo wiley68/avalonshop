@@ -1,5 +1,4 @@
 <?php use App\Category; ?>
-<?php use App\Tagsp; ?>
 <?php use App\Manufacturer; ?>
 <?php use Illuminate\Support\Collection; ?>
 <?php use App\Review; ?>
@@ -91,20 +90,6 @@
                                     <!--/ .tags_container-->
                                 </section>
                                 <!-- - - - - - - - - - - - - - End of Manufacturers - - - - - - - - - - - - - - - - -->
-                                <!-- - - - - - - - - - - - - - Tags - - - - - - - - - - - - - - - - -->
-                                <section class="section_offset">
-                                    <h3>Често срещани</h3>
-                                    <div class="tags_container">
-                                        <ul class="tags_cloud">
-                                            @foreach ($tags_working as $working_tag_id)
-                                                <li><a href="{{ route('products', ['tag_id'=>$working_tag_id]) }}" class="button_grey">{{ Tagsp::where(['id' => $working_tag_id])->first()->name }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                        <!--/ .tags_cloud-->
-                                    </div>
-                                    <!--/ .tags_container-->
-                                </section>
-                                <!-- - - - - - - - - - - - - - End of tags - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
                                     <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
@@ -367,7 +352,6 @@
                 order_by: $('#order_by option:selected').val(),
                 paginate_by: $('#paginate_by option:selected').val(),
                 category_id: '{{$category_id}}',
-                tag_id: '{{$tag_id}}',
                 manufacturer_id: '{{$manufacturer_id}}',
                 price_min: $("#price_min").val(),
                 price_max: $("#price_max").val(),

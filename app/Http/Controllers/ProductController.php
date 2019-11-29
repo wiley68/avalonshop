@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\ProductsCategories;
-use App\Tagsp;
 use Illuminate\Support\Facades\DB;
-use App\ProductsTagsp;
 use App\Manufacturer;
 use App\News;
 use App\ProductsAttributes;
@@ -21,23 +19,6 @@ class ProductController extends Controller
     public function viewProducts(){
         // get root categories
         $root_categories = Category::where(['parent_id' => 0])->get();
-
-        // get working tags
-        $tags_working = [];
-        $products_tagsp = DB::table('products_tagsp')
-            ->select('tagsp_id', DB::raw('count(*) as total'))
-            ->groupBy('tagsp_id')
-            ->orderBy('total', 'DESC')
-            ->get();
-        $tagsp_counter = 0;
-        foreach ($products_tagsp as $tagp) {
-            if ($tagsp_counter < 20) {
-                $tags_working[] = $tagp->tagsp_id;
-                $tagsp_counter++;
-            } else {
-                break;
-            }
-        }
 
         // get manufacturers
         $products_manufacturers = DB::table('products')
@@ -97,23 +78,6 @@ class ProductController extends Controller
             $category_id = request('category_id');
         } else {
             $category_id = "";
-        }
-
-        // Get tag requests
-        $tags_in = [];
-        if (!empty(request('tag_id'))) {
-            // Get products_tagsp
-            $products_tags = ProductsTagsp::where(['tagsp_id' => request('tag_id')])->get();
-            foreach ($products_tags as $product_tag) {
-                $tags_in[] = $product_tag->product_id;
-            }
-            // filter products
-            $products = $products->whereIn('id', $tags_in);
-            // save queries
-            $queries['tag_id'] = request('tag_id');
-            $tag_id = request('tag_id');
-        } else {
-            $tag_id = '';
         }
 
         // Get manufacturer request
@@ -198,9 +162,7 @@ class ProductController extends Controller
             'paginate' => $paginate,
             'products' => $products,
             'queries' => $queries,
-            'tags_working' => $tags_working,
             'category_id' => $category_id,
-            'tag_id' => $tag_id,
             'order_by' => $order_by,
             'products_manufacturers' => $products_manufacturers,
             'manufacturer_id' => $manufacturer_id,
@@ -230,20 +192,6 @@ class ProductController extends Controller
         }
 
         $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product->id])->first()->category_id])->first();
-
-        $tagsp_ids = [];
-        $products_tagsp = ProductsTagsp::where(['product_id' => $product->id])->get();
-        foreach ($products_tagsp as $product_tagp) {
-            $tagsp_ids[] = $product_tagp->tagsp_id;
-        }
-        $tagsp = Tagsp::whereIn('id', $tagsp_ids)->get();
-
-        $all_tagsp_ids = [];
-        $all_products_tagsp = ProductsTagsp::all();
-        foreach ($all_products_tagsp as $all_product_tag) {
-            $all_tagsp_ids[] = $all_product_tag->tagsp_id;
-        }
-        $all_tagsp = Tagsp::whereIn('id', $all_tagsp_ids)->get();
 
         // get manufacturer
         $manufacturer = Manufacturer::where(['id' => $product->manufacturer_id])->first();
@@ -286,8 +234,6 @@ class ProductController extends Controller
             'keywords' => $product->meta_keywords,
             'root_categories' => $root_categories,
             'product' => $product,
-            'tagsp' => $tagsp,
-            'all_tagsp' => $all_tagsp,
             'product_category' => $product_category,
             'manufacturer_name' => $manufacturer_name,
             'manufacturer_id' => $manufacturer_id,
