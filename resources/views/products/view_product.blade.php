@@ -150,6 +150,12 @@
                                                             <td><span class="in_stock">{{ $product->instock }}</span></td>
                                                     @endswitch
                                                 </tr>
+                                                @if (($product->instock != "няма наличност") && $product->externalstore == 1)
+                                                <tr>
+                                                    <td><p class="in_stock_external">Налично във външен склад</p></td>
+                                                    <td>срок на доставка от 1 до 4 дни</td>
+                                                </tr>                                                    
+                                                @endif
                                                 <tr>
                                                     <td>Продуктов код: </td>
                                                     <td>{{ $product->code }}</td>

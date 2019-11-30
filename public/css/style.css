@@ -131,7 +131,7 @@
 
 		-webkit-transition: text-indent .5s ease, color .5s ease;
 				transition: text-indent .5s ease, color .5s ease;
-	}
+    }
 
 	input::-moz-placeholder{
 		color:#b2b2b2;
@@ -2788,7 +2788,6 @@ transition-duration:0.1s;
 	/* --------------------------------------------
 			5.1 Infoblocks
 	-------------------------------------------- */
-
 		.infoblock.type_1{
 			line-height: 18px;
 			padding:25px 21px 24px 67px;
@@ -4358,6 +4357,13 @@ transition-duration:0.1s;
 
     .in_stock{ color: #54bd45; }
     .min_stock{ color: #FF8C00; }
+    .in_stock_external{
+        display: block;
+        background:#F0F8FF;
+        border-radius: 5px;
+        padding: 0px 5px;
+        border: 1px solid #E6E6E6;
+    }
 
 /* ------------------------------------------------
 
