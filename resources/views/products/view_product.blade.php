@@ -157,6 +157,12 @@
                                                     <td>срок на доставка от 1 до 4 дни</td>
                                                 </tr>                                                    
                                                 @endif
+                                                @if ($product_category->name == "Употребявана техника")
+                                                <tr>
+                                                    <td>Състояние: </td>
+                                                    <td>Реновирана техника</td>
+                                                </tr>                                                    
+                                                @endif
                                                 <tr>
                                                     <td>Продуктов код: </td>
                                                     <td>{{ $product->code }}</td>
