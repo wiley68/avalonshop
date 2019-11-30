@@ -210,7 +210,13 @@ class ProductController extends Controller
         $reviews = Review::where(['product_id' => $product->id])->get();
 
         // get featured products
-        $featured_products = Product::where(['isfeatured' => 1])->where(['instock' => 'в наличност'])->take(10)->get();
+        $product_category = ProductsCategories::where(['product_id' => $product->id])->first()->category_id;
+        $products_in = [];
+        $products_categories = ProductsCategories::where(['category_id' => $product_category])->get();
+        foreach ($products_categories as $product_category) {
+            $products_in[] = $product_category->product_id;
+        }
+        $featured_products = Product::whereIn('id', $products_in)->orderBy('isfeatured', 'DESC')->take(10)->get();
 
         // get images
         $imgsrc1 = $product->imgurl1;
