@@ -605,7 +605,7 @@
                         <!-- - - - - - - - - - - - - - End of tabs - - - - - - - - - - - - - - - - -->
                         <!-- - - - - - - - - - - - - - Related products - - - - - - - - - - - - - - - - -->
                         <section class="section_offset">
-                            <h3 class="offset_title">Промоционални продукти</h3>
+                            <h3 class="offset_title">Подобни продукти</h3>
                             <!-- - - - - - - - - - - - - - Carousel of featured products - - - - - - - - - - - - - - - - -->
                             <div class="owl_carousel five_items">
                                 @foreach ($featured_products as $featured_product)
