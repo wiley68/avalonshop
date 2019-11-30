@@ -40,12 +40,12 @@
                                                                 <label for="nalicno">в наличност</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" @if (in_array('минимално количество', $instock)) checked @endif name="instock[]" id="minqt" value="минимално количество">
-                                                                <label for="minqt">минимално количество</label>
+                                                                <input type="checkbox" @if (in_array('ограничено количество', $instock)) checked @endif name="instock[]" id="minqt" value="ограничено количество">
+                                                                <label for="minqt">ограничено количество</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" @if (in_array('очаква се', $instock)) checked @endif name="instock[]" id="ocakvase" value="очаква се">
-                                                                <label for="ocakvase">очаква се</label>
+                                                                <input type="checkbox" @if (in_array('няма наличност', $instock)) checked @endif name="instock[]" id="ocakvase" value="няма наличност">
+                                                                <label for="ocakvase">няма наличност</label>
                                                             </li>
                                                         </ul>
                                                     </fieldset>

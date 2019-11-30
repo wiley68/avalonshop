@@ -211,6 +211,7 @@ class ProductController extends Controller
 
         // get featured products
         $product_category = ProductsCategories::where(['product_id' => $product->id])->first()->category_id;
+        $category = Category::where(['id' => $product_category])->first();
         $products_in = [];
         $products_categories = ProductsCategories::where(['category_id' => $product_category])->get();
         foreach ($products_categories as $product_category) {
@@ -240,7 +241,7 @@ class ProductController extends Controller
             'keywords' => $product->meta_keywords,
             'root_categories' => $root_categories,
             'product' => $product,
-            'product_category' => $product_category,
+            'product_category' => $category,
             'manufacturer_name' => $manufacturer_name,
             'manufacturer_id' => $manufacturer_id,
             'products_attributes' => $products_attributes,

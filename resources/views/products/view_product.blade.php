@@ -1,5 +1,6 @@
 <?php use App\Attribute; ?>
 <?php use App\AttributeValues; ?>
+<?php use App\Category; ?>
 <?php use App\Http\Controllers\HelpController; ?>
 @extends('layouts.design')
 @section('content')
