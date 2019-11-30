@@ -140,10 +140,10 @@
                                                         @case('в наличност')
                                                             <td><span class="in_stock">{{ $product->instock }}</span></td>
                                                             @break
-                                                        @case('минимално количество')
+                                                        @case('ограничено количество')
                                                             <td><span class="min_stock">{{ $product->instock }}</span></td>
                                                             @break
-                                                        @case('очаква се')
+                                                        @case('няма наличност')
                                                             <td><span class="out_of_stock">{{ $product->instock }}</span></td>
                                                             @break
                                                         @default

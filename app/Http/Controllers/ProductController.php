@@ -101,7 +101,7 @@ class ProductController extends Controller
         }
 
         // Get instock request
-        $instock = ['в наличност', 'минимално количество'];
+        $instock = ['в наличност', 'ограничено количество'];
         if (!empty(request('instock'))) {
             // Get products by instock
             $instock = json_decode(request('instock'));
