@@ -139,7 +139,7 @@ class HelpController extends Controller
     public function cart(Request $request)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $properties = Property::first();
+        $properties = Property::where('id', '>', 0)->first();
         $curr_cart_count = intval($properties->opencart);
         $properties->opencart = $curr_cart_count + 1;
         $properties->save();
