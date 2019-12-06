@@ -1133,8 +1133,7 @@ function buyProduct(product_id){
         dataType: 'JSON',
         success: function (data) {
             // add to mini cart
-            window.alert('Успешно добавихте продукта във Вашата продуктова кошница.');
-            window.location.reload();
+            window.location = "{{ route('cart') }}";
         }
     });
 };
