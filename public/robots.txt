@@ -1,2 +1,17 @@
 User-agent: *
-Disallow:
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /js/
+Disallow: /keys/
+Disallow: /svg/
+Disallow: /twitter/
+Disallow: /maintanence.html
+Disallow: /add-download.html
+Disallow: /cart.html
+Disallow: /cart-clear.html
+Disallow: /login-register.html
+Disallow: /user-register.html
+Disallow: /user-login.html
+Disallow: /user-checkout-login.html
+Disallow: /news-subscribe.html
