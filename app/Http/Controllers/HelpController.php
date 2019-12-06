@@ -12,6 +12,7 @@ use App\Project;
 use App\Support;
 use App\Order;
 use App\Product;
+use App\Property;
 use Illuminate\Support\Facades\Auth;
 use App\Suborder;
 
@@ -138,6 +139,10 @@ class HelpController extends Controller
     public function cart(Request $request)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
+        $properties = Property::first();
+        $curr_cart_count = intval($properties->opencart);
+        $properties->opencart = $curr_cart_count + 1;
+        $properties->save();
         return view('cart')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
