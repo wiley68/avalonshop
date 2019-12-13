@@ -142,11 +142,12 @@ class HelpController extends Controller
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         $ips = explode(",", env('MYIP'));
+        if (!in_array($this->getUserIP(), $ips)) {
             $cart_ips = new CartIp;
             $cart_ips->ip = $this->getUserIP();
             $cart_ips->jsoncart = json_encode($request->session()->get('cart_session'));
             $cart_ips->save();
-        
+        }
         return view('cart')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
