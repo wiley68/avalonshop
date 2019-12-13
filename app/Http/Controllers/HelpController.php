@@ -13,6 +13,7 @@ use App\Support;
 use App\Order;
 use App\Product;
 use App\Property;
+use App\CartIp;
 use Illuminate\Support\Facades\Auth;
 use App\Suborder;
 
@@ -139,10 +140,13 @@ class HelpController extends Controller
     public function cart(Request $request)
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
-        $properties = Property::where('id', '>', 0)->first();
-        $curr_cart_count = intval($properties->opencart);
-        $properties->opencart = $curr_cart_count + 1;
-        $properties->save();
+
+        $ips = explode(",", env('MYIP'));
+            $cart_ips = new CartIp;
+            $cart_ips->ip = $this->getUserIP();
+            $cart_ips->jsoncart = json_encode($request->session()->get('cart_session'));
+            $cart_ips->save();
+        
         return view('cart')->with([
             'title' => 'Продуктова кошница | Авалон',
             'description' => 'Продуктова кошница.',
