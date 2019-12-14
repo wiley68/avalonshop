@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Mail\OneClick;
 use App\ProductsCategories;
 use Illuminate\Support\Facades\DB;
 use App\Manufacturer;
@@ -13,6 +14,7 @@ use App\ProductsAttributes;
 use App\Property;
 use App\Review;
 use App\Support;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -451,7 +453,7 @@ class ProductController extends Controller
 
             if ($tbi_4m == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is4m = 'Yes';
                 } else {
                     if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
@@ -465,7 +467,7 @@ class ProductController extends Controller
             }
             if ($tbi_4m_pv == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is4m_pv = 'Yes';
                 } else {
                     if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
@@ -479,7 +481,7 @@ class ProductController extends Controller
             }
             if ($tbi_5m == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is5m = 'Yes';
                 } else {
                     if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
@@ -493,7 +495,7 @@ class ProductController extends Controller
             }
             if ($tbi_5m_pv == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is5m_pv = 'Yes';
                 } else {
                     if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
@@ -507,7 +509,7 @@ class ProductController extends Controller
             }
             if ($tbi_6m == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is6m = 'Yes';
                 } else {
                     if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
@@ -521,7 +523,7 @@ class ProductController extends Controller
             }
             if ($tbi_6m_pv == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is6m_pv = 'Yes';
                 } else {
                     if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
@@ -535,7 +537,7 @@ class ProductController extends Controller
             }
             if ($tbi_9m == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is9m = 'Yes';
                 } else {
                     if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
@@ -549,7 +551,7 @@ class ProductController extends Controller
             }
             if ($tbi_9m_pv == "Yes") {
                 $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                if (CategoryController::isProductInCategories($categories, $tbipayment_product_cats)) {
+                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
                     $is9m_pv = 'Yes';
                 } else {
                     if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
@@ -616,6 +618,27 @@ class ProductController extends Controller
         }
 
         return $response;
+    }
+
+    public function oneClick(Request $request)
+    {
+        if ($request->method('post')) {
+            if (!empty($request->input('phone')) && !empty($request->input('product_id'))) {
+                $product = Product::where(['id' => $request->input('product_id')])->first();
+                // test for me
+                //to admin
+                $objMailAdmin = new \stdClass();
+                $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+                $objMailAdmin->phone = $request->input('phone');
+                $objMailAdmin->product_name = $product->name;
+                $objMailAdmin->product_id = $product->code;
+                $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+
+                Mail::to('home@avalonbg.com')->send(new OneClick($objMailAdmin));
+
+                return response()->json(['result' => 'success']);
+            }
+        }
     }
 
 }

@@ -195,9 +195,9 @@
                                     <!-- - - - - - - - - - - - - - End of quantity - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                     <div class="buttons_row">
-                                        <button id="btn_buy" class="button_blue middle_btn">Купи</button>
+                                        <button id="btn_buy" class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Купи&nbsp;&nbsp;&nbsp;</button>
                                         <button
-                                            class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container"
+                                            class="button_dark_grey def_icon_btn big_btn add_to_wishlist tooltip_container"
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span
                                                 class="tooltip top">Добави към любими</span></button>
                                         <div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button" data-size="large">
@@ -205,6 +205,17 @@
                                         </div>        
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="theme_box clearfix">
+                                        <div class="row" style="display:flex;justify-content: space-between;padding:10px;">
+                                            <input type="text" style="flex: 1;" id="one_phone" placeholder="Въведете Вашия телефонен номер за връзка ...">
+                                            <div style="width:10px;"></div>
+                                            <button id="btn_one_click" class="button_dark_grey">Купи с един клик ...</button>
+                                        </div>
+                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                            <p>Въведете вашия телефон. Натиснете бутона "Купи с един клик ...". Ние ще се свържем с вас за продажбата!</p>
+                                        </div>
+                                    </div>
                                     <!-- Credit -->
                                     @if ($properties->calculators && (floatval($product->price) > 150))
                                     <div class="clearfix">&nbsp;</div>
@@ -974,5 +985,21 @@
             data:{id:id}
         });
     };
+
+    $("#btn_one_click").click(function(){
+        $.ajax({
+            type:'POST',
+            url:'/one-click.html',
+            data:{
+                phone:$("#one_phone").val(),
+                product_id: '{{ $product->id }}'
+            },
+            success: function (data) {
+                if (data.result == 'success'){
+                    alert("Успяшно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                }
+            }
+        });
+    });
 </script>
 @endsection
