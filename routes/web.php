@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 /** start top menus */
 Route::get('/maintanence.html', 'IndexController@maintanence')->name('maintanence');
 
@@ -84,7 +85,7 @@ Route::get('/credit/no.html', 'CreditController@no')->name('credit-no');
 /** end credit routes */
 /** start fronend */
 Route::group(
-    ['middleware' => ['auth','verified']],
+    ['middleware' => ['auth', 'verified']],
     function () {
         Route::get('/home.html', 'UsersController@dashboard')->name('home');
         Route::get('/logout.html', 'UsersController@logoutUser')->name('logout-user');
