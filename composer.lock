@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "926d910774c49c07d08486f3a7843e26",
@@ -867,12 +867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "8b7d7955f4046c795883b1c34ce173401bdea570"
+                "reference": "21c19d6c8b56db67988433dd776bae4bbca78315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/8b7d7955f4046c795883b1c34ce173401bdea570",
-                "reference": "8b7d7955f4046c795883b1c34ce173401bdea570",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/21c19d6c8b56db67988433dd776bae4bbca78315",
+                "reference": "21c19d6c8b56db67988433dd776bae4bbca78315",
                 "shasum": ""
             },
             "require-dev": {
@@ -903,7 +903,7 @@
                 "stubs",
                 "type"
             ],
-            "time": "2019-12-09T18:03:16+00:00"
+            "time": "2019-12-13T11:12:39+00:00"
         },
         {
             "name": "kylekatarnls/update-helper",
@@ -4682,16 +4682,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.0",
+            "version": "v1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "27a216cbe72327b2d6369fab721a5843be71e57d"
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/27a216cbe72327b2d6369fab721a5843be71e57d",
-                "reference": "27a216cbe72327b2d6369fab721a5843be71e57d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
                 "shasum": ""
             },
             "require": {
@@ -4704,7 +4704,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -4726,7 +4728,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2019-11-14T13:13:06+00:00"
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
