@@ -340,4 +340,16 @@ class UsersController extends Controller
         }
     }
 
+    public function googleCallback(){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        return view('users.google_callback')->with([
+            'title' => 'Вход или регистрация в електронния магазин' . ' | Авалон',
+            'description' => 'Вход или регистрация в електронния магазин',
+            'keywords' => 'вход, регистрация, онлайн магазин',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+
 }

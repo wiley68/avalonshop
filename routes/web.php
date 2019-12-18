@@ -84,6 +84,7 @@ Route::get('/credit/yes.html', 'CreditController@yes')->name('credit-yes');
 Route::get('/credit/no.html', 'CreditController@no')->name('credit-no');
 /** end credit routes */
 /** start fronend */
+Route::get('/google-callback.html', 'UsersController@googleCallback')->name('google-login');
 Route::group(
     ['middleware' => ['auth', 'verified']],
     function () {
