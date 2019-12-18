@@ -46,7 +46,7 @@
 @php
     switch ($orderuser->shipping) {
         case 'free':
-            $shipping = 'Безплатна доставка за стока над 400.00 лв. без ДДС.';
+            $shipping = 'Безплатна доставка за стока над 48.00 лв.';
             break;
         case 'spedy':
             $shipping = 'Куриерска компания Спиди.';

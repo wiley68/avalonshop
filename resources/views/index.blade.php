@@ -343,7 +343,20 @@
                 </div><!--/ [col]-->
             </div><!--/ .row-->
         </div><!--/ .section_offset-->
-        <!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
+        <section class="section_offset">
+            <div class="call_to_action">
+                <div class="on_the_sides">
+                    <div class="left_side_index">
+                        <div class="title">Безплатна доставка за страната!</div>
+                        <p>Безплатна доставка за страната при покупка на стоки на обща стойност над 48 лв.</p>
+                    </div>
+                    <div class="right_side">
+                        <a href="{{ route('dostavka') }}" class="button_blue huge_btn"><i class="icon-truck-1"></i>Доставка</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
         <ul class="infoblocks_wrap section_offset six_items">
             <li class="animated transparent" data-animation="fadeInDown">
                 <a href="{{ route('klienti') }}" class="infoblock type_1">

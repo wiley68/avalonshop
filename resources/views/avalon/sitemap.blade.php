@@ -348,26 +348,26 @@
                                             <section class="section_offset">
                                                 <h4>Разработен и внедрен от нас софтуер</h4>
                                                 <ul class="list_type_5 links">
-                                                    <li><a href="{{ route('desktop.maxtrade_change') }}">Maxtrade Change</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_cmr') }}">Maxtrade CMR</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_ctm') }}">Maxtrade CTM</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_lab') }}">Maxtrade LAB</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_slr') }}">Maxtrade SLR</a></li>
-                                                    <li><a href="{{ route('desktop.maxtrade_smdc') }}">Maxtrade SMDC</a></li>
-                                                    <li><a href="{{ route('web.cc_woocommerce') }}">Кредитен Калкулатор Woocommerce</a></li>
-                                                    <li><a href="{{ route('web.cc_opencart') }}">Кредитен Калкулатор OpenCart</a></li>
-                                                    <li><a href="{{ route('web.cc_magento') }}">Кредитен Калкулатор Magento</a></li>
-                                                    <li><a href="{{ route('web.cc_prestashop') }}">Кредитен Калкулатор PrestaShop</a></li>
-                                                    <li><a href="{{ route('web-soft.maxtrade_store') }}">Maxtrade Store</a></li>
-                                                    <li><a href="{{ route('web-soft.maxtrade_storeerp') }}">Maxtrade StoreERP</a></li>
-                                                    <li><a href="{{ route('web-soft.maxtrade_ins') }}">Maxtrade INS</a></li>
-                                                    <li><a href="{{ route('web-soft.avamb') }}">AVAMB</a></li>
-                                                    <li><a href="{{ route('web-service.website') }}">Стандартен уеб сайт</a></li>
-                                                    <li><a href="{{ route('web-service.onlineshop') }}">Онлайн магазин</a></li>
-                                                    <li><a href="{{ route('web-service.webservice') }}">WEB услуги</a></li>
-                                                    <li><a href="{{ route('mobile.avambmobile') }}">AVAMB mobile</a></li>
-                                                    <li><a href="{{ route('industry.ikunk') }}">Maxtrade IKUNK</a></li>
-                                                    <li><a href="{{ route('industry.kantar') }}">Maxtrade KNTR</a></li>
+                                                    <li><a href="/software/max-change.html">Maxtrade Change</a></li>
+                                                    <li><a href="/software/max-cmr.html">Maxtrade CMR</a></li>
+                                                    <li><a href="/software/max-ctm.html">Maxtrade CTM</a></li>
+                                                    <li><a href="/software/max-lab.html">Maxtrade LAB</a></li>
+                                                    <li><a href="/software/max-slr.html">Maxtrade SLR</a></li>
+                                                    <li><a href="/software/max-smdc.html">Maxtrade SMDC</a></li>
+                                                    <li><a href="/software/cc-woo-par.html">Кредитен Калкулатор Woocommerce</a></li>
+                                                    <li><a href="/software/cc-oc-par.html">Кредитен Калкулатор OpenCart</a></li>
+                                                    <li><a href="/software/cc-mag-par.html">Кредитен Калкулатор Magento</a></li>
+                                                    <li><a href="/software/cc-ps-par.html">Кредитен Калкулатор PrestaShop</a></li>
+                                                    <li><a href="/software/max-store.html">Maxtrade Store</a></li>
+                                                    <li><a href="/software/max-storeerp.html">Maxtrade StoreERP</a></li>
+                                                    <li><a href="/software/max-ins.html">Maxtrade INS</a></li>
+                                                    <li><a href="/software/avamb.html">AVAMB</a></li>
+                                                    <li><a href="/software/web-site.html">Стандартен уеб сайт</a></li>
+                                                    <li><a href="/software/web-shop.html">Онлайн магазин</a></li>
+                                                    <li><a href="/software/web-service.html">WEB услуги</a></li>
+                                                    <li><a href="/software/avamb-android.html">AVAMB mobile</a></li>
+                                                    <li><a href="/software/max-ikunk.html">Maxtrade IKUNK</a></li>
+                                                    <li><a href="/software/max-kntr.html">Maxtrade KNTR</a></li>
                                                 </ul>
                                             </section>
                                         </div>

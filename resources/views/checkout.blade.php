@@ -320,18 +320,18 @@ $all_price += floatval($item['total_price']);
                                 <div class="theme_box">
                                     <p class="subcaption bold">Избор на метод за доставка</p>
                                     <ul class="shipping_method">
-                                        @if($all_price >= 480)
+                                        @if($all_price > 48)
                                         <li>
                                             <p class="subcaption bold">Безплатна доставка</p>
                                             <input type="radio" value="shipping_free" checked name="type_shipping"
                                                 id="type_shipping_free">
                                             <label for="type_shipping_free">Безплатна доставка за стоки на обща стойност
-                                                над 400.00 лв. без ДДС</label>
+                                                над 48.00 лв.</label>
                                         </li>
                                         @endif
                                         <li>
                                             <p class="subcaption bold">Доставка с Куриер</p>
-                                            <input type="radio" @if($all_price < 480) checked @endif
+                                            <input type="radio" @if($all_price <= 48) checked @endif
                                                 value="shipping_spedy" name="type_shipping" id="type_shipping_spedy">
                                             <label for="type_shipping_spedy">Доставка с куриерска компания Спиди. Плаща
                                                 се с наложен платеж от купувача, като цената за доставката варира според

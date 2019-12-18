@@ -360,6 +360,7 @@
 	}
 
 	.on_the_sides > .left_side{ width: 50%; }
+	.on_the_sides > .left_side_index{ width: 80%; }
 
 	.on_the_sides > .right_side{ text-align: right; }
 
@@ -5665,7 +5666,7 @@ transition-duration:0.1s;
 
 	.call_to_action.on_the_sides > .left_side,
 	.call_to_action > .on_the_sides > .left_side{
-		width: 70% !important;
+        width: 70% !important;
 	}
 
 	.cookie_message .right_side{
