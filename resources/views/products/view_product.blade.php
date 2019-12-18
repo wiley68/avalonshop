@@ -195,7 +195,11 @@
                                     <!-- - - - - - - - - - - - - - End of quantity - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                     <div class="buttons_row">
-                                        <button id="btn_buy" class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Купи&nbsp;&nbsp;&nbsp;</button>
+                                        @if ($product->instock != 'няма наличност')
+                                        <button id="btn_buy" class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Купи&nbsp;&nbsp;&nbsp;</button>                                            
+                                        @else
+                                        <button id="btn_buy" disabled class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Няма наличност&nbsp;&nbsp;&nbsp;</button>                                            
+                                        @endif
                                         <button
                                             class="button_dark_grey def_icon_btn big_btn add_to_wishlist tooltip_container"
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span

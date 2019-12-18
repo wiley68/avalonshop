@@ -166,7 +166,9 @@
                                                                         <a href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}"
                                                                             class="button_dark_grey middle_btn quick_view"
                                                                         >Подробно</a><br />
+                                                                        @if ($products_collection[$i+$j]['instock'] != 'няма наличност')
                                                                         <button onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');" class="button_blue middle_btn add_to_cart">Купи</a>
+                                                                        @endif
                                                                     </div>
                                                                     <!--/ .centered_buttons -->
                                                                     @auth
