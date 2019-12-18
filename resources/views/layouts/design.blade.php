@@ -604,6 +604,9 @@
     <!-- Mobile specific metas
 	============================================ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @if (Route::current()->getName() == 'login-register')
+    <meta name="google-signin-client_id" content="998560332438-so7e33cobae7u60fa29epf54n1nrqu0g.apps.googleusercontent.com">
+    @endif
 
     <!-- Favicon
 	============================================ -->
@@ -682,6 +685,9 @@
 	============================================ -->
     <script defer src="{{ asset('js/theme.plugins.js') }}"></script>
     <script defer src="{{ asset('js/theme.core.js') }}"></script>
+    @if (Route::current()->getName() == 'login-register')
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    @endif
     <!-- index controller -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
