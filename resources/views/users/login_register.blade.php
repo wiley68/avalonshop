@@ -42,7 +42,9 @@
                                         <div class="form_el">
                                             <button type="submit" class="button_dark_grey middle_btn">Вход</button>
                                         </div>
-                                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                                        <div class="form_el">
+                                            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
