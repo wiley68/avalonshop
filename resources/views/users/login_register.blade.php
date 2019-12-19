@@ -40,10 +40,10 @@
                                 <li class="row">
                                     <div class="col-xs-12">
                                         <div class="form_el">
-                                            <button type="submit" class="button_dark_grey middle_btn">Вход</button>
-                                        </div>
-                                        <div class="form_el">
-                                            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
+                                            <div style="display:flex;flex-derection:column;justify-content:space-between;">
+                                                <button type="submit" class="button_dark_grey middle_btn">Вход</button>
+                                                <div class="g-signin2" data-width="140" data-longtitle="true" data-onsuccess="onSignIn"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>

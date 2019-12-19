@@ -104,6 +104,11 @@
         text-decoration: underline;
     }
 
+    span[id^=not_signed_]:before {
+        content: 'Вход с Google';
+        padding-right:50px;
+    }
+
 	::selection{
 		background:#E31E24;
 		color:#fff;
