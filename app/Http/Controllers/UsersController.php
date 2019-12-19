@@ -68,7 +68,7 @@ class UsersController extends Controller
             // Login new user
             if(Auth::attempt(['email' => $request->input('register_email'), 'password' => $request->input('register_password')])){
                 Session::put('frontUserLogin', $request->input('register_email'));
-                $user->sendEmailVerificationNotification();
+                //$user->sendEmailVerificationNotification();
                 return redirect('/home.html');
             }
         }
@@ -86,12 +86,12 @@ class UsersController extends Controller
                 $user->email = $request->input('email');
                 $user->password = bcrypt($request->input('id'));
                 $user->save();
+            }else{
+                if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('id')])){
+                    Session::put('frontUserLogin', $request->input('email'));
+                    return response()->json(['result' => 'success']);
+                }        
             }
-            if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('id')])){
-                Session::put('frontUserLogin', $request->input('email'));
-                $user->sendEmailVerificationNotification();
-                return redirect('/home.html');
-            }    
         }
     }
 
