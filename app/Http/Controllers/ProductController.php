@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
-    public function viewProducts(){
+    public function viewProducts()
+    {
         // get root categories
         $root_categories = Category::where(['parent_id' => 0])->get();
 
@@ -108,7 +109,7 @@ class ProductController extends Controller
             // Get products by instock
             $instock = json_decode(request('instock'));
         }
-        $products = $products->whereIn('instock' , $instock);
+        $products = $products->whereIn('instock', $instock);
         // save queries
         $queries['instock'] = request('instock');
 
@@ -119,7 +120,7 @@ class ProductController extends Controller
             // Get products by price_min
             $price_min = request('price_min');
             $price_max = request('price_max');
-            $products = $products->where('price' , '>=' , $price_min)->where('price' , '<=' , $price_max);
+            $products = $products->where('price', '>=', $price_min)->where('price', '<=', $price_max);
             // save queries
             $queries['price_min'] = request('price_min');
             $queries['price_max'] = request('price_max');
@@ -227,11 +228,59 @@ class ProductController extends Controller
         $imgsrc3 = $product->imgurl3;
         $imgsrc4 = $product->imgurl4;
 
-        $result_tbi['tbipayment_meseci_new'] = 0;
-        $result_tbi['tbipayment_mesecna'] = 0;
+        $tbi_installment = 0;
+        $tbi_installment_count = 0;
         $properties = Property::where('id', '>', 0)->first();
         if ($properties->calculators && $properties->tbibank) {
-            $result_tbi = $this->changeCreditVnoskaStatic($product->id, 1);
+            $tbi_data = array(
+                'name' => 'getParamsWithCalculations',
+                'param' => array(
+                    'unicid' => '1af4d77b-70a2-4771-a04b-1c6d63f07680',
+                    'price' => $product->price,
+                    'product_category' => '10'
+                )
+            );
+            // Encript data
+            $tbi_plaintext = json_encode($tbi_data);
+            $tbi_publicKey = openssl_pkey_get_public(file_get_contents('keys/pub.pem'));
+            $tbi_a_key = openssl_pkey_get_details($tbi_publicKey);
+            $tbi_chunkSize = ceil($tbi_a_key['bits'] / 8) - 11;
+            $tbi_output = '';
+            while ($tbi_plaintext) {
+                $tbi_chunk = substr($tbi_plaintext, 0, $tbi_chunkSize);
+                $tbi_plaintext = substr($tbi_plaintext, $tbi_chunkSize);
+                $tbi_encrypted = '';
+                if (!openssl_public_encrypt($tbi_chunk, $tbi_encrypted, $tbi_publicKey)) {
+                    die('Failed to encrypt data');
+                }
+                $tbi_output .= $tbi_encrypted;
+            }
+            openssl_free_key($tbi_publicKey);
+            $tbi_output64 = base64_encode($tbi_output);
+            // Encript data
+            $tbi_ch = curl_init();
+            curl_setopt_array($tbi_ch, array(
+                CURLOPT_URL => "https://tbibank.support/api/index.php",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 2,
+                CURLOPT_TIMEOUT => 5,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS =>     json_encode(array('data' => $tbi_output64)),
+                CURLOPT_HTTPHEADER => array(
+                    "Content-Type: application/json",
+                    "cache-control: no-cache"
+                ),
+            ));
+            $responseapi = curl_exec($tbi_ch);
+            $err = curl_error($tbi_ch);
+            curl_close($tbi_ch);
+
+            $api_obj = json_decode($responseapi);
+
+            $tbi_installment = $api_obj->data->result->installment;
+            $tbi_installment_count = $api_obj->data->result->installment_count;
         }
 
         $support = Support::all()->random();
@@ -253,8 +302,8 @@ class ProductController extends Controller
             'imgsrc2' => $imgsrc2,
             'imgsrc3' => $imgsrc3,
             'imgsrc4' => $imgsrc4,
-            'tbipayment_meseci_new' => $result_tbi['tbipayment_meseci_new'],
-            'tbipayment_mesecna' => $result_tbi['tbipayment_mesecna'],
+            'tbi_installment_count' => $tbi_installment_count,
+            'tbi_installment' => $tbi_installment,
             'properties' => $properties,
             'support' => $support,
             'news' => $news
@@ -387,239 +436,6 @@ class ProductController extends Controller
         return response()->json($response);
     }
 
-    public function changeCreditVnoskaAjax(Request $request)
-    {
-        if (($request->isMethod('post')) && ($request->has('product_id')) && ($request->has('product_quantity'))) {
-            $result = $this->changeCreditVnoskaStatic($request->input('product_id'), $request->input('product_quantity'));
-            $tbipayment_mesecna = number_format($result['tbipayment_mesecna'], 2, ".", "");
-            $tbipayment_meseci_new = $result['tbipayment_meseci_new'];
-
-            $response = array(
-                'status' => 'success',
-                'tbipayment_mesecna' => $tbipayment_mesecna,
-                'tbipayment_meseci_new' => $tbipayment_meseci_new
-            );
-        } else {
-            $response = array(
-                'status' => 'unsuccess',
-                'tbipayment_mesecna' => 0,
-                'tbipayment_meseci_new' => 0
-            );
-        }
-
-        return response()->json($response);
-    }
-
-    public function changeCreditVnoska($product_id=null, $product_quantity=null)
-    {
-        if (($product_id != null) && ($product_quantity != null)) {
-            $tbipayment_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
-            $product = Product::where(['id' => $product_id])->first();
-            $tbipayment_price = $product->price;
-            $tbipayment_product_quantity = $product_quantity;
-            $product_category = Category::where(['id' => ProductsCategories::where(['product_id' => $product_id])->first()->category_id])->first();
-            $tbipayment_product_cats = $product_category->id;
-            if (!defined('TBIPAYMENT_LIVEURL'))
-                define('TBIPAYMENT_LIVEURL', 'https://api.tbibank.support');
-            if (!defined('TBIPAYMENT_MOD_VERSION'))
-                define('TBIPAYMENT_MOD_VERSION', '1.0.4');
-
-            $tbi_ch = curl_init();
-            curl_setopt($tbi_ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($tbi_ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($tbi_ch, CURLOPT_URL, TBIPAYMENT_LIVEURL . '/function/getparameters.php?cid=' . $tbipayment_unicid);
-            $paramstbi = json_decode(curl_exec($tbi_ch), true);
-            curl_close($tbi_ch);
-
-            $tbi_4m = $paramstbi['tbi_4m'];
-            $tbi_4m_min = $paramstbi['tbi_4m_min'];
-            $tbi_4m_max = $paramstbi['tbi_4m_max'];
-            $tbi_4m_pv = $paramstbi['tbi_4m_pv'];
-            $tbi_5m = $paramstbi['tbi_5m'];
-            $tbi_5m_min = $paramstbi['tbi_5m_min'];
-            $tbi_5m_max = $paramstbi['tbi_5m_max'];
-            $tbi_5m_pv = $paramstbi['tbi_5m_pv'];
-            $tbi_6m = $paramstbi['tbi_6m'];
-            $tbi_6m_min = $paramstbi['tbi_6m_min'];
-            $tbi_6m_max = $paramstbi['tbi_6m_max'];
-            $tbi_6m_pv = $paramstbi['tbi_6m_pv'];
-            $tbi_9m = $paramstbi['tbi_9m'];
-            $tbi_9m_min = $paramstbi['tbi_9m_min'];
-            $tbi_9m_max = $paramstbi['tbi_9m_max'];
-            $tbi_9m_pv = $paramstbi['tbi_9m_pv'];
-            $tbi_purcent_default = $paramstbi['tbi_purcent_default'];
-
-            $tbipayment_price = floatval($tbipayment_price) * floatval($tbipayment_product_quantity);
-
-            if ($tbi_4m == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is4m = 'Yes';
-                } else {
-                    if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
-                        $is4m = 'Yes';
-                    } else {
-                        $is4m = 'No';
-                    }
-                }
-            } else {
-                $is4m = 'No';
-            }
-            if ($tbi_4m_pv == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_4m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is4m_pv = 'Yes';
-                } else {
-                    if (($tbi_4m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_4m_max)) {
-                        $is4m_pv = 'Yes';
-                    } else {
-                        $is4m_pv = 'No';
-                    }
-                }
-            } else {
-                $is4m_pv = 'No';
-            }
-            if ($tbi_5m == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is5m = 'Yes';
-                } else {
-                    if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
-                        $is5m = 'Yes';
-                    } else {
-                        $is5m = 'No';
-                    }
-                }
-            } else {
-                $is5m = 'No';
-            }
-            if ($tbi_5m_pv == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_5m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is5m_pv = 'Yes';
-                } else {
-                    if (($tbi_5m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_5m_max)) {
-                        $is5m_pv = 'Yes';
-                    } else {
-                        $is5m_pv = 'No';
-                    }
-                }
-            } else {
-                $is5m_pv = 'No';
-            }
-            if ($tbi_6m == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is6m = 'Yes';
-                } else {
-                    if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
-                        $is6m = 'Yes';
-                    } else {
-                        $is6m = 'No';
-                    }
-                }
-            } else {
-                $is6m = 'No';
-            }
-            if ($tbi_6m_pv == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_6m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is6m_pv = 'Yes';
-                } else {
-                    if (($tbi_6m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_6m_max)) {
-                        $is6m_pv = 'Yes';
-                    } else {
-                        $is6m_pv = 'No';
-                    }
-                }
-            } else {
-                $is6m_pv = 'No';
-            }
-            if ($tbi_9m == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is9m = 'Yes';
-                } else {
-                    if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
-                        $is9m = 'Yes';
-                    } else {
-                        $is9m = 'No';
-                    }
-                }
-            } else {
-                $is9m = 'No';
-            }
-            if ($tbi_9m_pv == "Yes") {
-                $categories = explode('_', $paramstbi['tbi_9m_categories']);
-                if ($this->isProductInCategories($categories, $tbipayment_product_cats)) {
-                    $is9m_pv = 'Yes';
-                } else {
-                    if (($tbi_9m_min <= $tbipayment_price) && ($tbipayment_price <= $tbi_9m_max)) {
-                        $is9m_pv = 'Yes';
-                    } else {
-                        $is9m_pv = 'No';
-                    }
-                }
-            } else {
-                $is9m_pv = 'No';
-            }
-
-            $useragent = $_SERVER['HTTP_USER_AGENT'];
-            if (preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i', $useragent) || preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i', substr($useragent, 0, 4))) {
-                $deviceis = "mobile";
-            } else {
-                $deviceis = "pc";
-            }
-
-            ///////////////////////////////////////////////////////////////////////////
-            $tbipayment_ch = curl_init();
-            curl_setopt($tbipayment_ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($tbipayment_ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($tbipayment_ch, CURLOPT_URL, TBIPAYMENT_LIVEURL . '/function/getcalculation.php?cid=' . $tbipayment_unicid . '&tbipayment_price=' . $tbipayment_price . '&is4m=' . $is4m . '&is4m_pv=' . $is4m_pv . '&is5m=' . $is5m . '&is5m_pv=' . $is5m_pv . '&is6m=' . $is6m . '&is6m_pv=' . $is6m_pv . '&is9m=' . $is9m . '&is9m_pv=' . $is9m_pv . '&tbi_purcent_default=' . $tbi_purcent_default . '&deviceis=' . $deviceis);
-            $paramstbipayment = json_decode(curl_exec($tbipayment_ch), true);
-            curl_close($tbipayment_ch);
-
-            $tbipayment_mesecna = number_format($paramstbipayment['tbipayment_mesecna'], 2, ".", "");
-            $tbipayment_meseci_new = $paramstbipayment['tbipayment_meseci_new'];
-
-            $response = array(
-                'status' => 'success',
-                'tbipayment_mesecna' => $tbipayment_mesecna,
-                'tbipayment_meseci_new' => $tbipayment_meseci_new
-            );
-        } else {
-            $response = array(
-                'status' => 'unsuccess',
-                'tbipayment_mesecna' => 0,
-                'tbipayment_meseci_new' => 0
-            );
-        }
-
-        return $response;
-    }
-
-    public function changeCreditVnoskaStatic($product_id=null, $product_quantity=null)
-    {
-        if (($product_id != null) && ($product_quantity != null)) {
-            $product = Product::where(['id' => $product_id])->first();
-            $oskapiavane_12 = 0.015;
-            $vnoska = (floatval($product->price) * floatval($product_quantity) * (1 + $oskapiavane_12 * 12)) / 12;
-            $response = array(
-                'status' => 'success',
-                'tbipayment_mesecna' => number_format($vnoska, 2, ".", ""),
-                'tbipayment_meseci_new' => 12
-            );
-        } else {
-            $response = array(
-                'status' => 'unsuccess',
-                'tbipayment_mesecna' => 0,
-                'tbipayment_meseci_new' => 0
-            );
-        }
-
-        return $response;
-    }
-
     public function oneClick(Request $request)
     {
         if ($request->method('post')) {
@@ -640,5 +456,4 @@ class ProductController extends Controller
             }
         }
     }
-
 }

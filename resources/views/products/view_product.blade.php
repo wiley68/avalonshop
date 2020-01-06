@@ -29,9 +29,13 @@
                                     <!-- - - - - - - - - - - - - - Image preview container - - - - - - - - - - - - - - - - -->
                                     <div class="image_preview_container">
                                         @if (!empty($imgsrc1))
-                                            <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}" alt="{{ $product->name }}">
+                                        <img id="img_zoom" data-zoom-image="{{ $imgsrc1 }}" src="{{ $imgsrc1 }}"
+                                            alt="{{ $product->name }}">
                                         @else
-                                            <img id="img_zoom" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}">
+                                        <img id="img_zoom"
+                                            data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                            src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                            alt="{{ $product->name }}">
                                         @endif
                                         <button class="button_grey_2 icon_btn middle_btn open_qv"><i
                                                 class="icon-resize-full-6"></i></button>
@@ -43,42 +47,58 @@
                                         <div class="owl_carousel" id="thumbnails">
                                             @if (!empty($imgsrc1))
                                             <a href="#" data-image="{{ $imgsrc1 }}" data-zoom-image="{{ $imgsrc1 }}">
-                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}" 
-                                                alt="{{ $product->name }}-1">
+                                                <img src="{{ $imgsrc1 }}" data-large-image="{{ $imgsrc1 }}"
+                                                    alt="{{ $product->name }}-1">
                                             </a>
                                             @else
-                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-1">
+                                            <a href="#"
+                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    alt="{{ $product->name }}-1">
                                             </a>
                                             @endif
                                             @if (!empty($imgsrc2))
                                             <a href="#" data-image="{{ $imgsrc2 }}" data-zoom-image="{{ $imgsrc2 }}">
-                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}" 
-                                                alt="{{ $product->name }}-2">
+                                                <img src="{{ $imgsrc2 }}" data-large-image="{{ $imgsrc2 }}"
+                                                    alt="{{ $product->name }}-2">
                                             </a>
                                             @else
-                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-2">
+                                            <a href="#"
+                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    alt="{{ $product->name }}-2">
                                             </a>
                                             @endif
                                             @if (!empty($imgsrc3))
                                             <a href="#" data-image="{{ $imgsrc3 }}" data-zoom-image="{{ $imgsrc3 }}">
-                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}" 
-                                                alt="{{ $product->name }}-3">
+                                                <img src="{{ $imgsrc3 }}" data-large-image="{{ $imgsrc3 }}"
+                                                    alt="{{ $product->name }}-3">
                                             </a>
                                             @else
-                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-3">
+                                            <a href="#"
+                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    alt="{{ $product->name }}-3">
                                             </a>
                                             @endif
                                             @if (!empty($imgsrc4))
                                             <a href="#" data-image="{{ $imgsrc4 }}" data-zoom-image="{{ $imgsrc4 }}">
-                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}" 
-                                                alt="{{ $product->name }}-4">
+                                                <img src="{{ $imgsrc4 }}" data-large-image="{{ $imgsrc4 }}"
+                                                    alt="{{ $product->name }}-4">
                                             </a>
                                             @else
-                                            <a href="#" data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $product->name }}-4">
+                                            <a href="#"
+                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                    alt="{{ $product->name }}-4">
                                             </a>
                                             @endif
                                         </div>
@@ -104,7 +124,8 @@
                                         @php
                                         $all_rev = 0;
                                         foreach ($reviews as $review){
-                                        $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                                        $all_rev += intval($review->price) + intval($review->value) +
+                                        intval($review->quantity);
                                         }
                                         if ($reviews->count() > 0){
                                         $all_rev = floor($all_rev / ($reviews->count() * 3));
@@ -138,30 +159,33 @@
                                                 <tr>
                                                     <td>Наличност: </td>
                                                     @switch($product->instock)
-                                                        @case('в наличност')
-                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>
-                                                            @break
-                                                        @case('ограничено количество')
-                                                            <td><span class="min_stock">{{ $product->instock }}</span></td>
-                                                            @break
-                                                        @case('няма наличност')
-                                                            <td><span class="out_of_stock">{{ $product->instock }}</span></td>
-                                                            @break
-                                                        @default
-                                                            <td><span class="in_stock">{{ $product->instock }}</span></td>
+                                                    @case('в наличност')
+                                                    <td><span class="in_stock">{{ $product->instock }}</span></td>
+                                                    @break
+                                                    @case('ограничено количество')
+                                                    <td><span class="min_stock">{{ $product->instock }}</span></td>
+                                                    @break
+                                                    @case('няма наличност')
+                                                    <td><span class="out_of_stock">{{ $product->instock }}</span></td>
+                                                    @break
+                                                    @default
+                                                    <td><span class="in_stock">{{ $product->instock }}</span></td>
                                                     @endswitch
                                                 </tr>
-                                                @if (($product->instock != "няма наличност") && $product->externalstore == 1)
+                                                @if (($product->instock != "няма наличност") && $product->externalstore
+                                                == 1)
                                                 <tr>
-                                                    <td><p class="in_stock_external">Налично във външен склад</p></td>
+                                                    <td>
+                                                        <p class="in_stock_external">Налично във външен склад</p>
+                                                    </td>
                                                     <td>срок на доставка от 1 до 4 дни</td>
-                                                </tr>                                                    
+                                                </tr>
                                                 @endif
                                                 @if ($product_category->name == "Употребявана техника")
                                                 <tr>
                                                     <td>Състояние: </td>
                                                     <td>Реновирана техника</td>
-                                                </tr>                                                    
+                                                </tr>
                                                 @endif
                                                 <tr>
                                                     <td>Продуктов код: </td>
@@ -180,14 +204,15 @@
                                     </div>
                                     <hr>
                                     <p class="product_price"><b id="total_price"
-                                        class="theme_color">{{ number_format($product->price, 2, ".", "") }}</b>&nbsp;лв.
+                                            class="theme_color">{{ number_format($product->price, 2, ".", "") }}</b>&nbsp;лв.
                                     </p>
                                     <!-- - - - - - - - - - - - - - Quantity - - - - - - - - - - - - - - - - -->
                                     <div class="description_section_2 v_centered">
 
                                         <span class="title">Количество:</span>
                                         <div class="qty min clearfix">
-                                            <button id="minus" class="theme_button" data-direction="minus">&#45;</button>
+                                            <button id="minus" class="theme_button"
+                                                data-direction="minus">&#45;</button>
                                             <input type="text" id="quantity" value="1">
                                             <button id="plus" class="theme_button" data-direction="plus">&#43;</button>
                                         </div>
@@ -196,66 +221,88 @@
                                     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                     <div class="buttons_row">
                                         @if ($product->instock != 'няма наличност')
-                                        <button id="btn_buy" class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Купи&nbsp;&nbsp;&nbsp;</button>                                            
+                                        <button id="btn_buy"
+                                            class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Купи&nbsp;&nbsp;&nbsp;</button>
                                         @else
-                                        <button id="btn_buy" disabled class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Няма наличност&nbsp;&nbsp;&nbsp;</button>                                            
+                                        <button id="btn_buy" disabled class="button_blue big_btn">&nbsp;&nbsp;&nbsp;Няма
+                                            наличност&nbsp;&nbsp;&nbsp;</button>
                                         @endif
                                         <button
                                             class="button_dark_grey def_icon_btn big_btn add_to_wishlist tooltip_container"
                                             onclick="clickBtnAddFavorite(event, {{ $product->id }})"><span
                                                 class="tooltip top">Добави към любими</span></button>
-                                        <div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button" data-size="large">
-                                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Споделяне</a>
-                                        </div>        
+                                        <div class="fb-share-button" data-href="{{ Request::url() }}"
+                                            data-layout="button" data-size="large">
+                                            <a target="_blank"
+                                                href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&amp;src=sdkpreparse"
+                                                class="fb-xfbml-parse-ignore">Споделяне</a>
+                                        </div>
                                     </div>
                                     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
                                     <div class="clearfix">&nbsp;</div>
                                     <div class="theme_box clearfix">
-                                        <div class="row" style="display:flex;justify-content: space-between;padding:10px;">
-                                            <input type="text" style="flex: 1;" id="one_phone" placeholder="Въведете Вашия телефонен номер за връзка ...">
+                                        <div class="row"
+                                            style="display:flex;justify-content: space-between;padding:10px;">
+                                            <input type="text" style="flex: 1;" id="one_phone"
+                                                placeholder="Въведете Вашия телефонен номер за връзка ...">
                                             <div style="width:10px;"></div>
-                                            <button id="btn_one_click" class="button_dark_grey">Купи с един клик ...</button>
+                                            <button id="btn_one_click" class="button_dark_grey">Купи с един клик
+                                                ...</button>
                                         </div>
-                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
-                                            <p>Въведете вашия телефон. Натиснете бутона "Купи с един клик ...". Ние ще се свържем с вас за продажбата!</p>
+                                        <div class="row"
+                                            style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                            <p>Въведете вашия телефон. Натиснете бутона "Купи с един клик ...". Ние ще
+                                                се свържем с вас за продажбата!</p>
                                         </div>
                                     </div>
                                     <!-- Credit -->
                                     @if ($properties->calculators && (floatval($product->price) > 150))
                                     <div class="clearfix">&nbsp;</div>
                                     <div class="theme_box clearfix">
-                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                        <div class="row"
+                                            style="display:flex;justify-content:center;align-items:center;padding:0px;">
                                             <div class="col-sm-12" style="padding:0px;text-align:center;">
                                                 <p class="product_price">
-                                                    @if ($tbipayment_mesecna != 0)
-                                                    <span id="credit_meseci">{{ $tbipayment_meseci_new }}</span> x <b id="credit_vnoska" class="theme_color">{{ $tbipayment_mesecna }}</b> лв.&nbsp;&nbsp;
+                                                    @if ($tbi_installment != 0)
+                                                    <span id="credit_meseci">{{ $tbi_installment_count }}</span> x <b
+                                                        id="credit_vnoska"
+                                                        class="theme_color">{{ $tbi_installment }}</b>
+                                                    лв.&nbsp;&nbsp;
                                                     @endif
-                                                    <span style="color:darkgray;font-weight:400;">Купи продукта на изплащане!</span>&nbsp;&nbsp;
-                                                    <a href="#" id="show_credit" class="button_dark_grey"><span style="font-size:18px;"><b>КУПИ</b></span><span style="font-size:12px;">&nbsp;|&nbsp;сравни вноските</span></a>
+                                                    <span style="color:darkgray;font-weight:400;">Купи продукта на
+                                                        изплащане!</span>&nbsp;&nbsp;
+                                                    <a href="#" id="show_credit" class="button_dark_grey"><span
+                                                            style="font-size:18px;"><b>КУПИ</b></span><span
+                                                            style="font-size:12px;">&nbsp;|&nbsp;сравни
+                                                            вноските</span></a>
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px;">
+                                        <div class="row"
+                                            style="display:flex;justify-content:center;align-items:center;padding:0px;">
                                             <div class="col-sm-12" style="padding:0px;text-align:center;">
-                                                <p>Можете да изберете лизинг с компанията, която предлага най-добрите за Вас условия!</p>
+                                                <p>Можете да изберете лизинг с компанията, която предлага най-добрите за
+                                                    Вас условия!</p>
                                             </div>
                                         </div>
                                         <div class="row" style="border-top:1px solid whitesmoke;padding-top:15px;">
                                             <div class="col-sm-2">&nbsp;</div>
                                             <div class="col-sm-2 col-xs-3">
-                                                <img src="/images/credit/tbi_bank_logo.png" alt="TBI Bank кредитен калкулатор" 
-                                                title="TBI Bank кредитен калкулатор">
+                                                <img src="/images/credit/tbi_bank_logo.png"
+                                                    alt="TBI Bank кредитен калкулатор"
+                                                    title="TBI Bank кредитен калкулатор">
                                             </div>
                                             <div class="col-xs-1">&nbsp;</div>
                                             <div class="col-sm-2 col-xs-3">
-                                                <img src="/images/credit/unicredit_logo.png" alt="UNI Credit кредитен калкулатор" 
-                                                title="UNI Credit кредитен калкулатор">
+                                                <img src="/images/credit/unicredit_logo.png"
+                                                    alt="UNI Credit кредитен калкулатор"
+                                                    title="UNI Credit кредитен калкулатор">
                                             </div>
                                             <div class="col-xs-1">&nbsp;</div>
                                             <div class="col-sm-2 col-xs-3">
-                                                <img src="/images/credit/pariba_logo.png" 
-                                                alt="Париба Лични Финанси кредитен калкулатор" 
-                                                title="Париба Лични Финанси кредитен калкулатор">
+                                                <img src="/images/credit/pariba_logo.png"
+                                                    alt="Париба Лични Финанси кредитен калкулатор"
+                                                    title="Париба Лични Финанси кредитен калкулатор">
                                             </div>
                                             <div class="col-sm-2">&nbsp;</div>
                                         </div>
@@ -295,7 +342,8 @@
                                             <i class="icon-money"></i>
                                             <h4 class="caption">Безплатна доставка</h4>
                                         </div>
-                                        <p>Безплатна доставка в страната. За закупени стоки с обща стойност над 48 лв. Доставя се
+                                        <p>Безплатна доставка в страната. За закупени стоки с обща стойност над 48 лв.
+                                            Доставя се
                                             до офис на куриер избран от клиента.</a></p>
                                     </section>
                                     <!--/ .infoblock.type_3 -->
@@ -346,17 +394,17 @@
                                         <ul class="specifications">
                                             <li>
                                                 @php
-                                                    switch ($product->warranty) {
-                                                        case -1:
-                                                            $warranty = "Без гаранция";
-                                                            break;
-                                                        case 0:
-                                                            $warranty = "Доживотна";
-                                                            break;
-                                                        default:
-                                                            $warranty = $product->warranty . " месеца";
-                                                            break;
-                                                    }
+                                                switch ($product->warranty) {
+                                                case -1:
+                                                $warranty = "Без гаранция";
+                                                break;
+                                                case 0:
+                                                $warranty = "Доживотна";
+                                                break;
+                                                default:
+                                                $warranty = $product->warranty . " месеца";
+                                                break;
+                                                }
                                                 @endphp
                                                 <span>Гаранционен срок :</span>{{ $warranty }}
                                             </li>
@@ -572,7 +620,8 @@
                                                         <li class="row">
                                                             <div class="col-sm-6">
                                                                 <label for="nickname">Име</label>
-                                                                <input type="text" name="nickname" id="nickname" value="{{ Auth::user()->name }}">
+                                                                <input type="text" name="nickname" id="nickname"
+                                                                    value="{{ Auth::user()->name }}">
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <label for="summary">Относно</label>
@@ -607,11 +656,13 @@
                                     <!-- - - - - - - - - - - - - - Tab - - - - - - - - - - - - - - - - -->
                                     <div id="tab-4" class="tab_container">
                                         @if (!empty($product->fileurl))
-                                            @if (!empty($product->filedescription))
-                                                {{ $product->filedescription }}: <a href="{{ $product->fileurl }}" target="_blank" title="Документ за изтегляне">{{ $product->fileurl }}</a>
-                                            @else
-                                                Документ с описание: <a href="{{ $product->fileurl }}" target="_blank" title="Документ за изтегляне">{{ $product->fileurl }}</a>
-                                            @endif
+                                        @if (!empty($product->filedescription))
+                                        {{ $product->filedescription }}: <a href="{{ $product->fileurl }}"
+                                            target="_blank" title="Документ за изтегляне">{{ $product->fileurl }}</a>
+                                        @else
+                                        Документ с описание: <a href="{{ $product->fileurl }}" target="_blank"
+                                            title="Документ за изтегляне">{{ $product->fileurl }}</a>
+                                        @endif
                                         @endif
                                         {!! html_entity_decode($product->description2) !!}
                                     </div>
@@ -636,19 +687,21 @@
                                     <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
                                     <div class="image_wrap">
                                         @php
-                                            $imgsrc1 = $featured_product->imgurl1;
+                                        $imgsrc1 = $featured_product->imgurl1;
                                         @endphp
                                         @if (!empty($imgsrc1))
-                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
+                                        <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
                                         @else
-                                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $featured_product->name }}">
+                                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                            alt="{{ $featured_product->name }}">
                                         @endif
                                         <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
                                         <div class="actions_wrap">
                                             <div class="centered_buttons">
                                                 <a href="{{ route('product', ['id' => $featured_product->code]) }}"
                                                     class="button_dark_grey middle_btn quick_view">Подробно</a>
-                                                <button onclick="buyProduct('{{ $featured_product->id }}');" class="button_blue middle_btn add_to_cart">Купи</button>
+                                                <button onclick="buyProduct('{{ $featured_product->id }}');"
+                                                    class="button_blue middle_btn add_to_cart">Купи</button>
                                             </div>
                                             <!--/ .centered_buttons -->
                                             <a href="#"
@@ -666,7 +719,8 @@
                                     <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                     <div class="description">
                                         <p class="crop2">
-                                            <a href="{{ route('product', ['id' => $featured_product->code]) }}">{{ $featured_product->name }}</a>
+                                            <a
+                                                href="{{ route('product', ['id' => $featured_product->code]) }}">{{ $featured_product->name }}</a>
                                         </p>
                                         <div class="clearfix product_info">
                                             <p class="product_price alignleft">
@@ -691,50 +745,81 @@
                                     <section class="infoblock type_2 animated transparent" data-animation="fadeInDown">
                                         <i class="icon-download"></i>
                                         <h4 class="caption"><b>Maxtrade CMR</b></h4>
-                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
-                                        <a href="https://avalonbg.com/download/MaxtradeCMR.zip" onclick="clickBtnDownload(event, 2)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
-                                    </section><!--/ .infoblock.type_2-->
-                                </div><!--/ [col]-->
-                                <div class="col-md-3 col-sm-6">        
-                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="150">
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на
+                                            програмата. При желание да я закупите в последствие, всички данни ще се
+                                            запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeCMR.zip"
+                                            onclick="clickBtnDownload(event, 2)"
+                                            class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section>
+                                    <!--/ .infoblock.type_2-->
+                                </div>
+                                <!--/ [col]-->
+                                <div class="col-md-3 col-sm-6">
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown"
+                                        data-animation-delay="150">
                                         <i class="icon-download"></i>
                                         <h4 class="caption"><b>Maxtrade CTM</b></h4>
-                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
-                                        <a href="https://avalonbg.com/download/MaxtradeCTM.zip" onclick="clickBtnDownload(event, 3)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
-                                    </section><!--/ .infoblock.type_2-->
-                                </div><!--/ [col]-->
-                                <div class="col-md-3 col-sm-6"> 
-                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="300">
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на
+                                            програмата. При желание да я закупите в последствие, всички данни ще се
+                                            запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeCTM.zip"
+                                            onclick="clickBtnDownload(event, 3)"
+                                            class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section>
+                                    <!--/ .infoblock.type_2-->
+                                </div>
+                                <!--/ [col]-->
+                                <div class="col-md-3 col-sm-6">
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown"
+                                        data-animation-delay="300">
                                         <i class="icon-download"></i>
                                         <h4 class="caption"><b>Maxtrade SLR</b></h4>
-                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
-                                        <a href="https://avalonbg.com/download/MaxtradeSLR.zip" onclick="clickBtnDownload(event, 5)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
-                                    </section><!--/ .infoblock.type_2-->
-                                </div><!--/ [col]-->
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на
+                                            програмата. При желание да я закупите в последствие, всички данни ще се
+                                            запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeSLR.zip"
+                                            onclick="clickBtnDownload(event, 5)"
+                                            class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section>
+                                    <!--/ .infoblock.type_2-->
+                                </div>
+                                <!--/ [col]-->
                                 <div class="col-md-3 col-sm-6">
-                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="450">
+                                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown"
+                                        data-animation-delay="450">
                                         <i class="icon-download"></i>
                                         <h4 class="caption"><b>Maxtrade SMDC</b></h4>
-                                        <p>От тук можете да свалите напълно работоспособна временна версия на програмата. При желание да я закупите в последствие, всички данни ще се запазят.</p>
-                                        <a href="https://avalonbg.com/download/MaxtradeSMDC.zip" onclick="clickBtnDownload(event, 6)" class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
-                                    </section><!--/ .infoblock.type_2-->
-                                </div><!--/ [col]-->
-                            </div><!--/ .row-->
-                        </div><!--/ .section_offset-->
+                                        <p>От тук можете да свалите напълно работоспособна временна версия на
+                                            програмата. При желание да я закупите в последствие, всички данни ще се
+                                            запазят.</p>
+                                        <a href="https://avalonbg.com/download/MaxtradeSMDC.zip"
+                                            onclick="clickBtnDownload(event, 6)"
+                                            class="button_dark_grey middle_btn">Смъкни ДЕМО</a>
+                                    </section>
+                                    <!--/ .infoblock.type_2-->
+                                </div>
+                                <!--/ [col]-->
+                            </div>
+                            <!--/ .row-->
+                        </div>
+                        <!--/ .section_offset-->
                         <div class="section_offset">
                             <div class="row">
-                                <section class="col-sm-12">                                 
+                                <section class="col-sm-12">
                                     <h3>Събития, новини, информация</h3>
                                     <div class="tabs">
                                         <ul class="tabs_nav clearfix">
                                             <li><a href="#support">Поддръжка</a></li>
                                             <li><a href="#news">Новини</a></li>
-                                        </ul>   
+                                        </ul>
                                         <div class="tab_containers_wrap">
                                             <div id="support" class="tab_container">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png" 
-                                                alt="{{ $support->name }}" class="alignleft">
-                                                <h3><a href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a></h3>
+                                                <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support->id }}.png"
+                                                    alt="{{ $support->name }}" class="alignleft">
+                                                <h3><a
+                                                        href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a>
+                                                </h3>
                                                 <div class="entry_meta">
                                                     @php
                                                     $date = new DateTime($support->created_at);
@@ -772,15 +857,22 @@
                                                     break;
                                                     }
                                                     @endphp
-                                                    <span><i class="icon-folder-open-empty-1"></i> <a href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
+                                                    <span><i class="icon-folder-open-empty-1"></i> <a
+                                                            href="{{ route('support.posts', ['id'=>$support->category_id]) }}">{{ $category_txt }}</a></span>
                                                 </div>
-                                                <p>{!! html_entity_decode(HelpController::getExcerpt($support->description, 0, 1000)) !!}</p>
-                                                <a href="{{ route('support.software', ['id'=>$support->id]) }}" class="button_grey middle_btn">Виж подробно</a>
-                                            </div><!--/ #tab-1-->
+                                                <p>{!!
+                                                    html_entity_decode(HelpController::getExcerpt($support->description,
+                                                    0, 1000)) !!}</p>
+                                                <a href="{{ route('support.software', ['id'=>$support->id]) }}"
+                                                    class="button_grey middle_btn">Виж подробно</a>
+                                            </div>
+                                            <!--/ #tab-1-->
                                             <div id="news" class="tab_container">
-                                                <h3><a href="{{ route('news.post', ['id'=>$news->id]) }}">{{ $news->name }}</a></h3>
+                                                <h3><a
+                                                        href="{{ route('news.post', ['id'=>$news->id]) }}">{{ $news->name }}</a>
+                                                </h3>
                                                 @php
-                                                    $date = new DateTime($news->created_at);
+                                                $date = new DateTime($news->created_at);
                                                 @endphp
                                                 <span><i class="icon-calendar"></i>
                                                     {{ $date->format('d.m.Y') }}
@@ -788,12 +880,18 @@
                                                 <span>посещения:&nbsp;{{ $news->visits }}</span>
                                                 <span><i class="icon-user-8"></i> от {{ $news->username }}</span>
                                                 <p>{!! html_entity_decode($news->description) !!}</p>
-                                            </div><!--/ #tab-2-->
-                                        </div><!--/ .tab_containers_wrap -->
-                                    </div><!--/ .tabs-->
-                                </section><!--/ [col]-->
-                            </div><!--/ .row -->
-                        </div><!--/ .section_offset -->
+                                            </div>
+                                            <!--/ #tab-2-->
+                                        </div>
+                                        <!--/ .tab_containers_wrap -->
+                                    </div>
+                                    <!--/ .tabs-->
+                                </section>
+                                <!--/ [col]-->
+                            </div>
+                            <!--/ .row -->
+                        </div>
+                        <!--/ .section_offset -->
                     </div>
                     <!--/ .container-->
                 </div>
