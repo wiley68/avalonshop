@@ -16,12 +16,14 @@ use PHPUnit\Framework\UnintentionallyCoveredCodeError;
 
 class IndexController extends Controller
 {
-    public function maintanence(){
+    public function maintanence()
+    {
         return view('maintanence');
     }
 
     /** start index menu */
-    public function index(){
+    public function index()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $webprojects = Project::all();
         $supports_gamings = Support::where(['category_id' => 'gamings'])->get();
@@ -34,10 +36,12 @@ class IndexController extends Controller
         $manufacturers = Manufacturer::all();
         $properties = Property::first();
 
-        $paramstbi = "";
         $deviceis = "";
+        $tbi_container_status = "";
         $tbi_picture = "";
-        $uni_container_status = "";
+        $tbi_container_txt1 = "";
+        $tbi_container_txt2 = "";
+        $tbi_backurl = "";
         $uni_logo = "";
         $uni_picture = "";
         $uni_container_txt1 = "";
@@ -46,43 +50,77 @@ class IndexController extends Controller
         $tbiyes = $properties->tbibank;
         $uniyes = $properties->unicredit;
 
+        $useragent = $_SERVER['HTTP_USER_AGENT'];
+        if (preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i', $useragent) || preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i', substr($useragent, 0, 4))) {
+            $deviceis = "mobile";
+        } else {
+            $deviceis = "pc";
+        }
+
         /** Credit */
         /** TBI Bank */
-        if ($tbiyes){
-            $credittbi_unicid = '9ac3191c-d67c-47f3-aed0-135cc2d1f9cf';
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, 'https://api.tbibank.support/function/getparameters.php?cid='.$credittbi_unicid);
-            $paramstbi=json_decode(curl_exec($ch), true);
-            curl_close($ch);
-
-            //detect mobile
-            $useragent=$_SERVER['HTTP_USER_AGENT'];
-            if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i',$useragent)||preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i',substr($useragent,0,4))){
-                $deviceis = "mobile";
-            }else{
-                $deviceis = "pc";
+        if ($tbiyes) {
+            $tbi_data = array(
+                'name' => 'getAdvertising',
+                'param' => array(
+                    'unicid' => '1af4d77b-70a2-4771-a04b-1c6d63f07680'
+                )
+            );
+            // Encript data
+            $tbi_plaintext = json_encode($tbi_data);
+            $tbi_publicKey = openssl_pkey_get_public(file_get_contents('keys/pub.pem'));
+            $tbi_a_key = openssl_pkey_get_details($tbi_publicKey);
+            $tbi_chunkSize = ceil($tbi_a_key['bits'] / 8) - 11;
+            $tbi_output = '';
+            while ($tbi_plaintext) {
+                $tbi_chunk = substr($tbi_plaintext, 0, $tbi_chunkSize);
+                $tbi_plaintext = substr($tbi_plaintext, $tbi_chunkSize);
+                $tbi_encrypted = '';
+                if (!openssl_public_encrypt($tbi_chunk, $tbi_encrypted, $tbi_publicKey)) {
+                    die('Failed to encrypt data');
+                }
+                $tbi_output .= $tbi_encrypted;
             }
+            openssl_free_key($tbi_publicKey);
+            $tbi_output64 = base64_encode($tbi_output);
+            // Encript data
+            $tbi_ch = curl_init();
+            curl_setopt_array($tbi_ch, array(
+                CURLOPT_URL => "https://tbibank.support/api/index.php",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 2,
+                CURLOPT_TIMEOUT => 5,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS =>     json_encode(array('data' => $tbi_output64)),
+                CURLOPT_HTTPHEADER => array(
+                    "Content-Type: application/json",
+                    "cache-control: no-cache"
+                ),
+            ));
+            $responseapi = curl_exec($tbi_ch);
+            $err = curl_error($tbi_ch);
+            curl_close($tbi_ch);
 
-            //test 0%
-            if ($paramstbi['tbi_purcent_default'] == 2 || $paramstbi['tbi_purcent_default'] == 3 || $paramstbi['tbi_purcent_default'] == 4){
-                $tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim10.png';
-            }else{
-                $tbi_picture = 'https://api.tbibank.support/calculators/assets/img/tbim' . $paramstbi['tbi_container_reklama'] . '.png';
-            }
+            $api_obj = json_decode($responseapi);
+
+            $tbi_container_status = $api_obj->data->result->advertising;
+            $tbi_picture = $api_obj->data->result->picture;
+            $tbi_container_txt1 = $api_obj->data->result->advertising_title;
+            $tbi_container_txt2 = $api_obj->data->result->advertising_text;
+            $tbi_backurl = $api_obj->data->result->url;
         }
 
         /** UNI Credit */
-        if ($uniyes){
+        if ($uniyes) {
             $credituni_unicid = '9ce5287c-c8d1-4a22-878c-1a9d42d7160a';
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, 'https://unicreditconsumerfinancing.info/function/getparameters.php?cid='.$credituni_unicid);
-            $paramsuni=json_decode(curl_exec($ch), true);
+            curl_setopt($ch, CURLOPT_URL, 'https://unicreditconsumerfinancing.info/function/getparameters.php?cid=' . $credituni_unicid);
+            $paramsuni = json_decode(curl_exec($ch), true);
             curl_close($ch);
 
             $uni_logo = 'https://unicreditconsumerfinancing.info/dist/img/uni_logo.jpg';
@@ -118,9 +156,12 @@ class IndexController extends Controller
             'supports_networks' => $supports_networks,
             'supports_cameras' => $supports_cameras,
             'supports_softwares' => $supports_softwares,
-            'paramstbi' => $paramstbi,
             'deviceis' => $deviceis,
+            'tbi_container_status' => $tbi_container_status,
             'tbi_picture' => $tbi_picture,
+            'tbi_container_txt1' => $tbi_container_txt1,
+            'tbi_container_txt2' => $tbi_container_txt2,
+            'tbi_backurl' => $tbi_backurl,
             'uni_container_status' => $uni_container_status,
             'uni_logo' => $uni_logo,
             'uni_picture' => $uni_picture,
@@ -143,7 +184,8 @@ class IndexController extends Controller
     }
     /** end index menu */
     /** start forus menu */
-    public function forUs(){
+    public function forUs()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('for_us')->with([
             'title' => 'Информация за нашата дейност | Авалон',
@@ -154,7 +196,8 @@ class IndexController extends Controller
     }
     /** end forus menu */
     /** start contact menu */
-    public function contact(){
+    public function contact()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('contact')->with([
             'title' => 'За контакт с нас | Авалон',
@@ -165,7 +208,8 @@ class IndexController extends Controller
     }
     /** end contact menu */
     /** start credit menu */
-    public function creditInfo(){
+    public function creditInfo()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('credit')->with([
             'title' => 'Информация покупка на стока на кредит | Авалон',
@@ -176,7 +220,8 @@ class IndexController extends Controller
     }
     /** end credit menu */
     /** start credit menu */
-    public function proizvoditeli(){
+    public function proizvoditeli()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $manufacturers = Manufacturer::all();
         return view('proizvoditeli')->with([
@@ -189,7 +234,8 @@ class IndexController extends Controller
     }
     /** end credit menu */
     /** start magazin menu */
-    public function shop(){
+    public function shop()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.shop')->with([
             'title' => 'Магазин гр. Горна Оряховица | Авалон',
@@ -200,7 +246,8 @@ class IndexController extends Controller
     }
     /** end magazin menu */
     /** start komputaren serviz menu */
-    public function service(){
+    public function service()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.service')->with([
             'title' => 'Компютърен сервиз | Авалон',
@@ -211,7 +258,8 @@ class IndexController extends Controller
     }
     /** end komputaren serviz menu */
     /** start serviz printeri menu */
-    public function service_printeri(){
+    public function service_printeri()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.service-printeri')->with([
             'title' => 'Сервиз принтери | Авалон',
@@ -222,7 +270,8 @@ class IndexController extends Controller
     }
     /** end serviz printeri menu */
     /** start mrezi menu */
-    public function mrezi(){
+    public function mrezi()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.mrezi')->with([
             'title' => 'Компютърни мрежи | Авалон',
@@ -233,7 +282,8 @@ class IndexController extends Controller
     }
     /** end mrezi menu */
     /** start news menu */
-    public function news(){
+    public function news()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.news')->with([
             'title' => 'Новини | Авалон',
@@ -244,7 +294,8 @@ class IndexController extends Controller
     }
     /** end news menu */
     /** start sitemap menu */
-    public function sitemap(){
+    public function sitemap()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('avalon.sitemap')->with([
             'title' => 'Карта на сайта | Авалон',
@@ -255,7 +306,8 @@ class IndexController extends Controller
     }
     /** end sitemap menu */
     /** start terms menu */
-    public function terms(){
+    public function terms()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('terms')->with([
             'title' => 'Общи условия | Авалон',
@@ -266,7 +318,8 @@ class IndexController extends Controller
     }
     /** end terms menu */
     /** start gdpr menu */
-    public function gdpr(){
+    public function gdpr()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('gdpr')->with([
             'title' => 'Инструкция за обработване на лични данни | Авалон',
@@ -277,7 +330,8 @@ class IndexController extends Controller
     }
     /** end gdpr menu */
     /** start politika menu */
-    public function politika(){
+    public function politika()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('politika')->with([
             'title' => 'Политика за поверителност | Авалон',
@@ -288,7 +342,8 @@ class IndexController extends Controller
     }
     /** end politika menu */
     /** start dostavka menu */
-    public function dostavka(){
+    public function dostavka()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('dostavka')->with([
             'title' => 'Доставка и плащане на стоки и услуги | Авалон',
@@ -299,7 +354,8 @@ class IndexController extends Controller
     }
     /** end dostavka menu */
     /** start klienti menu */
-    public function klienti(){
+    public function klienti()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('klienti')->with([
             'title' => 'Добра търговска практика. Клиентите за нас. | Авалон',
@@ -310,7 +366,8 @@ class IndexController extends Controller
     }
     /** end klienti menu */
     /** start klient menu */
-    public function klient(Request $request, $id=null){
+    public function klient(Request $request, $id = null)
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         switch ($id) {
             case 1:
@@ -595,7 +652,7 @@ class IndexController extends Controller
                 $img = "";
                 $text = "";
                 $sign = "";
-            break;
+                break;
         }
         return view('klient')->with([
             'title' => 'Добра търговска практика. Клиентите за нас. Отзив от клиент. | Авалон',
@@ -610,31 +667,35 @@ class IndexController extends Controller
     }
     /** end klienti menu */
     /** start vrashtane menu */
-    public function vrashtane(Request $request){
+    public function vrashtane(Request $request)
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         $message = '';
 
-        if ($request->isMethod('post')){
-            $this->validate($request, [
-                'f_name' => 'required',
-                'f_last_name' => 'required',
-                'f_email' => 'required',
-                'f_phone' => 'required',
-                'f_order' => 'required',
-                'f_product_name' => 'required',
-                'f_product_code' => 'required',
-                'f_product_qt' => 'required'
-            ],
-            [
-                'f_name.required' => 'Задължително е въвеждането на Вашето име!',
-                'f_last_name.required' => 'Задължително е въвеждането на Вашата фамилия!',
-                'f_email.required' => 'Задължително е въвеждането на Вашия E-Mail адрес!',
-                'f_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
-                'f_order.required' => 'Задължително е въвеждането на Поръчката!',
-                'f_product_name.required' => 'Задължително е въвеждането на името на продукта!',
-                'f_product_code.required' => 'Задължително е въвеждането на кода на продукта!',
-                'f_product_qt.required' => 'Задължително е въвеждането на количеството на продукта!'
-            ]);
+        if ($request->isMethod('post')) {
+            $this->validate(
+                $request,
+                [
+                    'f_name' => 'required',
+                    'f_last_name' => 'required',
+                    'f_email' => 'required',
+                    'f_phone' => 'required',
+                    'f_order' => 'required',
+                    'f_product_name' => 'required',
+                    'f_product_code' => 'required',
+                    'f_product_qt' => 'required'
+                ],
+                [
+                    'f_name.required' => 'Задължително е въвеждането на Вашето име!',
+                    'f_last_name.required' => 'Задължително е въвеждането на Вашата фамилия!',
+                    'f_email.required' => 'Задължително е въвеждането на Вашия E-Mail адрес!',
+                    'f_phone.required' => 'Задължително е въвеждането на Вашия телефон!',
+                    'f_order.required' => 'Задължително е въвеждането на Поръчката!',
+                    'f_product_name.required' => 'Задължително е въвеждането на името на продукта!',
+                    'f_product_code.required' => 'Задължително е въвеждането на кода на продукта!',
+                    'f_product_qt.required' => 'Задължително е въвеждането на количеството на продукта!'
+                ]
+            );
 
             $name = $request->input('f_name');
             $last_name = $request->input('f_last_name');
@@ -679,29 +740,31 @@ class IndexController extends Controller
     }
     /** end vrashtane menu */
     /** start desktop software */
-    public function software($code=null){
+    public function software($code = null)
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
 
-        if ($code != null){
-          $software = Software::where(['code' => $code])->first();
-          if (empty($software)){
+        if ($code != null) {
+            $software = Software::where(['code' => $code])->first();
+            if (empty($software)) {
+                return abort(404);
+            } else {
+                return view('software')->with([
+                    'title' => $software->shortDescription . ' | Авалон',
+                    'description' => $software->shortDescription,
+                    'keywords' => $software->keywords,
+                    'root_categories' => $root_categories,
+                    'software' => $software
+                ]);
+            }
+        } else {
             return abort(404);
-          }else{
-            return view('software')->with([
-                'title' => $software->shortDescription . ' | Авалон',
-                'description' => $software->shortDescription,
-                'keywords' => $software->keywords,
-                'root_categories' => $root_categories,
-                'software' => $software
-            ]);
-          }
-        }else{
-          return abort(404);
         }
     }
     /** end desktop software */
     /** start cc_woocommerce */
-    public function cc_woocommerce(){
+    public function cc_woocommerce()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_woocommerce')->with([
             'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за WooCommerce | Авалон',
@@ -712,7 +775,8 @@ class IndexController extends Controller
     }
     /** end cc_woocommerce */
     /** start cc_opencart */
-    public function cc_opencart(){
+    public function cc_opencart()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_opencart')->with([
             'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ за OpenCart | Авалон',
@@ -723,7 +787,8 @@ class IndexController extends Controller
     }
     /** end cc_opencart */
     /** start cc_magento */
-    public function cc_magento(){
+    public function cc_magento()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_magento')->with([
             'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ | Авалон',
@@ -734,7 +799,8 @@ class IndexController extends Controller
     }
     /** end cc_magento */
     /** start cc_prestashop */
-    public function cc_prestashop(){
+    public function cc_prestashop()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web.cc_prestashop')->with([
             'title' => 'Модул за продаване на стоки от онлайн магазини чрез TBI BANK, UNI CREDIT И ПАРИБА ЛИЧНИ ФИНАНСИ | Авалон',
@@ -745,7 +811,8 @@ class IndexController extends Controller
     }
     /** end cc_prestashop */
     /** start maxtrade_store */
-    public function maxtrade_store(){
+    public function maxtrade_store()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-soft.maxtrade_store')->with([
             'title' => 'Maxtrade Store – Програма за подпомагане дейността на хладилен склад | Авалон',
@@ -756,7 +823,8 @@ class IndexController extends Controller
     }
     /** end maxtrade_store */
     /** start maxtrade_storeerp */
-    public function maxtrade_storeerp(){
+    public function maxtrade_storeerp()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-soft.maxtrade_storeerp')->with([
             'title' => 'Maxtrade StoreERP Складово Стопанство – програма за следене на виртуалните движения на стоки в склад | Авалон',
@@ -767,7 +835,8 @@ class IndexController extends Controller
     }
     /** end maxtrade_storeerp */
     /** start maxtrade_ins */
-    public function maxtrade_ins(){
+    public function maxtrade_ins()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-soft.maxtrade_ins')->with([
             'title' => 'Maxtrade INS, програма за регистриране на дейността на Застрахователна агенция | Авалон',
@@ -778,7 +847,8 @@ class IndexController extends Controller
     }
     /** end maxtrade_ins */
     /** start avamb */
-    public function avamb(){
+    public function avamb()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-soft.avamb')->with([
             'title' => 'Програма организатор за малък, среден, а защо не и голям бизнес | Авалон',
@@ -789,7 +859,8 @@ class IndexController extends Controller
     }
     /** end avamb */
     /** start website */
-    public function website(){
+    public function website()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-service.website')->with([
             'title' => 'Изграждане на Стандартен уеб сайт по поръчка на клиента с информация предоставена ни от него | Авалон',
@@ -800,7 +871,8 @@ class IndexController extends Controller
     }
     /** end website */
     /** start onlineshop */
-    public function onlineshop(){
+    public function onlineshop()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-service.onlineshop')->with([
             'title' => 'Изграждане на стандартен онлайн магазин по поръчка на клиента с информация предоставена ни от него | Авалон',
@@ -811,7 +883,8 @@ class IndexController extends Controller
     }
     /** end onlineshop */
     /** start webservice */
-    public function webservice(){
+    public function webservice()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('web-service.webservice')->with([
             'title' => 'WEB услуги, инсталации, поддръжка | Авалон',
@@ -822,7 +895,8 @@ class IndexController extends Controller
     }
     /** end webservice */
     /** start avambmobile */
-    public function avambmobile(){
+    public function avambmobile()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('mobile.avambmobile')->with([
             'title' => 'AVAMB mobile | Авалон',
@@ -833,7 +907,8 @@ class IndexController extends Controller
     }
     /** end avambmobile */
     /** start ikunk */
-    public function ikunk(){
+    public function ikunk()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('industry.ikunk')->with([
             'title' => 'Maxtrade IKUNK – SCADA софтуер за мониторинг и управление на ИКУНК | Авалон',
@@ -844,7 +919,8 @@ class IndexController extends Controller
     }
     /** end ikunk */
     /** start kantar */
-    public function kantar(){
+    public function kantar()
+    {
         $root_categories = Category::where(['parent_id' => 0])->get();
         return view('industry.kantar')->with([
             'title' => 'Maxtrade KNTR. Изработване на софтуер за отчитане, съхранение и обработване на данните от електронен авто кантар | Авалон',
@@ -854,5 +930,4 @@ class IndexController extends Controller
         ]);
     }
     /** end kantar */
-
 }

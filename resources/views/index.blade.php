@@ -161,54 +161,53 @@
                 $reviews = Review::where(['product_id' => $product1->id])->get();
                 $all_rev = 0;
                 foreach ($reviews as $review){
-                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
                 }
                 if ($reviews->count() > 0){
-                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                $all_rev = floor($all_rev / ($reviews->count() * 3));
                 }
                 @endphp
-                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="50" style="text-align: center;">
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown"
+                    data-animation-delay="50" style="text-align: center;">
                     <div class="image_wrap" style="margin: auto;">
-                    @php
-                    $imgsrc1 = $product1->imgurl1;
-                    @endphp
-                    @if (!empty($imgsrc1))
-                    <img src="{{ $imgsrc1 }}" 
-                    alt="{{ $product1->name }}">
-                    @else
-                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                        alt="{{ $product1->name }}">
-                    @endif
-                    <div class="actions_wrap">
-                        <div class="centered_buttons">
-                            <a href="{{ route('product', ['id' => $product1->code]) }}"
-                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        @php
+                        $imgsrc1 = $product1->imgurl1;
+                        @endphp
+                        @if (!empty($imgsrc1))
+                        <img src="{{ $imgsrc1 }}" alt="{{ $product1->name }}">
+                        @else
+                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            alt="{{ $product1->name }}">
+                        @endif
+                        <div class="actions_wrap">
+                            <div class="centered_buttons">
+                                <a href="{{ route('product', ['id' => $product1->code]) }}"
+                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
                         <p class="crop2"><a
-                            href="{{ route('product', ['id' => $product1->code]) }}">{{ $product1->name }}</a>
+                                href="{{ route('product', ['id' => $product1->code]) }}">{{ $product1->name }}</a>
                         </p>
                         <div class="clearfix product_info">
-                        <ul class="rating alignright">
-                            <li @if ($all_rev> 0) class="active" @endif></li>
-                            <li @if ($all_rev> 1) class="active" @endif></li>
-                            <li @if ($all_rev> 2) class="active" @endif></li>
-                            <li @if ($all_rev> 3) class="active" @endif></li>
-                            <li @if ($all_rev> 4) class="active" @endif></li>
-                        </ul>
-                        <p class="product_price alignleft"><b>{{ $product1->price }}</b>&nbsp;лв.
-                        </p>
+                            <ul class="rating alignright">
+                                <li @if ($all_rev> 0) class="active" @endif></li>
+                                <li @if ($all_rev> 1) class="active" @endif></li>
+                                <li @if ($all_rev> 2) class="active" @endif></li>
+                                <li @if ($all_rev> 3) class="active" @endif></li>
+                                <li @if ($all_rev> 4) class="active" @endif></li>
+                            </ul>
+                            <p class="product_price alignleft"><b>{{ $product1->price }}</b>&nbsp;лв.
+                            </p>
                         </div>
-                       <button onclick="buyProduct('{{ $product1->id }}');"
-                        class="button_blue middle_btn">Купи</button>
+                        <button onclick="buyProduct('{{ $product1->id }}');"
+                            class="button_blue middle_btn">Купи</button>
                         @auth
                         <ul class="bottombar">
-                            <li><a href="#"
-                            onclick="clickBtnAddFavorite(event, {{ $product1->id }})">Добави към
-                            любими</a></li>
+                            <li><a href="#" onclick="clickBtnAddFavorite(event, {{ $product1->id }})">Добави към
+                                    любими</a></li>
                         </ul>
                         @endauth
                     </div>
@@ -219,54 +218,53 @@
                 $reviews = Review::where(['product_id' => $product2->id])->get();
                 $all_rev = 0;
                 foreach ($reviews as $review){
-                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
                 }
                 if ($reviews->count() > 0){
-                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                $all_rev = floor($all_rev / ($reviews->count() * 3));
                 }
                 @endphp
-                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="150" style="text-align: center;">
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown"
+                    data-animation-delay="150" style="text-align: center;">
                     <div class="image_wrap" style="margin: auto;">
-                    @php
-                    $imgsrc1 = $product2->imgurl1;
-                    @endphp
-                    @if (!empty($imgsrc1))
-                    <img src="{{ $imgsrc1 }}" 
-                    alt="{{ $product2->name }}">
-                    @else
-                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                        alt="{{ $product2->name }}">
-                    @endif
-                    <div class="actions_wrap">
-                        <div class="centered_buttons">
-                            <a href="{{ route('product', ['id' => $product2->code]) }}"
-                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        @php
+                        $imgsrc1 = $product2->imgurl1;
+                        @endphp
+                        @if (!empty($imgsrc1))
+                        <img src="{{ $imgsrc1 }}" alt="{{ $product2->name }}">
+                        @else
+                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            alt="{{ $product2->name }}">
+                        @endif
+                        <div class="actions_wrap">
+                            <div class="centered_buttons">
+                                <a href="{{ route('product', ['id' => $product2->code]) }}"
+                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
                         <p class="crop2"><a
-                            href="{{ route('product', ['id' => $product2->code]) }}">{{ $product2->name }}</a>
+                                href="{{ route('product', ['id' => $product2->code]) }}">{{ $product2->name }}</a>
                         </p>
                         <div class="clearfix product_info">
-                        <ul class="rating alignright">
-                            <li @if ($all_rev> 0) class="active" @endif></li>
-                            <li @if ($all_rev> 1) class="active" @endif></li>
-                            <li @if ($all_rev> 2) class="active" @endif></li>
-                            <li @if ($all_rev> 3) class="active" @endif></li>
-                            <li @if ($all_rev> 4) class="active" @endif></li>
-                        </ul>
-                        <p class="product_price alignleft"><b>{{ $product2->price }}</b>&nbsp;лв.
-                        </p>
+                            <ul class="rating alignright">
+                                <li @if ($all_rev> 0) class="active" @endif></li>
+                                <li @if ($all_rev> 1) class="active" @endif></li>
+                                <li @if ($all_rev> 2) class="active" @endif></li>
+                                <li @if ($all_rev> 3) class="active" @endif></li>
+                                <li @if ($all_rev> 4) class="active" @endif></li>
+                            </ul>
+                            <p class="product_price alignleft"><b>{{ $product2->price }}</b>&nbsp;лв.
+                            </p>
                         </div>
-                       <button onclick="buyProduct('{{ $product2->id }}');"
-                        class="button_blue middle_btn">Купи</button>
+                        <button onclick="buyProduct('{{ $product2->id }}');"
+                            class="button_blue middle_btn">Купи</button>
                         @auth
                         <ul class="bottombar">
-                            <li><a href="#"
-                            onclick="clickBtnAddFavorite(event, {{ $product2->id }})">Добави към
-                            любими</a></li>
+                            <li><a href="#" onclick="clickBtnAddFavorite(event, {{ $product2->id }})">Добави към
+                                    любими</a></li>
                         </ul>
                         @endauth
                     </div>
@@ -277,61 +275,61 @@
                 $reviews = Review::where(['product_id' => $product3->id])->get();
                 $all_rev = 0;
                 foreach ($reviews as $review){
-                    $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
+                $all_rev += intval($review->price) + intval($review->value) + intval($review->quantity);
                 }
                 if ($reviews->count() > 0){
-                    $all_rev = floor($all_rev / ($reviews->count() * 3));
+                $all_rev = floor($all_rev / ($reviews->count() * 3));
                 }
                 @endphp
-                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown" data-animation-delay="250" style="text-align: center;">
+                <div class="product_item col-md-3 col-sm-6 animated transparent" data-animation="fadeInDown"
+                    data-animation-delay="250" style="text-align: center;">
                     <div class="image_wrap" style="margin: auto;">
-                    @php
-                    $imgsrc1 = $product3->imgurl1;
-                    @endphp
-                    @if (!empty($imgsrc1))
-                    <img src="{{ $imgsrc1 }}" 
-                    alt="{{ $product3->name }}">
-                    @else
-                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                        alt="{{ $product3->name }}">
-                    @endif
-                    <div class="actions_wrap">
-                        <div class="centered_buttons">
-                            <a href="{{ route('product', ['id' => $product3->code]) }}"
-                            class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                        @php
+                        $imgsrc1 = $product3->imgurl1;
+                        @endphp
+                        @if (!empty($imgsrc1))
+                        <img src="{{ $imgsrc1 }}" alt="{{ $product3->name }}">
+                        @else
+                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            alt="{{ $product3->name }}">
+                        @endif
+                        <div class="actions_wrap">
+                            <div class="centered_buttons">
+                                <a href="{{ route('product', ['id' => $product3->code]) }}"
+                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
                         <p class="crop2"><a
-                            href="{{ route('product', ['id' => $product3->code]) }}">{{ $product3->name }}</a>
+                                href="{{ route('product', ['id' => $product3->code]) }}">{{ $product3->name }}</a>
                         </p>
                         <div class="clearfix product_info">
-                        <ul class="rating alignright">
-                            <li @if ($all_rev> 0) class="active" @endif></li>
-                            <li @if ($all_rev> 1) class="active" @endif></li>
-                            <li @if ($all_rev> 2) class="active" @endif></li>
-                            <li @if ($all_rev> 3) class="active" @endif></li>
-                            <li @if ($all_rev> 4) class="active" @endif></li>
-                        </ul>
-                        <p class="product_price alignleft"><b>{{ $product3->price }}</b>&nbsp;лв.
-                        </p>
+                            <ul class="rating alignright">
+                                <li @if ($all_rev> 0) class="active" @endif></li>
+                                <li @if ($all_rev> 1) class="active" @endif></li>
+                                <li @if ($all_rev> 2) class="active" @endif></li>
+                                <li @if ($all_rev> 3) class="active" @endif></li>
+                                <li @if ($all_rev> 4) class="active" @endif></li>
+                            </ul>
+                            <p class="product_price alignleft"><b>{{ $product3->price }}</b>&nbsp;лв.
+                            </p>
                         </div>
-                       <button onclick="buyProduct('{{ $product3->id }}');"
-                        class="button_blue middle_btn">Купи</button>
+                        <button onclick="buyProduct('{{ $product3->id }}');"
+                            class="button_blue middle_btn">Купи</button>
                         @auth
                         <ul class="bottombar">
-                            <li><a href="#"
-                            onclick="clickBtnAddFavorite(event, {{ $product3->id }})">Добави към
-                            любими</a></li>
+                            <li><a href="#" onclick="clickBtnAddFavorite(event, {{ $product3->id }})">Добави към
+                                    любими</a></li>
                         </ul>
                         @endauth
                     </div>
                 </div>
                 <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
                 <div class="col-md-3 col-sm-6">
-                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown" data-animation-delay="350">
+                    <section class="infoblock type_2 animated transparent" data-animation="fadeInDown"
+                        data-animation-delay="350">
                         <i class="icon-money"></i>
                         <h4 class="caption"><b>Купи стока на изплащане</b></h4>
                         <p>Покупка на стоки на изплащане</p>
@@ -339,10 +337,14 @@
                             да избирате една от трите Кредитни Компании с които работим:
                             <b>ТБИ Банк, УНИ Кредит, Париба Лични Финанси</b></p>
                         <a href="{{ route('credit-info') }}" class="button_dark_grey middle_btn">Прочети още ...</a>
-                    </section><!--/ .infoblock.type_2-->
-                </div><!--/ [col]-->
-            </div><!--/ .row-->
-        </div><!--/ .section_offset-->
+                    </section>
+                    <!--/ .infoblock.type_2-->
+                </div>
+                <!--/ [col]-->
+            </div>
+            <!--/ .row-->
+        </div>
+        <!--/ .section_offset-->
         <section class="section_offset">
             <div class="call_to_action">
                 <div class="on_the_sides">
@@ -351,12 +353,13 @@
                         <p>Безплатна доставка за страната при покупка на стоки на обща стойност над 48 лв.</p>
                     </div>
                     <div class="right_side">
-                        <a href="{{ route('dostavka') }}" class="button_blue huge_btn"><i class="icon-truck-1"></i>Доставка</a>
+                        <a href="{{ route('dostavka') }}" class="button_blue huge_btn"><i
+                                class="icon-truck-1"></i>Доставка</a>
                     </div>
                 </div>
             </div>
         </section>
-<!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Infoblocks - - - - - - - - - - - - - - - - -->
         <ul class="infoblocks_wrap section_offset six_items">
             <li class="animated transparent" data-animation="fadeInDown">
                 <a href="{{ route('klienti') }}" class="infoblock type_1">
@@ -506,8 +509,7 @@
                                     $imgsrc1 = $product_item->imgurl1;
                                     @endphp
                                     @if (!empty($imgsrc1))
-                                    <img src="{{ $imgsrc1 }}" 
-                                    alt="{{ $product_item->name }}">
+                                    <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $product_item->name }}">
@@ -606,8 +608,8 @@
                             @foreach ($supports_gamings as $support_gaming)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png" 
-                                    alt="{{ $support_gaming->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png"
+                                        alt="{{ $support_gaming->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -629,8 +631,8 @@
                             @foreach ($supports_offices as $support_office)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png" 
-                                    alt="{{ $support_office->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png"
+                                        alt="{{ $support_office->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -653,8 +655,8 @@
                             @foreach ($supports_printers as $support_printer)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png" 
-                                    alt="{{ $support_printer->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png"
+                                        alt="{{ $support_printer->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -677,8 +679,8 @@
                             @foreach ($supports_instalations as $support_instalation)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png" 
-                                    alt="{{ $support_instalation->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png"
+                                        alt="{{ $support_instalation->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -701,8 +703,8 @@
                             @foreach ($supports_networks as $support_network)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png" 
-                                    alt="{{ $support_network->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png"
+                                        alt="{{ $support_network->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -725,8 +727,8 @@
                             @foreach ($supports_cameras as $support_camera)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png" 
-                                    alt="{{ $support_camera->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png"
+                                        alt="{{ $support_camera->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -749,8 +751,8 @@
                             @foreach ($supports_softwares as $support_software)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png" 
-                                    alt="{{ $support_software->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png"
+                                        alt="{{ $support_software->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <div class="description align_center">
@@ -796,8 +798,8 @@
                             @foreach ($webprojects as $webproject)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png" 
-                                    alt="{{ $webproject->name }}">
+                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png"
+                                        alt="{{ $webproject->name }}">
                                 </div>
                                 <!--/. image_wrap-->
                                 <hr /><br />
@@ -819,7 +821,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -845,7 +848,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -871,7 +875,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -897,7 +902,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -923,7 +929,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -949,7 +956,8 @@
                             <div class="product_item">
                                 <div class="image_wrap">
                                     @if (!empty(Product::where(['code' => $soft->code])->first()))
-                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}" alt="{{ $soft->name }}">
+                                    <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
+                                        alt="{{ $soft->name }}">
                                     @else
                                     <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
                                         alt="{{ $soft->name }}">
@@ -1038,7 +1046,8 @@
                         <p>{!! html_entity_decode($softwareBottom->shortDescription) !!}</p>
                         @if (!empty(Product::where(['code' => $softwareBottom->code])->first()))
                         <a href="https://avalonbg.com/download/{{$softwareBottom->fileName}}"
-                            onclick="clickBtnDownload(event, '{{Product::where(['code' => $softwareBottom->code])->first()->id}}')" class="button_dark_grey middle_btn">Изтегли ДЕМО
+                            onclick="clickBtnDownload(event, '{{Product::where(['code' => $softwareBottom->code])->first()->id}}')"
+                            class="button_dark_grey middle_btn">Изтегли ДЕМО
                             версия</a>
                         @endif
                     </section>
@@ -1060,8 +1069,9 @@
                 $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
-                    <img style="height:30px;width:auto;" src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png" 
-                    alt="{{ $manufacturer->name }}">
+                    <img style="height:30px;width:auto;"
+                        src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png"
+                        alt="{{ $manufacturer->name }}">
                 </a>
                 @endif
                 @endforeach
@@ -1076,7 +1086,7 @@
 <!-- Credit -->
 <!-- TBI Bank -->
 @if ($tbiyes)
-@if ($paramstbi['tbi_container_status'] == 'Yes')
+@if ($tbi_container_status == 'Yes')
 @if ($deviceis == 'pc')
 <div class="tbi_float" onclick="tbiChangeContainer();">
     <img src="https://tbibank.support/dist/img/tbi_logo.png" class="tbi-my-float">
@@ -1090,9 +1100,9 @@
     <div class="tbi-label-text">
         <div style="padding-bottom:5px;"></div>
         <img src="{{ $tbi_picture }}">
-        <div style="font-size:16px;padding-top:3px;">{{ $paramstbi['tbi_container_txt1'] }}</div>
-        <p style="font-size:14px;">{{ $paramstbi['tbi_container_txt2'] }}</p>
-        <div class="tbi-label-text-a"><a href="{{ $paramstbi['tbi_backurl'] }}" target="_blank"
+        <div style="font-size:16px;padding-top:3px;">{{ $tbi_container_txt1 }}</div>
+        <p style="font-size:14px;">{{ $tbi_container_txt2 }}</p>
+        <div class="tbi-label-text-a"><a href="{{ $tbi_backurl }}" target="_blank"
                 alt="ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!">ИНФОРМАЦИЯ ЗА ОНЛАЙН ПАЗАРУВАНЕ НА КРЕДИТ!</a></div>
     </div>
 </div>
@@ -1181,7 +1191,7 @@ function tbiChangeContainer(){
 
 function tbipaymentGoTo(url){
     @if ($tbiyes)
-    window.open('{{ $paramstbi['tbi_backurl'] }}','_blank');
+    window.open('{{ $tbi_backurl }}','_blank');
     @endif
 }
 
