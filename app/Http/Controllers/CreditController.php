@@ -1408,7 +1408,7 @@ class CreditController extends Controller
                         'egn' => $credit_egn,
                         'address_id_card' => $billingAddress,
                         'scheme' => $current_meseci,
-                        'initial_payment' => '0',
+                        'initial_payment' => '',
                         'items' => array(
                             array(
                                 'products_id' => $product->id,
