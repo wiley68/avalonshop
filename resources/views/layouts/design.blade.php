@@ -564,7 +564,6 @@
     Route::current() != null &&
     (
     Route::current()->getName() == 'maintanence' ||
-    Route::current()->getName() == 'avalon.sitemap' ||
     Route::current()->getName() == 'product.add-to-cart' ||
     Route::current()->getName() == 'product.change-credit-vnoska' ||
     Route::current()->getName() == 'product.change-cart-quantity' ||
@@ -605,7 +604,8 @@
 	============================================ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     @if (Route::current()->getName() == 'login-register')
-    <meta name="google-signin-client_id" content="998560332438-so7e33cobae7u60fa29epf54n1nrqu0g.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="998560332438-so7e33cobae7u60fa29epf54n1nrqu0g.apps.googleusercontent.com">
     @endif
 
     <!-- Favicon
@@ -626,12 +626,12 @@
 
     <!-- Theme CSS
         ============================================ -->
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}" >
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/rs-plugin/css/settings.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/arcticmodal/jquery.arcticmodal.css') }}">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
