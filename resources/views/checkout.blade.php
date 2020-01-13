@@ -41,10 +41,13 @@ $all_price += floatval($item['total_price']);
                                                         <li>
                                                             <input type="radio" checked name="type_order"
                                                                 id="type_order_guest" value="type_order_guest">
-                                                            <label for="type_order_guest">Поръчка като Гост (Следвайте стъпките по-долу от 2 до 6 за да завършите поръчката си като Гост.)</label>
+                                                            <label for="type_order_guest">Поръчка като Гост (Следвайте
+                                                                стъпките по-долу от 2 до 6 за да завършите поръчката си
+                                                                като Гост.)</label>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('login-register') }}" class="button_grey middle_btn">Регистрирай се</a>
+                                                            <a href="{{ route('login-register') }}"
+                                                                class="button_grey middle_btn">Регистрирай се</a>
                                                         </li>
                                                     </ul>
                                                 </form>
@@ -105,14 +108,19 @@ $all_price += floatval($item['total_price']);
                                     <!--/ .table_row -->
                                     <div class="table_row">
                                         <div class="table_cell">
-                                                <div class="row" style="display:flex;justify-content: space-between;padding:0px 5px;">
-                                                    <input type="text" style="flex: 1;" id="one_phone" placeholder="Въведете Вашия телефонен номер за връзка ...">
-                                                    <div style="width:10px;"></div>
-                                                    <button id="btn_one_click" class="button_dark_grey">Купи с един клик ...</button>
-                                                </div>
-                                                <div class="row" style="display:flex;justify-content:center;align-items:center;padding:0px 5px;">
-                                                    <p>Въведете вашия телефонен номер. Натиснете бутона "Купи с един клик ...". Ние ще се свържем с вас за продажбата!</p>
-                                                </div>
+                                            <div class="row"
+                                                style="display:flex;justify-content: space-between;padding:0px 5px;">
+                                                <input type="text" style="flex: 1;" id="one_phone"
+                                                    placeholder="Въведете Вашия телефонен номер за връзка ...">
+                                                <div style="width:10px;"></div>
+                                                <button id="btn_one_click" class="button_dark_grey">Купи с един клик
+                                                    ...</button>
+                                            </div>
+                                            <div class="row"
+                                                style="display:flex;justify-content:center;align-items:center;padding:0px 5px;">
+                                                <p>Въведете вашия телефонен номер. Натиснете бутона "Купи с един клик
+                                                    ...". Ние ще се свържем с вас за продажбата!</p>
+                                            </div>
                                         </div>
                                         <!--/ .table_cell -->
                                         <div class="table_cell">
@@ -244,7 +252,8 @@ $all_price += floatval($item['total_price']);
                                             <!--/ [col] -->
                                             <div class="col-sm-6" id="order_password2_div">
                                                 <label for="confirm" class="required">Повтори паролата</label>
-                                                <input type="password" name="register_password_again" id="register_password_again">
+                                                <input type="password" name="register_password_again"
+                                                    id="register_password_again">
                                             </div>
                                             <!--/ [col] -->
                                         </li>
@@ -339,7 +348,7 @@ $all_price += floatval($item['total_price']);
                                         @endif
                                         <li>
                                             <p class="subcaption bold">Доставка с Куриер</p>
-                                            <input type="radio" @if($all_price <= 48) checked @endif
+                                            <input type="radio" @if($all_price <=48) checked @endif
                                                 value="shipping_spedy" name="type_shipping" id="type_shipping_spedy">
                                             <label for="type_shipping_spedy">Доставка с куриерска компания Спиди. Плаща
                                                 се с наложен платеж от купувача, като цената за доставката варира според
@@ -374,11 +383,6 @@ $all_price += floatval($item['total_price']);
                                             <input type="radio" value="payment_bank" name="type_payment"
                                                 id="type_payment_bank">
                                             <label for="type_payment_bank">Плащане по банков път</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="payment_tbi" name="type_payment"
-                                                id="type_payment_tbi">
-                                            <label for="type_payment_tbi">На изплащане с кредит от TBI Bank. (При избор на този метод на плащане и завършване на поръчката, ще бъдете препратени към системата за ТБИ Банк за да потвърдите или промените параметрите на лизинга. Можете да си изберете брой месечни вноски според месечната сума за изплащане, да изберете при желание първоначална вноска, да прегледата финансовите данни на лизинга и др.)</label>
                                         </li>
                                     </ul>
                                 </div>
