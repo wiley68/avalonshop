@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "539100218fbcb716385fc26d48405da5",
@@ -866,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "439670d7d756b23e6182a6c68a2a5025da87c36b"
+                "reference": "ecb1927370b6533090582bb1fdefb090b36f69b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/439670d7d756b23e6182a6c68a2a5025da87c36b",
-                "reference": "439670d7d756b23e6182a6c68a2a5025da87c36b",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/ecb1927370b6533090582bb1fdefb090b36f69b3",
+                "reference": "ecb1927370b6533090582bb1fdefb090b36f69b3",
                 "shasum": ""
             },
             "require-dev": {
@@ -902,7 +902,7 @@
                 "stubs",
                 "type"
             ],
-            "time": "2020-01-17T17:43:19+00:00"
+            "time": "2020-01-18T14:54:57+00:00"
         },
         {
             "name": "kylekatarnls/update-helper",

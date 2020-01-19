@@ -59,7 +59,7 @@ class ProductController extends Controller
         }
 
         // Get category requests
-        if (!empty(request('category_id'))) {
+        if (!empty(request('category_id')) && is_string(request('category_id'))) {
             // Get root category and parent categories
             $item = request('category_id');
             $categories_parent = Category::where(['parent_id' => $item])->get();
