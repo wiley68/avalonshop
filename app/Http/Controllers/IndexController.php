@@ -139,9 +139,9 @@ class IndexController extends Controller
         $software_industry = Software::where(['category_id' => 'industry'])->get();
         /** Credit */
 
-        $product1 = Product::orderByRaw("RAND()")->first();
-        $product2 = Product::orderByRaw("RAND()")->first();
-        $product3 = Product::orderByRaw("RAND()")->first();
+        $product1 = Product::where('instock', '!=', 'няма наличност')->orderByRaw("RAND()")->first();
+        $product2 = Product::where('instock', '!=', 'няма наличност')->orderByRaw("RAND()")->first();
+        $product3 = Product::where('instock', '!=', 'няма наличност')->orderByRaw("RAND()")->first();
 
         return view('index')->with([
             'title' => 'Софтуер - продажба на компютърна техника | Авалон',
