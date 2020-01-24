@@ -276,7 +276,7 @@
                             <li>
                                 <a class="infoblock type_1">
                                     <i class="icon-money"></i>
-                                    <span class="caption"><b>Безплатна доставка над 400 лв.</b></span>
+                                    <span class="caption"><b>Безплатна доставка над 48 лв.</b></span>
                                 </a>
                                 <!--/ .infoblock-->
                             </li>
