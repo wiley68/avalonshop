@@ -173,18 +173,14 @@
                         @php
                         $imgsrc1 = $product1->imgurl1;
                         @endphp
-                        @if (!empty($imgsrc1))
-                        <img src="{{ $imgsrc1 }}" alt="{{ $product1->name }}">
-                        @else
-                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                            alt="{{ $product1->name }}">
-                        @endif
-                        <div class="actions_wrap">
-                            <div class="centered_buttons">
-                                <a href="{{ route('product', ['id' => $product1->code]) }}"
-                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
-                            </div>
-                        </div>
+                        <a href="{{ route('product', ['id' => $product1->code]) }}">
+                            @if (!empty($imgsrc1))
+                            <img src="{{ $imgsrc1 }}" alt="{{ $product1->name }}">
+                            @else
+                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                alt="{{ $product1->name }}">
+                            @endif
+                        </a>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
@@ -230,18 +226,14 @@
                         @php
                         $imgsrc1 = $product2->imgurl1;
                         @endphp
-                        @if (!empty($imgsrc1))
-                        <img src="{{ $imgsrc1 }}" alt="{{ $product2->name }}">
-                        @else
-                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                            alt="{{ $product2->name }}">
-                        @endif
-                        <div class="actions_wrap">
-                            <div class="centered_buttons">
-                                <a href="{{ route('product', ['id' => $product2->code]) }}"
-                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
-                            </div>
-                        </div>
+                        <a href="{{ route('product', ['id' => $product2->code]) }}">
+                            @if (!empty($imgsrc1))
+                            <img src="{{ $imgsrc1 }}" alt="{{ $product2->name }}">
+                            @else
+                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                alt="{{ $product2->name }}">
+                            @endif
+                        </a>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
@@ -287,18 +279,14 @@
                         @php
                         $imgsrc1 = $product3->imgurl1;
                         @endphp
-                        @if (!empty($imgsrc1))
-                        <img src="{{ $imgsrc1 }}" alt="{{ $product3->name }}">
-                        @else
-                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                            alt="{{ $product3->name }}">
-                        @endif
-                        <div class="actions_wrap">
-                            <div class="centered_buttons">
-                                <a href="{{ route('product', ['id' => $product3->code]) }}"
-                                    class="button_dark_grey middle_btn quick_view pb">Подробно</a>
-                            </div>
-                        </div>
+                        <a href="{{ route('product', ['id' => $product3->code]) }}">
+                            @if (!empty($imgsrc1))
+                            <img src="{{ $imgsrc1 }}" alt="{{ $product3->name }}">
+                            @else
+                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                alt="{{ $product3->name }}">
+                            @endif
+                        </a>
                     </div>
                     <div class="label_hot">Hot</div>
                     <div class="description align_center">
@@ -508,23 +496,14 @@
                                     @php
                                     $imgsrc1 = $product_item->imgurl1;
                                     @endphp
-                                    @if (!empty($imgsrc1))
-                                    <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">
-                                    @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                        alt="{{ $product_item->name }}">
-                                    @endif
-                                    <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                    <div class="actions_wrap">
-                                        <div class="centered_buttons">
-                                            <a href="{{ route('product', ['id' => $product_item->code]) }}"
-                                                class="button_dark_grey middle_btn quick_view pb">Подробно</a>
-                                        </div>
-                                        <!--/ .centered_buttons -->
-                                    </div>
-                                    <!--/ .actions_wrap-->
-
-                                    <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                    <a href="{{ route('product', ['id' => $product_item->code]) }}">
+                                        @if (!empty($imgsrc1))
+                                        <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">
+                                        @else
+                                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                            alt="{{ $product_item->name }}">
+                                        @endif
+                                    </a>
                                 </div>
                                 <!--/. image_wrap-->
                                 <!-- - - - - - - - - - - - - - End thumbnail - - - - - - - - - - - - - - - - -->

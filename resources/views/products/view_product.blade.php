@@ -689,29 +689,15 @@
                                         @php
                                         $imgsrc1 = $featured_product->imgurl1;
                                         @endphp
-                                        @if (!empty($imgsrc1))
-                                        <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
-                                        @else
-                                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                            alt="{{ $featured_product->name }}">
-                                        @endif
-                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
-                                        <div class="actions_wrap">
-                                            <div class="centered_buttons">
-                                                <a href="{{ route('product', ['id' => $featured_product->code]) }}"
-                                                    class="button_dark_grey middle_btn quick_view">Подробно</a>
-                                                <button onclick="buyProduct('{{ $featured_product->id }}');"
-                                                    class="button_blue middle_btn add_to_cart">Купи</button>
-                                            </div>
-                                            <!--/ .centered_buttons -->
-                                            <a href="#"
-                                                class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span
-                                                    class="tooltip right">Добави към любими</span></a>
-                                        </div>
-                                        <!--/ .actions_wrap-->
-                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+                                        <a href="{{ route('product', ['id' => $featured_product->code]) }}">
+                                            @if (!empty($imgsrc1))
+                                            <img src="{{ $imgsrc1 }}" alt="{{ $featured_product->name }}">
+                                            @else
+                                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                alt="{{ $featured_product->name }}">
+                                            @endif
+                                        </a>
                                     </div>
-                                    <!--/. image_wrap-->
                                     <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
                                     <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
                                     <div class="label_new">промо</div>
