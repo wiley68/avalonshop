@@ -21,7 +21,8 @@
                                     <ul class="theme_menu">
                                         <li><a href="{{ route('for_us') }}">За нас</a></li>
                                         <li><a href="{{ route('contact') }}">За контакт</a></li>
-                                        <li class="current"><a href="{{ route('avalon.shop') }}">Магазин Горна Оряховица</a></li>
+                                        <li class="current"><a href="{{ route('avalon.shop') }}">Магазин Горна
+                                                Оряховица</a></li>
                                         <li><a href="{{ route('avalon.service') }}">Компютърен сервиз</a></li>
                                         <li><a href="{{ route('avalon.service-printeri') }}">Сервиз принтери</a></li>
                                         <li><a href="{{ route('avalon.mrezi') }}">Компютърни мрежи</a></li>
@@ -295,7 +296,8 @@
                                     <!--/ .widgets_carousel-->
                                     <!-- - - - - - - - - - - - - - End of carousel of testimonials - - - - - - - - - - - - - - - - -->
                                     <footer class="bottom_box">
-                                        <a href="{{ route('klienti') }}" class="button_grey middle_btn">Виж всички мнения</a>
+                                        <a href="{{ route('klienti') }}" class="button_grey middle_btn">Виж всички
+                                            мнения</a>
                                     </footer>
                                 </section>
                                 <!--/ .section_offset.animated.transparent-->
@@ -305,11 +307,18 @@
                             <main class="col-md-9 col-sm-8">
                                 <h1>Магазин гр. Горна Оряховица</h1>
                                 <div class="theme_box clearfix">
-                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
-                                    data-src="/images/shop.jpg" class="alignleft" width="310" alt="">
-                                    <p>Магазин гр. Горна Оряховица работи вече повече от 10 години. Ние предлагаме на своите клиенти висок клас техника и професионална помощ при избора й.</p>
+                                    <img src="/images/shop.jpg" class="alignleft" width="310"
+                                        alt="Магазин гр. Горна Оряховица">
+                                    <p>Магазин гр. Горна Оряховица работи вече повече от 10 години. Ние предлагаме на
+                                        своите клиенти висок клас техника и професионална помощ при избора й.</p>
                                     <p>При нас можете да намерите всичко, от което имате нужда за вашият компютър:</p>
-                                    <p>Нови компютри, Употребявани компютри, Асемблирани компютри, Принтери, Скенери, Мултифункц. устройства, Консумативи, Мишки, Клавиатури, Слушалки, Колони, Уеб камери, Дънни платки, Процесори, Вентилатори, Видео карти, Памет, Вентилатори, Десктоп програми, WEB софтуер, Поръчкови сайтове и програми, Антивирусни програми, Lenovo, Asus, Acer, HP, Samsung, Brother, Epson, Iiyama, LG, MSI, Logitech, A4Tech, Genius, Gigabyte, Asrock, Intel, Kaspersky, Microsoft, CAD, Maxtrade Software</p>
+                                    <p>Нови компютри, Употребявани компютри, Асемблирани компютри, Принтери, Скенери,
+                                        Мултифункц. устройства, Консумативи, Мишки, Клавиатури, Слушалки, Колони, Уеб
+                                        камери, Дънни платки, Процесори, Вентилатори, Видео карти, Памет, Вентилатори,
+                                        Десктоп програми, WEB софтуер, Поръчкови сайтове и програми, Антивирусни
+                                        програми, Lenovo, Asus, Acer, HP, Samsung, Brother, Epson, Iiyama, LG, MSI,
+                                        Logitech, A4Tech, Genius, Gigabyte, Asrock, Intel, Kaspersky, Microsoft, CAD,
+                                        Maxtrade Software</p>
                                     <p><a href="{{ route('index') }}">Можете да закупите нашите продукти онлайн</a></p>
                                 </div>
                                 <!--/ .theme_box-->
