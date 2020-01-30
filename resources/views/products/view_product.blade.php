@@ -16,7 +16,7 @@
                         <ul class="breadcrumbs">
                             <li><a href="{{ route('index') }}">Начало</a></li>
                             <li><a
-                                    href="{{ route('products', ['category_id' => $product_category->id]) }}">{{ $product_category->name }}</a>
+                                    href="{{ route('products', ['category_id' => $product_category_id]) }}">{{ $product_category_name }}</a>
                             </li>
                             <li>{{ $product->name }}</li>
                         </ul>
@@ -181,7 +181,7 @@
                                                     <td>срок на доставка от 1 до 4 дни</td>
                                                 </tr>
                                                 @endif
-                                                @if ($product_category->name == "Употребявана техника")
+                                                @if ($product_category_name == "Употребявана техника")
                                                 <tr>
                                                     <td>Състояние: </td>
                                                     <td>Реновирана техника</td>
