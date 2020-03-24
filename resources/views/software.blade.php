@@ -162,7 +162,7 @@
                 $download_counts = 0;
                 }
                 @endphp
-                <a href="https://avalonbg.com/download/{{ $software->fileName }}" onclick="clickBtnDownload(event, '{{ Product::where(['code' => $software->code])->first()->id }}')"
+                <a href="{{ $baseurl }}/download/{{ $software->fileName }}" onclick="clickBtnDownload(event, '{{ Product::where(['code' => $software->code])->first()->id }}')"
                     class="button_blue huge_btn">({{ $download_counts }})&nbsp;Изтегли демо версия!</a>
             </div>
         </div>

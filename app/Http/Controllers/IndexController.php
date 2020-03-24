@@ -16,6 +16,13 @@ use PHPUnit\Framework\UnintentionallyCoveredCodeError;
 
 class IndexController extends Controller
 {
+
+    function getBaseUrl(){
+        $hostName = $_SERVER['HTTP_HOST']; 
+        $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+        return $protocol.'://'.$hostName;
+    }
+
     public function maintanence()
     {
         return view('maintanence');
@@ -754,7 +761,8 @@ class IndexController extends Controller
                     'description' => $software->shortDescription,
                     'keywords' => $software->keywords,
                     'root_categories' => $root_categories,
-                    'software' => $software
+                    'software' => $software,
+                    'baseurl' => $this->getBaseUrl()
                 ]);
             }
         } else {
