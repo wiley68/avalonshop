@@ -410,18 +410,15 @@
                             <div class="table_cell">
                                 @endif
                                 @php
-                                $products_categories = ProductsCategories::where(['category_id' => $cat->id])->count();
                                 $parrent_category = Category::where(['id' => $cat->parent_id])->first();
                                 $parrent_category_ids = [];
                                 $parrent_category_ids[] = $parrent_category->id;
-                                $parrent_products_categories = ProductsCategories::where(['category_id' =>
-                                $parrent_category->id])->count();
                                 @endphp
                                 @if (($curent_parent_category != $parrent_category->name) &&
                                 ($parrent_category->parent_id == 0))
                                 <div class="author_info" style="height:50px;"><a
                                         href="{{ route('products', ['category_id' => $cat->parent_id]) }}">
-                                        <h4><b>{{ $parrent_category->name }}&nbsp;({{ $parrent_products_categories }})</b>
+                                        <h4><b>{{ $parrent_category->name }}</b>
                                         </h4>
                                     </a></div>
                                 @php
@@ -430,7 +427,7 @@
                                 @endif
                                 <p>
                                     <a
-                                        href="{{ route('products', ['category_id' => $cat->id]) }}">{{ $cat->name }}&nbsp;({{ $products_categories }})</a><br />
+                                        href="{{ route('products', ['category_id' => $cat->id]) }}">{{ $cat->name }}</a><br />
                                 </p>
                                 @if ($count_category == $cat_counter)
                             </div>
