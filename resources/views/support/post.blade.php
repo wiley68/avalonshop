@@ -48,7 +48,7 @@
                                             <article class="entry">
                                                 <a href="{{ route('support.software', ['id'=>$best_support->id]) }}"
                                                     class="entry_thumb">
-                                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $best_support->id }}.png"
+                                                    <img src="{{ $baseurl }}/images/supports/support_{{ $best_support->id }}.png"
                                                     alt="{{ $best_support->name }}">
                                                 </a>
                                                 <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->
@@ -242,7 +242,7 @@
                                             <div class="table_cell">
                                                     <article class="entry">
                                                         <a href="{{ route('support.software', ['id'=>$same_support->id]) }}" class="entry_thumb">
-                                                            <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $same_support->id }}.png"
+                                                            <img src="{{ $baseurl }}/images/supports/support_{{ $same_support->id }}.png"
                                                             alt="{{ $same_support->name }}">
                                                         </a>
                                                         <!-- - - - - - - - - - - - - - End of thumbnail - - - - - - - - - - - - - - - - -->

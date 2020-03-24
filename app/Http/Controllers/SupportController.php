@@ -11,6 +11,12 @@ use App\Tag;
 
 class SupportController extends Controller
 {
+    public function getBaseUrl(){
+        $hostName = $_SERVER['HTTP_HOST']; 
+        $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+        return $protocol.'://'.$hostName;
+    }
+
     /** start support all */
     public function supportall(Request $request, $id=null){
         $root_categories = Category::where(['parent_id' => 0])->get();
@@ -64,7 +70,8 @@ class SupportController extends Controller
             'all_tags' => $all_tags,
             'all_supports_count'=>$all_supports_count,
             'paginate'=>$paginate,
-            'best_supports' => $best_supports
+            'best_supports' => $best_supports,
+            'baseurl' => $this->getBaseUrl()
         ]);
     }
     /** end support all */
@@ -116,7 +123,8 @@ class SupportController extends Controller
             'all_tags' => $all_tags,
             'best_supports' => $best_supports,
             'same_supports' => $same_supports,
-            'reviews_support' => $reviews_support
+            'reviews_support' => $reviews_support,
+            'baseurl' => $this->getBaseUrl()
         ]);
     }
     /** end support software */
