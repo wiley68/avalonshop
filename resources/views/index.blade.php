@@ -584,7 +584,7 @@
                             @foreach ($supports_gamings as $support_gaming)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_gaming->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_gaming->id }}.png"
                                         alt="{{ $support_gaming->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -607,7 +607,7 @@
                             @foreach ($supports_offices as $support_office)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_office->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_office->id }}.png"
                                         alt="{{ $support_office->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -631,7 +631,7 @@
                             @foreach ($supports_printers as $support_printer)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_printer->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_printer->id }}.png"
                                         alt="{{ $support_printer->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -655,7 +655,7 @@
                             @foreach ($supports_instalations as $support_instalation)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_instalation->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_instalation->id }}.png"
                                         alt="{{ $support_instalation->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -679,7 +679,7 @@
                             @foreach ($supports_networks as $support_network)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_network->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_network->id }}.png"
                                         alt="{{ $support_network->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -703,7 +703,7 @@
                             @foreach ($supports_cameras as $support_camera)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_camera->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_camera->id }}.png"
                                         alt="{{ $support_camera->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -727,7 +727,7 @@
                             @foreach ($supports_softwares as $support_software)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/supports/support_{{ $support_software->id }}.png"
+                                    <img src="{{ $baseurl }}/images/supports/support_{{ $support_software->id }}.png"
                                         alt="{{ $support_software->name }}">
                                 </div>
                                 <!--/. image_wrap-->
@@ -774,7 +774,7 @@
                             @foreach ($webprojects as $webproject)
                             <div class="product_item">
                                 <div class="image_wrap">
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/projects/project_{{ $webproject->id }}.png"
+                                    <img src="{{ $baseurl }}/images/projects/project_{{ $webproject->id }}.png"
                                         alt="{{ $webproject->name }}">
                                 </div>
                                 <!--/. image_wrap-->

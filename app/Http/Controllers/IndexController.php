@@ -186,7 +186,8 @@ class IndexController extends Controller
             'uniyes' => $uniyes,
             'product1' => $product1,
             'product2' => $product2,
-            'product3' => $product3
+            'product3' => $product3,
+            'baseurl' => $this->getBaseUrl()
         ]);
     }
     /** end index menu */
