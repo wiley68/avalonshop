@@ -42,7 +42,6 @@
                                         <div class="form_el">
                                             <div style="display:flex;flex-derection:column;justify-content:space-between;">
                                                 <button type="submit" class="button_dark_grey middle_btn">Вход</button>
-                                                <div class="g-signin2" data-width="140" data-longtitle="true" data-onsuccess="onSignIn"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -127,29 +126,4 @@
 
 @section('scripts')
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        $.ajax({
-            type:'POST',
-            url:'/user-register-google.html',
-            data:{
-                id : profile.getId(),
-                name : profile.getName(),
-                email : profile.getEmail()
-            },
-            success: function (data) {
-                if (data.result == 'success'){
-                    window.location = '/home.html';
-                }
-            }
-        });
-    }
-</script>
 @endsection

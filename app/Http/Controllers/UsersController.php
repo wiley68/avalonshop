@@ -74,27 +74,6 @@ class UsersController extends Controller
         }
     }
 
-    public function registerGoogleUser(Request $request){
-        // Add user
-        if($request->isMethod('post')){
-            /** check user exist */
-            $user = User::where(['email' => $request->input('email')])->first();
-            if (empty($user)) {
-                /** create new user */
-                $user = new User;
-                $user->name = $request->input('name');
-                $user->email = $request->input('email');
-                $user->password = bcrypt($request->input('id'));
-                $user->save();
-            }else{
-                if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('id')])){
-                    Session::put('frontUserLogin', $request->input('email'));
-                    return response()->json(['result' => 'success']);
-                }        
-            }
-        }
-    }
-
     public function loginUser(Request $request){
         $this->validate($request, [
             'login_email' => 'required',
