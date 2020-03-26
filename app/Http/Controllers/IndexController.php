@@ -237,7 +237,8 @@ class IndexController extends Controller
             'description' => 'Всички производители.',
             'keywords' => 'софтуер, програми, компютри, продажба, сервиз, консумативи, производители, продукти',
             'root_categories' => $root_categories,
-            'manufacturers' => $manufacturers
+            'manufacturers' => $manufacturers,
+            'baseurl' => $this->getBaseUrl()
         ]);
     }
     /** end credit menu */
