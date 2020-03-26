@@ -1041,7 +1041,7 @@
                     всички производители</a></h3>
             <div class="owl_carousel brands">
                 @foreach ($manufacturers as $manufacturer)
-                @if (file_exists("/home/wiley/images/manufacturers/manufacturer_" .
+                @if (file_exists("/home/wiley/html/images/manufacturers/manufacturer_" .
                 $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
