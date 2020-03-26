@@ -1041,12 +1041,12 @@
                     всички производители</a></h3>
             <div class="owl_carousel brands">
                 @foreach ($manufacturers as $manufacturer)
-                @if (file_exists("/home/avalonbg/admin.avalonbg.com/dist/img/manufacturers/manufacturer_" .
+                @if (file_exists("/home/wiley/images/manufacturers/manufacturer_" .
                 $manufacturer->id . ".png"))
                 <a href="{{ route('products', ['manufacturer_id'=>$manufacturer->id]) }}"
                     title="{{ $manufacturer->name }}">
                     <img style="height:30px;width:auto;"
-                        src="{{ Config::get('settings.backend') }}/dist/img/manufacturers/manufacturer_{{ $manufacturer->id }}.png"
+                        src="{{ $baseurl }}/images/manufacturers/manufacturer_{{ $manufacturer->id }}.png"
                         alt="{{ $manufacturer->name }}">
                 </a>
                 @endif
