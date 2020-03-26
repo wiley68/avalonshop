@@ -177,7 +177,7 @@
                             @if (!empty($imgsrc1))
                             <img src="{{ $imgsrc1 }}" alt="{{ $product1->name }}">
                             @else
-                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            <img src="{{ baseurl }}/images/noimage.png"
                                 alt="{{ $product1->name }}">
                             @endif
                         </a>
@@ -230,7 +230,7 @@
                             @if (!empty($imgsrc1))
                             <img src="{{ $imgsrc1 }}" alt="{{ $product2->name }}">
                             @else
-                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            <img src="{{ baseurl }}/images/noimage.png"
                                 alt="{{ $product2->name }}">
                             @endif
                         </a>
@@ -283,7 +283,7 @@
                             @if (!empty($imgsrc1))
                             <img src="{{ $imgsrc1 }}" alt="{{ $product3->name }}">
                             @else
-                            <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                            <img src="{{ baseurl }}/images/noimage.png"
                                 alt="{{ $product3->name }}">
                             @endif
                         </a>
@@ -497,7 +497,7 @@
                                         @if (!empty($imgsrc1))
                                         <img src="{{ $imgsrc1 }}" alt="{{ $product_item->name }}">
                                         @else
-                                        <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                        <img src="{{ baseurl }}/images/noimage.png"
                                             alt="{{ $product_item->name }}">
                                         @endif
                                     </a>
@@ -800,7 +800,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
@@ -827,7 +827,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
@@ -854,7 +854,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
@@ -881,7 +881,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
@@ -908,7 +908,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
@@ -935,7 +935,7 @@
                                     <img src="{{ Product::where(['code' => $soft->code])->first()->imgurl1 }}"
                                         alt="{{ $soft->name }}">
                                     @else
-                                    <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                    <img src="{{ baseurl }}/images/noimage.png"
                                         alt="{{ $soft->name }}">
                                     @endif
                                 </div>
