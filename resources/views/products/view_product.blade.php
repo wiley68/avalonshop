@@ -801,7 +801,7 @@
                                         </ul>
                                         <div class="tab_containers_wrap">
                                             <div id="support" class="tab_container">
-                                                <img src="{{ baseurl }}/dist/img/supports/support_{{ $support->id }}.png"
+                                                <img src="{{ $baseurl }}/dist/img/supports/support_{{ $support->id }}.png"
                                                     alt="{{ $support->name }}" class="alignleft">
                                                 <h3><a
                                                         href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a>
