@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
+
+    public function getBaseUrl(){
+        $hostName = $_SERVER['HTTP_HOST']; 
+        return 'https://'.$hostName;
+    }
+
     public function viewProducts()
     {
         // get root categories
@@ -307,7 +313,8 @@ class ProductController extends Controller
             'tbi_installment' => $tbi_installment,
             'properties' => $properties,
             'support' => $support,
-            'news' => $news
+            'news' => $news,
+            'baseurl' => $this->getBaseUrl()
         ]);
     }
     /** end view product */
