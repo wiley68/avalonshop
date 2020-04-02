@@ -6,10 +6,10 @@
 $cart_item_quantity = 0;
 $cart_total_price = 0.00;
 if (!empty((Session::get('cart_session'))['items'])){
-foreach ((Session::get('cart_session'))['items'] as $cart_item) {
-$cart_item_quantity += intval($cart_item['product_quantity']);
-$cart_total_price += floatval($cart_item['total_price']);
-}
+    foreach ((Session::get('cart_session'))['items'] as $cart_item) {
+        $cart_item_quantity += intval($cart_item['product_quantity']);
+        $cart_total_price += floatval($cart_item['total_price']);
+    }
 }
 @endphp
 <div class="wide_layout">

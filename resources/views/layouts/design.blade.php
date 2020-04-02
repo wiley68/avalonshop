@@ -57,7 +57,7 @@
     @endphp
     <script type="application/ld+json">
         {
-        "@context": "http://schema.org/",
+        "@context": "https://schema.org/",
         "@type": "Product",
         "name": "{{ $product->name }}",
         @if (($product->imgurl1 == "") && ($product->imgurl2 == "") && ($product->imgurl3 == "") && ($product->imgurl4 == ""))
@@ -420,7 +420,7 @@
             },
             "headline": "{{ $title }}",
             "image": [
-                "https://avalonbg.com/images/logo.png"
+                "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
             ],
             "datePublished": "2019-09-10T08:00:00+08:00",
             "dateModified": "2019-09-10T08:00:00+08:00",
@@ -433,7 +433,7 @@
                 "name": "Авалон ООД",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://avalonbg.com/images/logo.png"
+                    "url": "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
                 }
             },
             "description": "{{ $description }}"
@@ -451,7 +451,7 @@
             },
             "headline": "{{ $title }}",
             "image": [
-                "https://avalonbg.com/images/logo.png"
+                "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
             ],
             "datePublished": "2019-09-10T08:00:00+08:00",
             "dateModified": "2019-09-10T08:00:00+08:00",
@@ -464,7 +464,7 @@
                 "name": "Авалон ООД",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://avalonbg.com/images/logo.png"
+                    "url": "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
                 }
             },
             "description": "{{ $description }}"
@@ -474,7 +474,7 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "url": "http://avalonbg.com",
+            "url": "https://@php echo $_SERVER['HTTP_HOST']; @endphp",
             "contactPoint": [
                 {
                     "@type": "ContactPoint",
@@ -496,7 +496,7 @@
             },
             "headline": "{{ $title }}",
             "image": [
-                "https://avalonbg.com/images/logo.png"
+                "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
             ],
             "datePublished": "2019-09-10T08:00:00+08:00",
             "dateModified": "2019-09-10T08:00:00+08:00",
@@ -509,7 +509,7 @@
                 "name": "Авалон ООД",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://avalonbg.com/images/logo.png"
+                    "url": "https://@php echo $_SERVER['HTTP_HOST']; @endphp/images/logo.png"
                 }
             },
             "description": "{{ $description }}"
@@ -647,14 +647,7 @@
 		<![endif]-->
 </head>
 
-<body class="front_page">
-    @if (Route::current() != null && Route::current()->getName() == 'product')
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v4.0&appId=102732653253201&autoLogAppEvents=1">
-    </script>
-    @endif
-
+<body>
     @include('layouts.header')
 
     @yield('content')
