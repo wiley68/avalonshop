@@ -43,39 +43,39 @@ class CreditController extends Controller
             $tbipayment_mesecna_3 = 0;
             $tbipayment_obshtozaplashtane_input_3 = 0;
             $tbipayment_gpr_3 = 0;
-            $tbipayment_glp_3 = "";
+            $tbipayment_glp_3 = 0;
             $tbipayment_mesecna_6 = 0;
             $tbipayment_obshtozaplashtane_input_6 = 0;
             $tbipayment_gpr_6 = 0;
-            $tbipayment_glp_6 = "";
+            $tbipayment_glp_6 = 0;
             $tbipayment_mesecna_9 = 0;
             $tbipayment_obshtozaplashtane_input_9 = 0;
             $tbipayment_gpr_9 = 0;
-            $tbipayment_glp_9 = "";
+            $tbipayment_glp_9 = 0;
             $tbipayment_mesecna_12 = 0;
             $tbipayment_obshtozaplashtane_input_12 = 0;
             $tbipayment_gpr_12 = 0;
-            $tbipayment_glp_12 = "";
+            $tbipayment_glp_12 = 0;
             $tbipayment_mesecna_15 = 0;
             $tbipayment_obshtozaplashtane_input_15 = 0;
             $tbipayment_gpr_15 = 0;
-            $tbipayment_glp_15 = "";
+            $tbipayment_glp_15 = 0;
             $tbipayment_mesecna_18 = 0;
             $tbipayment_obshtozaplashtane_input_18 = 0;
             $tbipayment_gpr_18 = 0;
-            $tbipayment_glp_18 = "";
+            $tbipayment_glp_18 = 0;
             $tbipayment_mesecna_24 = 0;
             $tbipayment_obshtozaplashtane_input_24 = 0;
             $tbipayment_gpr_24 = 0;
-            $tbipayment_glp_24 = "";
+            $tbipayment_glp_24 = 0;
             $tbipayment_mesecna_30 = 0;
             $tbipayment_obshtozaplashtane_input_30 = 0;
             $tbipayment_gpr_30 = 0;
-            $tbipayment_glp_30 = "";
+            $tbipayment_glp_30 = 0;
             $tbipayment_mesecna_36 = 0;
             $tbipayment_obshtozaplashtane_input_36 = 0;
             $tbipayment_gpr_36 = 0;
-            $tbipayment_glp_36 = "";
+            $tbipayment_glp_36 = 0;
 
             $jet_gpr_3 = 0;
             $jet_glp_3 = 0;
@@ -215,46 +215,55 @@ class CreditController extends Controller
                                     $tbipayment_mesecna_3 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_3 = $scheme->total_amount_due;
                                     $tbipayment_gpr_3 = $scheme->gpr;
+                                    $tbipayment_glp_3 = $scheme->glp;
                                     break;
                                 case '6':
                                     $tbipayment_mesecna_6 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_6 = $scheme->total_amount_due;
                                     $tbipayment_gpr_6 = $scheme->gpr;
+                                    $tbipayment_glp_6 = $scheme->glp;
                                     break;
                                 case '9':
                                     $tbipayment_mesecna_9 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_9 = $scheme->total_amount_due;
                                     $tbipayment_gpr_9 = $scheme->gpr;
+                                    $tbipayment_glp_9 = $scheme->glp;
                                     break;
                                 case '12':
                                     $tbipayment_mesecna_12 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_12 = $scheme->total_amount_due;
                                     $tbipayment_gpr_12 = $scheme->gpr;
+                                    $tbipayment_glp_12 = $scheme->glp;
                                     break;
                                 case '15':
                                     $tbipayment_mesecna_15 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_15 = $scheme->total_amount_due;
                                     $tbipayment_gpr_15 = $scheme->gpr;
+                                    $tbipayment_glp_15 = $scheme->glp;
                                     break;
                                 case '18':
                                     $tbipayment_mesecna_18 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_18 = $scheme->total_amount_due;
                                     $tbipayment_gpr_18 = $scheme->gpr;
+                                    $tbipayment_glp_18 = $scheme->glp;
                                     break;
                                 case '24':
                                     $tbipayment_mesecna_24 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_24 = $scheme->total_amount_due;
                                     $tbipayment_gpr_24 = $scheme->gpr;
+                                    $tbipayment_glp_24 = $scheme->glp;
                                     break;
                                 case '30':
                                     $tbipayment_mesecna_30 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_30 = $scheme->total_amount_due;
                                     $tbipayment_gpr_30 = $scheme->gpr;
+                                    $tbipayment_glp_30 = $scheme->glp;
                                     break;
                                 case '36':
                                     $tbipayment_mesecna_36 = $scheme->monthly_payment;
                                     $tbipayment_obshtozaplashtane_input_36 = $scheme->total_amount_due;
                                     $tbipayment_gpr_36 = $scheme->gpr;
+                                    $tbipayment_glp_36 = $scheme->glp;
                                     break;
                             }
                         }
