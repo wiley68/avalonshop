@@ -33,8 +33,8 @@
                                             alt="{{ $product->name }}">
                                         @else
                                         <img id="img_zoom"
-                                            data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                            src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                            data-zoom-image="{{ $baseurl }}/images/noimage.png"
+                                            src="{{ $baseurl }}/images/noimage.png"
                                             alt="{{ $product->name }}">
                                         @endif
                                         <button class="button_grey_2 icon_btn middle_btn open_qv"><i
@@ -52,10 +52,10 @@
                                             </a>
                                             @else
                                             <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-image="{{ $baseurl }}/images/noimage.png"
+                                                data-zoom-image="{{ $baseurl }}/images/noimage.png">
+                                                <img src="{{ $baseurl }}/images/noimage.png"
+                                                    data-large-image="{{ $baseurl }}/images/noimage.png"
                                                     alt="{{ $product->name }}-1">
                                             </a>
                                             @endif
@@ -66,10 +66,10 @@
                                             </a>
                                             @else
                                             <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-image="{{ $baseurl }}/images/noimage.png"
+                                                data-zoom-image="{{ $baseurl }}/images/noimage.png">
+                                                <img src="{{ $baseurl }}/images/noimage.png"
+                                                    data-large-image="{{ $baseurl }}/images/noimage.png"
                                                     alt="{{ $product->name }}-2">
                                             </a>
                                             @endif
@@ -80,10 +80,10 @@
                                             </a>
                                             @else
                                             <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-image="{{ $baseurl }}/images/noimage.png"
+                                                data-zoom-image="{{ $baseurl }}/images/noimage.png">
+                                                <img src="{{ $baseurl }}/images/noimage.png"
+                                                    data-large-image="{{ $baseurl }}/images/noimage.png"
                                                     alt="{{ $product->name }}-3">
                                             </a>
                                             @endif
@@ -94,10 +94,10 @@
                                             </a>
                                             @else
                                             <a href="#"
-                                                data-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                data-zoom-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png">
-                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
-                                                    data-large-image="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                data-image="{{ $baseurl }}/images/noimage.png"
+                                                data-zoom-image="{{ $baseurl }}/images/noimage.png">
+                                                <img src="{{ $baseurl }}/images/noimage.png"
+                                                    data-large-image="{{ $baseurl }}/images/noimage.png"
                                                     alt="{{ $product->name }}-4">
                                             </a>
                                             @endif
@@ -801,7 +801,7 @@
                                         </ul>
                                         <div class="tab_containers_wrap">
                                             <div id="support" class="tab_container">
-                                                <img src="{{ $baseurl }}/dist/img/supports/support_{{ $support->id }}.png"
+                                                <img src="{{ $baseurl }}/images/supports/support_{{ $support->id }}.png"
                                                     alt="{{ $support->name }}" class="alignleft">
                                                 <h3><a
                                                         href="{{ route('support.software', ['id'=>$support->id]) }}">{{ $support->name }}</a>
