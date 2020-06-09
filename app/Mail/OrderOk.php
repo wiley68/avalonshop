@@ -12,15 +12,17 @@ class OrderOk extends Mailable
     use Queueable, SerializesModels;
 
     public $orderok;
+    public $subject;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($orderok)
+    public function __construct($orderok, $subject)
     {
         $this->orderok = $orderok;
+        $this->subject = $subject;
     }
 
     /**
@@ -31,6 +33,6 @@ class OrderOk extends Mailable
     public function build()
     {
         return $this->from(env('MAIL_USERNAME','ilko.iv@gmail.com'))
-            ->view('mails.orderok');
+            ->text('mails.orderok');
     }
 }

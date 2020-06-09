@@ -124,25 +124,30 @@
                                 <div class="col-sm-12">
                                     <h1>Резултат от заявка с номер: {{ $order_id }}</h1>
                                     <h4 class="success">Заявката е изпратена успешно.</h4>
-                                    <h4>Заявка за лизинг с Париба лични финанси.</h4>
-                                    <p>Име: {{ $credit_fname }}</p>
-                                    <p>Фамилия: {{ $credit_lname }}</p>
-                                    <p>ЕГН: {{ $credit_egn }}</p>
-                                    <p>Телефон: {{ $credit_phone }}</p>
-                                    <p>Втори телефон: {{ $credit_phone2 }}</p>
-                                    <p>E-Mail: {{ $credit_email }}</p>
-                                    <p>Продукт ИД:
-                                        {{ $product->code }}&nbsp;|&nbsp;{{ $product->name }}&nbsp;|&nbsp;{{ $product_qt }}&nbsp;бр.
+                                    <h4>Заявка за кредит с БНП Париба лични финанси.</h4>
+                                    <p>
+                                        Данни за потребителя:<br />
+                                        Собствено име: {{ $credit_fname }};<br />
+                                        Фамилия: {{ $credit_lname }};<br />
+                                        ЕГН: {{ $credit_egn }};<br />
+                                        Телефон за връзка: {{ $credit_phone }};<br />
+                                        Имейл адрес: {{ $credit_email }};<br />
                                     </p>
-                                    <p>Обща цена на стоките:
-                                        {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }}&nbsp;лв.
+                                    <p>
+                                        Данни за стоката:<br />
+                                        Тип стока: Компютърна техника;<br />
+                                        Марка: {{ $product->name }};<br />
+                                        Единична цена в лева с ДДС: {{ number_format(floatval($product->price), 2, ".", "") }};<br />
+                                        Брой стоки: {{ number_format(floatval($product_qt), 2, ".", "") }};<br />
+                                        Обща сума в лева с ДДС: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }};<br />
+                                    <p>
+                                    <p>
+                                        Данни за кредита:<br />
+                                        Размер на кредита в лева: {{ number_format(floatval($product->price) * floatval($product_qt), 2, ".", "") }};<br />
+                                        Срок на изплащане в месеца: {{ $current_meseci }};<br />
+                                        Месечна вноска в лева: {{ $mesecna }};<br />
+                                        Първоначална вноска в лева: 0.00;
                                     </p>
-                                    <p>Схема на изплащане: </p>
-                                    <p>Брой погасителни вноски: {{ $current_meseci }}&nbsp;м.</p>
-                                    <p>Месечна вноска: {{ $mesecna }}&nbsp;лв.</p>
-                                    <p>ГПР: {{ $gpr }}&nbsp;%</p>
-                                    <p>ГЛП: {{ $glp }}&nbsp;%</p>
-                                    <p>Обща дължима сума от потребителя: {{ $obshtozaplashtane }}&nbsp;лв.</p>
                                     <div style="padding-bottom:10px;"></div>
                                     <hr />
                                     <div style="padding-bottom:10px;"></div>

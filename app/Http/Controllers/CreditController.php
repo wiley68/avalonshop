@@ -1236,12 +1236,12 @@ class CreditController extends Controller
             if ($current_sheme == "jet") {
                 //create order
                 $order_id = $this->createOrderSingle(
-                    $credit_fname . " " . $credit_lname,
+                    $credit_fname,
                     $credit_email,
                     $billingAddress,
                     $billingCity,
                     $credit_phone,
-                    $credit_fname . " " . $credit_lname,
+                    $credit_lname,
                     $deliveryAddress,
                     $deliveryCity,
                     $shipping,
@@ -1253,7 +1253,8 @@ class CreditController extends Controller
                     $mesecna,
                     $gpr,
                     $glp,
-                    $obshtozaplashtane
+                    $obshtozaplashtane,
+                    $credit_egn
                 );
             }
             /** UNI */
@@ -1277,7 +1278,8 @@ class CreditController extends Controller
                     $mesecna,
                     $gpr,
                     $glp,
-                    $obshtozaplashtane
+                    $obshtozaplashtane,
+                    $credit_egn
                 );
                 /** create Kontroll Panel order */
                 $uni_add_ch = curl_init();
@@ -1398,7 +1400,8 @@ class CreditController extends Controller
                     $mesecna,
                     $gpr,
                     "",
-                    $obshtozaplashtane
+                    $obshtozaplashtane,
+                    $credit_egn
                 );
 
                 /** create Kontroll Panel order */
@@ -1517,7 +1520,8 @@ class CreditController extends Controller
         $mesecna,
         $gpr,
         $glp,
-        $obshtozaplashtane
+        $obshtozaplashtane,
+        $credit_egn
     ) {
 
         $order = new Order();
@@ -1558,22 +1562,21 @@ class CreditController extends Controller
 
         /** Send mails */
         //to admin
+        $product = Product::where(['id' => $product_id])->first();
         $objMailAdmin = new \stdClass();
-        $objMailAdmin->app_name = env('APP_NAME', 'Авалон Магазин');
-        $objMailAdmin->name = $order->user_name;
-        $objMailAdmin->email = $order->email;
-        $objMailAdmin->order = $order->id;
-        $objMailAdmin->shipping = $order->shipping;
-        $objMailAdmin->payment = $order->payment;
+        $objMailAdmin->name = $user_name;
+        $objMailAdmin->name2 = $user_name2;
+        $objMailAdmin->credit_egn = $credit_egn;
+        $objMailAdmin->user_phone = $user_phone;
+        $objMailAdmin->user_email = $user_email;
+        $objMailAdmin->product_name = $product->name;
+        $objMailAdmin->product_price = $product_price;
+        $objMailAdmin->product_qt = $product_qt;
         $objMailAdmin->current_meseci = $current_meseci;
         $objMailAdmin->mesecna = $mesecna;
-        $objMailAdmin->gpr = $gpr;
-        $objMailAdmin->glp = $glp;
-        $objMailAdmin->obshtozaplashtane = $obshtozaplashtane;
-        $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
-        $objMailAdmin->receiver = 'Администратор Авалон Магазин';
 
-        Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
+        Mail::to('home@avalonbg.com')
+            ->send(new OrderOk($objMailAdmin, 'контрагент-04569-0000, онлайн заявка по поръчка - ' . $order->id));
 
         //to user
         $objMailUser = new \stdClass();
