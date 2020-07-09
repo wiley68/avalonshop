@@ -322,7 +322,7 @@ class HelpController extends Controller
         $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
         $objMailAdmin->receiver = 'Администратор Авалон Магазин';
 
-        Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin));
+        Mail::to('home@avalonbg.com')->send(new OrderOk($objMailAdmin, "Поръчка от магазина Авалон"));
 
         //to user
         $objMailUser = new \stdClass();
