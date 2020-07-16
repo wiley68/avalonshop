@@ -16,6 +16,7 @@ use App\Product;
 use App\Software;
 use App\Manufacturer;
 use App\Property;
+use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class UsersController extends Controller
 {
@@ -81,6 +82,26 @@ class UsersController extends Controller
                 return redirect('/home.html');
             }
         }
+    }
+
+    public function showPasswordReset(Request $request){
+        $root_categories = Category::where(['parent_id' => 0])->get();
+
+        return view('users.password_reset')->with([
+            'title' => 'Вход или регистрация в електронния магазин' . ' | Авалон',
+            'description' => 'Вход или регистрация в електронния магазин',
+            'keywords' => 'вход, регистрация, онлайн магазин',
+            'root_categories' => $root_categories
+        ]);
+    }
+
+    public function passwordReset(Request $request){
+        $this->validate($request, [
+            'register_email' => 'required'
+        ],
+        [
+            'register_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!'
+        ]);
     }
 
     public function loginUser(Request $request){

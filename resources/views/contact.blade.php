@@ -161,7 +161,7 @@
                                                     <div class="col-xs-12" style="padding-top:10px;">
                                                         @if(env('GOOGLE_RECAPTCHA_KEY'))
                                                         <div class="g-recaptcha"
-                                                             data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                                                            data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
                                                         </div>
                                                         @endif
                                                     </div><!--/ [col]-->
