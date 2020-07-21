@@ -84,7 +84,18 @@ class UsersController extends Controller
         }
     }
 
-    public function showPasswordReset(Request $request){
+    public function passwordReset(Request $request){
+        if ($request->isMethod('POST')) {
+            $this->validate($request, [
+                'reset_email' => 'required'
+            ],
+            [
+                'reset_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!'
+            ]);
+
+            
+        }
+
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         return view('users.password_reset')->with([
@@ -92,15 +103,6 @@ class UsersController extends Controller
             'description' => 'Вход или регистрация в електронния магазин',
             'keywords' => 'вход, регистрация, онлайн магазин',
             'root_categories' => $root_categories
-        ]);
-    }
-
-    public function passwordReset(Request $request){
-        $this->validate($request, [
-            'register_email' => 'required'
-        ],
-        [
-            'register_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!'
         ]);
     }
 
