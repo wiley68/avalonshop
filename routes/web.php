@@ -73,7 +73,6 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
-Route::match(['get', 'post'], '/password-reset.html', 'UsersController@passwordReset')->name('password-reset');
 Route::post('/user-checkout-login.html', 'UsersController@loginCheckoutUser')->name('user-checkout-login');
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
