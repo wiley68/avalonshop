@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\Support;
 use App\Favorite;
+use App\Mail\PasswordReset;
 use App\Review;
 use App\Product;
 use App\Software;
 use App\Manufacturer;
 use App\Property;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
@@ -93,7 +95,24 @@ class UsersController extends Controller
                 'reset_email.required' => 'Задължително е въвеждането на вашия e-mail адрес!'
             ]);
 
-            
+            $token = Str::random(120);
+            $email = $request->input('reset_email');
+            $user = User::where(['email' => $email])->first();
+            $user_id = $user->id;
+            $name = $user->name;
+            $user->reset_token = $token;
+            $user->save();
+
+            //to user
+            $objMailUser = new \stdClass();
+            $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
+            $objMailUser->email = $email;
+            $objMailUser->id = $user_id;
+            $objMailUser->name = $name;
+            $objMailUser->token = $token;
+            $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+
+            Mail::to($email)->send(new PasswordReset($objMailUser));
         }
 
         $root_categories = Category::where(['parent_id' => 0])->get();
@@ -104,6 +123,40 @@ class UsersController extends Controller
             'keywords' => 'вход, регистрация, онлайн магазин',
             'root_categories' => $root_categories
         ]);
+    }
+
+    public function passwordChange(Request $request, $id, $token){
+
+        if ($request->isMethod('POST')) {
+            $this->validate($request, [
+                'new_password' => 'required',
+                'register_password_again' => 'required'
+            ],
+            [
+                'new_password.required' => 'Задължително е въвеждането на нова парола!',
+                'register_password_again.required' => 'Задължително е потвърждаването на новата парола!'
+            ]);
+
+            return redirect('/login-register.html');
+        }
+
+        if(($id && $token) && ($id!=0) && ($token!="")){
+            $user = User::where(['id' => $id])->firstOrFail();
+            if($user->reset_token == $request->token){
+                $root_categories = Category::where(['parent_id' => 0])->get();
+
+                return view('users.new_password')->with([
+                    'title' => 'Забравена парола' . ' | Авалон',
+                    'description' => 'Забравена парола за електронния магазин',
+                    'keywords' => 'вход, регистрация, онлайн магазин, парола, забравена',
+                    'root_categories' => $root_categories
+                ]);        
+            }else{
+                return redirect('/');
+            }
+        }else{
+            return redirect('/');
+        }
     }
 
     public function loginUser(Request $request){
