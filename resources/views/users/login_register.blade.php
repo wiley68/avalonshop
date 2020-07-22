@@ -33,7 +33,7 @@
                                     <li class="row">
                                         <div class="col-xs-12">
                                             <div class="form_el">
-                                                <a class="forgetpassword" href="/password/reset">Забравена парола?</a>
+                                                <a class="forgetpassword" href="{{ route('password-reset') }}">Забравена парола?</a>
                                             </div>
                                         </div>
                                     </li>
