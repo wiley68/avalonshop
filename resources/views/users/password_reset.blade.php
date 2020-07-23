@@ -13,15 +13,16 @@
         <div class="section_offset">
             <div class="row">
                 <!-- Content section Start -->
+                @if(session()->has('message'))
+                <div class="alert_box success">
+                    {{ session()->get('message') }}
+                    <button class="close"></button>
+                </div>
+                @endif
                 <div class="theme_box">
                     <div class="row">
                         <div class="col-sm-6">
                             <h3>Забравена парола</h3>
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
                             <form class="reset-form" id="reset_form" name="reset_form" method="POST" action="{{ route('password-reset') }}">
                                 @csrf
                                 <ul>

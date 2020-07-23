@@ -113,6 +113,7 @@ class UsersController extends Controller
             $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
 
             Mail::to($email)->send(new PasswordReset($objMailUser));
+            return redirect('/password-reset.html')->with('message', 'Линк за смяна на паролата бе изпратен на вашия email!');
         }
 
         $root_categories = Category::where(['parent_id' => 0])->get();
@@ -129,15 +130,19 @@ class UsersController extends Controller
 
         if ($request->isMethod('POST')) {
             $this->validate($request, [
-                'new_password' => 'required',
-                'register_password_again' => 'required'
+                'new_password' => 'min:6|required_with:register_password_again|same:register_password_again',
+                'register_password_again' => 'min:6'
             ],
             [
-                'new_password.required' => 'Задължително е въвеждането на нова парола!',
-                'register_password_again.required' => 'Задължително е потвърждаването на новата парола!'
+                'new_password.min' => 'Минималната дължина на паролата е 6 символа!',
+                'new_password.required_with' => 'Трябва да въведете два пъти паролата!',
+                'new_password.same' => 'Повторната парола трябва да съответства на въведената първа!',
+                'register_password_again.min' => 'Минималната дължина на паролата е 6 символа!'
             ]);
 
-            return redirect('/login-register.html');
+            $password = bcrypt($request->input('new_password'));
+            User::where(['id'=>$id])->update(['password'=>$password, 'reset_token'=>null]);
+            return redirect('/login-register.html')->with('message', 'Успешно променихте вашата парола!');
         }
 
         if(($id && $token) && ($id!=0) && ($token!="")){

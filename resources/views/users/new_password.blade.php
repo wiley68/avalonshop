@@ -1,3 +1,7 @@
+@php
+    $id = request()->route('id');
+    $token = request()->route('token');
+@endphp
 @extends('layouts.design')
 
 @section('content')
@@ -16,7 +20,7 @@
                                 </div>
                             @endif
                             <form class="login-form" id="register_form" name="register_form"
-                            action="#" method="post">
+                            action="{{ route('password-change',['id' => $id, 'token' => $token]) }}" method="post">
                             @csrf
                             <ul>
                                 <li class="row">

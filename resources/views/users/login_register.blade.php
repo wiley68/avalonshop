@@ -5,6 +5,12 @@
     <div class="container">
         <div class="section_offset">
             <div class="row">
+                @if(session()->has('message'))
+                    <div class="alert_box success">
+                        {{ session()->get('message') }}
+                        <button class="close"></button>
+                    </div>
+                @endif
                 <span>Ако вече имате регистрация в магазина ни, можете да използвате формата в ляво за директно влизане във вашия профил. Ако все още нямате регистрация можете да си направите такава, използвайки формата в дясно. Възползвайте се от всички възможности, които Ви предлага регистрацията при нас.</span>
                 <!-- Content section Start -->
                 <div class="theme_box">
