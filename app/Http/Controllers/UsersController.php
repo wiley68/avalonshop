@@ -98,22 +98,26 @@ class UsersController extends Controller
             $token = Str::random(120);
             $email = $request->input('reset_email');
             $user = User::where(['email' => $email])->first();
-            $user_id = $user->id;
-            $name = $user->name;
-            $user->reset_token = $token;
-            $user->save();
-
-            //to user
-            $objMailUser = new \stdClass();
-            $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
-            $objMailUser->email = $email;
-            $objMailUser->id = $user_id;
-            $objMailUser->name = $name;
-            $objMailUser->token = $token;
-            $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
-
-            Mail::to($email)->send(new PasswordReset($objMailUser));
-            return redirect('/password-reset.html')->with('message', 'Линк за смяна на паролата бе изпратен на вашия email!');
+            if ($user){
+                $user_id = $user->id;
+                $name = $user->name;
+                $user->reset_token = $token;
+                $user->save();
+    
+                //to user
+                $objMailUser = new \stdClass();
+                $objMailUser->app_name = env('APP_NAME', 'Авалон Магазин');
+                $objMailUser->email = $email;
+                $objMailUser->id = $user_id;
+                $objMailUser->name = $name;
+                $objMailUser->token = $token;
+                $objMailUser->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+    
+                Mail::to($email)->send(new PasswordReset($objMailUser));
+                return redirect('/password-reset.html')->with('message', 'Линк за смяна на паролата бе изпратен на вашия email!');    
+            }else{
+                return redirect('/password-reset.html')->with('message_error', 'Не е намерен потребител с такъв e-mail адрес!');    
+            }
         }
 
         $root_categories = Category::where(['parent_id' => 0])->get();
@@ -146,8 +150,8 @@ class UsersController extends Controller
         }
 
         if(($id && $token) && ($id!=0) && ($token!="")){
-            $user = User::where(['id' => $id])->firstOrFail();
-            if($user->reset_token == $request->token){
+            $user = User::where(['id' => $id])->first();
+            if($user && $user->reset_token == $request->token){
                 $root_categories = Category::where(['parent_id' => 0])->get();
 
                 return view('users.new_password')->with([

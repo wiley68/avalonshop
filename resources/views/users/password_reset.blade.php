@@ -19,6 +19,12 @@
                     <button class="close"></button>
                 </div>
                 @endif
+                @if(session()->has('message_error'))
+                <div class="alert_box error">
+                    {{ session()->get('message_error') }}
+                    <button class="close"></button>
+                </div>
+                @endif
                 <div class="theme_box">
                     <div class="row">
                         <div class="col-sm-6">
