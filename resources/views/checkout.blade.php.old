@@ -26,8 +26,8 @@ $all_price += floatval($item['total_price']);
                         <h1 class="page_title">Поръчка</h1>
                         <!-- - - - - - - - - - - - - - Checkout method - - - - - - - - - - - - - - - - -->
                         @guest
-                        <section class="section_offset" id="section_">
-                            <h3 class="offset_title">1. Данни за доставка</h3>
+                        <section class="section_offset">
+                            <h3 class="offset_title">1. Метод за поръчка</h3>
                             <div class="relative">
                                 <div class="table_layout">
                                     <div class="table_row">
