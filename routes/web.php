@@ -55,6 +55,7 @@ Route::get('/cart.html', 'HelpController@cart')->name('cart');
 Route::get('/cart-remove-product-{id}.html', 'HelpController@cartRemoveProduct')->name('cart-remove-product');
 Route::get('/cart-clear.html', 'HelpController@cartClear')->name('cart-clear');
 Route::match(['get', 'post'], '/checkout.html', 'HelpController@checkout')->name('checkout');
+Route::match(['get', 'post'], '/checkout-new.html', 'HelpController@checkoutNew')->name('checkout-new');
 Route::get('/checkout-result-{id}.html', 'HelpController@checkoutResult')->name('checkout-result');
 /** end products section */
 /** start help section */
