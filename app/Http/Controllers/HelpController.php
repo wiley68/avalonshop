@@ -146,6 +146,7 @@ class HelpController extends Controller
             $cart_ips = new CartIp;
             $cart_ips->ip = $this->getUserIP();
             $cart_count = 0;
+            $cart_items = [];
             foreach (($request->session()->get('cart_session'))['items'] as $cart_item) {
                 $cart_items[$cart_count]['total_price'] = $cart_item['total_price'];
                 $cart_items[$cart_count]['product_name'] = $cart_item['product_name'];
