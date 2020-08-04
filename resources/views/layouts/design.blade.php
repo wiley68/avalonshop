@@ -599,6 +599,7 @@
     <meta name="keywords" content="{{ $keywords ?? "софтуер, програми, компютри, продажба, сержиз, консумативи" }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta http-equiv="cache-control" content="max-age=31536000" />
+    <meta name="verify-paysera" content="3e2e4e4f1526c0d40542fe1e1d752834">
 
     <!-- Mobile specific metas
 	============================================ -->
@@ -663,7 +664,6 @@
         src="https://www.facebook.com/tr?id=719541388594226&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
-    <meta name="verify-paysera" content="3e2e4e4f1526c0d40542fe1e1d752834">
 </head>
 
 <body>
