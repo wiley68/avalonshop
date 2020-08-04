@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
-use App\Mail\OneClick;
+use App\Mail\OneClickMail;
 use App\ProductsCategories;
 use Illuminate\Support\Facades\DB;
 use App\Manufacturer;
@@ -15,6 +15,7 @@ use App\Property;
 use App\Review;
 use App\Support;
 use Illuminate\Support\Facades\Mail;
+use App\OneClick;
 
 class ProductController extends Controller
 {
@@ -449,7 +450,11 @@ class ProductController extends Controller
         if ($request->method('post')) {
             if (!empty($request->input('phone')) && !empty($request->input('product_id'))) {
                 $product = Product::where(['id' => $request->input('product_id')])->first();
-                // test for me
+                // add to base
+                $oneclick = new OneClick();
+                $oneclick->phone = $request->input('phone');
+                $oneclick->product_code = $product->code;
+                $oneclick->save();
                 //to admin
                 $objMailAdmin = new \stdClass();
                 $objMailAdmin->receiver = 'Администратор Авалон Магазин';
@@ -458,7 +463,7 @@ class ProductController extends Controller
                 $objMailAdmin->product_id = $product->code;
                 $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
 
-                Mail::to('home@avalonbg.com')->send(new OneClick($objMailAdmin));
+                Mail::to('home@avalonbg.com')->send(new OneClickMail($objMailAdmin));
 
                 return response()->json(['result' => 'success']);
             }

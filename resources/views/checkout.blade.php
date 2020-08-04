@@ -108,19 +108,7 @@ $all_price += floatval($item['total_price']);
                                     <!--/ .table_row -->
                                     <div class="table_row">
                                         <div class="table_cell">
-                                            <div class="row"
-                                                style="display:flex;justify-content: space-between;padding:0px 5px;">
-                                                <input type="text" style="flex: 1;" id="one_phone"
-                                                    placeholder="Въведете Вашия телефонен номер за връзка ...">
-                                                <div style="width:10px;"></div>
-                                                <button id="btn_one_click" class="button_dark_grey">Купи с един клик
-                                                    ...</button>
-                                            </div>
-                                            <div class="row"
-                                                style="display:flex;justify-content:center;align-items:center;padding:0px 5px;">
-                                                <p>Въведете вашия телефонен номер. Натиснете бутона "Купи с един клик
-                                                    ...". Ние ще се свържем с вас за продажбата!</p>
-                                            </div>
+                                            
                                         </div>
                                         <!--/ .table_cell -->
                                         <div class="table_cell">

@@ -1085,6 +1085,7 @@
             success: function (data) {
                 if (data.result == 'success'){
                     alert("Успяшно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                    window.location.reload();
                 }
             }
         });

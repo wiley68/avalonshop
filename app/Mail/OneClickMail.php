@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OneClick extends Mailable
+class OneClickMail extends Mailable
 {
     use Queueable, SerializesModels;
 
