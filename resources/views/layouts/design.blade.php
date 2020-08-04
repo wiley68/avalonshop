@@ -663,6 +663,7 @@
         src="https://www.facebook.com/tr?id=719541388594226&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
+    <meta name="verify-paysera" content="3e2e4e4f1526c0d40542fe1e1d752834">
 </head>
 
 <body>
