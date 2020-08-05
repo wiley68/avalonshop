@@ -372,6 +372,11 @@ $all_price += floatval($item['total_price']);
                                                 id="type_payment_bank">
                                             <label for="type_payment_bank">Плащане по банков път</label>
                                         </li>
+                                        {{-- <li>
+                                            <input type="radio" value="payment_paysera" name="type_payment"
+                                                id="type_payment_paysera">
+                                            <label for="type_payment_paysera">Плащане с кредитна карта (Paysera)</label>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </section>
