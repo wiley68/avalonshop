@@ -213,7 +213,7 @@ class UsersController extends Controller
     }
 
     public function loginCheckoutNewUser(Request $request){
-        $sth = $request->data;
+        $sth = 1;
         if ($request->ajax()) {
             return response()->json([
                 'sth' => $sth
