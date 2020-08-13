@@ -115,7 +115,7 @@
                         </section>
                         @guest
                         @php
-                            $isAuth = 0;
+                        $isAuth = 0;
                         @endphp
                         <section class="section_offset">
                             <input type="hidden" id="isAuth" value="{{$isAuth}}">
@@ -239,24 +239,25 @@
                                     </div>
                                 </div>
                                 <div id="have_registration_div" style="display:none;">
-                                        <ul>
-                                            <li class="row">
-                                                <div class="col-sm-12">
-                                                    <label for="have_registration_email" class="required">Email</label>
-                                                    <input type="email" name="have_registration_email"
-                                                        id="have_registration_email">
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-sm-12">
-                                                    <label for="have_registration_password"
-                                                        class="required">Парола</label>
-                                                    <input type="password" name="have_registration_password"
-                                                        id="have_registration_password">
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    <button type="submit" class="button_blue middle_btn" id="btn_login_user">Вход</button>
+                                    <ul>
+                                        <li class="row">
+                                            <div class="col-sm-12">
+                                                <label for="have_registration_email" class="required">Email</label>
+                                                <input type="email" name="have_registration_email"
+                                                    id="have_registration_email">
+                                            </div>
+                                        </li>
+                                        <li class="row">
+                                            <div class="col-sm-12">
+                                                <label for="have_registration_password" class="required">Парола</label>
+                                                <input type="password" name="have_registration_password"
+                                                    id="have_registration_password">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <button type="submit" class="button_blue middle_btn"
+                                        id="btn_login_user">Вход</button>
                                 </div>
                                 <div id="fast_checkout_div" style="display:none;">
                                     <ul>
@@ -272,7 +273,7 @@
                         </section>
                         @else
                         @php
-                            $isAuth = 1;
+                        $isAuth = 1;
                         @endphp
                         <section class="section_offset">
                             <input type="hidden" id="isAuth" value="{{$isAuth}}">
@@ -289,14 +290,19 @@
                                                 <ul>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_name" class="required">Имена</label>
-                                                            <input type="text" name="new_customer_name" id="new_customer_name" value="{{ Auth::user()->name }}">
+                                                            <label for="new_customer_name"
+                                                                class="required">Имена</label>
+                                                            <input type="text" name="new_customer_name"
+                                                                id="new_customer_name" value="{{ Auth::user()->name }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_email" class="required">Email</label>
-                                                            <input type="email" name="new_customer_email" id="new_customer_email" value="{{ Auth::user()->email }}">
+                                                            <label for="new_customer_email"
+                                                                class="required">Email</label>
+                                                            <input type="email" name="new_customer_email"
+                                                                id="new_customer_email"
+                                                                value="{{ Auth::user()->email }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
@@ -304,7 +310,8 @@
                                                             <label for="new_customer_address"
                                                                 class="required">Адрес</label>
                                                             <input type="text" name="new_customer_address"
-                                                                id="new_customer_address" value="{{ Auth::user()->address }}">
+                                                                id="new_customer_address"
+                                                                value="{{ Auth::user()->address }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
@@ -318,7 +325,8 @@
                                                             <label for="new_customer_postcode" class="required">Пощенски
                                                                 код</label>
                                                             <input type="text" name="new_customer_postcode"
-                                                                id="new_customer_postcode" value="{{ Auth::user()->postcode }}">
+                                                                id="new_customer_postcode"
+                                                                value="{{ Auth::user()->postcode }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
@@ -326,7 +334,8 @@
                                                             <label for="new_customer_phone"
                                                                 class="required">Телефон</label>
                                                             <input type="text" name="new_customer_phone"
-                                                                id="new_customer_phone" value="{{ Auth::user()->phone }}">
+                                                                id="new_customer_phone"
+                                                                value="{{ Auth::user()->phone }}">
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -353,7 +362,8 @@
                                                                     class="required">Име и фирма
                                                                     / компания</label>
                                                                 <input type="text" name="new_customer_company_name"
-                                                                    id="new_customer_company_name" value="{{ Auth::user()->firm }}">
+                                                                    id="new_customer_company_name"
+                                                                    value="{{ Auth::user()->firm }}">
                                                             </div>
                                                         </li>
                                                         <li>
@@ -361,7 +371,8 @@
                                                                 <label for="new_customer_mol"
                                                                     class="required">МОЛ</label>
                                                                 <input type="text" name="new_customer_mol"
-                                                                    id="new_customer_mol" value="{{ Auth::user()->mol }}">
+                                                                    id="new_customer_mol"
+                                                                    value="{{ Auth::user()->mol }}">
                                                             </div>
                                                         </li>
                                                         <li>
@@ -369,7 +380,8 @@
                                                                 <label for="new_customer_eik" class="required">ЕИК / ДДС
                                                                     №</label>
                                                                 <input type="text" name="new_customer_eik"
-                                                                    id="new_customer_eik" value="{{ Auth::user()->eik }}">
+                                                                    id="new_customer_eik"
+                                                                    value="{{ Auth::user()->eik }}">
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -581,18 +593,21 @@
     }
 
     $("#btn_login_user").click(function(e){
-		info = [];
-		info[0] = "SAVE";
-		info[1] = $("#have_registration_email").val();
-        info[2] = $("#have_registration_password").val();
+		$email = $("#have_registration_email").val();
+        $password = $("#have_registration_password").val();
 		$.ajax({
 			type: "POST",
-			data: {info:info},
+			data: {
+                email: $email,
+                password: $password
+            },
 			url: "/user-checkout-new-login.html",
             dataType: 'json',
             success: function(msg){
-				
-					alert(msg.sth);
+				if( parseInt( msg.status )==1 )
+				{
+					window.location.reload();
+				}
 			},
 			error: function(response){
 				messageBox("Error", response.responseText);

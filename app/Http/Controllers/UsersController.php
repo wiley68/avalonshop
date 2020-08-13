@@ -213,13 +213,15 @@ class UsersController extends Controller
     }
 
     public function loginCheckoutNewUser(Request $request){
-        $sth = 1;
-        if ($request->ajax()) {
+        
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            Session::put('frontUserLogin', $request->email);
+            $status = 1;
             return response()->json([
-                'sth' => $sth
+                'status' => $status
             ]);
-        } else {
-            return redirect('/');
+        }else{
+            return redirect()->back()->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
         }
     }
 
