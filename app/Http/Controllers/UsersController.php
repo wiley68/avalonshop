@@ -212,6 +212,17 @@ class UsersController extends Controller
         }
     }
 
+    public function loginCheckoutNewUser(Request $request){
+        $sth = $request->data;
+        if ($request->ajax()) {
+            return response()->json([
+                'sth' => $sth
+            ]);
+        } else {
+            return redirect('/');
+        }
+    }
+
     public function logoutUser(Request $request){
         Auth::logout();
         $request->session()->flush();

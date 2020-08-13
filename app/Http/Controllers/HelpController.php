@@ -147,12 +147,14 @@ class HelpController extends Controller
             $cart_ips->ip = $this->getUserIP();
             $cart_count = 0;
             $cart_items = [];
-            foreach (($request->session()->get('cart_session'))['items'] as $cart_item) {
-                $cart_items[$cart_count]['total_price'] = $cart_item['total_price'];
-                $cart_items[$cart_count]['product_name'] = $cart_item['product_name'];
-                $cart_items[$cart_count]['product_quantity'] = $cart_item['product_quantity'];
-                $cart_items[$cart_count]['product_code'] = $cart_item['product_code'];
-                $cart_count++;
+            if ($request->session()->get('cart_session')) {
+                foreach (($request->session()->get('cart_session'))['items'] as $cart_item) {
+                    $cart_items[$cart_count]['total_price'] = $cart_item['total_price'];
+                    $cart_items[$cart_count]['product_name'] = $cart_item['product_name'];
+                    $cart_items[$cart_count]['product_quantity'] = $cart_item['product_quantity'];
+                    $cart_items[$cart_count]['product_code'] = $cart_item['product_code'];
+                    $cart_count++;
+                }
             }
             $cart_ips->jsoncart = json_encode($cart_items, JSON_UNESCAPED_UNICODE);
             $cart_ips->save();
@@ -313,17 +315,23 @@ class HelpController extends Controller
     {
         $root_categories = Category::where(['parent_id' => 0])->get();
 
+        if ($request->isMethod('POST')) {
+        }
+
         $ips = explode(",", env('MYIP'));
         if (!in_array($this->getUserIP(), $ips)) {
             $cart_ips = new CartIp;
             $cart_ips->ip = $this->getUserIP();
             $cart_count = 0;
-            foreach (($request->session()->get('cart_session'))['items'] as $cart_item) {
-                $cart_items[$cart_count]['total_price'] = $cart_item['total_price'];
-                $cart_items[$cart_count]['product_name'] = $cart_item['product_name'];
-                $cart_items[$cart_count]['product_quantity'] = $cart_item['product_quantity'];
-                $cart_items[$cart_count]['product_code'] = $cart_item['product_code'];
-                $cart_count++;
+            $cart_items = [];
+            if ($request->session()->get('cart_session')) {
+                foreach (($request->session()->get('cart_session'))['items'] as $cart_item) {
+                    $cart_items[$cart_count]['total_price'] = $cart_item['total_price'];
+                    $cart_items[$cart_count]['product_name'] = $cart_item['product_name'];
+                    $cart_items[$cart_count]['product_quantity'] = $cart_item['product_quantity'];
+                    $cart_items[$cart_count]['product_code'] = $cart_item['product_code'];
+                    $cart_count++;
+                }
             }
             $cart_ips->jsoncart = json_encode($cart_items, JSON_UNESCAPED_UNICODE);
             $cart_ips->save();

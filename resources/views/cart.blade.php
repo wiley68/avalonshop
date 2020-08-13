@@ -32,27 +32,30 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $all_price = 0;
+                                        $all_price = 0;
                                         @endphp
                                         @foreach ((Session::get('cart_session'))['items'] as $item)
                                         @php
-                                            $product_cart = Product::where(['id' => $item['product_id']])->first();
-                                            $imgsrc1 = $product_cart->imgurl1;
+                                        $product_cart = Product::where(['id' => $item['product_id']])->first();
+                                        $imgsrc1 = $product_cart->imgurl1;
                                         @endphp
                                         <tr>
                                             <td class="product_image_col" data-title="Product Image">
                                                 <a href="{{ route('product', ['id' => $item['product_code']]) }}">
-                                                @if (!empty($imgsrc1))
-                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}" alt="{{ $item['product_name'] }}">
-                                                @else
-                                                    <img style="max-width:80px;" src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" 
-                                                    alt="{{ $item['product_name'] }}">
-                                                @endif                                                </a>
+                                                    @if (!empty($imgsrc1))
+                                                    <img style="max-width:80px;" src="{{ $imgsrc1 }}"
+                                                        alt="{{ $item['product_name'] }}">
+                                                    @else
+                                                    <img style="max-width:80px;"
+                                                        src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                        alt="{{ $item['product_name'] }}">
+                                                    @endif </a>
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of product Image - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Product name - - - - - - - - - - - - - - - - -->
                                             <td data-title="Product Name">
-                                                <a href="{{ route('product', ['id' => $item['product_code']]) }}" class="product_title">{{ $item['product_name'] }}</a>
+                                                <a href="{{ route('product', ['id' => $item['product_code']]) }}"
+                                                    class="product_title">{{ $item['product_name'] }}</a>
                                                 <ul class="sc_product_info">
                                                     <li>{{ $item['product_code'] }}</li>
                                                 </ul>
@@ -60,15 +63,21 @@
                                             <!-- - - - - - - - - - - - - - End of product name - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
                                             <td class="subtotal" data-title="Price">
-                                                {{ number_format(floatval($item['total_price']) / floatval($item['product_quantity']), 2, ".", "") }}&nbsp; лв.
+                                                {{ number_format(floatval($item['total_price']) / floatval($item['product_quantity']), 2, ".", "") }}&nbsp;
+                                                лв.
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of Price - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Quantity - - - - - - - - - - - - - - - - -->
                                             <td data-title="Quantity">
                                                 <div class="qty min clearfix">
-                                                    <button onclick="subQuantity('{{ $item['product_id'] }}');" class="theme_button" data-direction="minus">&#45;</button>
-                                                    <input id="quantity{{ $item['product_id'] }}" oninput="changeCartQuantity('{{ $item['product_id'] }}', this.value);" type="text" id="quantity" value="{{ $item['product_quantity'] }}">
-                                                    <button onclick="addQuantity('{{ $item['product_id'] }}');" class="theme_button" data-direction="plus">&#43;</button>
+                                                    <button onclick="subQuantity('{{ $item['product_id'] }}');"
+                                                        class="theme_button" data-direction="minus">&#45;</button>
+                                                    <input id="quantity{{ $item['product_id'] }}"
+                                                        oninput="changeCartQuantity('{{ $item['product_id'] }}', this.value);"
+                                                        type="text" id="quantity"
+                                                        value="{{ $item['product_quantity'] }}">
+                                                    <button onclick="addQuantity('{{ $item['product_id'] }}');"
+                                                        class="theme_button" data-direction="plus">&#43;</button>
                                                 </div>
                                                 <!--/ .qty.min.clearfix-->
                                             </td>
@@ -76,14 +85,17 @@
                                             <!-- - - - - - - - - - - - - - Total - - - - - - - - - - - - - - - - -->
                                             <td class="total" data-title="Total">
                                                 @php
-                                                    $all_price += round(floatval($item['total_price']),2);
+                                                $all_price += round(floatval($item['total_price']),2);
                                                 @endphp
-                                                {{ number_format(floatval($item['total_price']), 2, ".", "") }}&nbsp; лв.
+                                                {{ number_format(floatval($item['total_price']), 2, ".", "") }}&nbsp;
+                                                лв.
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of total - - - - - - - - - - - - - - - - -->
                                             <!-- - - - - - - - - - - - - - Action - - - - - - - - - - - - - - - - -->
                                             <td data-title="Action">
-                                                <a href="{{ route('cart-remove-product', ['id' => $item['product_id']]) }}" title="Изтрий този продукт от кошницата." class="button_dark_grey icon_btn remove_product"><i
+                                                <a href="{{ route('cart-remove-product', ['id' => $item['product_id']]) }}"
+                                                    title="Изтрий този продукт от кошницата."
+                                                    class="button_dark_grey icon_btn remove_product"><i
                                                         class="icon-cancel-2"></i></a>
                                             </td>
                                             <!-- - - - - - - - - - - - - - End of action - - - - - - - - - - - - - - - - -->
@@ -95,10 +107,12 @@
                             <!--/ .table_wrap -->
                             <footer class="bottom_box on_the_sides">
                                 <div class="left_side">
-                                    <a href="{{ route('index') }}" class="button_blue middle_btn">Продъкжи пазаруването</a>
+                                    <a href="{{ route('index') }}" class="button_blue middle_btn">Продъкжи
+                                        пазаруването</a>
                                 </div>
                                 <div class="right_side">
-                                    <a href="{{ route('cart-clear') }}" class="button_grey middle_btn">Изчисти продуктовата кошница</a>
+                                    <a href="{{ route('cart-clear') }}" class="button_grey middle_btn">Изчисти
+                                        продуктовата кошница</a>
                                 </div>
                             </footer>
                             <!--/ .bottom_box -->
@@ -123,7 +137,8 @@
                                     </div>
                                     <!--/ .theme_box -->
                                     <footer class="bottom_box">
-                                        <button type="submit" form="discount_code" class="button_grey middle_btn">Приложи отстъпката</button>
+                                        <button type="submit" form="discount_code"
+                                            class="button_grey middle_btn">Приложи отстъпката</button>
                                     </footer>
                                 </section>
                                 <!--/ [col] -->
@@ -147,7 +162,8 @@
                                         </table>
                                     </div>
                                     <footer class="bottom_box">
-                                        <a class="button_blue middle_btn" href="{{ route('checkout') }}">Премини към плащане</a>
+                                        <a class="button_blue middle_btn" href="{{ route('checkout') }}">Премини към
+                                            плащане</a>
                                     </footer>
                                 </section><!-- / [col] -->
                             </div>

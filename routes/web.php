@@ -77,6 +77,7 @@ Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login')
 Route::match(['get', 'post'], '/password-reset.html', 'UsersController@passwordReset')->name('password-reset');
 Route::match(['get', 'post'], '/password-reset/{id}/{token}.html', 'UsersController@passwordChange')->name('password-change');
 Route::post('/user-checkout-login.html', 'UsersController@loginCheckoutUser')->name('user-checkout-login');
+Route::post('/user-checkout-new-login.html', 'UsersController@loginCheckoutNewUser')->name('user-checkout-new-login');
 Route::post('/news-subscribe.html', 'UsersController@newsSuscribe')->name('news-subscribe');
 /** end users routes */
 /** start credit routes */
