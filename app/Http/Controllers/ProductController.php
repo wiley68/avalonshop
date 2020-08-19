@@ -16,6 +16,7 @@ use App\Review;
 use App\Support;
 use Illuminate\Support\Facades\Mail;
 use App\OneClick;
+use App\OneclicksProducts;
 
 class ProductController extends Controller
 {
@@ -448,24 +449,46 @@ class ProductController extends Controller
     public function oneClick(Request $request)
     {
         if ($request->method('post')) {
-            if (!empty($request->input('phone')) && !empty($request->input('product_id'))) {
-                $product = Product::where(['id' => $request->input('product_id')])->first();
-                // add to base
-                $oneclick = new OneClick();
-                $oneclick->phone = $request->input('phone');
-                $oneclick->product_code = $product->code;
-                $oneclick->save();
-                //to admin
-                $objMailAdmin = new \stdClass();
-                $objMailAdmin->receiver = 'Администратор Авалон Магазин';
-                $objMailAdmin->phone = $request->input('phone');
-                $objMailAdmin->product_name = $product->name;
-                $objMailAdmin->product_id = $product->code;
-                $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+            if (!empty($request->input('phone'))) {
+                if($request->input('product_id') && !empty($request->input('product_id'))){
+                    $product = Product::where(['id' => $request->input('product_id')])->first();
+                    // add oneclick to base
+                    $oneclick = new OneClick();
+                    $oneclick->phone = $request->input('phone');
+                    $oneclick->save();
+                    //add all
+                    $oneclick_product = new OneclicksProducts();
+                    $oneclick_product->product_id = $product->id;
+                    $oneclick_product->oneclick_id = $oneclick->id;
+                    $oneclick_product->quantity = 1;
+                    $oneclick_product->save();
+                    //to admin
+                    $objMailAdmin = new \stdClass();
+                    $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+                    $objMailAdmin->phone = $request->input('phone');
+                    $objMailAdmin->product_name = $product->name;
+                    $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
 
-                Mail::to('home@avalonbg.com')->send(new OneClickMail($objMailAdmin));
+                    Mail::to('home@avalonbg.com')->send(new OneClickMail($objMailAdmin));
 
-                return response()->json(['result' => 'success']);
+                    return response()->json(['result' => 'success']);
+                }
+                if($request->input('product_ids') && !empty($request->input('product_ids'))){
+                    $products = explode(" ", $request->input('product_ids'));
+                    foreach($products as $product){
+                        $product_info = Product::where(['id' => $product])->first();
+                        $oneclick = new OneClick();
+                        $oneclick->phone = $request->input('phone');
+                        $oneclick->save();
+                        //add all
+                        $oneclick_product = new OneclicksProducts();
+                        $oneclick_product->product_id = 1;
+                        $oneclick_product->oneclick_id = $oneclick->id;
+                        $oneclick_product->quantity = 1;
+                        $oneclick_product->save();
+                    }
+                    return response()->json(['result' => 'success']);
+                }
             }
         }
     }

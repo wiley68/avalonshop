@@ -10,6 +10,9 @@
                 <div class="secondary_page_wrapper">
                     <div class="container">
                         <section class="section_offset">
+                            @php
+                                $product_ids = "";
+                            @endphp
                             <h1>Продуктова кошница</h1>
                             @if (!empty((Session::get('cart_session'))['items']))
                             <!-- - - - - - - - - - - - - - Shopping cart table - - - - - - - - - - - - - - - - -->
@@ -33,6 +36,7 @@
                                         @php
                                         $product_cart = Product::where(['id' => $item['product_id']])->first();
                                         $imgsrc1 = $product_cart->imgurl1;
+                                        $product_ids .= ",".$product_cart->id;
                                         @endphp
                                         <tr>
                                             <td class="product_image_col" data-title="Product Image">
@@ -102,7 +106,7 @@
                             <!--/ .table_wrap -->
                             <footer class="bottom_box on_the_sides">
                                 <div class="left_side">
-                                    <a href="{{ route('index') }}" class="button_blue middle_btn">Продължи
+                                    <a href="{{ route('index') }}" class="button_dark_grey middle_btn">Продължи
                                         пазаруването</a>
                                 </div>
                                 <div class="right_side">
@@ -135,7 +139,7 @@
                                     <input type="radio" id="fast_checkout" name="checkout" value="fast_checkout"
                                         onclick="javascript:typeRadio();">
                                     <label for="fast_checkout">
-                                        <h4>Бърза поръчка</h4>
+                                        <div><h4 style="text-align:left;float:left;">Бърза поръчка&nbsp;</h4><p style="text-align:right;float:right;">(без регистрация)</p></div>
                                     </label>
                                 </div>
                                 <hr>
@@ -265,6 +269,12 @@
                                             <div class="col-sm-12">
                                                 <label for="fast_checkout_phone" class="required">Телефон</label>
                                                 <input type="text" name="fast_checkout_phone" id="fast_checkout_phone">
+                                            </div>
+                                            
+                                        </li>
+                                        <li class="row">
+                                            <div class="col-sm-12">
+                                                <p>Въведете своя телефон. Ние ще се свържем с вас за продажбата!</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -397,7 +407,7 @@
                             <!--/ .relative -->
                         </section>
                         @endguest
-                        <section>
+                        <section id="method_section">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <h1>Метод за доставка на стоката</h1>
@@ -470,7 +480,7 @@
                         </section>
                         <br>
                         <section>
-                            <h1>Преглед на Вашата поръчка</h1>
+                            <h1>Преглед и потвърждение на поръчката</h1>
                             <div class="table_wrap">
                                 <table class="table_type_1 order_review">
                                     <thead>
@@ -508,10 +518,11 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+                            <input type="hidden" id="product_ids" value="{{$product_ids}}">
                             </div>
                             <footer class="bottom_box on_the_sides">
                                 <div class="right_side">
-                                    <button type="submit" class="button_blue middle_btn">Завърши поръчката</button>
+                                    <button type="submit" class="button_blue big_btn" id="btn_buy" style="font-size:20px;"><strong>КУПИ</strong></button>
                                 </div>
                             </footer>
                         </section>
@@ -565,18 +576,22 @@
     function typeRadio() {
         if (document.getElementById('new_customer').checked) {
             document.getElementById('new_customer_div').style.display = "block";
+            document.getElementById('method_section').style.display = "block";
             document.getElementById('have_registration_div').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "none";
         } else if(document.getElementById('have_registration').checked) {
             document.getElementById('new_customer_div').style.display = "none";
             document.getElementById('have_registration_div').style.display = "block";
+            document.getElementById('method_section').style.display = "block";
             document.getElementById('fast_checkout_div').style.display = "none";
         }else if(document.getElementById('fast_checkout').checked){
             document.getElementById('new_customer_div').style.display = "none";
             document.getElementById('have_registration_div').style.display = "none";
+            document.getElementById('method_section').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "block";
         }else{
             document.getElementById('new_customer_div').style.display = "block";
+            document.getElementById('method_section').style.display = "block";
             document.getElementById('have_registration_div').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "none";
         }
@@ -613,6 +628,30 @@
 				messageBox("Error", response.responseText);
 			}
 		});   
-	});
+    });
+    
+    $("#btn_buy").click(function(){
+        if (document.getElementById('new_customer').checked) {
+            alert("New");
+        }else if(document.getElementById('have_registration').checked) {
+            alert("Registered");
+        }else {
+            $.ajax({
+            type:'POST',
+            url:'/one-click.html',
+            data:{
+                phone:$("#fast_checkout_phone").val(),
+                product_ids: $("#product_ids").val()
+            },
+            success: function (data) {
+                console.log(data);
+                // if (data.result == 'success'){
+                //     alert("Успяшно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                //     window.location.reload();
+                // }
+            }
+        });
+        }        
+    });
 </script>
 @endsection
