@@ -30,8 +30,8 @@ use Illuminate\Support\Collection;?>
                                 $category_name .= '</strong>';
                             }
                             @endphp
-                            <li>Филтър за продукти@if (!empty($search_text))&nbsp;(Търсен символ:
-                                <strong>{{ $search_text }}</strong>)@endif{!! $category_name !!}</li>
+                            <li>Филтър за продукти @if (!empty($search_text))&nbsp;(Търсен символ:
+                                <strong>{{ $search_text }}</strong>) @endif{!! $category_name !!}</li>
                         </ul>
                         <div class="row">
                             <aside class="col-md-3 col-sm-4 has_mega_menu">
@@ -45,15 +45,21 @@ use Illuminate\Support\Collection;?>
                                                     <legend>Наличност</legend>
                                                     <ul class="checkboxes_list">
                                                         <li>
-                                                            <input type="checkbox" @if (in_array('в наличност', $instock)) checked @endif name="instock[]" id="nalicno" value="в наличност">
+                                                            <input type="checkbox" @if (in_array('в наличност',
+                                                                $instock)) checked @endif name="instock[]" id="nalicno"
+                                                                value="в наличност">
                                                             <label for="nalicno">в наличност</label>
                                                         </li>
                                                         <li>
-                                                            <input type="checkbox" @if (in_array('ограничено количество', $instock)) checked @endif name="instock[]" id="minqt" value="ограничено количество">
+                                                            <input type="checkbox" @if (in_array('ограничено
+                                                                количество', $instock)) checked @endif name="instock[]"
+                                                                id="minqt" value="ограничено количество">
                                                             <label for="minqt">ограничено количество</label>
                                                         </li>
                                                         <li>
-                                                            <input type="checkbox" @if (in_array('няма наличност', $instock)) checked @endif name="instock[]" id="ocakvase" value="няма наличност">
+                                                            <input type="checkbox" @if (in_array('няма наличност',
+                                                                $instock)) checked @endif name="instock[]" id="ocakvase"
+                                                                value="няма наличност">
                                                             <label for="ocakvase">няма наличност</label>
                                                         </li>
                                                     </ul>
@@ -65,7 +71,8 @@ use Illuminate\Support\Collection;?>
                                     <footer class="bottom_box">
                                         <div class="buttons_row">
                                             <button class="button_blue middle_btn" id="btn_filter">Търси</button>
-                                            <a href="{{ route('products') }}" class="button_grey middle_btn filter_reset">Откажи</a>
+                                            <a href="{{ route('products') }}"
+                                                class="button_grey middle_btn filter_reset">Откажи</a>
                                         </div>
                                     </footer>
                                 </section>
@@ -76,7 +83,8 @@ use Illuminate\Support\Collection;?>
                                     <div class="tags_container">
                                         <ul class="tags_cloud">
                                             @foreach ($products_manufacturers as $product_manufacturer)
-                                            <li><a href="{{ route('products', ['manufacturer_id'=>$product_manufacturer->manufacturer_id]) }}" class="button_grey">{{ Manufacturer::where(['id' => $product_manufacturer->manufacturer_id])->first()->name }}</a>
+                                            <li><a href="{{ route('products', ['manufacturer_id'=>$product_manufacturer->manufacturer_id]) }}"
+                                                    class="button_grey">{{ Manufacturer::where(['id' => $product_manufacturer->manufacturer_id])->first()->name }}</a>
                                             </li>
                                             @endforeach
                                         </ul>
@@ -91,8 +99,10 @@ use Illuminate\Support\Collection;?>
                                 <!-- - - - - - - - - - - - - - End of Manufacturers - - - - - - - - - - - - - - - - -->
                                 <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
                                 <div class="section_offset">
-                                    <a href="{{ route('credit-info') }}" class="banner" title="Покупка на стоки на изплащане">
-                                        <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;" alt="Покупка на стоки на изплащане">
+                                    <a href="{{ route('credit-info') }}" class="banner"
+                                        title="Покупка на стоки на изплащане">
+                                        <img src="images/banner_lizing.jpg" style="border: 1px solid #A9A9A9;"
+                                            alt="Покупка на стоки на изплащане">
                                     </a>
                                 </div>
                                 <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
@@ -114,14 +124,19 @@ use Illuminate\Support\Collection;?>
                                                 <span>Подреди по:</span>
                                                 <div class="sort_select">
                                                     <select name="order_by" id="order_by">
-                                                        <option @if ($order_by=='order_by_id' ) selected @endif value="order_by_id">Въвеждане</option>
-                                                        <option @if ($order_by=='order_by_price_desc' ) selected @endif value="order_by_price_desc">Цена
+                                                        <option @if ($order_by=='order_by_id' ) selected @endif
+                                                            value="order_by_id">Въвеждане</option>
+                                                        <option @if ($order_by=='order_by_price_desc' ) selected @endif
+                                                            value="order_by_price_desc">Цена
                                                             Низходящо</option>
-                                                        <option @if ($order_by=='order_by_price_asc' ) selected @endif value="order_by_price_asc">Цена
+                                                        <option @if ($order_by=='order_by_price_asc' ) selected @endif
+                                                            value="order_by_price_asc">Цена
                                                             Възходящо</option>
-                                                        <option @if ($order_by=='order_by_name_asc' ) selected @endif value="order_by_name_asc">Име А-Я
+                                                        <option @if ($order_by=='order_by_name_asc' ) selected @endif
+                                                            value="order_by_name_asc">Име А-Я
                                                         </option>
-                                                        <option @if ($order_by=='order_by_name_desc' ) selected @endif value="order_by_name_desc">Име Я-А
+                                                        <option @if ($order_by=='order_by_name_desc' ) selected @endif
+                                                            value="order_by_name_desc">Име Я-А
                                                         </option>
                                                     </select>
                                                 </div>
@@ -150,7 +165,8 @@ use Illuminate\Support\Collection;?>
                                         $products_collection = (new Collection($products))['data'];
                                         @endphp
                                         @for ($i = 0; $i <= $rows*3; $i=$i+3) <div class="table_row">
-                                            @for ($j = 0; $j < 3; $j++) <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                                            @for ($j = 0; $j < 3; $j++) <!-- - - - - - - - - - - - - - Product - - - - -
+                                                - - - - - - - - - - - -->
                                                 @if (!empty($products_collection[$i+$j]))
                                                 <div class="table_cell">
                                                     <div class="product_item">
@@ -159,11 +175,14 @@ use Illuminate\Support\Collection;?>
                                                         $imgsrc1 = $products_collection[$i+$j]['imgurl1'];
                                                         @endphp
                                                         <div class="image_wrap">
-                                                            <a href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}">
+                                                            <a
+                                                                href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}">
                                                                 @if (!empty($imgsrc1))
-                                                                <img src="{{ $imgsrc1 }}" alt="{{ $products_collection[$i+$j]['name'] }}">
+                                                                <img src="{{ $imgsrc1 }}"
+                                                                    alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @else
-                                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png" alt="{{ $products_collection[$i+$j]['name'] }}">
+                                                                <img src="{{ Config::get('settings.backend') }}/dist/img/noimage.png"
+                                                                    alt="{{ $products_collection[$i+$j]['name'] }}">
                                                                 @endif
                                                             </a>
                                                         </div>
@@ -171,18 +190,24 @@ use Illuminate\Support\Collection;?>
                                                         <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
                                                         <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
                                                         <div class="description">
-                                                            <a href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}">{{ $products_collection[$i+$j]['name'] }}</a>
+                                                            <a
+                                                                href="{{ route('product', ['id' => $products_collection[$i+$j]['code']]) }}">{{ $products_collection[$i+$j]['name'] }}</a>
                                                             <div class="clearfix product_info">
                                                                 <p class="product_price alignleft">
                                                                     <b>{{ number_format($products_collection[$i+$j]['price'], 2, ".", "") }}</b>
                                                                     лв.</p>
                                                                 <!-- - - - - - - - - - - - - - Product rating - - - - - - - - - - - - - - - - -->
                                                                 <p class="rating alignright">
-                                                                    @if ($products_collection[$i+$j]['instock'] != "няма наличност")
-                                                                    <button onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');" class="button_blue add_to_cart">Купи</button>
+                                                                    @if ($products_collection[$i+$j]['instock'] != "няма
+                                                                    наличност")
+                                                                    <button
+                                                                        onclick="buyProduct('{{ $products_collection[$i+$j]['id'] }}');"
+                                                                        class="button_blue add_to_cart">Купи</button>
                                                                     @endif
                                                                     @auth
-                                                                    <a href="#" id="btn_add_favorite" onclick="clickBtnAddFavorite(event, {{ $products_collection[$i+$j]['id'] }})" class="button_dark_grey def_icon_btn add_to_wishlist"></a>
+                                                                    <a href="#" id="btn_add_favorite"
+                                                                        onclick="clickBtnAddFavorite(event, {{ $products_collection[$i+$j]['id'] }})"
+                                                                        class="button_dark_grey def_icon_btn add_to_wishlist"></a>
                                                                     @endauth
                                                                 </p>
                                                                 <!-- - - - - - - - - - - - - - End of product rating - - - - - - - - - - - - - - - - -->

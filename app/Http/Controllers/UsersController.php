@@ -217,11 +217,10 @@ class UsersController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             Session::put('frontUserLogin', $request->email);
             $status = 1;
-            return response()->json([
-                'status' => $status
-            ]);
+            return response()->json(['status' => $status]);
         }else{
-            return redirect()->back()->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
+            $status = 0;
+            return response()->json(['status' => $status]);
         }
     }
 

@@ -135,7 +135,10 @@
                                     <input type="radio" id="fast_checkout" name="checkout" value="fast_checkout"
                                         onclick="javascript:typeRadio();">
                                     <label for="fast_checkout">
-                                        <div><h4 style="text-align:left;float:left;">Бърза поръчка&nbsp;</h4><p style="text-align:right;float:right;">(без регистрация)</p></div>
+                                        <div>
+                                            <h4 style="text-align:left;float:left;">Бърза поръчка&nbsp;</h4>
+                                            <p style="text-align:right;float:right;">(без регистрация)</p>
+                                        </div>
                                     </label>
                                 </div>
                                 <hr>
@@ -266,7 +269,7 @@
                                                 <label for="fast_checkout_phone" class="required">Телефон</label>
                                                 <input type="text" name="fast_checkout_phone" id="fast_checkout_phone">
                                             </div>
-                                            
+
                                         </li>
                                         <li class="row">
                                             <div class="col-sm-12">
@@ -475,7 +478,7 @@
                             </div>
                         </section>
                         <br>
-                        <section>
+                        <section id="checkout_section">
                             <h1>Преглед и потвърждение на поръчката</h1>
                             <div class="table_wrap">
                                 <table class="table_type_1 order_review">
@@ -517,7 +520,8 @@
                             </div>
                             <footer class="bottom_box on_the_sides">
                                 <div class="right_side">
-                                    <button type="button" class="button_blue big_btn" id="btn_buy" style="font-size:20px;"><strong>КУПИ</strong></button>
+                                    <button type="button" class="button_blue big_btn" id="btn_buy"
+                                        style="font-size:20px;"><strong>КУПИ</strong></button>
                                 </div>
                             </footer>
                         </section>
@@ -567,28 +571,32 @@
             }
         });
     };
-
+    
     function typeRadio() {
         if (document.getElementById('new_customer').checked) {
             document.getElementById('new_customer_div').style.display = "block";
             document.getElementById('method_section').style.display = "block";
             document.getElementById('have_registration_div').style.display = "none";
+            document.getElementById('checkout_section').style.display = "block";
             document.getElementById('fast_checkout_div').style.display = "none";
         } else if(document.getElementById('have_registration').checked) {
             document.getElementById('new_customer_div').style.display = "none";
             document.getElementById('have_registration_div').style.display = "block";
-            document.getElementById('method_section').style.display = "block";
+            document.getElementById('method_section').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "none";
+            document.getElementById('checkout_section').style.display = "none";
         }else if(document.getElementById('fast_checkout').checked){
             document.getElementById('new_customer_div').style.display = "none";
             document.getElementById('have_registration_div').style.display = "none";
             document.getElementById('method_section').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "block";
+            document.getElementById('checkout_section').style.display = "block";
         }else{
             document.getElementById('new_customer_div').style.display = "block";
             document.getElementById('method_section').style.display = "block";
             document.getElementById('have_registration_div').style.display = "none";
             document.getElementById('fast_checkout_div').style.display = "none";
+            document.getElementById('checkout_section').style.display = "block";
         }
     }
 
@@ -617,10 +625,11 @@
 				if( parseInt( msg.status )==1 )
 				{
 					window.location.reload();
-				}
-			},
-			error: function(response){
-				messageBox("Error", response.responseText);
+                }
+                else
+                {
+                    alert("Грешен email адрес или парола!");
+                }
 			}
 		});   
     });
