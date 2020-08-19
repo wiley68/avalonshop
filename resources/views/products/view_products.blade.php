@@ -60,19 +60,6 @@ use Illuminate\Support\Collection;?>
                                                 </fieldset>
                                             </div>
                                             <!--/ .table_cell -->
-                                            <div class="table_cell">
-                                                <fieldset>
-                                                    <legend>Цена</legend>
-                                                    <div class="range">
-                                                        Обхват :
-                                                        <span class="min_val"></span> -
-                                                        <span class="max_val"></span>
-                                                        <input type="hidden" name="price_min" id="price_min" class="min_value">
-                                                        <input type="hidden" name="price_max" id="price_max" class="max_value">
-                                                    </div>
-                                                    <div id="slider"></div>
-                                                </fieldset>
-                                            </div>
                                         </div>
                                     </div>
                                     <footer class="bottom_box">
@@ -274,55 +261,6 @@ use Illuminate\Support\Collection;?>
 
 @section('scripts')
 <script>
-    /* ------------------------------------------------
-		Range slider
-	------------------------------------------------ */
-    if ($('#slider').length) {
-        window.startRangeValues = [{
-            {
-                $price_min
-            }
-        }, {
-            {
-                $price_max
-            }
-        }];
-        $('#slider').slider({
-            range: true,
-            min: {
-                {
-                    $products_min
-                }
-            },
-            max: {
-                {
-                    $products_max
-                }
-            },
-            values: window.startRangeValues,
-            step: 1,
-
-            slide: function(event, ui) {
-                var min = ui.values[0].toFixed(2),
-                    max = ui.values[1].toFixed(2),
-                    range = $(this).siblings('.range');
-                range.children('.min_value').val(min).next().val(max);
-                range.children('.min_val').text(min + ' лв.').next().text(max + ' лв.');
-            },
-
-            create: function(event, ui) {
-                var $this = $(this),
-                    min = $this.slider("values", 0).toFixed(2),
-                    max = $this.slider("values", 1).toFixed(2),
-                    range = $this.siblings('.range');
-                range.children('.min_value').val(min).next().val(max);
-                range.children('.min_val').text(min + ' лв.').next().text(max + ' лв.');
-            }
-        });
-    }
-    /* ------------------------------------------------
-        End range slider
-    ------------------------------------------------ */
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -417,7 +355,7 @@ use Illuminate\Support\Collection;?>
             dataType: 'JSON',
             success: function(data) {
                 // add to mini cart
-                window.location = "{{ route('cart') }}";
+                window.location = "{{ route('checkout') }}";
             }
         });
     };

@@ -450,45 +450,56 @@ class ProductController extends Controller
     {
         if ($request->method('post')) {
             if (!empty($request->input('phone'))) {
-                if($request->input('product_id') && !empty($request->input('product_id'))){
-                    $product = Product::where(['id' => $request->input('product_id')])->first();
+                if($request->input('from') && $request->input('from') == 'product'){
                     // add oneclick to base
                     $oneclick = new OneClick();
                     $oneclick->phone = $request->input('phone');
                     $oneclick->save();
                     //add all
                     $oneclick_product = new OneclicksProducts();
-                    $oneclick_product->product_id = $product->id;
+                    $oneclick_product->product_id = $request->input('product_id');
                     $oneclick_product->oneclick_id = $oneclick->id;
                     $oneclick_product->quantity = 1;
+                    $products[0]["id"] = $request->input('product_id');
+                    $products[0]["qt"] = 1;
                     $oneclick_product->save();
                     //to admin
                     $objMailAdmin = new \stdClass();
                     $objMailAdmin->receiver = 'Администратор Авалон Магазин';
                     $objMailAdmin->phone = $request->input('phone');
-                    $objMailAdmin->product_name = $product->name;
+                    $objMailAdmin->products = $products;
                     $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
-
                     Mail::to('home@avalonbg.com')->send(new OneClickMail($objMailAdmin));
-
                     return response()->json(['result' => 'success']);
                 }
-                if($request->input('product_ids') && !empty($request->input('product_ids'))){
-                    $products = explode(" ", $request->input('product_ids'));
-                    foreach($products as $product){
-                        $product_info = Product::where(['id' => $product])->first();
-                        $oneclick = new OneClick();
-                        $oneclick->phone = $request->input('phone');
-                        $oneclick->save();
+                if($request->input('from') && $request->input('from') == 'cart'){
+                    $oneclick = new OneClick();
+                    $oneclick->phone = $request->input('phone');
+                    $oneclick->save();
+                    $index = 0;
+                    foreach (($request->session()->get('cart_session'))['items'] as $item){
                         //add all
                         $oneclick_product = new OneclicksProducts();
-                        $oneclick_product->product_id = 1;
+                        $oneclick_product->product_id = $item['product_id'];
                         $oneclick_product->oneclick_id = $oneclick->id;
-                        $oneclick_product->quantity = 1;
+                        $oneclick_product->quantity = $item['product_quantity'];
+                        $products[$index]["id"] = $item['product_id'];
+                        $products[$index]["qt"] = $item['product_quantity'];
+                        $index++;
                         $oneclick_product->save();
                     }
+                    //to admin
+                    $objMailAdmin = new \stdClass();
+                    $objMailAdmin->receiver = 'Администратор Авалон Магазин';
+                    $objMailAdmin->phone = $request->input('phone');
+                    $objMailAdmin->products = $products;
+                    $objMailAdmin->sender = env('MAIL_USERNAME', 'ilko.iv@gmail.com');
+                    Mail::to('home@avalonbg.com')->send(new OneClickMail($objMailAdmin));
+                    $request->session()->forget('cart_session');
                     return response()->json(['result' => 'success']);
                 }
+            }else{
+                return response()->json(['result' => 'nophone']);
             }
         }
     }

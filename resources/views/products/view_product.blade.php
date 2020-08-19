@@ -969,7 +969,7 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.location = "{{ route('cart') }}";
+                window.location = "{{ route('checkout') }}";
             }
         });
     });
@@ -988,7 +988,7 @@
             dataType: 'JSON',
             success: function (data) {
                 // add to mini cart
-                window.location = "{{ route('cart') }}";
+                window.location = "{{ route('checkout') }}";
             }
         });
     };
@@ -1079,13 +1079,18 @@
             type:'POST',
             url:'/one-click.html',
             data:{
-                phone:$("#one_phone").val(),
-                product_id: '{{ $product->id }}'
+                phone: $("#one_phone").val(),
+                product_id: '{{ $product->id }}',
+                from: 'product'
             },
             success: function (data) {
                 if (data.result == 'success'){
-                    alert("Успяшно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                    alert("Успешно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
                     window.location.reload();
+                }
+                if (data.result == 'nophone'){
+                    alert("Моля попълнете полето 'Телефон'!");
+                    $("#one_phone").focus();
                 }
             }
         });

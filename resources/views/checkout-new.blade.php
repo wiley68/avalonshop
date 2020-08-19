@@ -10,9 +10,6 @@
                 <div class="secondary_page_wrapper">
                     <div class="container">
                         <section class="section_offset">
-                            @php
-                                $product_ids = "";
-                            @endphp
                             <h1>Продуктова кошница</h1>
                             @if (!empty((Session::get('cart_session'))['items']))
                             <!-- - - - - - - - - - - - - - Shopping cart table - - - - - - - - - - - - - - - - -->
@@ -36,7 +33,6 @@
                                         @php
                                         $product_cart = Product::where(['id' => $item['product_id']])->first();
                                         $imgsrc1 = $product_cart->imgurl1;
-                                        $product_ids .= ",".$product_cart->id;
                                         @endphp
                                         <tr>
                                             <td class="product_image_col" data-title="Product Image">
@@ -106,7 +102,7 @@
                             <!--/ .table_wrap -->
                             <footer class="bottom_box on_the_sides">
                                 <div class="left_side">
-                                    <a href="{{ route('index') }}" class="button_dark_grey middle_btn">Продължи
+                                    <a href="{{ route('index') }}" class="button_grey middle_btn">Продължи
                                         пазаруването</a>
                                 </div>
                                 <div class="right_side">
@@ -518,11 +514,10 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                            <input type="hidden" id="product_ids" value="{{$product_ids}}">
                             </div>
                             <footer class="bottom_box on_the_sides">
                                 <div class="right_side">
-                                    <button type="submit" class="button_blue big_btn" id="btn_buy" style="font-size:20px;"><strong>КУПИ</strong></button>
+                                    <button type="button" class="button_blue big_btn" id="btn_buy" style="font-size:20px;"><strong>КУПИ</strong></button>
                                 </div>
                             </footer>
                         </section>
@@ -637,20 +632,23 @@
             alert("Registered");
         }else {
             $.ajax({
-            type:'POST',
-            url:'/one-click.html',
-            data:{
-                phone:$("#fast_checkout_phone").val(),
-                product_ids: $("#product_ids").val()
-            },
-            success: function (data) {
-                console.log(data);
-                // if (data.result == 'success'){
-                //     alert("Успяшно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
-                //     window.location.reload();
-                // }
-            }
-        });
+                type:'POST',
+                url:'/one-click.html',
+                data:{
+                    phone: $("#fast_checkout_phone").val(),
+                    from: 'cart'
+                },
+                success: function (data) {
+                    if (data.result == 'success'){
+                        alert("Успешно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                        window.location = "/";
+                    }
+                    if (data.result == 'nophone'){
+                        alert("Моля попълнете полето 'Телефон'!");
+                        $("#fast_checkout_phone").focus();
+                    }
+                }
+            });
         }        
     });
 </script>

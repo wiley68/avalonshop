@@ -195,7 +195,7 @@ class HelpController extends Controller
                 }
             }
         }
-        return redirect('/cart.html');
+        return redirect('/checkout.html');
     }
 
     public function checkout(Request $request)

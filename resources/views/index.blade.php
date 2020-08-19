@@ -1132,7 +1132,7 @@ function buyProduct(product_id){
         dataType: 'JSON',
         success: function (data) {
             // add to mini cart
-            window.location = "{{ route('cart') }}";
+            window.location = "{{ route('checkout') }}";
         }
     });
 };
