@@ -2012,7 +2012,17 @@ input[type="checkbox"]:checked + .color_btn::before {
 }
 
 .shipping_method li:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 14px;
+}
+
+.shipping_method li:not(:last-child) {
+    border: 1px solid #eaeaea;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.shipping_method .active {
+    border: 1px solid #FF9093;
 }
 
 /* --------------------------------------------

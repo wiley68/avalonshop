@@ -413,10 +413,10 @@
                                 <div class="col-sm-12 col-md-6">
                                     <h1>Метод за доставка на стоката</h1>
                                     <div class="theme_box">
-                                        <p class="subcaption bold">Избор на метод за доставка</p>
+                                        <h5 class="subcaption bold">Избор на метод за доставка</h5>
                                         <ul class="shipping_method">
                                             @if($all_price > 48)
-                                            <li>
+                                            <li class="active" id="li_type_shipping_free">
                                                 <p class="subcaption bold">Безплатна доставка</p>
                                                 <input type="radio" value="shipping_free" checked name="type_shipping"
                                                     id="type_shipping_free">
@@ -425,7 +425,7 @@
                                                     над 48.00 лв.</label>
                                             </li>
                                             @endif
-                                            <li>
+                                            <li @if($all_price <=48) class="active" @endif id="li_type_shipping_spedy">
                                                 <p class="subcaption bold">Доставка с Куриер</p>
                                                 <input type="radio" @if($all_price <=48) checked @endif
                                                     value="shipping_spedy" name="type_shipping"
@@ -670,6 +670,16 @@
     $("#type_payment_bank").click(function(){
         $("#li_type_payment_nalozen").removeClass("active");
         $("#li_type_payment_bank").addClass("active");
+    });
+
+    $("#type_shipping_free").click(function(){
+        $("#li_type_shipping_free").addClass("active");
+        $("#li_type_shipping_spedy").removeClass("active");
+    });
+
+    $("#type_shipping_spedy").click(function(){
+        $("#li_type_shipping_free").removeClass("active");
+        $("#li_type_shipping_spedy").addClass("active");
     });
 </script>
 @endsection
