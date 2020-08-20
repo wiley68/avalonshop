@@ -259,8 +259,10 @@
                                         </li>
                                     </ul>
                                     <br>
-                                    <button type="submit" class="button_blue middle_btn"
-                                        id="btn_login_user">Вход</button>
+                                    <button type="button" class="button_blue middle_btn"
+                                        id="btn_login_user"><strong>ВХОД</strong></button>&nbsp;&nbsp;&nbsp;
+                                    <a href={{ route('login-register') }} type="button"
+                                        class="button_grey middle_btn">СЪЗДАЙ НОВА РЕГИСТРАЦИЯ</a>
                                 </div>
                                 <div id="fast_checkout_div" style="display:none;">
                                     <ul>
@@ -452,21 +454,20 @@
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <h1>Метод за плащане на стоката</h1>
-                                    <div class="theme_box">
+                                    <div class="theme_box" style="border:1px solid blue;">
                                         <p class="subcaption bold">Избор на методи за плащане</p>
-                                        <ul class="simple_vertical_list">
-                                            <li>
-                                                <input type="radio" value="payment_nalozen" checked name="type_payment"
-                                                    id="type_payment_nalozen">
-                                                <label for="type_payment_nalozen">Плащане с наложен платеж на
-                                                    Куриерската
-                                                    компания. Услугата включва преглед преди заплащане.</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" value="payment_bank" name="type_payment"
-                                                    id="type_payment_bank">
-                                                <label for="type_payment_bank">Плащане по банков път</label>
-                                            </li>
+                                        <ul class="simple_vertical_list" style="border:1px solid green;">
+                                            <div>
+                                                <li style="border:1px solid red;">
+                                                    <input type="radio" value="payment_nalozen" checked id="type_payment_nalozen">
+                                                    <label for="type_payment_nalozen">Плащане с наложен платеж на Куриерската компания. Услугата включва преглед преди заплащане.</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" value="payment_bank" name="type_payment"
+                                                        id="type_payment_bank">
+                                                    <label for="type_payment_bank">Плащане по банков път</label>
+                                                </li>
+                                            </div>
                                             {{-- <li>
                                             <input type="radio" value="payment_paysera" name="type_payment"
                                                 id="type_payment_paysera">
