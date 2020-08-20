@@ -425,7 +425,7 @@
                                                     над 48.00 лв.</label>
                                             </li>
                                             @endif
-                                            <li @if($all_price <=48) class="active" @endif id="li_type_shipping_spedy">
+                                            <li id="li_type_shipping_spedy">
                                                 <p class="subcaption bold">Доставка с Куриер</p>
                                                 <input type="radio" @if($all_price <=48) checked @endif
                                                     value="shipping_spedy" name="type_shipping"

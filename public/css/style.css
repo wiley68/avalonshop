@@ -1855,7 +1855,7 @@ input[type="checkbox"]:checked + .color_btn::before {
 }
 
 .simple_vertical_list .active {
-    border: 1px solid #FF9093;
+    border: 1px solid #ff9093;
 }
 
 .topbar > li,
@@ -2015,14 +2015,18 @@ input[type="checkbox"]:checked + .color_btn::before {
     margin-top: 14px;
 }
 
-.shipping_method li:not(:last-child) {
+.shipping_method li {
     border: 1px solid #eaeaea;
     padding: 6px;
     border-radius: 3px;
 }
 
+.shipping_method li:last-child {
+    border: 0px solid #ffffff;
+}
+
 .shipping_method .active {
-    border: 1px solid #FF9093;
+    border: 1px solid #ff9093;
 }
 
 /* --------------------------------------------
