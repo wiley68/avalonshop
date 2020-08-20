@@ -454,20 +454,20 @@
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <h1>Метод за плащане на стоката</h1>
-                                    <div class="theme_box" style="border:1px solid blue;">
-                                        <p class="subcaption bold">Избор на методи за плащане</p>
-                                        <ul class="simple_vertical_list" style="border:1px solid green;">
-                                            <div>
-                                                <li style="border:1px solid red;">
-                                                    <input type="radio" value="payment_nalozen" checked id="type_payment_nalozen">
-                                                    <label for="type_payment_nalozen">Плащане с наложен платеж на Куриерската компания. Услугата включва преглед преди заплащане.</label>
-                                                </li>
-                                                <li>
-                                                    <input type="radio" value="payment_bank" name="type_payment"
-                                                        id="type_payment_bank">
-                                                    <label for="type_payment_bank">Плащане по банков път</label>
-                                                </li>
-                                            </div>
+                                    <div class="theme_box">
+                                        <h5 class="subcaption bold">Избор на методи за плащане</h5>
+                                        <ul class="simple_vertical_list">
+                                            <li class="active" id="li_type_payment_nalozen">
+                                                <p class="subcaption bold">Наложен платеж</p>
+                                                <input type="radio" value="payment_nalozen" name="type_payment" checked id="type_payment_nalozen">
+                                                <label for="type_payment_nalozen">Плащане с наложен платеж на Куриерската компания. Услугата включва преглед преди заплащане.</label>
+                                            </li>
+                                            <li id="li_type_payment_bank">
+                                                <p class="subcaption bold">Банков път</p>
+                                                <input type="radio" value="payment_bank" name="type_payment"
+                                                    id="type_payment_bank">
+                                                <label for="type_payment_bank">Плащане по банков път</label>
+                                            </li>
                                             {{-- <li>
                                             <input type="radio" value="payment_paysera" name="type_payment"
                                                 id="type_payment_paysera">
@@ -660,6 +660,16 @@
                 }
             });
         }        
+    });
+
+    $("#type_payment_nalozen").click(function(){
+        $("#li_type_payment_nalozen").addClass("active");
+        $("#li_type_payment_bank").removeClass("active");
+    });
+
+    $("#type_payment_bank").click(function(){
+        $("#li_type_payment_nalozen").removeClass("active");
+        $("#li_type_payment_bank").addClass("active");
     });
 </script>
 @endsection

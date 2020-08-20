@@ -1845,7 +1845,17 @@ input[type="checkbox"]:checked + .color_btn::before {
 }
 
 .simple_vertical_list > li:not(:first-child) {
-    margin-top: 10px;
+    margin-top: 14px;
+}
+
+.simple_vertical_list li {
+    border: 1px solid #eaeaea;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.simple_vertical_list .active {
+    border: 1px solid #FF9093;
 }
 
 .topbar > li,
