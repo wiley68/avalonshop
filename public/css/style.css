@@ -1855,7 +1855,8 @@ input[type="checkbox"]:checked + .color_btn::before {
 }
 
 .simple_vertical_list .active {
-    border: 1px solid #ff9093;
+    border: 1px solid #f18e91;
+    box-shadow: 0px 0px 5px #f18e91;
 }
 
 .topbar > li,
@@ -2026,7 +2027,8 @@ input[type="checkbox"]:checked + .color_btn::before {
 }
 
 .shipping_method .active {
-    border: 1px solid #ff9093;
+    border: 1px solid #f18e91;
+    box-shadow: 0px 0px 5px #f18e91;
 }
 
 /* --------------------------------------------
