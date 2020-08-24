@@ -369,7 +369,7 @@ class HelpController extends Controller
             // delete cart
             $request->session()->forget('cart_session');
 
-            return response()->json(['status' => 1]);
+            return response()->json(['status' => 1, 'order_id' => $order->id]);
         }
 
         $ips = explode(",", env('MYIP'));

@@ -740,7 +740,7 @@
 			success: function(msg){
 				if( parseInt( msg.status )==1 )
 				{
-					alert("Супер");
+					window.location = "checkout-result-"+msg.order_id+".html";
 				}
             }
 		});  
