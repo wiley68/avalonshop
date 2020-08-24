@@ -301,51 +301,45 @@
                                                 <ul>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_name"
+                                                            <label for="registered_customer_name"
                                                                 class="required">Имена</label>
-                                                            <input type="text" name="new_customer_name"
-                                                                id="new_customer_name" value="{{ Auth::user()->name }}">
+                                                            <input type="text" id="registered_customer_name" value="{{ Auth::user()->name }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_email"
+                                                            <label for="registered_customer_email"
                                                                 class="required">Email</label>
-                                                            <input type="email" name="new_customer_email"
-                                                                id="new_customer_email"
-                                                                value="{{ Auth::user()->email }}">
+                                                            <input type="email" id="registered_customer_email" value="{{ Auth::user()->email }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-xs-12">
-                                                            <label for="new_customer_address"
+                                                            <label for="registered_customer_address"
                                                                 class="required">Адрес</label>
-                                                            <input type="text" name="new_customer_address"
-                                                                id="new_customer_address"
-                                                                value="{{ Auth::user()->address }}">
+                                                            <input type="text" id="registered_customer_address" value="{{ Auth::user()->address }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_city" class="required">Населено
+                                                            <label for="registered_customer_city" class="required">Населено
                                                                 място</label>
-                                                            <input type="text" name="new_customer_city"
-                                                                id="new_customer_city" value="{{ Auth::user()->city }}">
+                                                            <input type="text" id="registered_customer_city" value="{{ Auth::user()->city }}">
                                                         </div>
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_postcode" class="required">Пощенски
+                                                            <label for="registered_customer_postcode" class="required">Пощенски
                                                                 код</label>
-                                                            <input type="text" name="new_customer_postcode"
-                                                                id="new_customer_postcode"
+                                                            <input type="text" name="registered_customer_postcode"
+                                                                id="registered_customer_postcode"
                                                                 value="{{ Auth::user()->postcode }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="new_customer_phone"
+                                                            <label for="registered_customer_phone"
                                                                 class="required">Телефон</label>
-                                                            <input type="text" name="new_customer_phone"
-                                                                id="new_customer_phone"
+                                                            <input type="text" name="registered_customer_phone"
+                                                                id="registered_customer_phone"
                                                                 value="{{ Auth::user()->phone }}">
                                                         </div>
                                                     </li>
@@ -369,29 +363,29 @@
                                                     <ul>
                                                         <li>
                                                             <div class="col-sm-12">
-                                                                <label for="new_customer_company_name"
+                                                                <label for="registered_customer_company_name"
                                                                     class="required">Име и фирма
                                                                     / компания</label>
-                                                                <input type="text" name="new_customer_company_name"
-                                                                    id="new_customer_company_name"
+                                                                <input type="text" name="registered_customer_company_name"
+                                                                    id="registered_customer_company_name"
                                                                     value="{{ Auth::user()->firm }}">
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="col-sm-12">
-                                                                <label for="new_customer_mol"
+                                                                <label for="registered_customer_mol"
                                                                     class="required">МОЛ</label>
-                                                                <input type="text" name="new_customer_mol"
-                                                                    id="new_customer_mol"
+                                                                <input type="text" name="registered_customer_mol"
+                                                                    id="registered_customer_mol"
                                                                     value="{{ Auth::user()->mol }}">
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="col-sm-12">
-                                                                <label for="new_customer_eik" class="required">ЕИК / ДДС
+                                                                <label for="registered_customer_eik" class="required">ЕИК / ДДС
                                                                     №</label>
-                                                                <input type="text" name="new_customer_eik"
-                                                                    id="new_customer_eik"
+                                                                <input type="text" name="registered_customer_eik"
+                                                                    id="registered_customer_eik"
                                                                     value="{{ Auth::user()->eik }}">
                                                             </div>
                                                         </li>
@@ -459,8 +453,11 @@
                                         <ul class="simple_vertical_list">
                                             <li class="active" id="li_type_payment_nalozen">
                                                 <p class="subcaption bold">Наложен платеж</p>
-                                                <input type="radio" value="payment_nalozen" name="type_payment" checked id="type_payment_nalozen">
-                                                <label for="type_payment_nalozen">Плащане с наложен платеж на Куриерската компания. Услугата включва преглед преди заплащане.</label>
+                                                <input type="radio" value="payment_nalozen" name="type_payment" checked
+                                                    id="type_payment_nalozen">
+                                                <label for="type_payment_nalozen">Плащане с наложен платеж на
+                                                    Куриерската компания. Услугата включва преглед преди
+                                                    заплащане.</label>
                                             </li>
                                             <li id="li_type_payment_bank">
                                                 <p class="subcaption bold">Банков път</p>
@@ -636,30 +633,145 @@
     });
     
     $("#btn_buy").click(function(){
-        if (document.getElementById('new_customer').checked) {
-            alert("New");
-        }else if(document.getElementById('have_registration').checked) {
-            alert("Registered");
-        }else {
-            $.ajax({
-                type:'POST',
-                url:'/one-click.html',
-                data:{
-                    phone: $("#fast_checkout_phone").val(),
-                    from: 'cart'
-                },
-                success: function (data) {
-                    if (data.result == 'success'){
-                        alert("Успешно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
-                        window.location = "/";
-                    }
-                    if (data.result == 'nophone'){
-                        alert("Моля попълнете полето 'Телефон'!");
-                        $("#fast_checkout_phone").focus();
-                    }
+        if($("#isAuth").val() == 1){
+            let check = true;
+   		    if( $("#registered_customer_name").val() == '' ) {
+    		    $("#registered_customer_name").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_name").removeClass('input-error');
+            }
+            if( $("#registered_customer_email").val() == '' ) {
+    		    $("#registered_customer_email").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_email").removeClass('input-error');
+            }
+            if( $("#registered_customer_address").val() == '' ) {
+    		    $("#registered_customer_address").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_address").removeClass('input-error');
+		    }
+            if( $("#registered_customer_city").val() == '' ) {
+    		    $("#registered_customer_city").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_postcode").removeClass('input-error');
+		    }
+            if( $("#registered_customer_postcode").val() == '' ) {
+    		    $("#registered_customer_postcode").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_postcode").removeClass('input-error');
+		    }
+            if( $("#registered_customer_phone").val() == '' ) {
+    		    $("#registered_customer_phone").addClass('input-error');
+    		    check = false;
+		    }   
+    	    else {
+    		    $("#registered_customer_phone").removeClass('input-error');
+            }
+            if($('#firm_user').is(':checked')){
+                if( $("#registered_customer_company_name").val() == '' ) {
+    		        $("#registered_customer_company_name").addClass('input-error');
+    		        check = false;
+		        }   
+    	        else {
+    		        $("#registered_customer_company_name").removeClass('input-error');
                 }
-            });
-        }        
+                if( $("#registered_customer_mol").val() == '' ) {
+    		        $("#registered_customer_mol").addClass('input-error');
+    		        check = false;
+		        }   
+    	        else {
+    		        $("#registered_customer_mol").removeClass('input-error');
+                }
+                if( $("#registered_customer_eik").val() == '' ) {
+    		        $("#registered_customer_eik").addClass('input-error');
+    		        check = false;
+		        }   
+    	        else {
+    		        $("#registered_customer_eik").removeClass('input-error');
+                }
+            }
+            if (!check){
+			    return;
+            }
+            info = [];
+		    info[0] = $("#registered_customer_name").val();
+		    info[1] = $("#registered_customer_email").val();
+		    info[2] = $("#registered_customer_address").val();
+		    info[3] = $("#registered_customer_city").val();
+		    info[4] = $("#registered_customer_postcode").val();
+            info[5] = $("#registered_customer_phone").val();
+            if($('#firm_user').is(':checked')){
+                info[6] = "firm";
+                info[7] = $("#registered_customer_company_name").val();
+                info[8] = $("#registered_customer_mol").val();
+                info[9] = $("#registered_customer_eik").val();
+            }else{
+                info[6] = "normal";
+                info[7] = "";
+                info[8] = "";
+                info[9] = "";
+            }
+            if($("#type_shipping_free").is(':checked')){
+                info[10] = "free";
+            }else{
+                info[10] = "spedy";
+            }
+            if($("#type_payment_nalozen").is(':checked')){
+                info[11] = "platez";
+            }else{
+                info[11] = "bank";
+            }
+            
+            $.ajax({
+			type: "POST",
+			data: {info:info},
+			url: "/checkout.html",
+			dataType: 'json',
+			success: function(msg){
+				if( parseInt( msg.status )==1 )
+				{
+					alert("Супер");
+				}
+            }
+		});  
+        }else{
+            if (document.getElementById('new_customer').checked) {
+                alert("New");
+            }
+            else if(document.getElementById('have_registration').checked) {
+                alert("Моля влезте в своя профил");
+            }
+            else {
+                $.ajax({
+                    type:'POST',
+                    url:'/one-click.html',
+                    data:{
+                        phone: $("#fast_checkout_phone").val(),
+                        from: 'cart'
+                    },
+                    success: function (data) {
+                        if (data.result == 'success'){
+                            alert("Успешно изпратихте Вашата поръчка. Очаквайте обаждане от нас.");
+                            window.location = "/";
+                        }
+                        if (data.result == 'nophone'){
+                            alert("Моля попълнете полето 'Телефон'!");
+                            $("#fast_checkout_phone").focus();
+                        }
+                    }
+                });
+            }
+        }                
     });
 
     $("#type_payment_nalozen").click(function(){

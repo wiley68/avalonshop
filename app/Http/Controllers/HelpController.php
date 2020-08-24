@@ -316,6 +316,60 @@ class HelpController extends Controller
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         if ($request->isMethod('POST')) {
+            $name = $request->info[0];
+            $email = $request->info[1];
+            $address = $request->info[2];
+            $city = $request->info[3];
+            $postcode = $request->info[4];
+            $phone = $request->info[5];
+            $typeCustomer = $request->info[6];
+            $companyName = $request->info[7];
+            $companyMol = $request->info[8];
+            $companyEik = $request->info[9];
+            $shipping = $request->info[10];
+            $payment = $request->info[11];
+
+            $order = new Order();
+
+            if (!empty(Auth::user())) {
+                $order->user_id = Auth::user()->id;
+            }
+            $order->user_name = $name;
+            if ($typeCustomer == "firm") {
+                $order->firm = $companyName;
+                $order->eik = $companyEik;
+                $order->mol = $companyMol;
+            }
+            $order->email = $email;
+            $order->address = $address;
+            $order->city = $city;
+            $order->postcode = $postcode;
+            $order->phone = $phone;
+            $order->email = $email;
+            $order->shipping = $shipping;
+            $order->payment = $payment;
+
+            $order->save();
+
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                $cart_session = $request->session()->get('cart_session'); //get current cart info
+                // check if exist
+                if (!empty($cart_session['items'])) {
+                    foreach ($cart_session['items'] as $cart_item) {
+                        $suborder = new Suborder();
+                        $suborder->order_id = $order->id;
+                        $suborder->product_id = $cart_item['product_id'];
+                        $suborder->product_quantity = $cart_item['product_quantity'];
+                        $suborder->total_price = $cart_item['total_price'];
+                        $suborder->save();
+                    }
+                }
+            }
+
+            // delete cart
+            $request->session()->forget('cart_session');
+
+            return response()->json(['status' => 1]);
         }
 
         $ips = explode(",", env('MYIP'));

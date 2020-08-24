@@ -1299,6 +1299,11 @@ textarea,
     border-radius: 3px;
 }
 
+.input-error {
+	border: 1px solid #f18e91 !important;
+    box-shadow: 0px 0px 5px #f18e91;
+}
+
 textarea {
     resize: none;
     height: auto;
