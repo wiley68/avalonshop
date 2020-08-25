@@ -125,7 +125,7 @@
                                     <input type="radio" id="new_customer" name="checkout" value="new_customer" checked
                                         onclick="javascript:typeRadio();">
                                     <label for="new_customer">
-                                        <h4>Нов клиент</h4>
+                                        <h4>Гост</h4>
                                     </label>
                                     <input type="radio" id="have_registration" name="checkout" value="have_registration"
                                         onclick="javascript:typeRadio();">
@@ -158,26 +158,6 @@
                                             </div>
                                         </li>
                                         <li class="row">
-                                            <div class="col-sm-12">
-                                                <label for="new_customer_password" class="required">Парола</label>
-                                                <input type="password" name="new_customer_password"
-                                                    id="new_customer_password">
-                                            </div>
-                                        </li>
-                                        <li class="row">
-                                            <div class="col-sm-12">
-                                                <label for="new_customer_second_password" class="required">Повтори
-                                                    парола</label>
-                                                <input type="password" name="new_customer_second_password"
-                                                    id="new_customer_second_password">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <br>
-                                    <hr>
-                                    <br>
-                                    <ul>
-                                        <li class="row">
                                             <div class="col-xs-12">
                                                 <label for="new_customer_address" class="required">Адрес</label>
                                                 <input type="text" name="new_customer_address"
@@ -191,7 +171,7 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <label for="new_customer_postcode" class="required">Пощенски код</label>
-                                                <input type="number" name="new_customer_postcode" maxlength="4" 
+                                                <input type="number" name="new_customer_postcode" maxlength="4"
                                                     id="new_customer_postcode">
                                             </div>
                                         </li>
@@ -204,19 +184,19 @@
                                     </ul>
                                     <br>
                                     <div class="col-sm-12">
-                                        <input type="radio" id="normal_user" name="user_firm" value="normal_user"
-                                            checked onclick="javascript:userFirmShow();">
-                                        <label for="normal_user">
+                                        <input type="radio" id="new_normal_user" name="user_firm"
+                                            value="new_normal_user" checked onclick="javascript:newUserFirmShow();">
+                                        <label for="new_normal_user">
                                             <h5>Физическо лице</h5>
                                         </label>
-                                        <input type="radio" id="firm_user" name="user_firm" value="firm_user"
-                                            onclick="javascript:userFirmShow();">
-                                        <label for="firm_user">
+                                        <input type="radio" id="new_firm_user" name="user_firm" value="new_firm_user"
+                                            onclick="javascript:newUserFirmShow();">
+                                        <label for="new_firm_user">
                                             <h5>Юридическо лице</h5>
                                         </label>
                                     </div>
                                     <br>
-                                    <div id="firm_user_div" style="display: none;">
+                                    <div id="new_firm_user_div" style="display: none;">
                                         <ul>
                                             <li>
                                                 <div class="col-sm-12">
@@ -303,31 +283,37 @@
                                                         <div class="col-sm-12">
                                                             <label for="registered_customer_name"
                                                                 class="required">Имена</label>
-                                                            <input type="text" id="registered_customer_name" value="{{ Auth::user()->name }}">
+                                                            <input type="text" id="registered_customer_name"
+                                                                value="{{ Auth::user()->name }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
                                                             <label for="registered_customer_email"
                                                                 class="required">Email</label>
-                                                            <input type="email" id="registered_customer_email" value="{{ Auth::user()->email }}">
+                                                            <input type="email" id="registered_customer_email"
+                                                                value="{{ Auth::user()->email }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-xs-12">
                                                             <label for="registered_customer_address"
                                                                 class="required">Адрес</label>
-                                                            <input type="text" id="registered_customer_address" value="{{ Auth::user()->address }}">
+                                                            <input type="text" id="registered_customer_address"
+                                                                value="{{ Auth::user()->address }}">
                                                         </div>
                                                     </li>
                                                     <li class="row">
                                                         <div class="col-sm-12">
-                                                            <label for="registered_customer_city" class="required">Населено
+                                                            <label for="registered_customer_city"
+                                                                class="required">Населено
                                                                 място</label>
-                                                            <input type="text" id="registered_customer_city" value="{{ Auth::user()->city }}">
+                                                            <input type="text" id="registered_customer_city"
+                                                                value="{{ Auth::user()->city }}">
                                                         </div>
                                                         <div class="col-sm-12">
-                                                            <label for="registered_customer_postcode" class="required">Пощенски
+                                                            <label for="registered_customer_postcode"
+                                                                class="required">Пощенски
                                                                 код</label>
                                                             <input type="number" name="registered_customer_postcode"
                                                                 id="registered_customer_postcode" maxlength="4"
@@ -338,8 +324,8 @@
                                                         <div class="col-sm-12">
                                                             <label for="registered_customer_phone"
                                                                 class="required">Телефон</label>
-                                                            <input type="number" name="registered_customer_phone" maxlength="191"
-                                                                id="registered_customer_phone"
+                                                            <input type="number" name="registered_customer_phone"
+                                                                maxlength="191" id="registered_customer_phone"
                                                                 value="{{ Auth::user()->phone }}">
                                                         </div>
                                                     </li>
@@ -366,7 +352,8 @@
                                                                 <label for="registered_customer_company_name"
                                                                     class="required">Име и фирма
                                                                     / компания</label>
-                                                                <input type="text" name="registered_customer_company_name"
+                                                                <input type="text"
+                                                                    name="registered_customer_company_name"
                                                                     id="registered_customer_company_name"
                                                                     value="{{ Auth::user()->firm }}">
                                                             </div>
@@ -382,7 +369,8 @@
                                                         </li>
                                                         <li>
                                                             <div class="col-sm-12">
-                                                                <label for="registered_customer_eik" class="required">ЕИК / ДДС
+                                                                <label for="registered_customer_eik"
+                                                                    class="required">ЕИК / ДДС
                                                                     №</label>
                                                                 <input type="number" name="registered_customer_eik"
                                                                     id="registered_customer_eik" maxlength="20"
@@ -608,6 +596,16 @@
         }
     }
 
+    function newUserFirmShow(){
+        if (document.getElementById('new_normal_user').checked) {
+            document.getElementById('new_firm_user_div').style.display = "none";
+        } else if(document.getElementById('new_firm_user').checked) {
+            document.getElementById('new_firm_user_div').style.display = "block";
+        }else{
+            document.getElementById('new_firm_user_div').style.display = "none";
+        }
+    }
+
     $("#btn_login_user").click(function(e){
 		$email = $("#have_registration_email").val();
         $password = $("#have_registration_password").val();
@@ -661,7 +659,7 @@
     		    check = false;
 		    }   
     	    else {
-    		    $("#registered_customer_postcode").removeClass('input-error');
+    		    $("#registered_customer_city").removeClass('input-error');
 		    }
             if( $("#registered_customer_postcode").val() == '' ) {
     		    $("#registered_customer_postcode").addClass('input-error');
@@ -733,20 +731,129 @@
             }
             
             $.ajax({
-			type: "POST",
-			data: {info:info},
-			url: "/checkout.html",
-			dataType: 'json',
-			success: function(msg){
-				if( parseInt( msg.status )==1 )
-				{
-					window.location = "checkout-result-"+msg.order_id+".html";
-				}
-            }
-		});  
+                type: "POST",
+                data: {info:info},
+                url: "/checkout.html",
+                dataType: 'json',
+                success: function(msg){
+                    if( parseInt( msg.status )==1 )
+                    {
+                        window.location = "checkout-result-"+msg.order_id+".html";
+                    }
+                }
+		    });  
         }else{
             if (document.getElementById('new_customer').checked) {
-                alert("New");
+                let check = true;
+                if( $("#new_customer_name").val() == '' ) {
+                    $("#new_customer_name").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_name").removeClass('input-error');
+                }
+                if( $("#new_customer_email").val() == '' ) {
+                    $("#new_customer_email").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_email").removeClass('input-error');
+                }
+                if( $("#new_customer_address").val() == '' ) {
+                    $("#new_customer_address").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_address").removeClass('input-error');
+                }
+                if( $("#new_customer_city").val() == '' ) {
+                    $("#new_customer_city").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_city").removeClass('input-error');
+                }
+                if( $("#new_customer_postcode").val() == '' ) {
+                    $("#new_customer_postcode").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_postcode").removeClass('input-error');
+                }
+                if( $("#new_customer_phone").val() == '' ) {
+                    $("#new_customer_phone").addClass('input-error');
+                    check = false;
+                }   
+                else {
+                    $("#new_customer_phone").removeClass('input-error');
+                }
+                if($('#new_firm_user').is(':checked')){
+                    if( $("#new_customer_company_name").val() == '' ) {
+                        $("#new_customer_company_name").addClass('input-error');
+                        check = false;
+                    }   
+                    else {
+                        $("#new_customer_company_name").removeClass('input-error');
+                    }
+                    if( $("#new_customer_mol").val() == '' ) {
+                        $("#new_customer_mol").addClass('input-error');
+                        check = false;
+                    }   
+                    else {
+                        $("#new_customer_mol").removeClass('input-error');
+                    }
+                    if( $("#new_customer_eik").val() == '' ) {
+                        $("#new_customer_eik").addClass('input-error');
+                        check = false;
+                    }   
+                    else {
+                        $("#new_customer_eik").removeClass('input-error');
+                    }
+                }
+                if (!check){
+                    return;
+                }
+                info = [];
+                info[0] = $("#new_customer_name").val();
+                info[1] = $("#new_customer_email").val();
+                info[2] = $("#new_customer_address").val();
+                info[3] = $("#new_customer_city").val();
+                info[4] = $("#new_customer_postcode").val();
+                info[5] = $("#new_customer_phone").val();
+                if($('#new_firm_user').is(':checked')){
+                    info[6] = "firm";
+                    info[7] = $("#new_customer_company_name").val();
+                    info[8] = $("#new_customer_mol").val();
+                    info[9] = $("#new_customer_eik").val();
+                }else{
+                    info[6] = "normal";
+                    info[7] = "";
+                    info[8] = "";
+                    info[9] = "";
+                }
+                if($("#type_shipping_free").is(':checked')){
+                    info[10] = "free";
+                }else{
+                    info[10] = "spedy";
+                }
+                if($("#type_payment_nalozen").is(':checked')){
+                    info[11] = "platez";
+                }else{
+                    info[11] = "bank";
+                }
+                
+                $.ajax({
+                    type: "POST",
+                    data: {info:info},
+                    url: "/checkout.html",
+                    dataType: 'json',
+                    success: function(msg){
+                        if( parseInt( msg.status )==1 )
+                        {
+                            window.location = "checkout-result-"+msg.order_id+".html";
+                        }
+                    }
+                });
             }
             else if(document.getElementById('have_registration').checked) {
                 alert("Моля влезте в своя профил");
