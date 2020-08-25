@@ -215,7 +215,7 @@
                                             <li>
                                                 <div class="col-sm-12">
                                                     <label for="new_customer_eik" class="required">ЕИК / ДДС №</label>
-                                                    <input type="text" name="new_customer_eik" id="new_customer_eik">
+                                                    <input type="number" name="new_customer_eik" maxlength="20" id="new_customer_eik">
                                                 </div>
                                             </li>
                                         </ul>
@@ -249,7 +249,7 @@
                                         <li class="row">
                                             <div class="col-sm-12">
                                                 <label for="fast_checkout_phone" class="required">Телефон</label>
-                                                <input type="text" name="fast_checkout_phone" id="fast_checkout_phone">
+                                                <input type="number" name="fast_checkout_phone" id="fast_checkout_phone">
                                             </div>
 
                                         </li>
