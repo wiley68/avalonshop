@@ -85,35 +85,11 @@
                                             <!-- - - - - - - - - - - - - - Address book - - - - - - - - - - - - - - - - -->
                                             <section>
                                                 <h4>Адресни данни</h4>
+                                                <p>{{ Auth::user()->city }},&nbsp;{{ Auth::user()->address }},&nbsp;{{ Auth::user()->phone }}
+                                                </p>
                                                 <a href="{{ route('change-data') }}" class="button_grey middle_btn">Промени данните</a>
                                             </section>
                                             <!-- - - - - - - - - - - - - - End of address book - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                        <!--/ .table_cell -->
-                                    </div>
-                                    <!--/ .table_row -->
-                                    <div class="table_row">
-
-                                        <div class="table_cell">
-                                            <!-- - - - - - - - - - - - - - Default billing address - - - - - - - - - - - - - - - - -->
-                                            <section>
-                                                <h4>Адрес за изпращане на документи</h4>
-                                                <p>{{ Auth::user()->city }},&nbsp;{{ Auth::user()->address }},&nbsp;{{ Auth::user()->phone }}
-                                                </p>
-                                                <a href="{{ route('change-data') }}" class="button_grey middle_btn">Промени адреса</a>
-                                            </section>
-                                            <!-- - - - - - - - - - - - - - End of default billing address - - - - - - - - - - - - - - - - -->
-                                        </div>
-                                        <!--/ .table_cell -->
-                                        <div class="table_cell">
-                                            <!-- - - - - - - - - - - - - - Default shipping address - - - - - - - - - - - - - - - - -->
-                                            <section>
-                                                <h4>Адрес за изпращане на стока</h4>
-                                                <p>{{ Auth::user()->city2 }},&nbsp;{{ Auth::user()->address2 }},&nbsp;{{ Auth::user()->phone2 }}
-                                                </p>
-                                                <a href="{{ route('change-data') }}" class="button_grey middle_btn">Промени адреса</a>
-                                            </section>
-                                            <!-- - - - - - - - - - - - - - End of default shipping address - - - - - - - - - - - - - - - - -->
                                         </div>
                                         <!--/ .table_cell -->
                                     </div>

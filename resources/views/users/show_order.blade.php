@@ -128,10 +128,10 @@
 							<!-- - - - - - - - - - - - - - End of order table - - - - - - - - - - - - - - - - -->
 							<div class="section_offset">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-12">
 										<!-- - - - - - - - - - - - - - Bill to - - - - - - - - - - - - - - - - -->
 										<section>
-											<h3>Адрес за документи</h3>
+											<h3>Данни за доставка</h3>
 											<div class="table_wrap">
 												<table class="table_type_1 order_table">
 													<tbody>
@@ -168,43 +168,6 @@
 											</div>
 										</section>
 										<!-- - - - - - - - - - - - - - End of bill to - - - - - - - - - - - - - - - - -->
-									</div><!--/ [col] -->
-									<div class="col-md-6">
-										<!-- - - - - - - - - - - - - - Ship to - - - - - - - - - - - - - - - - -->
-										<section>
-											<h3>Адрес за доставка</h3>
-											<div class="table_wrap">
-												<table class="table_type_1 order_table">
-													<tbody>
-														<tr>
-															<th>Фирма</th>
-															<td>{{ $order->firm }}</td>
-														</tr>
-														<tr>
-															<th>Име</th>
-															<td>{{ $order->user_name2 }}</td>
-														</tr>
-														<tr>
-															<th>Адрес</th>
-															<td>{{ $order->address }}</td>
-														</tr>
-														<tr>
-															<th>Пощенски код</th>
-															<td>{{ $order->postcode2 }}</td>
-														</tr>
-														<tr>
-															<th>Населено място</th>
-															<td>{{ $order->city2 }}</td>
-														</tr>
-														<tr>
-															<th>Телефон</th>
-															<td>{{ $order->phone }}</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-										</section>
-										<!-- - - - - - - - - - - - - - End of ship to - - - - - - - - - - - - - - - - -->
 									</div><!--/ [col] -->
 								</div><!--/ .row -->
 							</div><!--/ .section_offset -->

@@ -82,7 +82,7 @@
                                             <li class="row">
                                                 <div class="col-xs-12">
                                                     <div class="form_el">
-                                                        <i>Данни за доставка на документи:</i><hr />
+                                                        <i>Данни за доставка:</i><hr />
                                                     </div>
                                                 </div>
                                             </li>
@@ -90,7 +90,7 @@
                                                 <div class="col-xs-12">
                                                     <label for="user_phone">Телефон</label>
                                                     <div class="form_el">
-                                                        <input type="text" id="user_phone" name="user_phone"
+                                                        <input type="number" id="user_phone" name="user_phone"
                                                             class="form-control" value="{{ Auth::user()->phone }}">
                                                     </div>
                                                 </div>
@@ -108,8 +108,8 @@
                                                 <div class="col-xs-12">
                                                     <label for="user_postcode">Пощенски код</label>
                                                     <div class="form_el">
-                                                        <input type="text" id="user_postcode" name="user_postcode"
-                                                            class="form-control" value="{{ Auth::user()->postcode }}">
+                                                        <input type="number" id="user_postcode" name="user_postcode"
+                                                            class="form-control" maxlength="4" value="{{ Auth::user()->postcode }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -119,49 +119,6 @@
                                                     <div class="form_el">
                                                         <input type="text" id="user_address" name="user_address"
                                                             class="form-control" value="{{ Auth::user()->address }}">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="form_el">
-                                                        <i>Данни за доставка на стоката:</i><hr />
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-xs-12">
-                                                    <label for="user_phone">Телефон</label>
-                                                    <div class="form_el">
-                                                        <input type="text" id="user_phone2" name="user_phone2"
-                                                            class="form-control" value="{{ Auth::user()->phone2 }}">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-xs-12">
-                                                    <label for="user_phone">Населено място</label>
-                                                    <div class="form_el">
-                                                        <input type="text" id="user_city2" name="user_city2"
-                                                            class="form-control" value="{{ Auth::user()->city2 }}">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-xs-12">
-                                                    <label for="user_postcode">Пощенски код</label>
-                                                    <div class="form_el">
-                                                        <input type="text" id="user_postcode2" name="user_postcode2"
-                                                            class="form-control" value="{{ Auth::user()->postcode2 }}">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="row">
-                                                <div class="col-xs-12">
-                                                    <label for="user_phone">Адрес</label>
-                                                    <div class="form_el">
-                                                        <input type="text" id="user_address2" name="user_address2"
-                                                            class="form-control" value="{{ Auth::user()->address2 }}">
                                                     </div>
                                                 </div>
                                             </li>
@@ -185,7 +142,7 @@
                                                 <div class="col-xs-12">
                                                     <label for="user_eik">ЕИК / ДДС №</label>
                                                     <div class="form_el">
-                                                        <input type="text" id="user_eik" name="user_eik"
+                                                        <input type="number" id="user_eik" name="user_eik" maxlength="20"
                                                             class="form-control" value="{{ Auth::user()->eik }}">
                                                     </div>
                                                 </div>

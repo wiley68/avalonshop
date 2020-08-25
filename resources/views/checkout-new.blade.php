@@ -191,14 +191,14 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <label for="new_customer_postcode" class="required">Пощенски код</label>
-                                                <input type="text" name="new_customer_postcode"
+                                                <input type="number" name="new_customer_postcode" maxlength="4" 
                                                     id="new_customer_postcode">
                                             </div>
                                         </li>
                                         <li class="row">
                                             <div class="col-sm-12">
                                                 <label for="new_customer_phone" class="required">Телефон</label>
-                                                <input type="text" name="new_customer_phone" id="new_customer_phone">
+                                                <input type="number" name="new_customer_phone" id="new_customer_phone">
                                             </div>
                                         </li>
                                     </ul>
@@ -295,7 +295,7 @@
                                         <div class="table_cell">
                                             <section>
                                                 <h4>Здравейте {{ Auth::user()->name }}, моля попълнете необходимите
-                                                    данни по-долу за да завършите Вашата поръчка.</h4>
+                                                    данни по-долу, за да завършите своята поръчка.</h4>
                                                 <p>Полетата отбелязани със знака * са задължителни за попълване!</p>
                                                 <br>
                                                 <ul>
@@ -329,8 +329,8 @@
                                                         <div class="col-sm-12">
                                                             <label for="registered_customer_postcode" class="required">Пощенски
                                                                 код</label>
-                                                            <input type="text" name="registered_customer_postcode"
-                                                                id="registered_customer_postcode"
+                                                            <input type="number" name="registered_customer_postcode"
+                                                                id="registered_customer_postcode" maxlength="4"
                                                                 value="{{ Auth::user()->postcode }}">
                                                         </div>
                                                     </li>
@@ -338,7 +338,7 @@
                                                         <div class="col-sm-12">
                                                             <label for="registered_customer_phone"
                                                                 class="required">Телефон</label>
-                                                            <input type="text" name="registered_customer_phone"
+                                                            <input type="number" name="registered_customer_phone" maxlength="191"
                                                                 id="registered_customer_phone"
                                                                 value="{{ Auth::user()->phone }}">
                                                         </div>
@@ -384,8 +384,8 @@
                                                             <div class="col-sm-12">
                                                                 <label for="registered_customer_eik" class="required">ЕИК / ДДС
                                                                     №</label>
-                                                                <input type="text" name="registered_customer_eik"
-                                                                    id="registered_customer_eik"
+                                                                <input type="number" name="registered_customer_eik"
+                                                                    id="registered_customer_eik" maxlength="20"
                                                                     value="{{ Auth::user()->eik }}">
                                                             </div>
                                                         </li>
@@ -419,7 +419,7 @@
                                                     над 48.00 лв.</label>
                                             </li>
                                             @endif
-                                            <li id="li_type_shipping_spedy">
+                                            <li id="li_type_shipping_spedy" @if($all_price <=48) class="active" @endif>
                                                 <p class="subcaption bold">Доставка с Куриер</p>
                                                 <input type="radio" @if($all_price <=48) checked @endif
                                                     value="shipping_spedy" name="type_shipping"
