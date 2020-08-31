@@ -193,24 +193,24 @@ class UsersController extends Controller
 
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     public function handleProviderCallback()
     {
-        $userGithub = Socialite::driver('github')->user();
+        $userFacebook = Socialite::driver('facebook')->user();
 
         //test provider
-        $user = User::where('email', $userGithub->getEmail())->first();
+        $user = User::where('email', $userFacebook->getEmail())->first();
 
         //add user
         if (!$user){
             $user = User::create(
                 [
-                    'email' =>  $userGithub->getEmail(),
-                    'name' => $userGithub->getNickName(),
-                    'provider_id' => $userGithub->getId(),
-                    'provider' => 'github',
+                    'email' =>  $userFacebook->getEmail(),
+                    'name' => $userFacebook->getNickName(),
+                    'provider_id' => $userFacebook->getId(),
+                    'provider' => 'facebook',
                     'email_verified_at' => date('Y-m-d H:i:s')
                 ]
             );    
