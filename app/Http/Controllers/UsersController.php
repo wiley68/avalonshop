@@ -19,6 +19,7 @@ use App\Manufacturer;
 use App\Property;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use Socialite;
 
 class UsersController extends Controller
 {
@@ -188,6 +189,37 @@ class UsersController extends Controller
                 return redirect()->back()->withErrors(['Грешка при вход:', 'Грешни email или парола!']);
             }
         }
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $userGithub = Socialite::driver('github')->user();
+
+        //test provider
+        $user = User::where('email', $userGithub->getEmail())->first();
+
+        //add user
+        if (!$user){
+            $user = User::create(
+                [
+                    'email' =>  $userGithub->getEmail(),
+                    'name' => $userGithub->getNickName(),
+                    'provider_id' => $userGithub->getId(),
+                    'provider' => 'github',
+                    'email_verified_at' => date('Y-m-d H:i:s')
+                ]
+            );    
+        }
+
+        //login
+        Auth::login($user, true);
+
+        return redirect('/home.html');
     }
 
     public function loginCheckoutUser(Request $request){
@@ -581,17 +613,5 @@ class UsersController extends Controller
             }
         }
     }
-
-    public function googleCallback(){
-        $root_categories = Category::where(['parent_id' => 0])->get();
-
-        return view('users.google_callback')->with([
-            'title' => 'Вход или регистрация в електронния магазин' . ' | Авалон',
-            'description' => 'Вход или регистрация в електронния магазин',
-            'keywords' => 'вход, регистрация, онлайн магазин',
-            'root_categories' => $root_categories
-        ]);
-    }
-
 
 }

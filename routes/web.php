@@ -71,6 +71,8 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 /** start users routes */
 // Users routes
 Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
+Route::get('login/github', 'UsersController@redirectToProvider')->name('login-github');
+Route::get('login/github/callback', 'UsersController@handleProviderCallback');
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
 Route::match(['get', 'post'], '/password-reset.html', 'UsersController@passwordReset')->name('password-reset');

@@ -54,6 +54,8 @@
                                     </li>
                                 </ul>
                             </form>
+                            <hr />
+                            <a type="button" href="{{ route('login-github') }}" class="button_dark_grey middle_btn">Facebook</a>
                         </div>
 
                         <div class="col-sm-6">
