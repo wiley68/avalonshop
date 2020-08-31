@@ -208,7 +208,7 @@ class UsersController extends Controller
             $user = User::create(
                 [
                     'email' =>  $userFacebook->getEmail(),
-                    'name' => $userFacebook->getNickName(),
+                    'name' => $userFacebook->getName(),
                     'provider_id' => $userFacebook->getId(),
                     'provider' => 'facebook',
                     'email_verified_at' => date('Y-m-d H:i:s')
