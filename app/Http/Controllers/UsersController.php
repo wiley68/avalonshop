@@ -213,13 +213,21 @@ class UsersController extends Controller
                     'provider' => 'facebook',
                     'email_verified_at' => date('Y-m-d H:i:s')
                 ]
-            );    
+            );   
+            
+            //login
+            Auth::login($user, true);
+
+            return redirect('/home.html');
+        }else{
+            if($user->provider == "facebook"){
+                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Facebook!']);
+            }elseif($user->provider == "google"){
+                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Google+!']);
+            }else{
+                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран!']);
+            }
         }
-
-        //login
-        Auth::login($user, true);
-
-        return redirect('/home.html');
     }
 
     public function loginCheckoutUser(Request $request){
