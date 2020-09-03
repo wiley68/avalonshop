@@ -62,8 +62,8 @@
                             </form>
                             <hr />
                             <h3>Вход или регистрация чрез</h3>
-                            <a type="button" href="{{ route('login-facebook') }}" class="fb middle_btn"><i class="icon-facebook-1"></i> ВХОД</a>
-                            <a type="button" href="{{ route('login-google') }}" class="google middle_btn"><i class="icon-gplus"></i> ВХОД</a>
+                            <a type="button" href="{{ route('login-facebook') }}" class="fb mini_btn"><i class="icon-facebook-1"></i> ВХОД</a>
+                            <a type="button" href="{{ route('login-google') }}" class="google mini_btn"><i class="icon-gplus"></i> ВХОД</a>
                         </div>
 
                         <div class="col-sm-6">

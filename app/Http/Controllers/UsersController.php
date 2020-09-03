@@ -196,9 +196,23 @@ class UsersController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleProviderCallbackFacebook()
+    public function handleProviderCallbackFacebook(Request $request)
     {
-        $userFacebook = Socialite::driver('facebook')->user();
+
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect('/');
+        }
+
+        try {
+
+            $userFacebook = Socialite::driver('facebook')->user();
+
+        } 
+
+        catch (Exception $e) {
+            
+            return redirect ('/login-register.html');
+        }
 
         //test provider
         $user = User::where('email', $userFacebook->getEmail())->first();
