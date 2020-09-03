@@ -191,12 +191,12 @@ class UsersController extends Controller
         }
     }
 
-    public function redirectToProvider()
+    public function redirectToProviderFacebook()
     {
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleProviderCallback()
+    public function handleProviderCallbackFacebook()
     {
         $userFacebook = Socialite::driver('facebook')->user();
 
@@ -221,13 +221,25 @@ class UsersController extends Controller
             return redirect('/home.html');
         }else{
             if($user->provider == "facebook"){
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Facebook!']);
+                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
             }elseif($user->provider == "google"){
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Google+!']);
+                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
             }else{
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран!']);
+                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
             }
         }
+    }
+
+    public function redirectToProviderGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallbackGoogle()
+    {
+        $userGoogle = Socialite::driver('google')->user();
+
+        dd($userGoogle);
     }
 
     public function loginCheckoutUser(Request $request){

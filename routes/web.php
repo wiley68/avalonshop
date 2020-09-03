@@ -71,8 +71,10 @@ Route::get('/faq.html', 'FaqController@all')->name('faqs.all');
 /** start users routes */
 // Users routes
 Route::get('/login-register.html', 'UsersController@loginRegisterUsers')->name('login-register');
-Route::get('login/facebook', 'UsersController@redirectToProvider')->name('login-facebook');
-Route::get('login/facebook/callback', 'UsersController@handleProviderCallback');
+Route::get('login/facebook', 'UsersController@redirectToProviderFacebook')->name('login-facebook');
+Route::get('login/facebook/callback', 'UsersController@handleProviderCallbackFacebook');
+Route::get('login/google', 'UsersController@redirectToProviderGoogle')->name('login-google');
+Route::get('login/google/callback', 'UsersController@handleProviderCallbackGoogle');
 Route::post('/user-register.html', 'UsersController@registerUser')->name('user-register');
 Route::post('/user-login.html', 'UsersController@loginUser')->name('user-login');
 Route::match(['get', 'post'], '/password-reset.html', 'UsersController@passwordReset')->name('password-reset');
