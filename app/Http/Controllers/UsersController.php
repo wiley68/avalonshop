@@ -240,7 +240,35 @@ class UsersController extends Controller
     {
         $userGoogle = Socialite::driver('google')->user();
 
-        dd($userGoogle);
+        //test provider
+        $user = User::where('email', $userGoogle->getEmail())->first();
+
+        //add user
+        if (!$user){
+            $user = User::create(
+                [
+                    'email' =>  $userGoogle->getEmail(),
+                    'name' => $userGoogle->getName(),
+                    'provider_id' => $userGoogle->getId(),
+                    'provider' => 'google',
+                    'email_verified_at' => date('Y-m-d H:i:s')
+                ]
+            );   
+            
+            //login
+            Auth::login($user, true);
+
+            return redirect('/home.html');
+        }else{
+            if($user->provider == "facebook"){
+                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+            }elseif($user->provider == "google"){
+                Auth::login($user, true);
+                return redirect('/home.html');
+            }else{
+                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+            }
+        }
     }
 
     public function loginCheckoutUser(Request $request){
