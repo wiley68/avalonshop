@@ -221,7 +221,8 @@ class UsersController extends Controller
             return redirect('/home.html');
         }else{
             if($user->provider == "facebook"){
-                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+                Auth::login($user, true);
+                return redirect('/home.html');
             }elseif($user->provider == "google"){
                 return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
             }else{
