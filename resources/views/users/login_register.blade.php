@@ -53,7 +53,7 @@
                                         <div class="col-xs-12">
                                             <div class="form_el">
                                                 <div style="display:flex;flex-derection:column;justify-content:space-between;">
-                                                    <button type="submit" class="button_blue middle_btn">ВХОД</button>
+                                                    <button type="submit" class="button_blue big_btn">ВХОД</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,8 +62,8 @@
                             </form>
                             <hr />
                             <h3>Вход или регистрация чрез</h3>
-                            <a type="button" href="{{ route('login-facebook') }}" class="fb mini_btn"><i class="icon-facebook-1"></i> ВХОД</a>
-                            <a type="button" href="{{ route('login-google') }}" class="google mini_btn"><i class="icon-gplus"></i> ВХОД</a>
+                            <a type="button" href="{{ route('login-facebook') }}" class="fb mini_btn" style="padding-top:8px;padding-bottom:8px;"><i class="icon-facebook-1"></i> ВХОД</a>
+                            <a type="button" href="{{ route('login-google') }}" class="google mini_btn" style="padding-top:8px;padding-bottom:8px;"><i class="icon-gplus"></i> ВХОД</a>
                         </div>
 
                         <div class="col-sm-6">
@@ -124,7 +124,7 @@
                                     <li class="row">
                                         <div class="col-xs-12">
                                             <div class="form_el">
-                                                <button type="submit" class="button_blue middle_btn">РЕГИСТРАЦИЯ</button>
+                                                <button type="submit" class="button_blue big_btn">РЕГИСТРАЦИЯ</button>
                                             </div>
                                         </div>
                                     </li>
