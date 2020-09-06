@@ -191,14 +191,28 @@ class UsersController extends Controller
         }
     }
 
-    public function redirectToProvider()
+    public function redirectToProviderFacebook()
     {
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleProviderCallback()
+    public function handleProviderCallbackFacebook(Request $request)
     {
-        $userFacebook = Socialite::driver('facebook')->user();
+
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect('/');
+        }
+
+        try {
+
+            $userFacebook = Socialite::driver('facebook')->user();
+
+        } 
+
+        catch (Exception $e) {
+            
+            return redirect ('/login-register.html');
+        }
 
         //test provider
         $user = User::where('email', $userFacebook->getEmail())->first();
@@ -221,11 +235,52 @@ class UsersController extends Controller
             return redirect('/home.html');
         }else{
             if($user->provider == "facebook"){
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Facebook!']);
+                Auth::login($user, true);
+                return redirect('/home.html');
             }elseif($user->provider == "google"){
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран чрез Google+!']);
+                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
             }else{
-                return redirect()->back()->withError(['Грешка при вход:', 'Този email вече е регистриран!']);
+                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+            }
+        }
+    }
+
+    public function redirectToProviderGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallbackGoogle()
+    {
+        $userGoogle = Socialite::driver('google')->user();
+
+        //test provider
+        $user = User::where('email', $userGoogle->getEmail())->first();
+
+        //add user
+        if (!$user){
+            $user = User::create(
+                [
+                    'email' =>  $userGoogle->getEmail(),
+                    'name' => $userGoogle->getName(),
+                    'provider_id' => $userGoogle->getId(),
+                    'provider' => 'google',
+                    'email_verified_at' => date('Y-m-d H:i:s')
+                ]
+            );   
+            
+            //login
+            Auth::login($user, true);
+
+            return redirect('/home.html');
+        }else{
+            if($user->provider == "facebook"){
+                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+            }elseif($user->provider == "google"){
+                Auth::login($user, true);
+                return redirect('/home.html');
+            }else{
+                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
             }
         }
     }

@@ -130,7 +130,7 @@
                                     <input type="radio" id="have_registration" name="checkout" value="have_registration"
                                         onclick="javascript:typeRadio();">
                                     <label for="have_registration">
-                                        <h4>Вече имам регистрация</h4>
+                                        <h4>Потребител</h4>
                                     </label>
                                     <input type="radio" id="fast_checkout" name="checkout" value="fast_checkout"
                                         onclick="javascript:typeRadio();">
@@ -240,9 +240,12 @@
                                     </ul>
                                     <br>
                                     <button type="button" class="button_blue middle_btn"
-                                        id="btn_login_user"><strong>ВХОД</strong></button>&nbsp;&nbsp;&nbsp;
-                                    <a href={{ route('login-register') }} type="button"
+                                        id="btn_login_user"><strong>ВХОД</strong></button>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a type="button" href="{{ route('login-facebook') }}" class="fb middle_btn" ><i class="icon-facebook-1"></i> ВХОД</a>
+                                        <a type="button" href="{{ route('login-google') }}" class="google middle_btn" ><i class="icon-gplus"></i> ВХОД</a>
+                                        <a href={{ route('login-register') }} type="button"
                                         class="button_grey middle_btn">СЪЗДАЙ НОВА РЕГИСТРАЦИЯ</a>
+            
                                 </div>
                                 <div id="fast_checkout_div" style="display:none;">
                                     <ul>

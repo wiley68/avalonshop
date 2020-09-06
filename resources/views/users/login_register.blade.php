@@ -11,6 +11,12 @@
                         <button class="close"></button>
                     </div>
                 @endif
+                @if(session()->has('message_error'))
+                <div class="alert_box error">
+                    {{ session()->get('message_error') }}
+                    <button class="close"></button>
+                </div>
+                @endif
                 <span>Ако вече имате регистрация в магазина ни, можете да използвате формата в ляво за директно влизане във вашия профил. Ако все още нямате регистрация можете да си направите такава, използвайки формата в дясно. Възползвайте се от всички възможности, които Ви предлага регистрацията при нас.</span>
                 <!-- Content section Start -->
                 <div class="theme_box">
@@ -47,7 +53,7 @@
                                         <div class="col-xs-12">
                                             <div class="form_el">
                                                 <div style="display:flex;flex-derection:column;justify-content:space-between;">
-                                                    <button type="submit" class="button_dark_grey middle_btn">Вход</button>
+                                                    <button type="submit" class="button_blue big_btn">ВХОД</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -56,8 +62,8 @@
                             </form>
                             <hr />
                             <h3>Вход или регистрация чрез</h3>
-                            <a type="button" href="{{ route('login-facebook') }}" class="fb middle_btn">Facebook</a>
-                            <a type="button" href="{{ route('login-facebook') }}" class="google middle_btn">Google+</a>
+                            <a type="button" href="{{ route('login-facebook') }}" class="fb mini_btn" style="padding-top:8px;padding-bottom:8px;"><i class="icon-facebook-1"></i> ВХОД</a>
+                            <a type="button" href="{{ route('login-google') }}" class="google mini_btn" style="padding-top:8px;padding-bottom:8px;"><i class="icon-gplus"></i> ВХОД</a>
                         </div>
 
                         <div class="col-sm-6">
@@ -118,7 +124,7 @@
                                     <li class="row">
                                         <div class="col-xs-12">
                                             <div class="form_el">
-                                                <button type="submit" class="button_dark_grey middle_btn">Регистрация</button>
+                                                <button type="submit" class="button_blue big_btn">РЕГИСТРАЦИЯ</button>
                                             </div>
                                         </div>
                                     </li>
