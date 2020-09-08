@@ -210,8 +210,12 @@ class UsersController extends Controller
         } 
 
         catch (Exception $e) {
-            
-            return redirect ('/login-register.html');
+            if(Route::current() != null && Route::current()->getName() == 'checkout'){
+                return redirect ('/checkout.html');
+            }
+            else{
+                return redirect ('/login-register.html');
+            }
         }
 
         //test provider
@@ -232,15 +236,20 @@ class UsersController extends Controller
             //login
             Auth::login($user, true);
 
-            return redirect('/home.html');
+            if(Route::current() != null && Route::current()->getName() == 'checkout'){
+                return redirect ('/checkout.html');
+            }
+            else{
+                return redirect('/home.html');
+            }
         }else{
             if($user->provider == "facebook"){
                 Auth::login($user, true);
-                return redirect('/home.html');
+                return redirect('/checkout.html');
             }elseif($user->provider == "google"){
-                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
+                return redirect('/checkout.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
             }else{
-                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                return redirect('/checkout.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
             }
         }
     }

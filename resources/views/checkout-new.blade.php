@@ -6,6 +6,18 @@
     <div class="container">
         <div class="section_offset">
             <div class="row">
+                @if(session()->has('message'))
+                    <div class="alert_box success">
+                        {{ session()->get('message') }}
+                        <button class="close"></button>
+                    </div>
+                @endif
+                @if(session()->has('message_error'))
+                <div class="alert_box error">
+                    {{ session()->get('message_error') }}
+                    <button class="close"></button>
+                </div>
+                @endif
                 <!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
                 <div class="secondary_page_wrapper">
                     <div class="container">
@@ -240,11 +252,11 @@
                                     </ul>
                                     <br>
                                     <button type="button" class="button_blue middle_btn"
-                                        id="btn_login_user"><strong>ВХОД</strong></button>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a type="button" href="{{ route('login-facebook') }}" class="fb middle_btn" ><i class="icon-facebook-1"></i> ВХОД</a>
-                                        <a type="button" href="{{ route('login-google') }}" class="google middle_btn" ><i class="icon-gplus"></i> ВХОД</a>
+                                        id="btn_login_user" style="height:45px;"><strong>ВХОД</strong></button>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a type="button" href="{{ route('login-facebook') }}" class="fb middle_btn" style="height:45px;margin-top:0px;"><i class="icon-facebook-1"></i> ВХОД</a>
+                                        <a type="button" href="{{ route('login-google') }}" class="google middle_btn" style="height:45px;margin-top:0px;"><i class="icon-gplus"></i> ВХОД</a>
                                         <a href={{ route('login-register') }} type="button"
-                                        class="button_grey middle_btn">СЪЗДАЙ НОВА РЕГИСТРАЦИЯ</a>
+                                        class="button_grey middle_btn" style="height:45px;">СЪЗДАЙ НОВА РЕГИСТРАЦИЯ</a>
             
                                 </div>
                                 <div id="fast_checkout_div" style="display:none;">
