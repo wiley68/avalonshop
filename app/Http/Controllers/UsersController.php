@@ -210,7 +210,7 @@ class UsersController extends Controller
         } 
 
         catch (Exception $e) {
-            if(Route::current() != null && Route::current()->getName() == 'checkout'){
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 return redirect ('/checkout.html');
             }
             else{
@@ -236,20 +236,36 @@ class UsersController extends Controller
             //login
             Auth::login($user, true);
 
-            if(Route::current() != null && Route::current()->getName() == 'checkout'){
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 return redirect ('/checkout.html');
             }
             else{
                 return redirect('/home.html');
             }
+            
         }else{
             if($user->provider == "facebook"){
                 Auth::login($user, true);
-                return redirect('/checkout.html');
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect ('/checkout.html');
+                }
+                else{
+                    return redirect('/home.html');
+                }
             }elseif($user->provider == "google"){
-                return redirect('/checkout.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect ('/checkout.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
+                }
+                else{
+                    return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Google+!');
+                }
             }else{
-                return redirect('/checkout.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect ('/checkout.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                }
+                else{
+                    return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                }
             }
         }
     }
@@ -281,15 +297,35 @@ class UsersController extends Controller
             //login
             Auth::login($user, true);
 
-            return redirect('/home.html');
+            if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                return redirect('/checkout.html');
+            }
+            else{
+                return redirect('/home.html');
+            }
         }else{
             if($user->provider == "facebook"){
-                return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect('/checkout.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+                }
+                else{
+                    return redirect('/login-register.html')->with('message_error', 'Този email вече е регистриран чрез Facebook!');
+                }
             }elseif($user->provider == "google"){
                 Auth::login($user, true);
-                return redirect('/home.html');
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect('/checkout.html');
+                }
+                else{
+                    return redirect('/home.html');
+                }
             }else{
-                return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                if (null != $request->session()->get('cart_session')) { //ima nalicna cart
+                    return redirect('/checkout.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                }
+                else{
+                    return redirect('/login-register.html')->withErrors(['Грешка при вход:', 'Този email вече е регистриран!']);
+                }
             }
         }
     }
