@@ -275,7 +275,7 @@ class UsersController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function handleProviderCallbackGoogle()
+    public function handleProviderCallbackGoogle(Request $request)
     {
         $userGoogle = Socialite::driver('google')->user();
 
