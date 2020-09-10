@@ -56,6 +56,10 @@ Route::get('/cart-remove-product-{id}.html', 'HelpController@cartRemoveProduct')
 Route::get('/cart-clear.html', 'HelpController@cartClear')->name('cart-clear');
 Route::match(['get', 'post'], '/checkout.html', 'HelpController@checkoutNew')->name('checkout');
 Route::get('/checkout-result-{id}.html', 'HelpController@checkoutResult')->name('checkout-result');
+Route::post('/paysera-redirect.html', 'PayseraRedirectController@index')->name('paysera');
+Route::get('/accept-paysera.html', 'PayseraRedirectController@accept')->name('accept');
+Route::get('/cancel-paysera.html', 'PayseraRedirectController@cancel')->name('cancel');
+Route::get('/callback-paysera.html', 'PayseraRedirectController@callback')->name('callback');
 /** end products section */
 /** start help section */
 Route::post('/send-contact-us.html', 'HelpController@submit_contactus')->name('send-contact-us');

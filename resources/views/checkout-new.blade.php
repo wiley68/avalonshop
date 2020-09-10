@@ -463,17 +463,18 @@
                                                     Куриерската компания. Услугата включва преглед преди
                                                     заплащане.</label>
                                             </li>
+                                            <li id="li_type_payment_paysera">
+                                                <p class="subcaption bold">Плащане с карта</p>
+                                                <input type="radio" value="payment_paysera" name="type_payment"
+                                                    id="type_payment_paysera">
+                                                <label for="type_payment_paysera">Плащане с карта (Paysera)</label>
+                                            </li>
                                             <li id="li_type_payment_bank">
                                                 <p class="subcaption bold">Банков път</p>
                                                 <input type="radio" value="payment_bank" name="type_payment"
                                                     id="type_payment_bank">
                                                 <label for="type_payment_bank">Плащане по банков път</label>
                                             </li>
-                                            {{-- <li>
-                                            <input type="radio" value="payment_paysera" name="type_payment"
-                                                id="type_payment_paysera">
-                                            <label for="type_payment_paysera">Плащане с кредитна карта (Paysera)</label>
-                                        </li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -854,8 +855,10 @@
                 }
                 if($("#type_payment_nalozen").is(':checked')){
                     info[11] = "platez";
-                }else{
+                }else if($("#type_payment_bank").is(':checked')){
                     info[11] = "bank";
+                }else{
+                    info[11] = "paysera";
                 }
                 
                 $.ajax({
@@ -866,7 +869,12 @@
                     success: function(msg){
                         if( parseInt( msg.status )==1 )
                         {
-                            window.location = "checkout-result-"+msg.order_id+".html";
+                            alert("Bravo");
+                            //window.location = "checkout-result-"+msg.order_id+".html";
+                        }else if( parseInt( msg.status )==0 ){
+                            alert("Nqmash pari v kartata");
+                        }else{
+                            alert("Opa");
                         }
                     }
                 });
@@ -900,11 +908,19 @@
     $("#type_payment_nalozen").click(function(){
         $("#li_type_payment_nalozen").addClass("active");
         $("#li_type_payment_bank").removeClass("active");
+        $("#li_type_payment_paysera").removeClass("active");
     });
 
     $("#type_payment_bank").click(function(){
+        $("#li_type_payment_paysera").removeClass("active");
         $("#li_type_payment_nalozen").removeClass("active");
         $("#li_type_payment_bank").addClass("active");
+    });
+
+    $("#type_payment_paysera").click(function(){
+        $("#li_type_payment_nalozen").removeClass("active");
+        $("#li_type_payment_bank").removeClass("active");
+        $("#li_type_payment_paysera").addClass("active");
     });
 
     $("#type_shipping_free").click(function(){

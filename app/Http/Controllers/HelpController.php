@@ -297,6 +297,9 @@ class HelpController extends Controller
                 }
             }
 
+            if($order->payment == "paysera"){
+                redirect()->route('paysera');
+            }
             // delete cart
             $request->session()->forget('cart_session');
 
@@ -369,7 +372,11 @@ class HelpController extends Controller
             // delete cart
             $request->session()->forget('cart_session');
 
-            return response()->json(['status' => 1, 'order_id' => $order->id]);
+            if($order->payment == "paysera"){
+                $status = PayseraRedirectController::index();
+            }
+
+            return response()->json(['status' => $status, 'order_id' => $order->id]);
         }
 
         $ips = explode(",", env('MYIP'));
