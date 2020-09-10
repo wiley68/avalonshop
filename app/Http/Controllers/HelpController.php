@@ -238,6 +238,7 @@ class HelpController extends Controller
 
             $order->save();
 
+            $order_total = 0;
             if (null != $request->session()->get('cart_session')) { //ima nalicna cart
                 $cart_session = $request->session()->get('cart_session'); //get current cart info
                 // check if exist
@@ -248,6 +249,7 @@ class HelpController extends Controller
                         $suborder->product_id = $cart_item['product_id'];
                         $suborder->product_quantity = $cart_item['product_quantity'];
                         $suborder->total_price = $cart_item['total_price'];
+                        $order_total += floatval($suborder->total_price);
                         $suborder->save();
                     }
                 }
@@ -257,10 +259,10 @@ class HelpController extends Controller
             $request->session()->forget('cart_session');
 
             if($order->payment == "paysera"){
-                $status = PayseraRedirectController::index();
+                $paysera = new PayseraRedirectController($order->id, $order_total * 100);
             }
 
-            return response()->json(['status' => $status, 'order_id' => $order->id]);
+            return response()->json(['status' => 1, 'order_id' => $order->id]);
         }
 
         $ips = explode(",", env('MYIP'));
