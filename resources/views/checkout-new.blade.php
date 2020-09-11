@@ -869,12 +869,7 @@
                     success: function(msg){
                         if( parseInt( msg.status )==1 )
                         {
-                            alert("Bravo");
-                            //window.location = "checkout-result-"+msg.order_id+".html";
-                        }else if( parseInt( msg.status )==0 ){
-                            alert("Nqmash pari v kartata");
-                        }else{
-                            alert("Opa");
+                            window.location = "checkout-result-"+msg.order_id+".html";
                         }
                     }
                 });
