@@ -142,7 +142,8 @@ class HelpController extends Controller
         $root_categories = Category::where(['parent_id' => 0])->get();
 
         $ips = explode(",", env('MYIP'));
-        if (!in_array($this->getUserIP(), $ips)) {
+        if ((!in_array($this->getUserIP(), $ips)) && ($this->getUserIP() != "192.168.10.103")) {
+            if($this->getUserIP() )
             $cart_ips = new CartIp;
             $cart_ips->ip = $this->getUserIP();
             $cart_count = 0;
@@ -266,7 +267,7 @@ class HelpController extends Controller
         }
 
         $ips = explode(",", env('MYIP'));
-        if (!in_array($this->getUserIP(), $ips)) {
+        if ((!in_array($this->getUserIP(), $ips)) && (strpos($this->getUserIP(),"192.168.10") != false)) {
             $cart_ips = new CartIp;
             $cart_ips->ip = $this->getUserIP();
             $cart_count = 0;
