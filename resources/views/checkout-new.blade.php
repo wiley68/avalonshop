@@ -742,10 +742,12 @@
                 info[10] = "spedy";
             }
             if($("#type_payment_nalozen").is(':checked')){
-                info[11] = "platez";
-            }else{
-                info[11] = "bank";
-            }
+                    info[11] = "platez";
+                }else if($("#type_payment_bank").is(':checked')){
+                    info[11] = "bank";
+                }else{
+                    info[11] = "paysera";
+                }
             
             $.ajax({
                 type: "POST",
