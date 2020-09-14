@@ -22,7 +22,6 @@ class PayseraRedirectController extends Controller
                 'callbackurl'   => 'https://avalonbg.com/callback-paysera.html',
                 'test'          => 1,
             ));
-            dd($request);
         } catch (WebToPayException $e) {
             
         }
