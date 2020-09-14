@@ -258,9 +258,9 @@ class HelpController extends Controller
 
             // delete cart
             $request->session()->forget('cart_session');
-
             if($order->payment == "paysera"){
-                $paysera = new PayseraRedirectController($order->id, $order_total * 100);
+                $paysera = new PayseraRedirectController();
+				$paysera->payseraSend($order->id, $order_total * 100);
             }
 
             return response()->json(['status' => 1, 'order_id' => $order->id]);

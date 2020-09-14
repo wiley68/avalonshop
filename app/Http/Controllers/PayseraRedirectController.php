@@ -7,7 +7,7 @@ use App\Http\Controllers\WebToPay;
 
 class PayseraRedirectController extends Controller
 {
-    public function __construct($order_id, $order_total)
+	public function payseraSend($order_id, $order_total)
     {
         try {
             $request = WebToPay::redirectToPayment(array(
@@ -26,7 +26,7 @@ class PayseraRedirectController extends Controller
             
         }
     }
-
+	
     public function accept(Request $request){
         dd($request);
     }
