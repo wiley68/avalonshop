@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebToPay;
+use App\Category;
 
 class PayseraRedirectController extends Controller
 {
@@ -28,14 +29,26 @@ class PayseraRedirectController extends Controller
     }
 	
     public function accept(Request $request){
-        dd($request);
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('paysera.accept')->with([
+            'title' => 'Успешно плащане | Авалон',
+            'description' => 'Успешно плащане.',
+            'keywords' => 'плащане, софтуер, програми, компютри, продажба, сервиз, консумативи, общи условия',
+            'root_categories' => $root_categories
+        ]);
     }
 
     public function cancel(Request $request){
-        dd($request);
+        $root_categories = Category::where(['parent_id' => 0])->get();
+        return view('paysera.cancel')->with([
+            'title' => 'Отказано плащане | Авалон',
+            'description' => 'Отказано плащане.',
+            'keywords' => 'плащане, софтуер, програми, компютри, продажба, сервиз, консумативи, общи условия',
+            'root_categories' => $root_categories
+        ]);
     }
 
     public function callback(Request $request){
-        dd($request);
+        return response()->json('OK');
     }
 }
