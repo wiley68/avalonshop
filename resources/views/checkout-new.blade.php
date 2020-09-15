@@ -428,9 +428,7 @@
                                                     value="shipping_spedy" name="type_shipping"
                                                     id="type_shipping_spedy">
                                                 <label for="type_shipping_spedy">Доставка с куриерска компания
-                                                    Спиди. Плаща
-                                                    се с наложен платеж от купувача, като цената за доставката
-                                                    варира според
+                                                    Спиди. Плаща се цената за доставката, която варира според
                                                     адреса за доставка и теглото на поръчаната стока. <a
                                                         href="https://www.speedy.bg/calculate/" target="_blank">Таблица
                                                         с
