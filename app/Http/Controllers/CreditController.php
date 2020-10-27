@@ -1425,7 +1425,8 @@ class CreditController extends Controller
                             array(
                                 'products_id' => $product->id,
                                 'products_name' => $product->name,
-                                'products_q' => $request->input('product_qt')
+                                'products_q' => $request->input('product_qt'),
+                                'products_p' => $product->price
                             )
                         )
                     )
