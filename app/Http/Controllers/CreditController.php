@@ -1531,25 +1531,18 @@ class CreditController extends Controller
         $order->eik = "";
         $order->mol = "";
         $order->postcode = "";
-        $order->postcode2 = "";
-        $order->phone2 = "";
         if (!empty(Auth::user())) {
             $order->user_id = Auth::user()->id;
             $order->firm = Auth::user()->firm;
             $order->eik = Auth::user()->eik;
             $order->mol = Auth::user()->mol;
             $order->postcode = Auth::user()->postcode;
-            $order->postcode2 = Auth::user()->postcode2;
-            $order->phone2 = Auth::user()->phone2;
         }
         $order->user_name = $user_name;
         $order->email = $user_email;
         $order->address = $user_address;
         $order->city = $user_city;
         $order->phone = $user_phone;
-        $order->user_name2 = $user_name2;
-        $order->address2 = $user_address2;
-        $order->city2 = $user_city2;
         $order->shipping = $shipping;
         $order->payment = $payment;
         $order->save();
@@ -1563,18 +1556,12 @@ class CreditController extends Controller
 
         /** Send mails */
         //to admin
-        $product = Product::where(['id' => $product_id])->first();
         $objMailAdmin = new \stdClass();
-        $objMailAdmin->name = $user_name;
-        $objMailAdmin->name2 = $user_name2;
-        $objMailAdmin->credit_egn = $credit_egn;
-        $objMailAdmin->user_phone = $user_phone;
-        $objMailAdmin->user_email = $user_email;
-        $objMailAdmin->product_name = $product->name;
-        $objMailAdmin->product_price = $product_price;
-        $objMailAdmin->product_qt = $product_qt;
-        $objMailAdmin->current_meseci = $current_meseci;
-        $objMailAdmin->mesecna = $mesecna;
+		$objMailAdmin->name = $order->user_name;
+        $objMailAdmin->email = $order->email;
+        $objMailAdmin->order = $order->id;
+        $objMailAdmin->shipping = $order->shipping;
+        $objMailAdmin->payment = $order->payment;
 
         Mail::to('home@avalonbg.com')
             ->send(new OrderOk($objMailAdmin, 'контрагент-04569-0000, онлайн заявка по поръчка - ' . $order->id));
